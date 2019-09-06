@@ -5,19 +5,28 @@ ruby-bgs
 VA internal webservices, the `BGS` (Benefits Gateway Services).
 
 
+Initial Setup
+-------------
+create an initializer
+```ruby
+  BGS.configure do |config|
+    config.application = 'APPNAME'
+    config.client_ip = '127.0.0.1'
+    config.client_station_id = '281'
+    config.client_username = 'myusername'
+    config.env = 'someenv'
+    config.mock_response_location = "#{Rails.root}/../vets-api-mockdata/bgs" # optional
+    config.mock_responses = false # optional
+  end
+```
+
 Example Usage
 -------------
 
 ```ruby
 require 'bgs'
 
-bgs = BGS::Services.new(
-    env: "something",
-    client_ip: "127.0.0.1",
-    client_station_id: "999999",
-    client_username: "paultag",
-    application: "APPNAME",
-)
+bgs = BGS::Services.new
 puts bgs.people.find_by_ssn "9999999999"
 ```
 

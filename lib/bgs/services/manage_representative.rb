@@ -17,7 +17,7 @@ module BGS
       "manage_representative"
     end
 
-    def update_poa_relationship(date_request_accepted, participant_id, ssn, poa_code)
+    def update_poa_relationship(date_request_accepted:, participant_id:, ssn:, poa_code:)
       if mock_responses
         file_path = "#{BGS.configuration.mock_response_location}/manage_representative_service/update_poa_relationship/#{ssn}.json"
         if File.exists?(file_path)

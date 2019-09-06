@@ -32,13 +32,11 @@ require "bgs/services/security"
 
 module BGS
   class Services
-    def initialize(client_ip:, forward_proxy_url: nil, jumpbox_url: nil,
-                   ssl_cert_file: nil, ssl_cert_key_file: nil, ssl_ca_cert: nil,
-                   log: false, mock_responses: false)
+    def initialize
 
       @config = { env: BGS.configuration.env,
                   application: BGS.configuration.application,
-                  client_ip: client_ip,
+                  client_ip: BGS.configuration.client_ip,
                   client_station_id: BGS.configuration.client_station_id,
                   client_username: BGS.configuration.client_username,
                   ssl_cert_file: BGS.configuration.ssl_cert_file,

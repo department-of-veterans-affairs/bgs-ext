@@ -29,10 +29,11 @@ module BGS
     # and when initializing the client, set the jumpbox_url = 'http://127.0.0.1:[local port number]'
 
     VDC_SERVICES = ['ManageRepresentativeWebService']
-    def initialize(env:, forward_proxy_url: nil, jumpbox_url: nil, application:,
-                   client_ip:, client_station_id:, client_username:,
+    attr_accessor :mock_responses
+    def initialize(application:, forward_proxy_url: nil, jumpbox_url: nil,
+                   env:, client_ip:, client_station_id:, client_username:, log: false,
                    ssl_cert_file: nil, ssl_cert_key_file: nil, ssl_ca_cert: nil,
-                   log: false)
+                   mock_responses: false)
       @application = application
       @client_ip = client_ip
       @client_station_id = client_station_id
@@ -45,6 +46,7 @@ module BGS
       @ssl_cert_key_file = ssl_cert_key_file
       @ssl_ca_cert = ssl_ca_cert
       @service_name = self.class.name.split("::").last
+      @mock_responses = mock_responses
     end
 
     def self.service_name
@@ -72,6 +74,7 @@ module BGS
 
     def domain
       "#{@env}.vba.va.gov"
+      "localhost:4000"
     end
 
     def bean_name

@@ -18,16 +18,25 @@ module BGS
     end
 
     def update_poa_relationship(date_request_accepted, participant_id, ssn, poa_code)
-      response = request(
-        :update_poa_relationship,
-        "POARelationship": {
-          "dateRequestAccepted": date_request_accepted,
-          "vetPtcpntId": participant_id,
-          "vetSSN": ssn,
-          "vsoPOACode": poa_code
-        }
-      )
-      response.body[:update_poa_relationship_response][:poa_relationship_return_vo]
+      if mock_responses
+        file_path = "#{BGS.configuration.mock_response_location}/manage_representative_service/update_poa_relationship/#{ssn}.json"
+        if File.exists?(file_path)
+          JSON.parse(File.read("#{BGS.configuration.mock_response_location}/manage_representative_service/update_poa_relationship/#{ssn}.json"))
+        else
+          puts "#{file_path} does not exist"
+        end
+      else
+        response = request(
+          :update_poa_relationship,
+          "POARelationship": {
+            "dateRequestAccepted": date_request_accepted,
+            "vetPtcpntId": participant_id,
+            "vetSSN": ssn,
+            "vsoPOACode": poa_code
+          }
+        )
+        response.body[:update_poa_relationship_response][:poa_relationship_return_vo]
+      end
     end
   end
 end

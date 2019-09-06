@@ -7,3 +7,26 @@
 require "bgs/base"
 require "bgs/errors"
 require "bgs/services"
+
+module BGS
+  class << self
+    attr_accessor :configuration
+  end
+
+  def self.configure
+    self.configuration ||= BGS::Configuration.new
+    yield(configuration)
+  end
+
+  class Configuration
+    attr_accessor :client_ip, :application, :client_username,
+                  :env, :client_station_id, :jumpbox_url,
+                  :ssl_cert_file, :ssl_cert_key_file, :ssl_ca_cert,
+                  :log, :mock_responses, :forward_proxy_url,
+                  :mock_response_location
+
+    def initialize
+    end
+  end
+end
+

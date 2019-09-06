@@ -17,6 +17,12 @@ create an initializer
     config.env = 'someenv'
     config.mock_response_location = "#{Rails.root}/../vets-api-mockdata/bgs" # optional
     config.mock_responses = false # optional
+    config.ssl_cert_file = 'path_to_cert' # optional
+    config.ssl_cert_key_file = 'path_to_key_file' # optional
+    config.ssl_ca_cert = 'path_to_ca_cert' # optional
+    config.forward_proxy_url = 'forward_proxy_url' # optional
+    config.jumpbox_url = 'jumpbox_url' # optional
+    config.log = true # optional
   end
 ```
 

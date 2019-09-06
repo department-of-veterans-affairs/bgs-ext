@@ -1,7 +1,7 @@
-ruby-bgs
+lighthouse-bgs
 ========
 
-`bgs` is a gem that helps developers within the VA connect to a set of
+`lighthouse-bgs` is a gem that helps developers within the VA connect to a set of
 VA internal webservices, the `BGS` (Benefits Gateway Services).
 
 
@@ -40,9 +40,9 @@ puts bgs.people.find_by_ssn "9999999999"
 Testing
 -------
 
-You'll need Ruby 2.5.1 if you don't have it.
+You'll need Ruby 2.5.3 if you don't have it.
 
-> $ rbenv install 2.5.1
+> $ rbenv install 2.5.3
 
 Install dependencies
 

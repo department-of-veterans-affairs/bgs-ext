@@ -74,7 +74,6 @@ module LighthouseBGS
 
     def domain
       "#{@env}.vba.va.gov"
-      "localhost:4000"
     end
 
     def bean_name

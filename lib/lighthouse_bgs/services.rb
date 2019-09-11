@@ -13,19 +13,19 @@
 # organized like this to keep conceptual things at a glance, and then dig
 # in to the implementation(s) (really: declarations)
 
-require "lighthouse-bgs/services/address"
-require "lighthouse-bgs/services/awards"
-require "lighthouse-bgs/services/benefit"
-require "lighthouse-bgs/services/claimant"
-require "lighthouse-bgs/services/document"
-require "lighthouse-bgs/services/manage_representative"
-require "lighthouse-bgs/services/org"
-require "lighthouse-bgs/services/person"
-require "lighthouse-bgs/services/rating"
-require "lighthouse-bgs/services/rating_profile"
-require "lighthouse-bgs/services/standard_data"
-require "lighthouse-bgs/services/veteran"
-require "lighthouse-bgs/services/security"
+require "lighthouse_bgs/services/address"
+require "lighthouse_bgs/services/awards"
+require "lighthouse_bgs/services/benefit"
+require "lighthouse_bgs/services/claimant"
+require "lighthouse_bgs/services/document"
+require "lighthouse_bgs/services/manage_representative"
+require "lighthouse_bgs/services/org"
+require "lighthouse_bgs/services/person"
+require "lighthouse_bgs/services/rating"
+require "lighthouse_bgs/services/rating_profile"
+require "lighthouse_bgs/services/standard_data"
+require "lighthouse_bgs/services/veteran"
+require "lighthouse_bgs/services/security"
 
 # Now, we're going to declare a class to hide the actual creation of service
 # objects, since having to construct them all really sucks.
@@ -53,7 +53,6 @@ module LighthouseBGS
     end
 
     LighthouseBGS::Services.all.each do |service|
-      puts '----------I AM HERE------'
       define_method(service.service_name) do
         service.new @config
       end

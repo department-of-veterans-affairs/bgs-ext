@@ -4,9 +4,9 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-require "lighthouse-bgs/base"
-require "lighthouse-bgs/errors"
-require "lighthouse-bgs/services"
+require "lighthouse_bgs/base"
+require "lighthouse_bgs/errors"
+require "lighthouse_bgs/services"
 
 module LighthouseBGS
   class << self

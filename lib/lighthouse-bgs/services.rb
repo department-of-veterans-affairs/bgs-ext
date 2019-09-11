@@ -13,46 +13,47 @@
 # organized like this to keep conceptual things at a glance, and then dig
 # in to the implementation(s) (really: declarations)
 
-require "bgs/services/address"
-require "bgs/services/awards"
-require "bgs/services/benefit"
-require "bgs/services/claimant"
-require "bgs/services/document"
-require "bgs/services/manage_representative"
-require "bgs/services/org"
-require "bgs/services/person"
-require "bgs/services/rating"
-require "bgs/services/rating_profile"
-require "bgs/services/standard_data"
-require "bgs/services/veteran"
-require "bgs/services/security"
+require "lighthouse-bgs/services/address"
+require "lighthouse-bgs/services/awards"
+require "lighthouse-bgs/services/benefit"
+require "lighthouse-bgs/services/claimant"
+require "lighthouse-bgs/services/document"
+require "lighthouse-bgs/services/manage_representative"
+require "lighthouse-bgs/services/org"
+require "lighthouse-bgs/services/person"
+require "lighthouse-bgs/services/rating"
+require "lighthouse-bgs/services/rating_profile"
+require "lighthouse-bgs/services/standard_data"
+require "lighthouse-bgs/services/veteran"
+require "lighthouse-bgs/services/security"
 
 # Now, we're going to declare a class to hide the actual creation of service
 # objects, since having to construct them all really sucks.
 
-module BGS
+module LighthouseBGS
   class Services
     def initialize
-
-      @config = { env: BGS.configuration.env,
-                  application: BGS.configuration.application,
-                  client_ip: BGS.configuration.client_ip,
-                  client_station_id: BGS.configuration.client_station_id,
-                  client_username: BGS.configuration.client_username,
-                  ssl_cert_file: BGS.configuration.ssl_cert_file,
-                  ssl_cert_key_file: BGS.configuration.ssl_cert_key_file,
-                  ssl_ca_cert: BGS.configuration.ssl_ca_cert,
-                  forward_proxy_url: BGS.configuration.forward_proxy_url,
-                  jumpbox_url: BGS.configuration.jumpbox_url,
-                  log: BGS.configuration.log,
-                  mock_responses: BGS.configuration.mock_responses }
+      configuration = LighthouseBGS.configuration
+      @config = { env: configuration.env,
+                  application: configuration.application,
+                  client_ip: configuration.client_ip,
+                  client_station_id: configuration.client_station_id,
+                  client_username: configuration.client_username,
+                  ssl_cert_file: configuration.ssl_cert_file,
+                  ssl_cert_key_file: configuration.ssl_cert_key_file,
+                  ssl_ca_cert: configuration.ssl_ca_cert,
+                  forward_proxy_url: configuration.forward_proxy_url,
+                  jumpbox_url: configuration.jumpbox_url,
+                  log: configuration.log,
+                  mock_responses: configuration.mock_responses }
     end
 
     def self.all
-      ObjectSpace.each_object(Class).select { |klass| klass < BGS::Base }
+      ObjectSpace.each_object(Class).select { |klass| klass < LighthouseBGS::Base }
     end
 
-    BGS::Services.all.each do |service|
+    LighthouseBGS::Services.all.each do |service|
+      puts '----------I AM HERE------'
       define_method(service.service_name) do
         service.new @config
       end
@@ -76,7 +77,7 @@ module BGS
         claimants.find_flashes(ssn).nil?
       end
       true
-    rescue BGS::ShareError
+    rescue LighthouseBGS::ShareError
       false
     end
   end

@@ -1,4 +1,4 @@
-module BGS
+module LighhouseBGS
   # This error is raised when the BGS SOAP API returns a ShareException
   # fault back to us. We special-case the handling to raise this custom
   # type down in `request`, where we will kick this up if we're accessing

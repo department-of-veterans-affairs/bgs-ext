@@ -1,10 +1,10 @@
-require "bgs"
+require "lighhouse-bgs"
 
 # rubocop:disable Metrics/BlockLength
-describe BGS::Base do
+describe LighthouseBGS::Base do
   let(:file_number) { "123456789" }
   let(:bgs_base) do
-    BGS::TestBase.new(
+    LighthouseBGS::TestBase.new(
       env: "beplinktest",
       application: "TEST_APP",
       client_ip: "127.0.0.1",
@@ -145,8 +145,8 @@ end
 # rubocop:enable Metrics/BlockLength
 
 # Helper class to allow us to test BGS::Base's private request() method.
-module BGS
-  class TestBase < BGS::Base
+module LighthouseBGS
+  class TestBase < LighthouseBGS::Base
     def test_request(method, message = nil)
       request(method, message)
     end

@@ -8,7 +8,7 @@ require "savon"
 require "nokogiri"
 require "httpclient"
 
-module BGS
+module LighhouseBGS
   # This class is a base-class from which most Web Services will inherit.
   # This contains the basics of how to talk with the BGS SOAP API, in
   # particular, the VA's custom SOAP headers for auditing. As a bonus, it's
@@ -133,21 +133,28 @@ module BGS
     end
 
     # Proxy to call a method on our web service.
-    def request(method, message = nil)
-      client.call(method, message: message)
+    def request(method, message = nil, identifier = nil)
+      if mock_responses
+        file_path = "#{LighthouseBGS.configuration.mock_response_location}/#{@service_name.underscore}/#{method}/#{identifier}.json"
+        OpenStruct.new(body: JSON.parse(File.read(file_path)).with_indifferent_access)
+      else
+        client.call(method, message: message)
+      end
     rescue HTTPClient::ConnectTimeoutError, HTTPClient::ReceiveTimeoutError, Errno::ETIMEDOUT => _err
       # re-try once assuming this was a server-side hiccup
       sleep 1
       client.call(method, message: message)
     rescue Savon::SOAPFault => error
       handle_request_error(error)
+    rescue Errno::ENOENT => error
+      puts error
     end
 
     def handle_request_error(error)
       message = error.to_hash[:fault][:detail][:share_exception][:message]
       code = error.http.code
 
-      raise BGS::ShareError.new(message, code)
+      raise LighthouseBGS::ShareError.new(message, code)
     # If any of the elements in this path are undefined, we will raise a NoMethodError.
     # Default to sending the original Savon::SOAPFault (or BGS::PublicError) in this case.
     rescue NoMethodError
@@ -156,7 +163,7 @@ module BGS
       # Only extract the final clause of that error message for the public error.
       #
       # rubocop:disable Metrics/LineLength
-      raise(BGS::PublicError, "#{Regexp.last_match(1)} in the Benefits Gateway Service (BGS). Contact your ISO if you need assistance gaining access to BGS.") if error.to_s =~ /(Logon ID .* Not Found)/
+      raise(LighthouseBGS::PublicError, "#{Regexp.last_match(1)} in the Benefits Gateway Service (BGS). Contact your ISO if you need assistance gaining access to BGS.") if error.to_s =~ /(Logon ID .* Not Found)/
       # rubocop:enable Metrics/LineLength
       raise error
     end

@@ -4,9 +4,9 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-module BGS
+module LighthouseBGS
   # This service is used to find Standard Data from Share.
-  class StandardDataWebService < BGS::Base
+  class StandardDataWebService < LighthouseBGS::Base
     def self.service_name
       "data"
     end

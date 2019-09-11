@@ -4,9 +4,9 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-module BGS
+module LighthouseBGS
   # This service is used to retrieve detailed information about a veteran.
-  class VetRecordService < BGS::Base
+  class VetRecordService < LighthouseBGS::Base
     def bean_name
       "VetRecordServiceBean"
     end

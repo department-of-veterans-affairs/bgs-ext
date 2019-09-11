@@ -4,9 +4,9 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-module BGS
+module LighthouseBGS
   # Used for finding information about specific ratings
-  class RatingInformationService < BGS::Base
+  class RatingInformationService < LighthouseBGS::Base
     def bean_name
       "RatingInformationService"
     end

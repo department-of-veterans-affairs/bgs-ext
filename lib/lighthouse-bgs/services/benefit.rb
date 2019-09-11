@@ -1,5 +1,5 @@
-module BGS
-  class BenefitClaimWebService < BGS::Base
+module LighthouseBGS
+  class BenefitClaimWebService < LighthouseBGS::Base
     def bean_name
       "BenefitClaimServiceBean"
     end

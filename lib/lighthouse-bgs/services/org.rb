@@ -4,7 +4,7 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-module BGS
+module LighthouseBGS
   # This service provides the VSO organization and POA details.
   #
   # findOrgByPtcpntId      - finds the VSO organization details by Participant ID.
@@ -14,7 +14,7 @@ module BGS
   # findPOAsByBnftClaimIds - finds the POA details by Benefit Claim ID.
   # findLimitedPoasByBnftClaimIds - finds the limited (claim-level) POA details by Benefit Claim ID.
   #
-  class OrgWebService < BGS::Base
+  class OrgWebService < LighthouseBGS::Base
     def self.service_name
       "org"
     end

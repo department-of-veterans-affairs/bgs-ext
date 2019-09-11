@@ -1,5 +1,5 @@
-module BGS
-  class DocumentService < BGS::Base
+module LighthouseBGS
+  class DocumentService < LighthouseBGS::Base
     def bean_name
       "DocumentService"
     end

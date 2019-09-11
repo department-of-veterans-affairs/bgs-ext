@@ -1,5 +1,5 @@
-module BGS
-  class SecurityWebService < BGS::Base
+module LighthouseBGS
+  class SecurityWebService < LighthouseBGS::Base
     def self.service_name
       "security"
     end

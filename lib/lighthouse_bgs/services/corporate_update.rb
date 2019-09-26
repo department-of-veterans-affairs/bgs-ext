@@ -5,10 +5,6 @@
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
 module LighthouseBGS
-  # This service provides the VSO organization and POA details.
-  #
-  # findLimitedPoasByBnftClaimIds - finds the limited (claim-level) POA details by Benefit Claim ID.
-  #
   class CorporateUpdateWebService < LighthouseBGS::Base
     def self.service_name
       "corporate_update"

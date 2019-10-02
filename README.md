@@ -9,7 +9,7 @@ Initial Setup
 -------------
 create an initializer
 ```ruby
-  BGS.configure do |config|
+  LighthouseBGS.configure do |config|
     config.application = 'APPNAME'
     config.client_ip = '127.0.0.1'
     config.client_station_id = '281'

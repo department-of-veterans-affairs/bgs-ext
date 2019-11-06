@@ -25,15 +25,15 @@ module LighthouseBGS
 
     # `jumpbox_url` is to be able to test through the jumpbox.
     # in order to use this, add the following line to your jumpbox configuration in ~/.ssh/config
-      # LocalForward [local port number] beplinktest.vba.va.gov:80
+    # LocalForward [local port number] beplinktest.vba.va.gov:80
     # and when initializing the client, set the jumpbox_url = 'http://127.0.0.1:[local port number]'
 
-    VDC_SERVICES = ['ManageRepresentativeWebService']
+    VDC_SERVICES = ['ManageRepresentativeWebService'].freeze
     attr_accessor :mock_responses
     def initialize(application:, forward_proxy_url: nil, jumpbox_url: nil,
                    env:, client_ip:, client_station_id:, client_username:, log: false,
                    ssl_cert_file: nil, ssl_cert_key_file: nil, ssl_ca_cert: nil,
-                   mock_responses: false)
+                   external_uuid: nil, external_key: nil, mock_responses: false)
       @application = application
       @client_ip = client_ip
       @client_station_id = client_station_id
@@ -45,14 +45,16 @@ module LighthouseBGS
       @ssl_cert_file = ssl_cert_file
       @ssl_cert_key_file = ssl_cert_key_file
       @ssl_ca_cert = ssl_ca_cert
-      @service_name = self.class.name.split("::").last
+      @service_name = self.class.name.split('::').last
+      @external_uuid = external_uuid
+      @external_key = external_key
       @mock_responses = mock_responses
     end
 
     def self.service_name
-      name = self.name.split("::").last.downcase
-      name = name[0..-11] if name.end_with? "webservice"
-      name + "s"
+      name = self.name.split('::').last.downcase
+      name = name[0..-11] if name.end_with? 'webservice'
+      name + 's'
     end
 
     private
@@ -69,6 +71,7 @@ module LighthouseBGS
       # Proxy url or jumpbox url should include protocol, domain, and port.
       return @forward_proxy_url if @forward_proxy_url
       return @jumpbox_url if @jumpbox_url
+
       "#{https? ? 'https' : 'http'}://#{domain}"
     end
 
@@ -90,21 +93,24 @@ module LighthouseBGS
     def header
       # Stock XML structure {{{
       header = Nokogiri::XML::DocumentFragment.parse <<-EOXML
-  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
-    <wsse:UsernameToken>
-      <wsse:Username></wsse:Username>
-    </wsse:UsernameToken>
-    <vaws:VaServiceHeaders xmlns:vaws="http://vbawebservices.vba.va.gov/vawss">
-      <vaws:CLIENT_MACHINE></vaws:CLIENT_MACHINE>
-      <vaws:STN_ID></vaws:STN_ID>
-      <vaws:applicationName></vaws:applicationName>
-    </vaws:VaServiceHeaders>
-  </wsse:Security>
-  EOXML
+<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <wsse:UsernameToken>
+    <wsse:Username></wsse:Username>
+  </wsse:UsernameToken>
+  <vaws:VaServiceHeaders xmlns:vaws="http://vbawebservices.vba.va.gov/vawss">
+    <vaws:CLIENT_MACHINE></vaws:CLIENT_MACHINE>
+    <vaws:STN_ID></vaws:STN_ID>
+    <vaws:applicationName></vaws:applicationName>
+    <vaws:ExternalUid ></vaws:ExternalUid>
+    <vaws:ExternalKey></vaws:ExternalKey>
+  </vaws:VaServiceHeaders>
+</wsse:Security>
+EOXML
       # }}}
 
       { Username: @client_username, CLIENT_MACHINE: @client_ip,
-        STN_ID: @client_station_id, applicationName: @application }.each do |k, v|
+        STN_ID: @client_station_id, applicationName: @application,
+        ExternalUid: @external_uuid, ExternalKey: @external_key }.each do |k, v|
         header.xpath(".//*[local-name()='#{k}']")[0].content = v
       end
       header
@@ -163,6 +169,7 @@ module LighthouseBGS
       #
       # rubocop:disable Metrics/LineLength
       raise(LighthouseBGS::PublicError, "#{Regexp.last_match(1)} in the Benefits Gateway Service (BGS). Contact your ISO if you need assistance gaining access to BGS.") if error.to_s =~ /(Logon ID .* Not Found)/
+
       # rubocop:enable Metrics/LineLength
       raise error
     end

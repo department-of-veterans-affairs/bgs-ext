@@ -1,10 +1,11 @@
 AllCops:
   TargetRubyVersion: 2.5
   Include:
-    - '**/lib/'
+    - '**/lib/**/*.rb'
+    - '**/spec/**/*.rb'
 
 Style/StringLiterals:
-  EnforcedStyle: double_quotes
+  EnforcedStyle: single_quotes
 
 Style/Documentation:
   Enabled: false

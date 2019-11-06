@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -8,20 +10,20 @@ module LighthouseBGS
   # This service gets information about a claimant.
   class ClaimantWebService < LighthouseBGS::Base
     def bean_name
-      "ClaimantServiceBean"
+      'ClaimantServiceBean'
     end
 
     # findFlashes (shrinqf)
     #   finds the Flashes (Person Special Status) related to a file number
     def find_flashes(file_number)
-      response = request(:find_flashes, "fileNumber": file_number)
+      response = request(:find_flashes, 'fileNumber': file_number)
       response.body[:find_flashes_response][:return]
     end
 
     # findPOAByPtcntId (shrinqf)
     #   finds the Power of Attorney related to a participant ID.
     def find_poa_by_participant_id(id)
-      response = request(:find_poa_by_ptcpnt_id, "ptcpntId": id)
+      response = request(:find_poa_by_ptcpnt_id, 'ptcpntId': id)
       response.body[:find_poa_by_ptcpnt_id_response][:return]
     end
 
@@ -30,12 +32,12 @@ module LighthouseBGS
     #   and evrs. Used when a list exist, and you want information on a single
     #   claimant
     def find_general_information_by_participant_id(id)
-      response = request(:find_general_information_by_ptcpnt_id, "ptcpntId": id)
+      response = request(:find_general_information_by_ptcpnt_id, 'ptcpntId': id)
       response.body[:find_general_information_by_ptcpnt_id_response][:return]
     end
 
     def find_all_relationships(id)
-      response = request(:find_all_relationships, "ptcpntId": id)
+      response = request(:find_all_relationships, 'ptcpntId': id)
       response.body[:find_all_relationships_response][:return][:dependents]
     end
   end

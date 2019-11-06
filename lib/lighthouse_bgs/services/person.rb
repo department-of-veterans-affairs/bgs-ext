@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -11,7 +13,7 @@ module LighthouseBGS
   class PersonWebService < LighthouseBGS::Base
     # Plural of 'Person' is 'People' not 'Persons'
     def self.service_name
-      "people"
+      'people'
     end
 
     # Find a Person, as defined by the Person Web Service, by their SSN.

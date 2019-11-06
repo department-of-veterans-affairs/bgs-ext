@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -8,11 +10,11 @@ module LighthouseBGS
   # Used for finding information about specific ratings
   class RatingInformationService < LighthouseBGS::Base
     def bean_name
-      "RatingInformationService"
+      'RatingInformationService'
     end
 
     def self.service_name
-      "rating_profile"
+      'rating_profile'
     end
 
     # Returns issues and disabilities for a specific rating (also known as a rating profile)

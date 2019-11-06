@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -8,7 +10,7 @@ module LighthouseBGS
   # This service is used to find Standard Data from Share.
   class StandardDataWebService < LighthouseBGS::Base
     def self.service_name
-      "data"
+      'data'
     end
 
     # This method is used to find all the Power of Attorney Data.
@@ -20,11 +22,10 @@ module LighthouseBGS
     # Used to find out which payee codes are valid for which end product type
     def find_payee_codes_for_end_product(veteran_is_deceased, end_product_code)
       response = request(:find_payee_cds_by_bnft_claim_type_cd,
-        "shareComndTypeCd": "CEST",
-        "pgmTypeCd": veteran_is_deceased ? "CPD" : "CPL",
-        "svcTypeCd": "CP",
-        "bnftClaimTypeCd": end_product_code
-      )
+                         "shareComndTypeCd": 'CEST',
+                         "pgmTypeCd": veteran_is_deceased ? 'CPD' : 'CPL',
+                         "svcTypeCd": 'CP',
+                         "bnftClaimTypeCd": end_product_code)
       response.body[:find_payee_cds_by_bnft_claim_type_cd_response][:payee_type_dto]
     end
   end

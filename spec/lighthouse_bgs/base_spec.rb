@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'lighthouse_bgs'
 
 # rubocop:disable Metrics/BlockLength
@@ -83,13 +85,13 @@ describe LighthouseBGS::Base do
     it 'raises a transient BGS::ShareError' do
       allow_any_instance_of(Savon::Client).to receive(:call).and_raise(soap_fault)
 
-       expect { bgs_base.test_request(:method) }.to raise_error do |error|
-         expect(error.class).to eq BGS::ShareError
-         expect(error.message).to eq message
-         expect(error.code).to eq 500
-         expect(error).to be_ignorable
-       end
-     end
+      expect { bgs_base.test_request(:method) }.to raise_error do |error|
+        expect(error.class).to eq BGS::ShareError
+        expect(error.message).to eq message
+        expect(error.code).to eq 500
+        expect(error).to be_ignorable
+      end
+    end
   end
 
   context 'when Savon::SoapFault with a non-transient ShareException message' do
@@ -113,13 +115,13 @@ describe LighthouseBGS::Base do
     it 'raises a non-transient BGS::ShareError' do
       allow_any_instance_of(Savon::Client).to receive(:call).and_raise(soap_fault)
 
-       expect { bgs_base.test_request(:method) }.to raise_error do |error|
-         expect(error.class).to eq BGS::ShareError
-         expect(error.message).to eq message
-         expect(error.code).to eq 500
-         expect(error).to_not be_ignorable
-       end
-     end
+      expect { bgs_base.test_request(:method) }.to raise_error do |error|
+        expect(error.class).to eq BGS::ShareError
+        expect(error.message).to eq message
+        expect(error.code).to eq 500
+        expect(error).to_not be_ignorable
+      end
+    end
   end
 
   context 'When BGS::ClaimantWebService.find_flashes() raises a logon not found error' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -16,7 +18,7 @@ module LighthouseBGS
   #
   class OrgWebService < LighthouseBGS::Base
     def self.service_name
-      "org"
+      'org'
     end
 
     # finds the VSO organization details by Participant ID.

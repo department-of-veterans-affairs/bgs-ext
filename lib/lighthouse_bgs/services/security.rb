@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module LighthouseBGS
   class SecurityWebService < LighthouseBGS::Base
     def self.service_name
-      "security"
+      'security'
     end
 
     # Gets a users' participant id from their station and css ids

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -13,21 +15,21 @@
 # organized like this to keep conceptual things at a glance, and then dig
 # in to the implementation(s) (really: declarations)
 
-require "lighthouse_bgs/services/address"
-require "lighthouse_bgs/services/awards"
-require "lighthouse_bgs/services/benefit"
-require "lighthouse_bgs/services/claimant"
-require "lighthouse_bgs/services/corporate_update"
-require "lighthouse_bgs/services/document"
-require "lighthouse_bgs/services/manage_representative"
-require "lighthouse_bgs/services/org"
-require "lighthouse_bgs/services/person"
-require "lighthouse_bgs/services/rating"
-require "lighthouse_bgs/services/rating_profile"
-require "lighthouse_bgs/services/standard_data"
-require "lighthouse_bgs/services/vet_record"
-require "lighthouse_bgs/services/veteran"
-require "lighthouse_bgs/services/security"
+require 'lighthouse_bgs/services/address'
+require 'lighthouse_bgs/services/awards'
+require 'lighthouse_bgs/services/benefit'
+require 'lighthouse_bgs/services/claimant'
+require 'lighthouse_bgs/services/corporate_update'
+require 'lighthouse_bgs/services/document'
+require 'lighthouse_bgs/services/manage_representative'
+require 'lighthouse_bgs/services/org'
+require 'lighthouse_bgs/services/person'
+require 'lighthouse_bgs/services/rating'
+require 'lighthouse_bgs/services/rating_profile'
+require 'lighthouse_bgs/services/standard_data'
+require 'lighthouse_bgs/services/vet_record'
+require 'lighthouse_bgs/services/veteran'
+require 'lighthouse_bgs/services/security'
 
 # Now, we're going to declare a class to hide the actual creation of service
 # objects, since having to construct them all really sucks.
@@ -72,7 +74,7 @@ module LighthouseBGS
     # above; which can break if the require at the top is removed, or if the
     # name changes.
     def can_access?(ssn, use_find_veteran_info = false)
-      if (use_find_veteran_info)
+      if use_find_veteran_info
         veteran.find_by_file_number(ssn).nil?
       else
         claimants.find_flashes(ssn).nil?

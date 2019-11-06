@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -8,11 +10,11 @@ module LighthouseBGS
   # Used for finding historical data about ratings
   class RatingComparisonEJBService < LighthouseBGS::Base
     def bean_name
-      "RatingComparisonEJB"
+      'RatingComparisonEJB'
     end
 
     def self.service_name
-      "rating"
+      'rating'
     end
 
     # Returns a wide variety of information about the current profile and ratings in
@@ -26,7 +28,7 @@ module LighthouseBGS
           "endDate": end_date,
           # This flag allows the service to return ratings that are not locked
           # if the most current rating is locked
-          "allowLockedRatings": "Y",
+          "allowLockedRatings": 'Y',
           # This field isn't used and should be set to the start_date
           # according to the BGS team.
           "claimDate": start_date

@@ -14,7 +14,7 @@ describe LighthouseBGS::Base do
       client_username: 'VACOUSERT',
       forward_proxy_url: nil,
       jumpbox_url: nil,
-      external_uuid: 'mytestuuid',
+      external_uid: 'mytestuid',
       external_key: 'mytestkey',
       log: true
     )
@@ -86,7 +86,7 @@ describe LighthouseBGS::Base do
       allow_any_instance_of(Savon::Client).to receive(:call).and_raise(soap_fault)
 
       expect { bgs_base.test_request(:method) }.to raise_error do |error|
-        expect(error.class).to eq BGS::ShareError
+        expect(error.class).to eq LighthouseBGS::ShareError
         expect(error.message).to eq message
         expect(error.code).to eq 500
         expect(error).to be_ignorable
@@ -116,7 +116,7 @@ describe LighthouseBGS::Base do
       allow_any_instance_of(Savon::Client).to receive(:call).and_raise(soap_fault)
 
       expect { bgs_base.test_request(:method) }.to raise_error do |error|
-        expect(error.class).to eq BGS::ShareError
+        expect(error.class).to eq LighthouseBGS::ShareError
         expect(error.message).to eq message
         expect(error.code).to eq 500
         expect(error).to_not be_ignorable
@@ -145,7 +145,7 @@ describe LighthouseBGS::Base do
     it 'BGS::Base raises a BGS::PublicError that has a public_message' do
       allow_any_instance_of(Savon::Client).to receive(:call).and_raise(soap_fault)
       expect { bgs_base.test_request(:method) }.to raise_error do |error|
-        expect(error).to be_a(BGS::PublicError)
+        expect(error).to be_a(LighthouseBGS::PublicError)
         expect(error).to respond_to(:public_message)
         expect(error.public_message).to eq(error_string)
       end

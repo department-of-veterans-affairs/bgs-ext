@@ -6,7 +6,7 @@
     <vaws:CLIENT_MACHINE>127.0.0.1</vaws:CLIENT_MACHINE>
     <vaws:STN_ID>283</vaws:STN_ID>
     <vaws:applicationName>TEST_APP</vaws:applicationName>
-    <vaws:ExternalUid>mytestuuid</vaws:ExternalUid>
+    <vaws:ExternalUid>mytestuid</vaws:ExternalUid>
     <vaws:ExternalKey>mytestkey</vaws:ExternalKey>
   </vaws:VaServiceHeaders>
 </wsse:Security>

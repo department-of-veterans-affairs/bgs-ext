@@ -35,7 +35,7 @@ module LighthouseBGS
     def initialize(application:, forward_proxy_url: nil, jumpbox_url: nil,
                    env:, client_ip:, client_station_id:, client_username:, log: false,
                    ssl_cert_file: nil, ssl_cert_key_file: nil, ssl_ca_cert: nil,
-                   external_uuid: nil, external_key: nil, mock_responses: false)
+                   external_uid: nil, external_key: nil, mock_responses: false)
       @application = application
       @client_ip = client_ip
       @client_station_id = client_station_id
@@ -48,7 +48,7 @@ module LighthouseBGS
       @ssl_cert_key_file = ssl_cert_key_file
       @ssl_ca_cert = ssl_ca_cert
       @service_name = self.class.name.split('::').last
-      @external_uuid = external_uuid
+      @external_uid = external_uid
       @external_key = external_key
       @mock_responses = mock_responses
     end
@@ -112,7 +112,7 @@ module LighthouseBGS
 
       { Username: @client_username, CLIENT_MACHINE: @client_ip,
         STN_ID: @client_station_id, applicationName: @application,
-        ExternalUid: @external_uuid, ExternalKey: @external_key }.each do |k, v|
+        ExternalUid: @external_uid, ExternalKey: @external_key }.each do |k, v|
         header.xpath(".//*[local-name()='#{k}']")[0].content = v
       end
       header

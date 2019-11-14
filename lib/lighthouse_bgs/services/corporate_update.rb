@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -7,24 +9,21 @@
 module LighthouseBGS
   class CorporateUpdateWebService < LighthouseBGS::Base
     def self.service_name
-      "corporate_update"
+      'corporate_update'
     end
 
     # update a POA relationship
     def update_poa_access(participant_id:, poa_code:, allow_poa_access: 'y', allow_poa_c_add: 'y')
       response = request(
         :update_poa_access,
-        {
-          "updatePoaAccess": {
-            "ptcpntId": participant_id,
-            "poa": poa_code,
-            "allowPoaAccess": allow_poa_access,
-            "allowPoaCadd": allow_poa_c_add
-          }
+        "updatePoaAccess": {
+          "ptcpntId": participant_id,
+          "poa": poa_code,
+          "allowPoaAccess": allow_poa_access,
+          "allowPoaCadd": allow_poa_c_add
         }
       )
       response.body[:update_poa_access_response][:return]
     end
   end
 end
-

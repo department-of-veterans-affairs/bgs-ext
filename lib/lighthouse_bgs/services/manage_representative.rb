@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -14,7 +16,7 @@ module LighthouseBGS
 
   class ManageRepresentativeWebService < LighthouseBGS::Base
     def self.service_name
-      "manage_representative"
+      'manage_representative'
     end
 
     def update_poa_relationship(date_request_accepted:, participant_id:, ssn:, poa_code:)

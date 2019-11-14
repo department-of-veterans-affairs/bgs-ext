@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -10,11 +12,11 @@ module LighthouseBGS
   # if appropriate.
   class AwardWebService < LighthouseBGS::Base
     def bean_name
-      "AwardWebServiceBean"
+      'AwardWebServiceBean'
     end
 
     def find_by_participant_id(participant_id)
-      response = request(:find_award_bene_by_ptcpnt_vet_id, "ptcpntVetId": participant_id)
+      response = request(:find_award_bene_by_ptcpnt_vet_id, 'ptcpntVetId': participant_id)
       response.body[:findAwardBeneByPtcpntVetIdResponse]
     end
   end

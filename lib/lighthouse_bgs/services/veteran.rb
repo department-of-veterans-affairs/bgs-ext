@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -8,11 +10,11 @@ module LighthouseBGS
   # This service is used to retrieve detailed information about a veteran.
   class VetRecordService < LighthouseBGS::Base
     def bean_name
-      "VetRecordServiceBean"
+      'VetRecordServiceBean'
     end
 
     def self.service_name
-      "veteran"
+      'veteran'
     end
 
     def find_by_participant_id(participant_id)

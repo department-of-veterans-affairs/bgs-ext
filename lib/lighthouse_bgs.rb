@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-require "lighthouse_bgs/base"
-require "lighthouse_bgs/errors"
-require "lighthouse_bgs/services"
+require 'lighthouse_bgs/base'
+require 'lighthouse_bgs/errors'
+require 'lighthouse_bgs/services'
 
 module LighthouseBGS
   class << self
@@ -25,8 +27,6 @@ module LighthouseBGS
                   :log, :mock_responses, :forward_proxy_url,
                   :mock_response_location
 
-    def initialize
-    end
+    def initialize; end
   end
 end
-

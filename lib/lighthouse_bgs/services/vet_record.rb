@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -7,7 +9,7 @@
 module LighthouseBGS
   class VetRecordWebService < LighthouseBGS::Base
     def self.service_name
-      "vet_record"
+      'vet_record'
     end
 
     # updates the birls record with a new POA code
@@ -30,4 +32,3 @@ module LighthouseBGS
     end
   end
 end
-

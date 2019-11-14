@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module LighthouseBGS
   class DocumentService < LighthouseBGS::Base
     def bean_name
-      "DocumentService"
+      'DocumentService'
     end
 
     def self.service_name
-      "documents"
+      'documents'
     end
 
     DEVELOPMENT_ACTION_IDS = {
-      "CPL" => "42924",
-      "CPD" => "42925"
+      'CPL' => '42924',
+      'CPD' => '42925'
     }.freeze
 
     def find_claimant_letters(document_id)
@@ -26,26 +28,26 @@ module LighthouseBGS
             "clmId": claim_id,
             "developmentActions": {
               "createDt": DateTime.now,
-              "fedAgencyInd": "Y",
-              "nm": "HLR - Informal Conference",
+              "fedAgencyInd": 'Y',
+              "nm": 'HLR - Informal Conference',
               "pgmTc": program_type_cd,
-              "prgrphId": "1",
+              "prgrphId": '1',
               "ptcpntId": claimant_participant_id,
-              "rulesBasedInd": "4",
-              "stdDevactnCd": "GNRLCLAIM",
+              "rulesBasedInd": '4',
+              "stdDevactnCd": 'GNRLCLAIM',
               "stdDevactnId": DEVELOPMENT_ACTION_IDS[program_type_cd],
-              "stdactnDescp": "HLR - Informal Conference",
-              "suspnsDuratn": "30",
-              "suspnsDys": "30",
-              "suspnsUnit": "DAYS"
+              "stdactnDescp": 'HLR - Informal Conference',
+              "suspnsDuratn": '30',
+              "suspnsDys": '30',
+              "suspnsUnit": 'DAYS'
             },
-            "dvlpmtTc": "CLMNTRQST",
-            "fileSttTc": "INDVLPMT",
-            "outdcmtTc": "DV",
+            "dvlpmtTc": 'CLMNTRQST',
+            "fileSttTc": 'INDVLPMT',
+            "outdcmtTc": 'DV',
             "printDt": DateTime.now,
-            "ptcpntDcmntTn": "Receiver",
+            "ptcpntDcmntTn": 'Receiver',
             "ptcpntId": claimant_participant_id,
-            "templatTc": "VSCNP"
+            "templatTc": 'VSCNP'
           }
         },
         "generateClaimantLetter": true

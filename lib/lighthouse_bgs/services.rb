@@ -49,6 +49,8 @@ module LighthouseBGS
                   forward_proxy_url: configuration.forward_proxy_url,
                   jumpbox_url: configuration.jumpbox_url,
                   log: configuration.log,
+                  external_uid: configuration.external_uid,
+                  external_key: configuration.external_key,
                   mock_responses: configuration.mock_responses }
     end
 

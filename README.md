@@ -15,6 +15,8 @@ create an initializer
     config.client_station_id = '281'
     config.client_username = 'myusername'
     config.env = 'someenv'
+    config.external_uid = 'myuserid'
+    config.external_key = 'myexternalkey'
     config.mock_response_location = "#{Rails.root}/../vets-api-mockdata/bgs" # optional
     config.mock_responses = false # optional
     config.ssl_cert_file = 'path_to_cert' # optional

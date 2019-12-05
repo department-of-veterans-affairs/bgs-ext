@@ -27,7 +27,7 @@ module LighthouseBGS
         {
           "birlsUpdateInput": {
             "CLAIM_NUMBER": ssn,
-            "PAYEE_CODE": '00',
+            "PAYEE_NUMBER": '00',
             "POWER_OF_ATTY_CODE1": poa_code.first,
             "POWER_OF_ATTY_CODE2": "#{poa_code[1]}#{poa_code[2]}"
           }

@@ -12,16 +12,22 @@ module LighthouseBGS
       'vet_record'
     end
 
+    def bean_name
+      'VetRecordServiceBean'
+    end
+
     # updates the birls record with a new POA code
     # As per BGS the POA code is split into 2 fields
     # with the first being the first character of the poa code
     # and the second field the remaining 2 characters
+    # As per BGS, CLAIM NUMBER and ssn are synonymous
     def update_birls_record(ssn:, poa_code:)
       response = request(
         :update_birls_record,
         {
           "birlsUpdateInput": {
-            "SOC_SEC_NUMBER": ssn,
+            "CLAIM_NUMBER": ssn,
+            "PAYEE_NUMBER": '00',
             "POWER_OF_ATTY_CODE1": poa_code.first,
             "POWER_OF_ATTY_CODE2": "#{poa_code[1]}#{poa_code[2]}"
           }

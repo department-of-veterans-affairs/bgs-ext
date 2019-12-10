@@ -25,7 +25,8 @@ module LighthouseBGS
                   :env, :client_station_id, :jumpbox_url,
                   :ssl_cert_file, :ssl_cert_key_file, :ssl_ca_cert,
                   :log, :mock_responses, :forward_proxy_url,
-                  :mock_response_location, :external_uid, :external_key
+                  :mock_response_location, :external_uid, :external_key,
+                  :ssl_verify_mode
 
     def initialize; end
   end

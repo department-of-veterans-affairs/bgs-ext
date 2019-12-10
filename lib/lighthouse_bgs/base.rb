@@ -35,7 +35,7 @@ module LighthouseBGS
     def initialize(application:, forward_proxy_url: nil, jumpbox_url: nil,
                    env:, client_ip:, client_station_id:, client_username:, log: false,
                    ssl_cert_file: nil, ssl_cert_key_file: nil, ssl_ca_cert: nil,
-                   external_uid: nil, external_key: nil, mock_responses: false, ssl_verify_mode: :peer)
+                   external_uid: nil, external_key: nil, mock_responses: false, ssl_verify_mode: 'peer')
       @application = application
       @client_ip = client_ip
       @client_station_id = client_station_id
@@ -137,7 +137,7 @@ module LighthouseBGS
         open_timeout: 10, # in seconds
         read_timeout: 600, # in seconds
         convert_request_keys_to: :none,
-        ssl_verify_mode: @ssl_verify_mode
+        ssl_verify_mode: @ssl_verify_mode.to_sym
       )
     end
 

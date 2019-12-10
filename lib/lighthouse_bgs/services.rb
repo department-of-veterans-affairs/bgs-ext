@@ -51,7 +51,8 @@ module LighthouseBGS
                   log: configuration.log,
                   external_uid: configuration.external_uid,
                   external_key: configuration.external_key,
-                  mock_responses: configuration.mock_responses }
+                  mock_responses: configuration.mock_responses,
+                  ssl_verify_mode: configuration.ssl_verify_mode}
     end
 
     def self.all

@@ -36,7 +36,7 @@ require 'lighthouse_bgs/services/security'
 
 module LighthouseBGS
   class Services
-    def initialize
+    def initialize(external_uid: , external_key: )
       configuration = LighthouseBGS.configuration
       @config = { env: configuration.env,
                   application: configuration.application,
@@ -49,8 +49,8 @@ module LighthouseBGS
                   forward_proxy_url: configuration.forward_proxy_url,
                   jumpbox_url: configuration.jumpbox_url,
                   log: configuration.log,
-                  external_uid: configuration.external_uid,
-                  external_key: configuration.external_key,
+                  external_uid: external_uid,
+                  external_key: external_key,
                   mock_responses: configuration.mock_responses,
                   ssl_verify_mode: configuration.ssl_verify_mode}
     end

@@ -37,6 +37,7 @@ module LighthouseBGS
       response.body[:update_birls_record_response][:return]
     end
 
+    # find CorpDB records with first and last name
     def find_corporate_record(first_name:, last_name:)
       response = request(
         :find_corporate_record,

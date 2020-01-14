@@ -36,5 +36,19 @@ module LighthouseBGS
       )
       response.body[:update_birls_record_response][:return]
     end
+
+    def find_corporate_record(first_name:, last_name:)
+      response = request(
+        :find_corporate_record,
+        {
+          "ptcpntSearchPSNInput": {
+            "firstName": first_name,
+            "lastName": last_name
+          }
+        },
+        ssn
+      )
+      response.body[:find_corporate_record_response][:return]
+    end
   end
 end

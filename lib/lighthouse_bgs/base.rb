@@ -144,6 +144,8 @@ module LighthouseBGS
     # Proxy to call a method on our web service.
     def request(method, message = nil, identifier = nil)
       if mock_responses
+        raise "No identifier for mock response" if identifier.nil?
+
         file_path = "#{LighthouseBGS.configuration.mock_response_location}/#{@service_name.underscore}/#{method}/#{identifier}.json"
         OpenStruct.new(body: JSON.parse(File.read(file_path)).with_indifferent_access)
       else

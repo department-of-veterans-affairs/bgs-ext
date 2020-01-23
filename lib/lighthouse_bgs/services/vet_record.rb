@@ -47,7 +47,8 @@ module LighthouseBGS
             "firstName": first_name,
             "lastName": last_name
           }
-        }
+        },
+        "#{first_name}_#{last_name}".downcase
       )
       response.body[:find_corporate_record_response][:return]
     end

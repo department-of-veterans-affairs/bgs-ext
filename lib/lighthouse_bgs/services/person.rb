@@ -43,5 +43,11 @@ module LighthouseBGS
       response = request(:find_employee_by_ptcpnt_id, "ptcpntId": participant_id)
       response.body[:find_employee_by_ptcpnt_id_response][:employee_dto]
     end
+
+    # this method can take an 8 digit file number or a 9 digit SSN
+    def find_dependents(file_number)
+      response = request(:find_dependents, "fileNumber": file_number)
+      response.body[:find_dependents_response][:dependent_dto]
+    end
   end
 end

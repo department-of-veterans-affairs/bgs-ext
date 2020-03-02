@@ -8,6 +8,10 @@
 
 module LighthouseBGS
   class VnpProcServiceV2 < LighthouseBGS::Base
+    def bean_name
+      'VnpProcWebServiceBeanV2'
+    end
+
     def self.service_name
       'vnp_proc_v2'
     end

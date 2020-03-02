@@ -29,6 +29,7 @@ require 'lighthouse_bgs/services/rating_profile'
 require 'lighthouse_bgs/services/standard_data'
 require 'lighthouse_bgs/services/vet_record'
 require 'lighthouse_bgs/services/veteran'
+require 'lighthouse_bgs/services/vnp_proc_v2'
 require 'lighthouse_bgs/services/security'
 
 # Now, we're going to declare a class to hide the actual creation of service

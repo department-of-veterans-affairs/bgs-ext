@@ -25,13 +25,14 @@ module LighthouseBGS
 
     # create a new vnpProc
     def vnp_proc_create(
-      vnp_proc_id:, vnp_proc_type_cd:, vnp_proc_state_type_cd:, creatd_dt:, last_modifd_dt:,
-      jrn_dt:, jrn_lctn_id:, jrn_status_type_cd:, jrn_user_id: 'VAEBENEFITS', jrn_obj_id: 'eBenefits', submtd_dt:, applcn_form_exprtn_dt:
+      #vnp_proc_id:,
+      vnp_proc_type_cd:, vnp_proc_state_type_cd:, creatd_dt:, last_modifd_dt:,
+      jrn_dt:, jrn_lctn_id:, jrn_status_type_cd:, jrn_user_id:, jrn_obj_id:, submtd_dt:#, applcn_form_exprtn_dt:
       )
       response = request(
         :vnp_proc_create,
         "vnpProcCreate": {
-          "vnpProcId": vnp_proc_id,
+          #"vnpProcId": vnp_proc_id,
           "vnpProcTypeCd": vnp_proc_type_cd,
           "vnpProcStateTypeCd": vnp_proc_state_type_cd,
           "creatdDt": creatd_dt,
@@ -41,8 +42,8 @@ module LighthouseBGS
           "jrnStatusTypeCd": jrn_status_type_cd,
           "jrnUserId": jrn_user_id,
           "jrnObjId": jrn_obj_id,
-          "submtdDt": submtd_dt,
-          "applcnFormExprtnDt": applcn_form_exprtn_dt
+          "submtdDt": submtd_dt
+          #"applcnFormExprtnDt": applcn_form_exprtn_dt
         }
       )
       response.body[:vnp_proc_create_response][:return]

@@ -31,7 +31,7 @@ module LighthouseBGS
       )
       response = request(
         :vnp_proc_create,
-        "vnpProcCreate": {
+        "arg0": {
           #"vnpProcId": vnp_proc_id,
           "vnpProcTypeCd": vnp_proc_type_cd,
           "vnpProcStateTypeCd": vnp_proc_state_type_cd,

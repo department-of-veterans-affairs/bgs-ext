@@ -27,24 +27,29 @@ module LighthouseBGS
     def vnp_proc_create(
       #vnp_proc_id:,
       vnp_proc_type_cd:, vnp_proc_state_type_cd:, creatd_dt:, last_modifd_dt:,
-      jrn_dt:, jrn_lctn_id:, jrn_status_type_cd:, jrn_user_id:, jrn_obj_id:, submtd_dt:#, applcn_form_exprtn_dt:
+      jrn_dt:, jrn_lctn_id:, jrn_status_type_cd:, jrn_user_id:, jrn_obj_id:, submtd_dt:,
+      ssn:
+      #, applcn_form_exprtn_dt:
       )
       response = request(
         :vnp_proc_create,
-        "arg0": {
-          #"vnpProcId": vnp_proc_id,
-          "vnpProcTypeCd": vnp_proc_type_cd,
-          "vnpProcStateTypeCd": vnp_proc_state_type_cd,
-          "creatdDt": creatd_dt,
-          "lastModifdDt": last_modifd_dt,
-          "jrnDt": jrn_dt,
-          "jrnLctnId": jrn_lctn_id,
-          "jrnStatusTypeCd": jrn_status_type_cd,
-          "jrnUserId": jrn_user_id,
-          "jrnObjId": jrn_obj_id,
-          "submtdDt": submtd_dt
-          #"applcnFormExprtnDt": applcn_form_exprtn_dt
-        }
+        {
+          "arg0": {
+            #"vnpProcId": vnp_proc_id,
+            "vnpProcTypeCd": vnp_proc_type_cd,
+            "vnpProcStateTypeCd": vnp_proc_state_type_cd,
+            "creatdDt": creatd_dt,
+            "lastModifdDt": last_modifd_dt,
+            "jrnDt": jrn_dt,
+            "jrnLctnId": jrn_lctn_id,
+            "jrnStatusTypeCd": jrn_status_type_cd,
+            "jrnUserId": jrn_user_id,
+            "jrnObjId": jrn_obj_id,
+            "submtdDt": submtd_dt
+            #"applcnFormExprtnDt": applcn_form_exprtn_dt
+          }
+        },
+        ssn
       )
       response.body[:vnp_proc_create_response][:return]
     end

@@ -61,7 +61,7 @@ module LighthouseBGS
         ssn
       )
 
-      response.body[:vnp_ptcpnt_create][:return]
+      response.body[:vnp_ptcpnt_create_response][:return]
     end
   end
 end

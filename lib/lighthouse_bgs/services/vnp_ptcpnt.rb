@@ -65,4 +65,3 @@ module LighthouseBGS
     end
   end
 end
-

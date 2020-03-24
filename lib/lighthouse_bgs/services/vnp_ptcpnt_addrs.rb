@@ -9,6 +9,7 @@ module LighthouseBGS
     end
 
     def vnp_ptcpnt_addrs_create(
+      efctv_dt:,
       vnp_ptcpnt_id:,
       vnp_proc_id:,
       addrs_one_txt:,
@@ -54,6 +55,7 @@ module LighthouseBGS
         :vnp_ptcpnt_addrs_create,
         {
           "arg0": {
+            efctvDt: efctv_dt,
             vnpPtcpntId: vnp_ptcpnt_id,
             vnpProcId: vnp_proc_id,
             addrsOneTxt: addrs_one_txt,
@@ -97,7 +99,7 @@ module LighthouseBGS
         ssn
       )
 
-      response.body['vnp_ptcpnt_addrs_create_response']['return']
+      response.body[:vnp_ptcpnt_addrs_create_response][:return]
     end
   end
 end

@@ -53,7 +53,7 @@ module LighthouseBGS
         ssn
       )
 
-      response.body['vnp_ptcpnt_phone_create_response']['return']
+      response.body[:vnp_ptcpnt_phone_create_response][:return]
     end
   end
 end

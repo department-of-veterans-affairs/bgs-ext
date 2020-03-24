@@ -1,7 +1,7 @@
 module LighthouseBGS
   class VnpPtcpntPhoneService < LighthouseBGS::Base
     def bean_name
-      'VnpPtcpntPhoneServiceBean'
+      'VnpPtcpntPhoneWebServiceBean'
     end
 
     def self.service_name

@@ -1,7 +1,7 @@
 module LighthouseBGS
   class VnpPersonService < LighthouseBGS::Base
     def bean_name
-      'VnpPersonServiceBean'
+      'VnpPersonWebServiceBean'
     end
 
     def self.service_name

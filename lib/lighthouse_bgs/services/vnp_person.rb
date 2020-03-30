@@ -59,7 +59,7 @@ module LighthouseBGS
       vnp_proc_id:,
       vnp_srusly_dsabld_ind:,
       vnp_school_child_ind:,
-      ssn: current_user.ssn
+      ssn:
     )
 
       response = request(

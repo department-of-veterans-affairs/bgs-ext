@@ -19,20 +19,20 @@ module LighthouseBGS
     def vnp_ptcpnt_create(
       vnp_ptcpnt_id:,
       vnp_proc_id:,
-      fraud_ind:,
+      fraud_ind: nil,
       jrn_dt:,
       jrn_lctn_id:,
       jrn_obj_id:,
       jrn_status_type_cd:,
       jrn_user_id:,
-      legacy_poa_cd:,
-      misc_vendor_ind:,
-      ptcpnt_short_nm:,
       ptcpnt_type_nm:,
-      tax_idfctn_nbr:,
-      tin_waiver_reason_type_cd:,
-      ptcpnt_fk_ptcpnt_id:,
-      corp_ptcpnt_id:,
+      legacy_poa_cd: nil,
+      misc_vendor_ind: nil,
+      ptcpnt_short_nm: nil,
+      tax_idfctn_nbr: nil,
+      tin_waiver_reason_type_cd: nil,
+      ptcpnt_fk_ptcpnt_id: nil,
+      corp_ptcpnt_id: nil,
       ssn:
       )
 
@@ -152,7 +152,7 @@ module LighthouseBGS
         },
         ssn
       )
-binding.pry
+
       response.body['vnp_ptcpnt_addrs_create_response']['return']
     end
   end

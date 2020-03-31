@@ -9,22 +9,22 @@ module LighthouseBGS
     end
 
     def vnp_ptcpnt_phone_create(
-      vnp_ptcpnt_phone_id:,
       vnp_proc_id:,
-      vnp_ptcpnt_id:,
-      phone_type_nm:,
-      phone_nbr:,
-      efctv_dt:,
-      end_dt:,
-      area_nbr:,
-      cntry_nbr:,
-      frgn_phone_rfrnc_txt:,
-      extnsn_nbr:,
       jrn_dt:,
       jrn_lctn_id:,
       jrn_user_id:,
       jrn_status_type_cd:,
       jrn_obj_id:,
+      vnp_ptcpnt_id:,
+      vnp_ptcpnt_phone_id:,
+      phone_type_nm:,
+      phone_nbr:,
+      efctv_dt:,
+      end_dt: nil,
+      area_nbr: nil,
+      cntry_nbr: nil,
+      frgn_phone_rfrnc_txt: nil,
+      extnsn_nbr: nil,
       ssn:
     )
 

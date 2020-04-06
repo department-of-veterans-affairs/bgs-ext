@@ -128,8 +128,10 @@ module LighthouseBGS
       headers = {}
       headers['Host'] = domain if @forward_proxy_url
 
-      @client ||= Savon.client(
-        wsdl: wsdl, soap_header: header, log: @log,
+      options = {
+        wsdl: wsdl,
+        soap_header: header,
+        log: @log,
         ssl_cert_key_file: @ssl_cert_key_file,
         headers: headers,
         ssl_cert_file: @ssl_cert_file,
@@ -138,7 +140,9 @@ module LighthouseBGS
         read_timeout: 600, # in seconds
         convert_request_keys_to: :none,
         ssl_verify_mode: @ssl_verify_mode.to_sym
-      )
+      }
+      options[:host] = @forward_proxy_url unless @forward_proxy_url.nil?
+      @client ||= Savon.client(options)
     end
 
     # Proxy to call a method on our web service.

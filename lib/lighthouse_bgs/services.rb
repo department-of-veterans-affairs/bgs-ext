@@ -18,6 +18,7 @@
 require 'lighthouse_bgs/services/address'
 require 'lighthouse_bgs/services/awards'
 require 'lighthouse_bgs/services/benefit'
+require 'lighthouse_bgs/services/benefit_claim'
 require 'lighthouse_bgs/services/claimant'
 require 'lighthouse_bgs/services/corporate_update'
 require 'lighthouse_bgs/services/document'

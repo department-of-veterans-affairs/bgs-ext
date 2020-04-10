@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name          = 'lighthouse_bgs'
-  gem.version       = '0.10.0'
+  gem.version       = '0.11.0'
   gem.summary       = 'Thin wrapper on top of savon to talk with BGS'
   gem.description   = 'Thin wrapper on top of savon to talk with BGS'
   gem.license       = 'CC0' # This work is a work of the US Federal Government,
@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
 
   gem.authors       = 'Charley Stran'
   gem.email         = 'charley.stran@oddball.io'
-  gem.homepage      = ''
+  gem.homepage      = 'https://github.com/department-of-veterans-affairs/lighthouse-bgs'
 
   gem.add_runtime_dependency 'httpclient'
   gem.add_runtime_dependency 'nokogiri', '>= 1.8.5'

@@ -17,7 +17,8 @@ module LighthouseBGS
       jrn_user_id:,
       vnp_ptcpnt_id_a:,
       vnp_ptcpnt_id_b:,
-      vnp_ptcpnt_rlnshp_id:,
+      ptcpnt_rlnshp_type_nm:,
+      vnp_ptcpnt_rlnshp_id: nil,
       begin_dt: nil,
       child_prevly_married_ind: nil,
       end_dt: nil,
@@ -36,7 +37,6 @@ module LighthouseBGS
       mthly_support_from_vet_amt: nil,
       proof_depncy_ind: nil,
       prptnl_phrase_type_nm: nil,
-      ptcpnt_rlnshp_type_nm: nil,
       rate_type_nm: nil,
       review_dt: nil,
       status_type_cd: nil,
@@ -46,7 +46,7 @@ module LighthouseBGS
       poa_signtr_vrfctn_dt: nil,
       poa_rep_type_cd: nil,
       poa_agency_nm: nil,
-      ssn:
+      ssn: nil # Just here to make mocks work
     )
 
       response = request(

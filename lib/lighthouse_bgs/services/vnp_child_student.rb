@@ -33,7 +33,7 @@ module LighthouseBGS
       term_year_emplmt_income_amt: nil,
       term_year_other_income_amt: nil,
       term_year_ssa_income_amt: nil,
-      ssn:
+      ssn: nil # Just here to make the mocks work
     )
 
       response = request(

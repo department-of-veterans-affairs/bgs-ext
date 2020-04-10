@@ -16,16 +16,16 @@ module LighthouseBGS
       jrn_status_type_cd:,
       jrn_obj_id:,
       vnp_ptcpnt_id:,
-      vnp_ptcpnt_phone_id:,
       phone_type_nm:,
       phone_nbr:,
       efctv_dt:,
+      vnp_ptcpnt_phone_id: nil,
       end_dt: nil,
       area_nbr: nil,
       cntry_nbr: nil,
       frgn_phone_rfrnc_txt: nil,
       extnsn_nbr: nil,
-      ssn:
+      ssn: # Just here to make mocks work
     )
 
       response = request(

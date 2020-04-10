@@ -17,15 +17,15 @@ module LighthouseBGS
     end
 
     def vnp_ptcpnt_create(
-      vnp_ptcpnt_id:,
       vnp_proc_id:,
-      fraud_ind: nil,
       jrn_dt:,
       jrn_lctn_id:,
       jrn_obj_id:,
       jrn_status_type_cd:,
       jrn_user_id:,
       ptcpnt_type_nm:,
+      vnp_ptcpnt_id: nil,
+      fraud_ind: nil,
       legacy_poa_cd: nil,
       misc_vendor_ind: nil,
       ptcpnt_short_nm: nil,
@@ -33,7 +33,7 @@ module LighthouseBGS
       tin_waiver_reason_type_cd: nil,
       ptcpnt_fk_ptcpnt_id: nil,
       corp_ptcpnt_id: nil,
-      ssn:
+      ssn: # Just here to make mocks work
       )
 
       response = request(

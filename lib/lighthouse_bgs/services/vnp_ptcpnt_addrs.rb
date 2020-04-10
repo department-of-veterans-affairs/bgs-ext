@@ -48,7 +48,7 @@ module LighthouseBGS
       zip_prefix_nbr: nil,
       zip_first_suffix_nbr: nil,
       zip_second_suffix_nbr: nil,
-      ssn:
+      ssn: nil # Just here to make mocks work
     )
 
       response = request(

@@ -16,8 +16,8 @@ module LighthouseBGS
       jrn_obj_id:,
       jrn_status_type_cd:,
       jrn_user_id:,
-      vnp_child_school_id:,
       gradtn_dt:,
+      vnp_child_school_id: nil,
       course_name_txtame_txt: nil,
       curnt_hours_per_wk_num: nil,
       curnt_school_addrs_one_txt: nil,
@@ -55,7 +55,7 @@ module LighthouseBGS
       curnt_mlty_postal_typ_cd: nil,
       curnt_mlty_post_office_typ_cd: nil,
       curnt_forgn_postal_cd: nil,
-      ssn:
+      ssn: # Just here to make the mocks work
     )
 
       response = request(

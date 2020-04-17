@@ -8,35 +8,21 @@
 
 module LighthouseBGS
   # Used for finding historical data about ratings
-  class RatingComparisonEJBService < LighthouseBGS::Base
+  class RatingService < LighthouseBGS::Base
     def bean_name
-      'RatingComparisonEJB'
+      'RatingServiceBean'
     end
 
     def self.service_name
       'rating'
     end
 
-    # Returns a wide variety of information about the current profile and ratings in
-    # the specified date range.
-    def find_by_participant_id_and_date_range(participant_id, start_date, end_date)
-      response = request(
-        :compare_by_date_range,
-        "RatingDateRange": {
-          "ptcpntId": participant_id,
-          "startDate": start_date,
-          "endDate": end_date,
-          # This flag allows the service to return ratings that are not locked
-          # if the most current rating is locked
-          "allowLockedRatings": 'Y',
-          # This field isn't used and should be set to the start_date
-          # according to the BGS team.
-          "claimDate": start_date
-        }
-      )
-
-      # Purposely avoiding much data processing here to do that in the application layer
-      response.body[:compare_by_date_range_response][:return]
+    # findRatingData (shrinqm)
+    # This service provides the Rating Data. This service uses the following tuxedo services: shrinq1, shrinqm
+    def find_rating_data(file_number)
+      response = request(:find_rating_data, 'fileNumber': file_number)
+      response.body[:find_rating_data_response][:return]
     end
+
   end
 end

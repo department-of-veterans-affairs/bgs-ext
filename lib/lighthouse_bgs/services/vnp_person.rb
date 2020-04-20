@@ -21,6 +21,7 @@ module LighthouseBGS
       birth_city_nm: nil,
       birth_state_cd: nil,
       birth_cntry_nm: nil,
+      brthdy_dt: nil,
       cmptny_decn_type_cd: nil,
       dep_nbr: nil,
       emp_ind: nil,
@@ -59,6 +60,7 @@ module LighthouseBGS
       years_presnt_emplyr_nbr: nil,
       vnp_srusly_dsabld_ind: nil,
       vnp_school_child_ind: nil,
+      death_dt: nil,
       ssn: # Just here to make mocks work
     )
 
@@ -70,6 +72,7 @@ module LighthouseBGS
             "birthCityNm": birth_city_nm,
             "birthStateCd": birth_state_cd,
             "birthCntryNm": birth_cntry_nm,
+            "brthdyDt": brthdy_dt,
             "cmptnyDecnTypeCd": cmptny_decn_type_cd,
             "depNbr": dep_nbr,
             "empInd": emp_ind,
@@ -116,6 +119,7 @@ module LighthouseBGS
             "vnpProcId": vnp_proc_id,
             "vnpSruslyDsabldInd": vnp_srusly_dsabld_ind,
             "vnpSchoolChildInd": vnp_school_child_ind,
+            "deathDt": death_dt
           }
         },
         ssn

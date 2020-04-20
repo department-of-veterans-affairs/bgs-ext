@@ -98,7 +98,7 @@ module LighthouseBGS
         ssn
       )
 
-      response.body[:vnp_bnft_claim_create_response][:return]
+      response.body[:vnp_proc_update_response][:return]
     end
   end
 end

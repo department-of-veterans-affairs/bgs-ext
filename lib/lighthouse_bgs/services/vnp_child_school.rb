@@ -18,7 +18,7 @@ module LighthouseBGS
       jrn_user_id:,
       gradtn_dt:,
       vnp_child_school_id: nil,
-      course_name_txtame_txt: nil,
+      course_name_txt: nil,
       curnt_hours_per_wk_num: nil,
       curnt_school_addrs_one_txt: nil,
       curnt_school_addrs_two_txt: nil,
@@ -63,7 +63,7 @@ module LighthouseBGS
         {
           "arg0": {
             "vnpChildSchoolId": vnp_child_school_id,
-            "courseNameTxt": course_name_txtame_txt,
+            "courseNameTxt": course_name_txt,
             "curntHoursPerWkNum": curnt_hours_per_wk_num,
             "curntSchoolAddrsOneTxt": curnt_school_addrs_one_txt,
             "curntSchoolAddrsTwoTxt": curnt_school_addrs_two_txt,

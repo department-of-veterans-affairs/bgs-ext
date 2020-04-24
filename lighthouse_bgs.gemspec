@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name          = 'lighthouse_bgs'
-  gem.version       = '0.12.1'
+  gem.version       = '0.13.0'
   gem.summary       = 'Thin wrapper on top of savon to talk with BGS'
   gem.description   = 'Thin wrapper on top of savon to talk with BGS'
   gem.license       = 'CC0' # This work is a work of the US Federal Government,

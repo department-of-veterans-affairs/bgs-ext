@@ -67,7 +67,11 @@ module LighthouseBGS
     end
 
     def wsdl
-      "#{base_url}/#{bean_name}/#{@service_name}?WSDL"
+      "#{endpoint}?WSDL"
+    end
+
+    def endpoint
+      "#{base_url}/#{bean_name}/#{@service_name}"
     end
 
     def base_url
@@ -141,7 +145,7 @@ module LighthouseBGS
         convert_request_keys_to: :none,
         ssl_verify_mode: @ssl_verify_mode.to_sym
       }
-      options[:host] = @forward_proxy_url.gsub(%r{^https?://}, '') unless @forward_proxy_url.nil?
+      options[:endpoint] = endpoint unless @forward_proxy_url.nil?
       @client ||= Savon.client(options)
     end
 

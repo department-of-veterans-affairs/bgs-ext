@@ -14,7 +14,7 @@ module LighthouseBGS
     end
 
     # This method is used to find all the Power of Attorney Data.
-    def find_power_of_attorneys
+    def find_power_of_attorneys3
       response = request(:find_po_as)
       response.body[:find_po_as_response][:power_of_attorney_dto]
     end
@@ -27,6 +27,19 @@ module LighthouseBGS
                          "svcTypeCd": 'CP',
                          "bnftClaimTypeCd": end_product_code)
       response.body[:find_payee_cds_by_bnft_claim_type_cd_response][:payee_type_dto]
+    end
+
+    def find_benefit_claim_type_increment(ptcpnt_id, bnft_claim_type_cd, pgm_type_cd, ssn)
+      response = request(
+        :find_benefit_claim_type_increment,
+        {
+          "ptcpntId": ptcpnt_id,
+          "bnftClaimTypeCd": bnft_claim_type_cd,
+          "pgmTypeCd": pgm_type_cd
+        },
+        ssn
+      )
+      response.body[:find_benefit_claim_type_increment_response][:return]
     end
   end
 end

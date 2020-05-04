@@ -92,7 +92,6 @@ module LighthouseBGS
       response = request(
         :insert_benefit_claim,
         {
-
           "benefitClaimInput": {
             "fileNumber": file_number,
             "ssn": ssn,

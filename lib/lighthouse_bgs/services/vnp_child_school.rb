@@ -39,7 +39,7 @@ module LighthouseBGS
       prev_school_addrs_three_txt: nil,
       prev_school_addrs_zip_nbr: nil,
       prev_school_nm: nil,
-      prev_school_postal_cd: nil,
+      prev_school_postal_cd: nil, 
       prev_sessns_per_wk_num: nil,
       rmks: nil,
       school_actual_expctd_start_dt: nil,

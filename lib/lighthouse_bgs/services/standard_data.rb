@@ -29,7 +29,7 @@ module LighthouseBGS
       response.body[:find_payee_cds_by_bnft_claim_type_cd_response][:payee_type_dto]
     end
 
-    def find_benefit_claim_type_increment(ptcpnt_id, bnft_claim_type_cd, pgm_type_cd, ssn)
+    def find_benefit_claim_type_increment(ptcpnt_id:, bnft_claim_type_cd:, pgm_type_cd:, ssn:)
       response = request(
         :find_benefit_claim_type_increment,
         {

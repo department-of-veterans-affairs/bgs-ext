@@ -123,7 +123,7 @@ module LighthouseBGS
       termnl_digit_nbr: nil,
       vnp_ptcpnt_vet_id: nil,
       bnft_claim_id: nil,
-      ssn: nil # This is just here to 
+      ssn: nil # Just here to make the mocks work
     )
 
       response = request(

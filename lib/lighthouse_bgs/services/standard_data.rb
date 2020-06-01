@@ -14,7 +14,7 @@ module LighthouseBGS
     end
 
     # This method is used to find all the Power of Attorney Data.
-    def find_power_of_attorneys3
+    def find_power_of_attorneys
       response = request(:find_po_as)
       response.body[:find_po_as_response][:power_of_attorney_dto]
     end

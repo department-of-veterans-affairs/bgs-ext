@@ -16,15 +16,11 @@ module LighthouseBGS
       'vnp_proc_form'
     end
 
-    # VnpProcFormFindByPrimaryKey
-    #  Used to find and return VONAPP form data, by the primary key.
-    #  The primary key consists of the VNP PROC ID (the first part of the primary key of a row) and FORM TYPE CODE (the second part of the primary key of a row).
     def vnp_proc_form_find_by_primary_key(vnp_proc_id, form_type_cd)
       response = request(:vnp_proc_form_find_by_primary_key, { "vnpProcId": vnp_proc_id, "formTypeCd": form_type_cd })
       response = response.body[:vnp_proc_form_find_by_primary_key_response][:return]
     end
 
-    # create a new vnpProcForm
     def vnp_proc_form_create(vnp_proc_id:, form_type_cd:, jrn_dt:, jrn_lctn_id:, jrn_obj_id:, jrn_status_type_cd:, jrn_user_id:, ssn:)
       response = request(
         :vnp_proc_form_create,

@@ -16,14 +16,11 @@ module LighthouseBGS
       'vnp_proc_v2'
     end
 
-    # VnpProcFindByPrimaryKey
-    #   finds the vnpProc by vnpProcId
     def vnp_proc_find_by_primary_key(vnp_proc_id)
       response = request(:vnp_proc_find_by_primary_key, "vnpProcId": vnp_proc_id)
       response = response.body[:vnp_proc_find_by_primary_key_response][:return]
     end
 
-    # create a new vnpProc
     def vnp_proc_create(
       jrn_dt:,
       jrn_lctn_id:,

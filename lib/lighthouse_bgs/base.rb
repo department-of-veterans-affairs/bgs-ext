@@ -62,6 +62,13 @@ module LighthouseBGS
 
     private
 
+    def validate_required_keys(required_keys, provided_hash, call)
+      required_keys.each do |key|
+        raise(ArgumentError, "#{key} is a required key in #{call}") unless provided_hash.key?(key)
+        raise(ArgumentError, "#{key} cannot be empty or nil") if provided_hash[key].blank?
+      end
+    end
+
     def https?
       @ssl_cert_file && @ssl_cert_key_file
     end

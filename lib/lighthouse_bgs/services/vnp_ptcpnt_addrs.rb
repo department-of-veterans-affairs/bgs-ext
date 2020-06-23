@@ -16,98 +16,75 @@ module LighthouseBGS
       'vnp_ptcpnt_addrs'
     end
 
-    def vnp_ptcpnt_addrs_create(
-      efctv_dt:,
-      vnp_ptcpnt_id:,
-      vnp_proc_id:,
-      jrn_dt:,
-      jrn_lctn_id:,
-      jrn_obj_id:,
-      jrn_status_type_cd:,
-      jrn_user_id:,
-      ptcpnt_addrs_type_nm:,
-      shared_addrs_ind:,
-      addrs_one_txt: nil,
-      addrs_three_txt: nil,
-      addrs_two_txt: nil,
-      bad_addrs_ind: nil,
-      city_nm: nil,
-      cntry_nm: nil,
-      county_nm: nil,
-      eft_waiver_type_nm: nil,
-      email_addrs_txt: nil,
-      end_dt: nil,
-      fms_addrs_code_txt: nil,
-      frgn_postal_cd: nil,
-      group1_verifd_type_cd: nil,
-      lctn_nm: nil,
-      mlty_postal_type_cd: nil,
-      mlty_post_office_type_cd: nil,
-      postal_cd: nil,
-      prvnc_nm: nil,
-      trsury_addrs_one_txt: nil,
-      trsury_addrs_two_txt: nil,
-      trsury_addrs_three_txt: nil,
-      trsury_addrs_four_txt: nil,
-      trsury_addrs_five_txt: nil,
-      trsury_addrs_six_txt: nil,
-      trsury_seq_nbr: nil,
-      trtry_nm: nil,
-      zip_prefix_nbr: nil,
-      zip_first_suffix_nbr: nil,
-      zip_second_suffix_nbr: nil,
-      ssn: nil # Just here to make mocks work
-    )
+    def vnp_ptcpnt_addrs_create(options)
+      validate_required_keys(vnp_ptcpnt_addrs_create_required_fields, options, __method__.to_s)
 
       response = request(
         :vnp_ptcpnt_addrs_create,
         {
           "arg0": {
-            efctvDt: efctv_dt,
-            vnpPtcpntId: vnp_ptcpnt_id,
-            vnpProcId: vnp_proc_id,
-            addrsOneTxt: addrs_one_txt,
-            addrsThreeTxt: addrs_three_txt,
-            addrsTwoTxt: addrs_two_txt,
-            badAddrsInd: bad_addrs_ind,
-            cityNm: city_nm,
-            cntryNm: cntry_nm,
-            countyNm: county_nm,
-            eftWaiverTypeNm: eft_waiver_type_nm,
-            emailAddrsTxt: email_addrs_txt,
-            endDt: end_dt,
-            fmsAddrsCodeTxt: fms_addrs_code_txt,
-            frgnPostalCd: frgn_postal_cd,
-            group1VerifdTypeCd: group1_verifd_type_cd,
-            jrnDt: jrn_dt,
-            jrnLctnId: jrn_lctn_id,
-            jrnObjId: jrn_obj_id,
-            jrnStatusTypeCd: jrn_status_type_cd,
-            jrnUserId: jrn_user_id,
-            lctnNm: lctn_nm,
-            mltyPostalTypeCd: mlty_postal_type_cd,
-            mltyPostOfficeTypeCd: mlty_post_office_type_cd,
-            postalCd: postal_cd,
-            prvncNm: prvnc_nm,
-            ptcpntAddrsTypeNm: ptcpnt_addrs_type_nm,
-            sharedAddrsInd: shared_addrs_ind,
-            trsuryAddrsFiveTxt: trsury_addrs_five_txt,
-            trsuryAddrsFourTxt: trsury_addrs_four_txt,
-            trsuryAddrsOneTxt: trsury_addrs_one_txt,
-            trsuryAddrsSixTxt: trsury_addrs_six_txt,
-            trsuryAddrsThreeTxt: trsury_addrs_three_txt,
-            trsuryAddrsTwoTxt: trsury_addrs_two_txt,
-            trsurySeqNbr: trsury_seq_nbr,
-            trtryNm: trtry_nm,
-            zipFirstSuffixNbr: zip_first_suffix_nbr,
-            zipPrefixNbr: zip_prefix_nbr,
-            zipSecondSuffixNbr: zip_second_suffix_nbr
+            efctvDt: options[:efctv_dt],
+            vnpPtcpntId: options[:vnp_ptcpnt_id],
+            vnpProcId: options[:vnp_proc_id],
+            addrsOneTxt: options[:addrs_one_txt],
+            addrsThreeTxt: options[:addrs_three_txt],
+            addrsTwoTxt: options[:addrs_two_txt],
+            badAddrsInd: options[:bad_addrs_ind],
+            cityNm: options[:city_nm],
+            cntryNm: options[:cntry_nm],
+            countyNm: options[:county_nm],
+            eftWaiverTypeNm: options[:eft_waiver_type_nm],
+            emailAddrsTxt: options[:email_addrs_txt],
+            endDt: options[:end_dt],
+            fmsAddrsCodeTxt: options[:fms_addrs_code_txt],
+            frgnPostalCd: options[:frgn_postal_cd],
+            group1VerifdTypeCd: options[:group1_verifd_type_cd],
+            jrnDt: options[:jrn_dt],
+            jrnLctnId: options[:jrn_lctn_id],
+            jrnObjId: options[:jrn_obj_id],
+            jrnStatusTypeCd: options[:jrn_status_type_cd],
+            jrnUserId: options[:jrn_user_id],
+            lctnNm: options[:lctn_nm],
+            mltyPostalTypeCd: options[:mlty_postal_type_cd],
+            mltyPostOfficeTypeCd: options[:mlty_post_office_type_cd],
+            postalCd: options[:postal_cd],
+            prvncNm: options[:prvnc_nm],
+            ptcpntAddrsTypeNm: options[:ptcpnt_addrs_type_nm],
+            sharedAddrsInd: options[:shared_addrs_ind],
+            trsuryAddrsFiveTxt: options[:trsury_addrs_five_txt],
+            trsuryAddrsFourTxt: options[:trsury_addrs_four_txt],
+            trsuryAddrsOneTxt: options[:trsury_addrs_one_txt],
+            trsuryAddrsSixTxt: options[:trsury_addrs_six_txt],
+            trsuryAddrsThreeTxt: options[:trsury_addrs_three_txt],
+            trsuryAddrsTwoTxt: options[:trsury_addrs_two_txt],
+            trsurySeqNbr: options[:trsury_seq_nbr],
+            trtryNm: options[:trtry_nm],
+            zipFirstSuffixNbr: options[:zip_first_suffix_nbr],
+            zipPrefixNbr: options[:zip_prefix_nbr],
+            zipSecondSuffixNbr: options[:zip_second_suffix_nbr]
           }
         },
-        ssn
+        options[:ssn]
       )
 
       response.body[:vnp_ptcpnt_addrs_create_response][:return]
+    end
+
+    private
+
+    def vnp_ptcpnt_addrs_create_required_fields
+      %i[
+        efctv_dt
+        vnp_ptcpnt_id
+        vnp_proc_id
+        jrn_dt
+        jrn_lctn_id
+        jrn_obj_id
+        jrn_status_type_cd
+        jrn_user_id
+        ptcpnt_addrs_type_nm
+        shared_addrs_ind
+      ]
     end
   end
 end

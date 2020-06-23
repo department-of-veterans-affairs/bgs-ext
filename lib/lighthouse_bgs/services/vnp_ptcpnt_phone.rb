@@ -16,52 +16,52 @@ module LighthouseBGS
       'vnp_ptcpnt_phone'
     end
 
-    def vnp_ptcpnt_phone_create(
-      vnp_proc_id:,
-      jrn_dt:,
-      jrn_lctn_id:,
-      jrn_user_id:,
-      jrn_status_type_cd:,
-      jrn_obj_id:,
-      vnp_ptcpnt_id:,
-      phone_type_nm:,
-      phone_nbr:,
-      efctv_dt:,
-      vnp_ptcpnt_phone_id: nil,
-      end_dt: nil,
-      area_nbr: nil,
-      cntry_nbr: nil,
-      frgn_phone_rfrnc_txt: nil,
-      extnsn_nbr: nil,
-      ssn: # Just here to make mocks work
-    )
+    def vnp_ptcpnt_phone_create(options)
+      validate_required_keys(vnp_ptcpnt_phone_create_required_fields, options, __method__.to_s)
 
       response = request(
         :vnp_ptcpnt_phone_create,
         {
           "arg0": {
-            vnpPtcpntPhoneId: vnp_ptcpnt_phone_id,
-            vnpProcId: vnp_proc_id,
-            vnpPtcpntId: vnp_ptcpnt_id,
-            phoneTypeNm: phone_type_nm,
-            phoneNbr: phone_nbr,
-            efctvDt: efctv_dt,
-            endDt: end_dt,
-            areaNbr: area_nbr,
-            cntryNbr: cntry_nbr,
-            frgnPhoneRfrncTxt: frgn_phone_rfrnc_txt,
-            extnsnNbr: extnsn_nbr,
-            jrnDt: jrn_dt,
-            jrnLctnId: jrn_lctn_id,
-            jrnUserId: jrn_user_id,
-            jrnStatusTypeCd: jrn_status_type_cd,
-            jrnObjId: jrn_obj_id
+            vnpPtcpntPhoneId: options[:vnp_ptcpnt_phone_id],
+            vnpProcId: options[:vnp_proc_id],
+            vnpPtcpntId: options[:vnp_ptcpnt_id],
+            phoneTypeNm: options[:phone_type_nm],
+            phoneNbr: options[:phone_nbr],
+            efctvDt: options[:efctv_dt],
+            endDt: options[:end_dt],
+            areaNbr: options[:area_nbr],
+            cntryNbr: options[:cntry_nbr],
+            frgnPhoneRfrncTxt: options[:frgn_phone_rfrnc_txt],
+            extnsnNbr: options[:extnsn_nbr],
+            jrnDt: options[:jrn_dt],
+            jrnLctnId: options[:jrn_lctn_id],
+            jrnUserId: options[:jrn_user_id],
+            jrnStatusTypeCd: options[:jrn_status_type_cd],
+            jrnObjId: options[:jrn_obj_id]
           }
         },
-        ssn
+        options[:ssn]
       )
 
       response.body[:vnp_ptcpnt_phone_create_response][:return]
+    end
+
+    private
+
+    def vnp_ptcpnt_phone_create_required_fields
+      %i[
+        vnp_proc_id
+        jrn_dt
+        jrn_lctn_id
+        jrn_user_id
+        jrn_status_type_cd
+        jrn_obj_id
+        vnp_ptcpnt_id
+        phone_type_nm
+        phone_nbr
+        efctv_dt
+      ]
     end
   end
 end

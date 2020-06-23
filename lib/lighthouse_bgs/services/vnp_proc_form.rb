@@ -21,25 +21,41 @@ module LighthouseBGS
       response = response.body[:vnp_proc_form_find_by_primary_key_response][:return]
     end
 
-    def vnp_proc_form_create(vnp_proc_id:, form_type_cd:, jrn_dt:, jrn_lctn_id:, jrn_obj_id:, jrn_status_type_cd:, jrn_user_id:, ssn:)
+    def vnp_proc_form_create(options)
+      validate_required_keys(vnp_proc_form_create_required_fields, options, __method__.to_s)
+      
       response = request(
         :vnp_proc_form_create,
         {
           "arg0": {
             "compId": {
-              "vnpProcId": vnp_proc_id,
-              "formTypeCd": form_type_cd
+              "vnpProcId": options[:vnp_proc_id],
+              "formTypeCd": options[:form_type_cd]
             },
-            "jrnDt": jrn_dt,
-            "jrnLctnId": jrn_lctn_id,
-            "jrnObjId": jrn_obj_id,
-            "jrnStatusTypeCd": jrn_status_type_cd,
-            "jrnUserId": jrn_user_id
+            "jrnDt": options[:jrn_dt],
+            "jrnLctnId": options[:jrn_lctn_id],
+            "jrnObjId": options[:jrn_obj_id],
+            "jrnStatusTypeCd": options[:jrn_status_type_cd],
+            "jrnUserId": options[:jrn_user_id]
           }
         },
-        ssn
+        options[:ssn]
       )
       response.body[:vnp_proc_form_create_response][:return]
+    end
+
+    private
+
+    def vnp_proc_form_create_required_fields
+      %i[
+        vnp_proc_id
+        form_type_cd
+        jrn_dt
+        jrn_lctn_id
+        jrn_obj_id
+        jrn_status_type_cd
+        jrn_user_id
+      ]
     end
   end
 end

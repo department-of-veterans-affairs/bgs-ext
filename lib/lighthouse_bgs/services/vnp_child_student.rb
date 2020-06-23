@@ -16,68 +16,57 @@ module LighthouseBGS
       'vnp_child_student'
     end
 
-    def child_student_create(
-      vnp_proc_id:,
-      vnp_ptcpnt_id:,
-      jrn_dt:,
-      jrn_lctn_id:,
-      jrn_obj_id:,
-      jrn_status_type_cd:,
-      jrn_user_id:,
-      agency_paying_tuitn_nm: nil,
-      govt_paid_tuitn_ind: nil,
-      govt_paid_tuitn_start_dt: nil,
-      marage_dt: nil,
-      next_year_annty_income_amt: nil,
-      next_year_emplmt_income_amt: nil,
-      next_year_other_income_amt: nil,
-      next_year_ssa_income_amt: nil,
-      other_asset_amt: nil,
-      real_estate_amt: nil,
-      rmks: nil,
-      saving_amt: nil,
-      stock_bond_amt: nil,
-      term_year_annty_income_amt: nil,
-      term_year_emplmt_income_amt: nil,
-      term_year_other_income_amt: nil,
-      term_year_ssa_income_amt: nil,
-      ssn: nil # Just here to make the mocks work
-    )
+    def child_student_create(options)
+    validate_required_keys(child_student_create_required_fields, options, __method__.to_s)
 
       response = request(
         :vnp_child_student_create,
         {
           "arg0": {
-            "vnpProcId": vnp_proc_id,
-            "vnpPtcpntId": vnp_ptcpnt_id,
-            "jrnDt": jrn_dt,
-            "jrnLctnId": jrn_lctn_id,
-            "jrnObjId": jrn_obj_id,
-            "jrnStatusTypeCd": jrn_status_type_cd,
-            "jrnUserId": jrn_user_id,
-            "agencyPayingTuitnNm": agency_paying_tuitn_nm,
-            "govtPaidTuitnInd": govt_paid_tuitn_ind,
-            "govtPaidTuitnStartDt": govt_paid_tuitn_start_dt,
-            "marageDt": marage_dt,
-            "nextYearAnntyIncomeAmt": next_year_annty_income_amt,
-            "nextYearEmplmtIncomeAmt": next_year_emplmt_income_amt,
-            "nextYearOtherIncomeAmt": next_year_other_income_amt,
-            "nextYearSsaIncomeAmt": next_year_ssa_income_amt,
-            "otherAssetAmt": other_asset_amt,
-            "realEstateAmt": real_estate_amt,
-            "rmks": rmks,
-            "savingAmt": saving_amt,
-            "stockBondAmt": stock_bond_amt,
-            "termYearAnntyIncomeAmt": term_year_annty_income_amt,
-            "termYearEmplmtIncomeAmt": term_year_emplmt_income_amt,
-            "termYearOtherIncomeAmt": term_year_other_income_amt,
-            "termYearSsaIncomeAmt": term_year_ssa_income_amt
+            "vnpProcId": options[:vnp_proc_id],
+            "vnpPtcpntId": options[:vnp_ptcpnt_id],
+            "jrnDt": options[:jrn_dt],
+            "jrnLctnId": options[:jrn_lctn_id],
+            "jrnObjId": options[:jrn_obj_id],
+            "jrnStatusTypeCd": options[:jrn_status_type_cd],
+            "jrnUserId": options[:jrn_user_id],
+            "agencyPayingTuitnNm": options[:agency_paying_tuitn_nm],
+            "govtPaidTuitnInd": options[:govt_paid_tuitn_ind],
+            "govtPaidTuitnStartDt": options[:govt_paid_tuitn_start_dt],
+            "marageDt": options[:marage_dt],
+            "nextYearAnntyIncomeAmt": options[:next_year_annty_income_amt],
+            "nextYearEmplmtIncomeAmt": options[:next_year_emplmt_income_amt],
+            "nextYearOtherIncomeAmt": options[:next_year_other_income_amt],
+            "nextYearSsaIncomeAmt": options[:next_year_ssa_income_amt],
+            "otherAssetAmt": options[:other_asset_amt],
+            "realEstateAmt": options[:real_estate_amt],
+            "rmks": options[:rmks],
+            "savingAmt": options[:saving_amt],
+            "stockBondAmt": options[:stock_bond_amt],
+            "termYearAnntyIncomeAmt": options[:term_year_annty_income_amt],
+            "termYearEmplmtIncomeAmt": options[:term_year_emplmt_income_amt],
+            "termYearOtherIncomeAmt": options[:term_year_other_income_amt],
+            "termYearSsaIncomeAmt": options[:term_year_ssa_income_amt]
           }
         },
-        ssn
+        options[:ssn]
       )
 
       response.body[:vnp_child_student_create_response][:return]
+    end
+
+    private
+
+    def child_student_create_required_fields
+      %i[
+        vnp_proc_id
+        vnp_ptcpnt_id
+        jrn_dt
+        jrn_lctn_id
+        jrn_obj_id
+        jrn_status_type_cd
+        jrn_user_id
+      ]
     end
   end
 end

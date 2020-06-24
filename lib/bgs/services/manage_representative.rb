@@ -6,7 +6,7 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-module LighthouseBGS
+module BGS
   # This service provides the VSO organization and POA details.
   #
   # updatePOARelationship    - Updates VNP tables with a new POA relationship based on actions taken within SEP.
@@ -14,7 +14,7 @@ module LighthouseBGS
   # Veteran and a VSO Organization or Personal Representative.
   #
 
-  class ManageRepresentativeWebService < LighthouseBGS::Base
+  class ManageRepresentativeWebService < BGS::Base
     def self.service_name
       'manage_representative'
     end

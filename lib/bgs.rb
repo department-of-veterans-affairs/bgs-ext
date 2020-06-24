@@ -6,17 +6,17 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-require 'lighthouse_bgs/base'
-require 'lighthouse_bgs/errors'
-require 'lighthouse_bgs/services'
+require 'bgs/base'
+require 'bgs/errors'
+require 'bgs/services'
 
-module LighthouseBGS
+module BGS
   class << self
     attr_accessor :configuration
   end
 
   def self.configure
-    self.configuration ||= LighthouseBGS::Configuration.new
+    self.configuration ||= BGS::Configuration.new
     yield(configuration)
   end
 

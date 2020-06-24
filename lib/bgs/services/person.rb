@@ -6,11 +6,11 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-module LighthouseBGS
+module BGS
   # This service is used to store information about individuals the VA is
   # interested in. This information may be kept permanently, removed or discarded
   # if appropriate.
-  class PersonWebService < LighthouseBGS::Base
+  class PersonWebService < BGS::Base
     # Plural of 'Person' is 'People' not 'Persons'
     def self.service_name
       'people'

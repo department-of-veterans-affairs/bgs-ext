@@ -15,30 +15,30 @@
 # organized like this to keep conceptual things at a glance, and then dig
 # in to the implementation(s) (really: declarations)
 
-require 'lighthouse_bgs/services/address'
-require 'lighthouse_bgs/services/awards'
-require 'lighthouse_bgs/services/benefit'
-require 'lighthouse_bgs/services/claimant'
-require 'lighthouse_bgs/services/corporate_update'
-require 'lighthouse_bgs/services/document'
-require 'lighthouse_bgs/services/manage_representative'
-require 'lighthouse_bgs/services/org'
-require 'lighthouse_bgs/services/person'
-require 'lighthouse_bgs/services/rating'
-require 'lighthouse_bgs/services/rating_comparison'
-require 'lighthouse_bgs/services/rating_profile'
-require 'lighthouse_bgs/services/standard_data'
-require 'lighthouse_bgs/services/vet_record'
-require 'lighthouse_bgs/services/veteran'
-require 'lighthouse_bgs/services/security'
+require 'bgs/services/address'
+require 'bgs/services/awards'
+require 'bgs/services/benefit'
+require 'bgs/services/claimant'
+require 'bgs/services/corporate_update'
+require 'bgs/services/document'
+require 'bgs/services/manage_representative'
+require 'bgs/services/org'
+require 'bgs/services/person'
+require 'bgs/services/rating'
+require 'bgs/services/rating_comparison'
+require 'bgs/services/rating_profile'
+require 'bgs/services/standard_data'
+require 'bgs/services/vet_record'
+require 'bgs/services/veteran'
+require 'bgs/services/security'
 
 # Now, we're going to declare a class to hide the actual creation of service
 # objects, since having to construct them all really sucks.
 
-module LighthouseBGS
+module BGS
   class Services
     def initialize(external_uid: , external_key: )
-      configuration = LighthouseBGS.configuration
+      configuration = BGS.configuration
       @config = { env: configuration.env,
                   application: configuration.application,
                   client_ip: configuration.client_ip,
@@ -57,10 +57,10 @@ module LighthouseBGS
     end
 
     def self.all
-      ObjectSpace.each_object(Class).select { |klass| klass < LighthouseBGS::Base }
+      ObjectSpace.each_object(Class).select { |klass| klass < BGS::Base }
     end
 
-    LighthouseBGS::Services.all.each do |service|
+    BGS::Services.all.each do |service|
       define_method(service.service_name) do
         service.new @config
       end
@@ -84,7 +84,7 @@ module LighthouseBGS
         claimants.find_flashes(ssn).nil?
       end
       true
-    rescue LighthouseBGS::ShareError
+    rescue BGS::ShareError
       false
     end
   end

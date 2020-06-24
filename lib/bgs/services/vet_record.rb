@@ -6,8 +6,8 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-module LighthouseBGS
-  class VetRecordWebService < LighthouseBGS::Base
+module BGS
+  class VetRecordWebService < BGS::Base
     def self.service_name
       'vet_record'
     end

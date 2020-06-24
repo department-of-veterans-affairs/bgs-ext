@@ -10,7 +10,7 @@ require 'savon'
 require 'nokogiri'
 require 'httpclient'
 
-module LighthouseBGS
+module BGS
   # This class is a base-class from which most Web Services will inherit.
   # This contains the basics of how to talk with the BGS SOAP API, in
   # particular, the VA's custom SOAP headers for auditing. As a bonus, it's
@@ -154,7 +154,7 @@ module LighthouseBGS
       if mock_responses
         raise "No identifier for mock response" if identifier.nil?
 
-        file_path = "#{LighthouseBGS.configuration.mock_response_location}/#{@service_name.underscore}/#{method}/#{identifier}.json"
+        file_path = "#{BGS.configuration.mock_response_location}/#{@service_name.underscore}/#{method}/#{identifier}.json"
         OpenStruct.new(body: JSON.parse(File.read(file_path)).with_indifferent_access)
       else
         client.call(method, message: message)
@@ -173,7 +173,7 @@ module LighthouseBGS
       message = error.to_hash[:fault][:detail][:share_exception][:message]
       code = error.http.code
 
-      raise LighthouseBGS::ShareError.new(message, code)
+      raise BGS::ShareError.new(message, code)
     # If any of the elements in this path are undefined, we will raise a NoMethodError.
     # Default to sending the original Savon::SOAPFault (or BGS::PublicError) in this case.
     rescue NoMethodError
@@ -182,7 +182,7 @@ module LighthouseBGS
       # Only extract the final clause of that error message for the public error.
       #
       # rubocop:disable Metrics/LineLength
-      raise(LighthouseBGS::PublicError, "#{Regexp.last_match(1)} in the Benefits Gateway Service (BGS). Contact your ISO if you need assistance gaining access to BGS.") if error.to_s =~ /(Logon ID .* Not Found)/
+      raise(BGS::PublicError, "#{Regexp.last_match(1)} in the Benefits Gateway Service (BGS). Contact your ISO if you need assistance gaining access to BGS.") if error.to_s =~ /(Logon ID .* Not Found)/
 
       # rubocop:enable Metrics/LineLength
       raise error

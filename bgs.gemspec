@@ -1,8 +1,8 @@
 Gem::Specification.new do |gem|
-  gem.name          = 'lighthouse_bgs'
-  gem.version       = '0.13.0'
+  gem.name          = 'bgs_ext'
+  gem.version       = '0.14.0'
   gem.summary       = 'Thin wrapper on top of savon to talk with BGS'
-  gem.description   = 'Thin wrapper on top of savon to talk with BGS'
+  gem.description   = 'Thin wrapper on top of savon to talk with BGS for external BGS consumers'
   gem.license       = 'CC0' # This work is a work of the US Federal Government,
   #               This work is Public Domain in the USA, and CC0 Internationally
 

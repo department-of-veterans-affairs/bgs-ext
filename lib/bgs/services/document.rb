@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module LighthouseBGS
-  class DocumentService < LighthouseBGS::Base
+module BGS
+  class DocumentService < BGS::Base
     def bean_name
       'DocumentService'
     end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module LighthouseBGS
-  class BenefitClaimWebService < LighthouseBGS::Base
+module BGS
+  class BenefitClaimWebService < BGS::Base
     def bean_name
       'BenefitClaimServiceBean'
     end

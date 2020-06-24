@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'lighthouse_bgs'
+require 'bgs'
 
 # rubocop:disable Metrics/BlockLength
-describe LighthouseBGS::Base do
+describe BGS::Base do
   let(:file_number) { '123456789' }
   let(:bgs_base) do
-    LighthouseBGS::TestBase.new(
+    BGS::TestBase.new(
       env: 'beplinktest',
       application: 'TEST_APP',
       client_ip: '127.0.0.1',
@@ -86,7 +86,7 @@ describe LighthouseBGS::Base do
       allow_any_instance_of(Savon::Client).to receive(:call).and_raise(soap_fault)
 
       expect { bgs_base.test_request(:method) }.to raise_error do |error|
-        expect(error.class).to eq LighthouseBGS::ShareError
+        expect(error.class).to eq BGS::ShareError
         expect(error.message).to eq message
         expect(error.code).to eq 500
         expect(error).to be_ignorable
@@ -116,7 +116,7 @@ describe LighthouseBGS::Base do
       allow_any_instance_of(Savon::Client).to receive(:call).and_raise(soap_fault)
 
       expect { bgs_base.test_request(:method) }.to raise_error do |error|
-        expect(error.class).to eq LighthouseBGS::ShareError
+        expect(error.class).to eq BGS::ShareError
         expect(error.message).to eq message
         expect(error.code).to eq 500
         expect(error).to_not be_ignorable
@@ -145,18 +145,36 @@ describe LighthouseBGS::Base do
     it 'BGS::Base raises a BGS::PublicError that has a public_message' do
       allow_any_instance_of(Savon::Client).to receive(:call).and_raise(soap_fault)
       expect { bgs_base.test_request(:method) }.to raise_error do |error|
-        expect(error).to be_a(LighthouseBGS::PublicError)
+        expect(error).to be_a(BGS::PublicError)
         expect(error).to respond_to(:public_message)
         expect(error.public_message).to eq(error_string)
       end
+    end
+  end
+
+  context 'base client' do
+    it 'should set the host based upon the forward proxy url' do
+      base = BGS::TestBase.new(
+        env: 'beplinktest',
+        application: 'TEST_APP',
+        client_ip: '127.0.0.1',
+        client_station_id: 283,
+        client_username: 'VACOUSERT',
+        forward_proxy_url: 'http://localhost:1337',
+        jumpbox_url: nil,
+        external_uid: 'mytestuid',
+        external_key: 'mytestkey',
+        log: true
+      )
+      expect(base.send(:client).wsdl.endpoint).to eq('http://localhost:1337/TestBaseBean/TestBase')
     end
   end
 end
 # rubocop:enable Metrics/BlockLength
 
 # Helper class to allow us to test BGS::Base's private request() method.
-module LighthouseBGS
-  class TestBase < LighthouseBGS::Base
+module BGS
+  class TestBase < BGS::Base
     def test_request(method, message = nil)
       request(method, message)
     end

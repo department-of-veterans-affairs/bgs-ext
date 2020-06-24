@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module LighthouseBGS
-  class SecurityWebService < LighthouseBGS::Base
+module BGS
+  class SecurityWebService < BGS::Base
     def self.service_name
       'security'
     end

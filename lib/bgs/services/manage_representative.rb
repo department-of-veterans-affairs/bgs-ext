@@ -19,6 +19,10 @@ module BGS
       'manage_representative'
     end
 
+    def bean_name
+      'VDC'
+    end
+
     def update_poa_relationship(date_request_accepted:, participant_id:, ssn:, poa_code:)
       response = request(
         :update_poa_relationship,

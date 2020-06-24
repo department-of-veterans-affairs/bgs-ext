@@ -1,15 +1,15 @@
-lighthouse-bgs
+bgs-ext
 ========
 
-`lighthouse-bgs` is a gem that helps developers within the VA connect to a set of
-VA internal webservices, the `BGS` (Benefits Gateway Services).
+`bgs-ext` is a gem that helps developers granted to be external consumers of the
+`BGS` (Benefits Gateway Services) service connect to a set of VA internal benefits related webservices,.
 
 
 Initial Setup
 -------------
 create an initializer
 ```ruby
-  LighthouseBGS.configure do |config|
+  BGS.configure do |config|
     config.application = 'APPNAME'
     config.client_ip = '127.0.0.1'
     config.client_station_id = '281'

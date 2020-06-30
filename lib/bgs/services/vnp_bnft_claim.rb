@@ -17,43 +17,12 @@ module BGS
     end
 
     def vnp_bnft_claim_create(options)
-    validate_required_keys(vnp_bnft_claim_create_required_fields, options, __method__.to_s)
+      validate_required_keys(vnp_bnft_claim_create_required_fields, options, __method__.to_s)
 
       response = request(
         :vnp_bnft_claim_create,
         {
-          "arg0": {
-            "vnpProcID": options[:vnp_proc_id],
-            "vnpBnftClaimId": options[:vnp_bnft_claim_id],
-            "bnftClaimTypeCd": options[:bnft_claim_type_cd],
-            "claimRcvdDt": options[:claim_rcvd_dt],
-            "jrnDt": options[:jrn_dt],
-            "jrnLctnId": options[:jrn_lctn_id],
-            "jrnObjId": options[:jrn_obj_id],
-            "jrnStatusTypeCd": options[:jrn_status_type_cd],
-            "jrnUserId": options[:jrn_user_id],
-            "pgmTypeCd": options[:pgm_type_cd],
-            "ptcpntClmantId": options[:ptcpnt_clmant_id],
-            "statusTypeCd": options[:status_type_cd],
-            "svcTypeCd": options[:svc_type_cd],
-            "applcnId": options[:applcn_id],
-            "atchmsInd": options[:atchms_ind],
-            "claimJrsdtnLctnId": options[:claim_jrsdtn_lctn_id],
-            "claimSuspnsDt": options[:claim_suspns_dt],
-            "endPrdctTypeCd": options[:end_prdct_type_cd],
-            "infrmlInd": options[:infrml_ind],
-            "intakeJrsdtnLctnId": options[:intake_jrsdtn_lctn_id],
-            "lastPaidDt": options[:last_paid_dt],
-            "payeeTypeCd": options[:payee_type_cd],
-            "ptcpntDpositAcntId": options[:ptcpnt_dposit_acnt_id],
-            "ptcpntVsrId": options[:ptcpnt_vsr_id],
-            "rmksTxt": options[:rmks_txt],
-            "ptcpntMailAddrsId": options[:ptcpnt_mail_addrs_id],
-            "ptcpntPymtAddrsId": options[:ptcpnt_pymt_addrs_id],
-            "termnlDigitNbr": options[:termnl_digit_nbr],
-            "vnpPtcpntVetId": options[:vnp_ptcpnt_vet_id],
-            "bnftClaimId": options[:bnft_claim_id]
-          }
+          'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) }
         },
         options[:ssn]
       )
@@ -62,43 +31,12 @@ module BGS
     end
 
     def vnp_bnft_claim_update(options)
-    validate_required_keys(vnp_bnft_claim_update_required_fields, options, __method__.to_s)
+      validate_required_keys(vnp_bnft_claim_update_required_fields, options, __method__.to_s)
 
       response = request(
         :vnp_bnft_claim_update,
         {
-          "arg0": {
-            "vnpBnftClaimId": options[:vnp_bnft_claim_id],
-            "bnftClaimTypeCd": options[:bnft_claim_type_cd],
-            "claimRcvdDt": options[:claim_rcvd_dt],
-            "jrnDt": options[:jrn_dt],
-            "jrnLctnId": options[:jrn_lctn_id],
-            "jrnObjId": options[:jrn_obj_id],
-            "jrnStatusTypeCd": options[:jrn_status_type_cd],
-            "jrnUserId": options[:jrn_user_id],
-            "pgmTypeCd": options[:pgm_type_cd],
-            "ptcpntClmantId": options[:ptcpnt_clmant_id],
-            "statusTypeCd": options[:status_type_cd],
-            "svcTypeCd": options[:svc_type_cd],
-            "vnpProcID": options[:vnp_proc_id],
-            "applcnId": options[:applcn_id],
-            "atchmsInd": options[:atchms_ind],
-            "claimJrsdtnLctnId": options[:claim_jrsdtn_lctn_id],
-            "claimSuspnsDt": options[:claim_suspns_dt],
-            "endPrdctTypeCd": options[:end_prdct_type_cd],
-            "infrmlInd": options[:infrml_ind],
-            "intakeJrsdtnLctnId": options[:intake_jrsdtn_lctn_id],
-            "lastPaidDt": options[:last_paid_dt],
-            "payeeTypeCd": options[:payee_type_cd],
-            "ptcpntDpositAcntId": options[:ptcpnt_dposit_acnt_id],
-            "ptcpntVsrId": options[:ptcpnt_vsr_id],
-            "rmksTxt": options[:rmks_txt],
-            "ptcpntMailAddrsId": options[:ptcpnt_mail_addrs_id],
-            "ptcpntPymtAddrsId": options[:ptcpnt_pymt_addrs_id],
-            "termnlDigitNbr": options[:termnl_digit_nbr],
-            "vnpPtcpntVetId": options[:vnp_ptcpnt_vet_id],
-            "bnftClaimId": options[:bnft_claim_id]
-          }
+          'arg0':  options.transform_keys{ |key| key.to_s.camelcase(:lower) }
         },
         options[:ssn]
       )

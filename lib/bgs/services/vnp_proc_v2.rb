@@ -27,20 +27,7 @@ module BGS
       response = request(
         :vnp_proc_create,
         {
-          "arg0": {
-            "vnpProcId": options[:vnp_proc_id],
-            "vnpProcTypeCd": options[:vnp_proc_type_cd],
-            "vnpProcStateTypeCd": options[:vnp_proc_state_type_cd],
-            "creatdDt": options[:creatd_dt],
-            "lastModifdDt": options[:last_modifd_dt],
-            "jrnDt": options[:jrn_dt],
-            "jrnLctnId": options[:jrn_lctn_id],
-            "jrnStatusTypeCd": options[:jrn_status_type_cd],
-            "jrnUserId": options[:jrn_user_id],
-            "jrnObjId": options[:jrn_obj_id],
-            "submtdDt": options[:submtd_dt],
-            "applcnFormExprtnDt": options[:applcn_form_exprtn_dt]
-          }
+          'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) }
         },
         options[:ssn]
       )
@@ -53,18 +40,7 @@ module BGS
       response = request(
         :vnp_proc_update,
         {
-          "arg0": {
-            "vnpProcId": options[:vnp_proc_id],
-            "jrnDt": options[:jrn_dt],
-            "jrnLctnId": options[:jrn_lctn_id],
-            "jrnObjId": options[:jrn_obj_id],
-            "jrnStatusTypeCd": options[:jrn_status_type_cd],
-            "jrnUserId": options[:jrn_user_id],
-            "creatdDt": options[:creatd_dt],
-            "lastModifdDt": options[:last_modifd_dt],
-            "submtdDt": options[:submtd_dt],
-            "applcnFormExprtnDt": options[:applcn_form_exprtn_dt]
-          }
+          'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) }
         },
         options[:ssn]
       )

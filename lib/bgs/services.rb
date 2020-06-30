@@ -30,6 +30,16 @@ require 'bgs/services/rating_profile'
 require 'bgs/services/standard_data'
 require 'bgs/services/vet_record'
 require 'bgs/services/veteran'
+require 'bgs/services/vnp_bnft_claim'
+require 'bgs/services/vnp_child_school'
+require 'bgs/services/vnp_child_student'
+require 'bgs/services/vnp_person'
+require 'bgs/services/vnp_proc_form'
+require 'bgs/services/vnp_proc_v2'
+require 'bgs/services/vnp_ptcpnt'
+require 'bgs/services/vnp_ptcpnt_addrs'
+require 'bgs/services/vnp_ptcpnt_phone'
+require 'bgs/services/vnp_ptcpnt_rlnshp'
 require 'bgs/services/security'
 
 # Now, we're going to declare a class to hide the actual creation of service
@@ -37,7 +47,7 @@ require 'bgs/services/security'
 
 module BGS
   class Services
-    def initialize(external_uid: , external_key: )
+    def initialize(external_uid:, external_key:)
       configuration = BGS.configuration
       @config = { env: configuration.env,
                   application: configuration.application,
@@ -53,7 +63,7 @@ module BGS
                   external_uid: external_uid,
                   external_key: external_key,
                   mock_responses: configuration.mock_responses,
-                  ssl_verify_mode: configuration.ssl_verify_mode}
+                  ssl_verify_mode: configuration.ssl_verify_mode }
     end
 
     def self.all

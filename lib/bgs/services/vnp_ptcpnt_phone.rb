@@ -22,24 +22,7 @@ module BGS
       response = request(
         :vnp_ptcpnt_phone_create,
         {
-          "arg0": {
-            vnpPtcpntPhoneId: options[:vnp_ptcpnt_phone_id],
-            vnpProcId: options[:vnp_proc_id],
-            vnpPtcpntId: options[:vnp_ptcpnt_id],
-            phoneTypeNm: options[:phone_type_nm],
-            phoneNbr: options[:phone_nbr],
-            efctvDt: options[:efctv_dt],
-            endDt: options[:end_dt],
-            areaNbr: options[:area_nbr],
-            cntryNbr: options[:cntry_nbr],
-            frgnPhoneRfrncTxt: options[:frgn_phone_rfrnc_txt],
-            extnsnNbr: options[:extnsn_nbr],
-            jrnDt: options[:jrn_dt],
-            jrnLctnId: options[:jrn_lctn_id],
-            jrnUserId: options[:jrn_user_id],
-            jrnStatusTypeCd: options[:jrn_status_type_cd],
-            jrnObjId: options[:jrn_obj_id]
-          }
+          'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) }
         },
         options[:ssn]
       )

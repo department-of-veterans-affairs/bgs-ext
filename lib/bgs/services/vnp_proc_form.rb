@@ -18,7 +18,7 @@ module BGS
 
     def vnp_proc_form_find_by_primary_key(vnp_proc_id, form_type_cd)
       response = request(:vnp_proc_form_find_by_primary_key, { "vnpProcId": vnp_proc_id, "formTypeCd": form_type_cd })
-      response = response.body[:vnp_proc_form_find_by_primary_key_response][:return]
+      response.body[:vnp_proc_form_find_by_primary_key_response][:return]
     end
 
     def vnp_proc_form_create(options)

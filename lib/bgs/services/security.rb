@@ -7,7 +7,7 @@
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
 module BGS
-  class SecurityWebService < LighthouseBGS::Base
+  class SecurityWebService < BGS::Base
     def self.service_name
       'security'
     end

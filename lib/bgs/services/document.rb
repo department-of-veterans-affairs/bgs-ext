@@ -7,7 +7,7 @@
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
 module BGS
-  class DocumentService < LighthouseBGS::Base
+  class DocumentService < BGS::Base
     def bean_name
       'DocumentService'
     end

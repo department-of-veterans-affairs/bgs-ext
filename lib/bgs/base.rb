@@ -59,6 +59,10 @@ module BGS
       name + 's'
     end
 
+    def healthy?
+      client.operations.any? rescue false
+    end
+
     private
 
     def validate_required_keys(required_keys, provided_hash, call)

@@ -59,10 +59,8 @@ module BGS
       name + 's'
     end
 
-    def healthcheck?
-      request(wsdl) ? true : false
-    rescue
-      false
+    def healthy?
+      client.operations.any? rescue false
     end
 
     private

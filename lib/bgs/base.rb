@@ -155,6 +155,12 @@ module BGS
       @client ||= Savon.client(options)
     end
 
+    def healtcheck?
+      request(wsdl) ? true : false
+    rescue
+      false
+    end
+
     # Proxy to call a method on our web service.
     def request(method, message = nil, identifier = nil)
       if mock_responses

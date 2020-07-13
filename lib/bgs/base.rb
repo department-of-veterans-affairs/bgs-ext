@@ -59,6 +59,12 @@ module BGS
       name + 's'
     end
 
+    def healthcheck?
+      request(wsdl) ? true : false
+    rescue
+      false
+    end
+
     private
 
     def validate_required_keys(required_keys, provided_hash, call)
@@ -153,12 +159,6 @@ module BGS
       }
       options[:endpoint] = endpoint unless @forward_proxy_url.nil?
       @client ||= Savon.client(options)
-    end
-
-    def healtcheck?
-      request(wsdl) ? true : false
-    rescue
-      false
     end
 
     # Proxy to call a method on our web service.

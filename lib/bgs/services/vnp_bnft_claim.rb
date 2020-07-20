@@ -19,7 +19,7 @@ module BGS
     def vnp_bnft_claim_create(options)
       validate_required_keys(vnp_bnft_claim_create_required_fields, options, __method__.to_s)
 
-      # we are doing this because in this call because BGS breaks camelCase convention (vnpProcID)
+      # we are doing this because in this call, BGS breaks camelCase convention (vnpProcID)
       payload_hash = { 'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) } }
       convert_proc = payload_hash[:arg0]['vnpProcID'] = payload_hash[:arg0].delete('vnpProcId')
 

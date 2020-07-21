@@ -20,14 +20,8 @@ module BGS
       validate_required_keys(vnp_bnft_claim_create_required_fields, options, __method__.to_s)
 
       # we are doing this because in this call, BGS breaks camelCase convention (vnpProcID)
-      payload_hash = { 'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) } }
-      convert_proc = payload_hash[:arg0]['vnpProcID'] = payload_hash[:arg0].delete('vnpProcId')
-
-      response = request(
-        :vnp_bnft_claim_create,
-        payload_hash,
-        options[:ssn]
-      )
+      payload_hash = converted_payload_hash({ 'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) } })
+      response = request(:vnp_bnft_claim_create, payload_hash, options[:ssn])
 
       response.body[:vnp_bnft_claim_create_response][:return]
     end
@@ -35,11 +29,11 @@ module BGS
     def vnp_bnft_claim_update(options)
       validate_required_keys(vnp_bnft_claim_update_required_fields, options, __method__.to_s)
 
+      # we are doing this because in this call, BGS breaks camelCase convention (vnpProcID)
+      payload_hash = converted_payload_hash({ 'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) } })
       response = request(
         :vnp_bnft_claim_update,
-        {
-          'arg0':  options.transform_keys{ |key| key.to_s.camelcase(:lower) }
-        },
+        payload_hash,
         options[:ssn]
       )
 
@@ -47,6 +41,11 @@ module BGS
     end
 
     private
+
+    def converted_payload_hash(payload_hash)
+      payload_hash[:arg0]['vnpProcID'] = payload_hash[:arg0].delete('vnpProcId')
+      payload_hash
+    end
 
     def vnp_bnft_claim_create_required_fields
       %i[

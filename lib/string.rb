@@ -60,7 +60,7 @@ class String
 
     return transformed_words.join('') if was_transformed_with_special_rule.first || mode == :upper
 
-    [transformed_words.first.uncapitalize, *transformed_words[1..-1]].join('')
+    [words.first.uncapitalize, *transformed_words[1..-1]].join('')
   end
 
   def uncapitalize

@@ -10,6 +10,12 @@ require_relative('../../string.rb')
 
 module BGS
   class VnpBnftClaimService < BGS::Base
+    class << self
+      def camelize(string)
+        string.camelize(:lower, /id/i => 'ID') # not ActiveSupport camelize
+      end
+    end
+
     def bean_name
       'VnpBnftClaimWebServiceBean'
     end
@@ -24,7 +30,7 @@ module BGS
       response = request(
         :vnp_bnft_claim_create,
         {
-          'arg0': options.transform_keys { |key| key.to_s.camelize(:lower, /id/i => 'ID') }
+          'arg0': options.transform_keys { |key| self.class.camelize(key.to_s) }
         },
         options[:ssn]
       )
@@ -38,7 +44,7 @@ module BGS
       response = request(
         :vnp_bnft_claim_update,
         {
-          'arg0':  options.transform_keys{ |key| key.to_s.camelize(:lower, /id/i => 'ID') }
+          'arg0': options.transform_keys { |key| self.class.camelize(key.to_s) }
         },
         options[:ssn]
       )

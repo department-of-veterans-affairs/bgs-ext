@@ -6,6 +6,8 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
+require_relative('../../string.rb')
+
 module BGS
   class VnpProcFormService < BGS::Base
     def bean_name

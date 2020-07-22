@@ -15,13 +15,24 @@ class String
   #
   # after the first arg, special transformation rules can be specified as key and value
   #
-  # example:
+  # examples:
+  # 
+  #   'hello_there'.camelize # 'HelloThere'
+  #   'hello_there'.camelize(:lower) # 'helloThere'
+  #   'hello_there'.camelize(:upper) # 'HelloThere'
+  # 
+  #  transformation rules:  matcher => replacement
   #
-  # 'the_cat_location'.camelize(:upper, 'cat' => 'DOG') # 'theDOGLocation'
-  # 'tRaNsaction_iD'.camelize(:upper, /transaction/i => 'transaction', /id/i => :ID) # 'transactionID'
+  #   'the_cat_sweater'.camelize(:upper, cat: :Dog) # 'TheDogSweater'
+  #   'the_cat_sweater'.camelize(:upper, Cat: :Dog) # 'TheCatSweater' ('Cat' didn't match 'cat')
+  # 
+  #  matchers can be Regexp
   #
-  # NOTE: a transformation rule overides :upper or :lower
-  # 'hello_there'.camelize(:upper, 'hello' => 'hello') # helloThere
+  #   'transaction_iD'.camelize(:lower, /id/i => :ID) # 'transactionID'
+  # 
+  #  NOTE: a transformation rule overrides :upper or :lower
+  #
+  #   'hello_there'.camelize(:upper, 'hello' => 'hi') # hiThere (notice it's not 'HiThere')
 
   def camelize(mode = DEFAULT_CAMELIZE_MODE, special_rules = {})
     camelize__validate_mode mode

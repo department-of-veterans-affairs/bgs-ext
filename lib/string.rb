@@ -23,7 +23,15 @@ class String
   # 
   #  transformation rules:  matcher => replacement
   #
+  #   'the_cat_sweater'.camelize(:upper, 'cat' => 'Dog') # 'TheDogSweater'
+  #
+  #  symbols get converted to strings
+  #
   #   'the_cat_sweater'.camelize(:upper, cat: :Dog) # 'TheDogSweater'
+  #
+  #  watch out for the case
+  #
+  #   'the_cat_sweater'.camelize(:upper, 'cat' => 'dog') # 'ThedogSweater'
   #   'the_cat_sweater'.camelize(:upper, Cat: :Dog) # 'TheCatSweater' ('Cat' didn't match 'cat')
   # 
   #  matchers can be Regexp

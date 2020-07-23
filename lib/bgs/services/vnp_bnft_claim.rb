@@ -8,12 +8,6 @@
 
 module BGS
   class VnpBnftClaimService < BGS::Base
-    class << self
-      def camelize(string)
-        BGS::String.new(string).to_bgs_key(:lower)
-      end
-    end
-
     def bean_name
       'VnpBnftClaimWebServiceBean'
     end
@@ -28,7 +22,7 @@ module BGS
       response = request(
         :vnp_bnft_claim_create,
         {
-          'arg0': options.transform_keys { |key| self.class.camelize(key.to_s) }
+          'arg0': options.transform_keys { |key| BGS::String.new(key.to_s).to_bgs_key(:lower) }
         },
         options[:ssn]
       )
@@ -42,7 +36,7 @@ module BGS
       response = request(
         :vnp_bnft_claim_update,
         {
-          'arg0': options.transform_keys { |key| self.class.camelize(key.to_s) }
+          'arg0': options.transform_keys { |key| BGS::String.new(key.to_s).to_bgs_key(:lower) }
         },
         options[:ssn]
       )

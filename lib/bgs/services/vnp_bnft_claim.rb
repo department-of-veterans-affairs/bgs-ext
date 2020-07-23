@@ -6,13 +6,11 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-require_relative('../../string.rb')
-
 module BGS
   class VnpBnftClaimService < BGS::Base
     class << self
       def camelize(string)
-        string.camelize(:lower, /id/i => 'ID') # not ActiveSupport camelize
+        BGS::String.new(string).to_bgs_key(:lower)
       end
     end
 

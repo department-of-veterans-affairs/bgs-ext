@@ -6,8 +6,6 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-require_relative('../../string.rb')
-
 module BGS
   class VnpPtcpntService < BGS::Base
     def bean_name
@@ -116,7 +114,6 @@ module BGS
         ssn
       ]
     end
-
 
     def vnp_ptcpnt_addrs_create_required_keys
       %i[

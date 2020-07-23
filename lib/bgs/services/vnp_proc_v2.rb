@@ -6,8 +6,6 @@
 # Additionally, we waive copyright and related rights in the work
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
-require_relative('../../string.rb')
-
 module BGS
   class VnpProcServiceV2 < BGS::Base
     def bean_name
@@ -29,7 +27,7 @@ module BGS
       response = request(
         :vnp_proc_create,
         {
-          'arg0': options.transform_keys { |key| key.to_s.camelize(:lower) }
+          'arg0': options.transform_keys { |key| BGS::String.new(key.to_s).camelize(:lower) }
         },
         options[:ssn]
       )
@@ -42,7 +40,7 @@ module BGS
       response = request(
         :vnp_proc_update,
         {
-          'arg0': options.transform_keys { |key| key.to_s.camelize(:lower) }
+          'arg0': options.transform_keys { |key| BGS::String.new(key.to_s).camelize(:lower) }
         },
         options[:ssn]
       )

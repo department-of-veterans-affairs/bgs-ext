@@ -44,7 +44,7 @@ module BGS
     # findDependentsByPtcpntId (shrinq3)
     #   finds the dependents related to a participant ID
     def find_dependents_by_participant_id(id, ssn)
-      response = request(:find_dependents_by_ptcpnt_id, {'ptcpntId': id}, ssn)
+      response = request(:find_dependents_by_ptcpnt_id, { 'ptcpntId': id }, ssn)
       response.body[:find_dependents_by_ptcpnt_id_response][:return]
     end
   end

@@ -29,7 +29,7 @@ module BGS
       converter ||= IDENTITY_FUNCTION
       converter_for_the_first_word ||= converter
 
-      words = snake_case_string.split('_')
+      words = snake_case_string.to_s.split('_')
 
       return '' if words.empty?
 

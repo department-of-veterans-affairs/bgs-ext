@@ -21,6 +21,12 @@ describe BGS::StringUtils do
         BGS::StringUtils.camelize 'thE_qUiCk_bRown_foX', :lower
       ).to eq 'thEQuickBrownFox'
     end
+
+    it 'handles symbols' do
+      expect(
+        BGS::StringUtils.camelize :charley_wanted_this
+      ).to eq 'CharleyWantedThis'
+    end
   end
 
   describe '.camelize_but_use_ID_for_id' do

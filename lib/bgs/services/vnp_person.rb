@@ -22,7 +22,7 @@ module BGS
       response = request(
         :vnp_person_create,
         {
-          'arg0': options.transform_keys { |key| StringUtils.camelize(key.to_s, :lower) }
+          'arg0': options.transform_keys { |key| StringUtils.camelize(key, :lower) }
         },
         options[:ssn]
       )

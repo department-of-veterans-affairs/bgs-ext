@@ -95,7 +95,7 @@ describe BGS::StringUtils do
         BGS::StringUtils.snake_case_converter('the_quick_brown_fox', '', &:capitalize)
       ).to eq 'TheQuickBrownFox'
       # ^^^ this is close to ActiveSupport's camelize(:upper), but not 100%
-      # Technically, ActiveSupport applies different a rule to the first word:
+      # Technically, ActiveSupport applies a different rule to the first word:
       # ActiveSupport capitalizes words[1..-1]
       # (capitalize is: downcase entire string, upcase first character),
       # and simply upcases the first character of the first word

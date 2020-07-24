@@ -9,6 +9,7 @@
 require 'bgs/base'
 require 'bgs/errors'
 require 'bgs/services'
+require 'bgs/string_utils'
 
 module BGS
   class << self

@@ -23,6 +23,5 @@ module BGS
       response = request(:find_rating_data, 'fileNumber': file_number)
       response.body[:find_rating_data_response][:return]
     end
-
   end
 end

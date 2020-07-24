@@ -115,7 +115,6 @@ module BGS
       ]
     end
 
-
     def vnp_ptcpnt_addrs_create_required_keys
       %i[
         jrn_dt

@@ -22,7 +22,7 @@ module BGS
       response = request(
         :vnp_ptcpnt_phone_create,
         {
-          'arg0': options.transform_keys { |key| key.to_s.camelcase(:lower) }
+          'arg0': options.transform_keys { |key| StringUtils.camelize(key, :lower) }
         },
         options[:ssn]
       )

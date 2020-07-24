@@ -27,7 +27,7 @@ module BGS
       response = request(
         :vnp_proc_create,
         {
-          'arg0': options.transform_keys { |key| BGS::String.new(key.to_s).camelize(:lower) }
+          'arg0': options.transform_keys { |key| StringUtils.camelize(key.to_s, :lower) }
         },
         options[:ssn]
       )
@@ -40,7 +40,7 @@ module BGS
       response = request(
         :vnp_proc_update,
         {
-          'arg0': options.transform_keys { |key| BGS::String.new(key.to_s).camelize(:lower) }
+          'arg0': options.transform_keys { |key| StringUtils.camelize(key.to_s, :lower) }
         },
         options[:ssn]
       )

@@ -22,7 +22,7 @@ module BGS
       response = request(
         :vnp_bnft_claim_create,
         {
-          'arg0': options.transform_keys { |key| BGS::String.new(key.to_s).to_bgs_key(:lower) }
+          'arg0': options.transform_keys { |key| StringUtils.to_bgs_key(key.to_s, :lower) }
         },
         options[:ssn]
       )
@@ -36,7 +36,7 @@ module BGS
       response = request(
         :vnp_bnft_claim_update,
         {
-          'arg0': options.transform_keys { |key| BGS::String.new(key.to_s).to_bgs_key(:lower) }
+          'arg0': options.transform_keys { |key| StringUtils.to_bgs_key(key.to_s, :lower) }
         },
         options[:ssn]
       )

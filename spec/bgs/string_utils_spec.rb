@@ -22,10 +22,10 @@ describe BGS::StringUtils do
       ).to eq 'thEQuickBrownFox'
     end
 
-    it 'handles symbols' do
+    it 'handles anything that responds to .to_s' do
       expect(
-        BGS::StringUtils.camelize :charley_wanted_this
-      ).to eq 'CharleyWantedThis'
+        BGS::StringUtils.camelize :i_am_a_symbol
+      ).to eq 'IAmASymbol'
     end
   end
 

@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name          = 'bgs_ext'
-  gem.version       = '0.14.2'
+  gem.version       = '0.14.3'
   gem.summary       = 'Thin wrapper on top of savon to talk with BGS'
   gem.description   = 'Thin wrapper on top of savon to talk with BGS for external BGS consumers'
   gem.license       = 'CC0' # This work is a work of the US Federal Government,
@@ -13,6 +13,9 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'httpclient'
   gem.add_runtime_dependency 'nokogiri', '>= 1.8.5'
   gem.add_runtime_dependency 'savon', '~> 2.12'
+  gem.add_development_dependency 'rspec', '~> 3.9.0'
+  gem.add_development_dependency 'vcr', '~> 6.0.0'
+  gem.add_development_dependency 'webmock', '~> 3.8.3'
 
   gem.files         = Dir['lib/**/*.rb']
   gem.require_paths = ['lib']

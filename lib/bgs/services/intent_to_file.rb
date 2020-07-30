@@ -54,7 +54,7 @@ module BGS
                 "createDt": options[:created_date],
                 "intentToFileId": options[:intent_to_file_id],
                 "itfStatusTypeCd": options[:intent_to_file_status_code],
-                "itf_type_cd": options[:intent_to_file_type_code],
+                "itfTypeCd": options[:intent_to_file_type_code],
                 "rcvdDt": options[:received_date],
                 "submtrAppIcnTypeCd": options[:submitter_application_icn_type_code],
                 "vetFileNbr": options[:veteran_file_number]

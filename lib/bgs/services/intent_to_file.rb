@@ -20,7 +20,7 @@ module BGS
       response = request(
         :find_intent_to_file_by_ptcpnt_id, 'ptcpntId': participant_id
       )
-      response.body[:find_intent_to_file_by_ptcpnt_id_response][:return]
+      response.body[:find_intent_to_file_by_ptcpnt_id_response][:intent_to_file_dto]
     end
 
     def insert_intent_to_file(options)

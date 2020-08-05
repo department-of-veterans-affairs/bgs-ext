@@ -31,16 +31,18 @@ module BGS
         {
           "intentToFileDTO": {
             "itfTypeCd": options[:intent_to_file_type_code],
-            "ptcpntClaimantId": options[:participant_claimant_id],
+            "ptcpntClmantId": options[:participant_claimant_id],
             "ptcpntVetId": options[:participant_vet_id],
             "rcvdDt": options[:received_date],
             "signtrInd": options[:signature_indicated],
-            "submtrAppIcnTypeCd": options[:submitter_application_icn_type_code]
+            "submtrApplcnTypeCd": options[:submitter_application_icn_type_code],
+            "jrnExtnlKetTxt": options[:journal_external_key],
+
           }
         },
         options[:ssn]
       )
-      response.body[:insert_intent_to_file_response][:return]
+      response.body[:insert_intent_to_file_response][:intent_to_file_dto]
     end
 
     def update_intent_to_file(options)

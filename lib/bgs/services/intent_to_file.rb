@@ -11,11 +11,11 @@ module BGS
     def bean_name
       'IntentToFileWebServiceBean'
     end
-  
+
     def self.service_name
       'intent_to_file'
     end
-  
+
     def find_intent_to_file_by_participant_id(participant_id)
       response = request(
         :find_intent_to_file_by_ptcpnt_id, 'ptcpntId': participant_id
@@ -25,49 +25,48 @@ module BGS
 
     def insert_intent_to_file(options)
       validate_required_keys(required_insert_intent_to_file_fields, options, __method__.to_s)
-  
+
       response = request(
-          :insert_intent_to_file,
-          {
-            "intentToFileDTO": {
-              "itf_type_cd": options[:intent_to_file_type_code],
-              "ptcpntClaimantId": options[:participant_claimant_id],
-              "ptcpntVetId": options[:participant_vet_id],
-              "rcvdDt": options[:received_date],
-              "signtrInd": options[:signature_indicated],
-              "submtrAppIcnTypeCd": options[:submitter_application_icn_type_code]
-            }
-          },
-          options[:ssn]
-        )
-  
+        :insert_intent_to_file,
+        {
+          "intentToFileDTO": {
+            "itfTypeCd": options[:intent_to_file_type_code],
+            "ptcpntClaimantId": options[:participant_claimant_id],
+            "ptcpntVetId": options[:participant_vet_id],
+            "rcvdDt": options[:received_date],
+            "signtrInd": options[:signature_indicated],
+            "submtrAppIcnTypeCd": options[:submitter_application_icn_type_code]
+          }
+        },
+        options[:ssn]
+      )
       response.body[:insert_intent_to_file_response][:return]
     end
 
     def update_intent_to_file(options)
       validate_required_keys(required_update_intent_to_file_fields, options, __method__.to_s)
-    
+
       response = request(
-            :update_intent_to_file,
-            {
-              "intentToFileDTO": {
-                "createDt": options[:created_date],
-                "intentToFileId": options[:intent_to_file_id],
-                "itfStatusTypeCd": options[:intent_to_file_status_code],
-                "itfTypeCd": options[:intent_to_file_type_code],
-                "rcvdDt": options[:received_date],
-                "submtrAppIcnTypeCd": options[:submitter_application_icn_type_code],
-                "vetFileNbr": options[:veteran_file_number]
-              }
-            },
-            options[:ssn]
-          )
-    
+        :update_intent_to_file,
+        {
+          "intentToFileDTO": {
+            "createDt": options[:created_date],
+            "intentToFileId": options[:intent_to_file_id],
+            "itfStatusTypeCd": options[:intent_to_file_status_code],
+            "itfTypeCd": options[:intent_to_file_type_code],
+            "rcvdDt": options[:received_date],
+            "submtrAppIcnTypeCd": options[:submitter_application_icn_type_code],
+            "vetFileNbr": options[:veteran_file_number]
+          }
+        },
+        options[:ssn]
+      )
+
       response.body[:update_intent_to_file_response][:return]
     end
-  
+
     private
-  
+
     def required_insert_intent_to_file_fields
       %i[
         intent_to_file_type_code

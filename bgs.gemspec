@@ -13,6 +13,9 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'httpclient'
   gem.add_runtime_dependency 'nokogiri', '>= 1.8.5'
   gem.add_runtime_dependency 'savon', '~> 2.12'
+  gem.add_development_dependency 'rspec', '~> 3.9.0'
+  gem.add_development_dependency 'vcr', '~> 6.0.0'
+  gem.add_development_dependency 'webmock', '~> 3.8.3'
 
   gem.files         = Dir['lib/**/*.rb']
   gem.require_paths = ['lib']

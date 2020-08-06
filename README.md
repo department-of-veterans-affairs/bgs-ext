@@ -34,8 +34,11 @@ Example Usage
 ```ruby
 require 'bgs'
 
-bgs = BGS::Services.new
-puts bgs.people.find_by_ssn "9999999999"
+service = BGS::Services.new(
+        external_uid: 'something',
+        external_key: 'something'
+      )
+puts service.people.find_by_ssn "9999999999"
 ```
 
 

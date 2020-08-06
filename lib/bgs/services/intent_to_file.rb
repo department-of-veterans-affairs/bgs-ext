@@ -35,8 +35,7 @@ module BGS
             "ptcpntVetId": options[:participant_vet_id],
             "rcvdDt": options[:received_date],
             "signtrInd": options[:signature_indicated],
-            "submtrApplcnTypeCd": options[:submitter_application_icn_type_code],
-            "jrnExtnlKetTxt": options[:journal_external_key],
+            "submtrApplcnTypeCd": options[:submitter_application_icn_type_code]
 
           }
         },
@@ -58,13 +57,15 @@ module BGS
             "itfTypeCd": options[:intent_to_file_type_code],
             "rcvdDt": options[:received_date],
             "submtrAppIcnTypeCd": options[:submitter_application_icn_type_code],
+            "submtrApplcnTypeCd": options[:submitter_application_icn_type_code],
+            "ptcpntVetId": options[:participant_vet_id],
+            "ptcpntClmantId": options[:participant_claimant_id],
             "vetFileNbr": options[:veteran_file_number]
           }
         },
         options[:ssn]
       )
-
-      response.body[:update_intent_to_file_response][:return]
+      response.body[:update_intent_to_file_response][:intent_to_file_dto]
     end
 
     private
@@ -82,9 +83,7 @@ module BGS
 
     def required_update_intent_to_file_fields
       %i[
-        created_date
         intent_to_file_id
-        intent_to_file_status_code
         intent_to_file_type_code
         received_date
         submitter_application_icn_type_code

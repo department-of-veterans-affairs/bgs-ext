@@ -96,5 +96,44 @@ describe BGS::IntentToFileWebService do
         expect(response[:submtr_applcn_type_cd]).to eq('VETS.GOV')
       end
     end
+
+    it 'get find_intent_to_file_by_participant_id with type' do
+      VCR.use_cassette('intent_to_file/find_intent_to_file_by_participant_id_itf_type_cd') do
+        response = service.intent_to_file.find_intent_to_file_by_ptcpnt_id_itf_type_cd('13367440', 'P')
+        puts response.inspect
+        expect(response[:clmant_addrs_one_txt]).to eq('123 WEST HIGH PKWY')
+        expect(response[:clmant_addrs_two_txt]).to eq('SUITE 100')
+        expect(response[:clmant_city_nm]).to eq('FAIRFAX')
+        expect(response[:clmant_cntry_nm]).to eq('USA')
+        expect(response[:clmant_first_nm]).to eq('Mark')
+        expect(response[:clmant_last_nm]).to eq('Webb')
+        expect(response[:clmant_phone_area_nbr]).to eq('202')
+        expect(response[:clmant_phone_nbr]).to eq('3333331')
+        expect(response[:clmant_ssn]).to eq('796104437')
+        expect(response[:clmant_state_cd]).to eq('VA')
+        expect(response[:clmant_zip_cd]).to eq('22314')
+        expect(response[:create_dt].to_s).to eq('2020-01-08T12:05:37-06:00')
+        expect(response[:exprtn_dt].to_s).to eq('2021-01-08T12:05:35-06:00')
+        expect(response[:gender_cd]).to eq('M')
+        expect(response[:intent_to_file_id]).to eq('180347')
+        expect(response[:itf_status_type_cd]).to eq('Active')
+        expect(response[:itf_type_cd]).to eq('P')
+        expect(response[:jrn_dt].to_s).to eq('2020-01-08T12:05:37-06:00')
+        expect(response[:jrn_lctn_id]).to eq('328')
+        expect(response[:jrn_obj_id]).to eq('CRMUD')
+        expect(response[:jrn_status_type_cd]).to eq('I')
+        expect(response[:jrn_user_id]).to eq('281TUSER06')
+        expect(response[:ptcpnt_clmant_id]).to eq('13367440')
+        expect(response[:ptcpnt_vet_id]).to eq('13367440')
+        expect(response[:rcvd_dt].to_s).to eq('2020-01-08T12:05:35-06:00')
+        expect(response[:signtr_ind]).to eq('Y')
+        expect(response[:status_dt].to_s).to eq('2020-01-08T12:05:37-06:00')
+        expect(response[:submtr_applcn_type_cd]).to eq('CRM')
+        expect(response[:vet_file_nbr]).to eq('796104437')
+        expect(response[:vet_first_nm]).to eq('Mark')
+        expect(response[:vet_last_nm]).to eq('Webb')
+        expect(response[:vet_ssn_nbr]).to eq('796104437')
+      end
+    end
   end
 end

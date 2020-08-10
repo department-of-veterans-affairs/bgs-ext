@@ -68,6 +68,13 @@ module BGS
       response.body[:update_intent_to_file_response][:intent_to_file_dto]
     end
 
+    def find_intent_to_file_by_ptcpnt_id_itf_type_cd(participant_id, itf_type)
+      response = request(
+        :find_intent_to_file_by_ptcpnt_id_itf_type_cd, 'ptcpntId': participant_id, 'itfTypeCd': itf_type
+      )
+      response.body[:find_intent_to_file_by_ptcpnt_id_itf_type_cd_response][:intent_to_file_dto]
+    end
+
     private
 
     def required_insert_intent_to_file_fields

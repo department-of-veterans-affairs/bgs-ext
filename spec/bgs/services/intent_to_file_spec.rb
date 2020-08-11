@@ -135,5 +135,19 @@ describe BGS::IntentToFileWebService do
         expect(response[:vet_ssn_nbr]).to eq('796104437')
       end
     end
+
+    it 'no thingy' do
+      VCR.use_cassette('intent_to_file/find_intent_to_file_by_participant_id_no') do
+        options = {
+          intent_to_file_type_code: 'C',
+          participant_claimant_id: 13367440,
+          participant_vet_id: 13367440,
+          received_date: '2020-08-04T10:11:14-06:00',
+          submitter_application_icn_type_code: 'VETS.GOV'
+        }
+        response = service.intent_to_file.insert_intent_to_file(options)
+        puts response.inspect
+      end
+    end
   end
 end

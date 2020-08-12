@@ -83,7 +83,6 @@ module BGS
         participant_claimant_id
         participant_vet_id
         received_date
-        signature_indicated
         submitter_application_icn_type_code
       ]
     end

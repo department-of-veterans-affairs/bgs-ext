@@ -12,6 +12,10 @@ module BGS
     def bean_name
       'ClaimantServiceBean'
     end
+    
+    def self.service_name
+      'claimant'
+    end
 
     # findFlashes (shrinqf)
     #   finds the Flashes (Person Special Status) related to a file number

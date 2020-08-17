@@ -14,7 +14,7 @@ module BGS
   # Veteran and a VSO Organization or Personal Representative.
   #
 
-  class ManageRepresentativeWebService < BGS::Base
+  class ManageRepresentativeService < BGS::Base
     def self.service_name
       'manage_representative'
     end
@@ -37,6 +37,17 @@ module BGS
         ssn
       )
       response.body[:update_poa_relationship_response][:poa_relationship_return_vo]
+    end
+
+    def read_poa_request_by_ptcpnt_id(participant_id:, ssn: nil)
+      response = request(
+        :read_poa_request_by_ptcpnt_id,
+        {
+          "PtcpntId": participant_id
+        },
+        ssn
+      )
+      response.body[:read_poa_request_by_ptcpnt_id_response][:poa_request_respond_return_vo]
     end
   end
 end

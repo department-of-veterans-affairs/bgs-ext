@@ -55,7 +55,7 @@ describe BGS::VnpBnftClaimService do
   end
 
   describe '#vnp_benefit_claim_create' do
-    it 'returns payment history' do
+    it 'creates and returns a vnp_benefit_claim' do
       VCR.use_cassette('vnp_benefit_claim/create') do
         response = service.vnp_bnft_claim.vnp_bnft_claim_create(vnp_benefit_claim_create_params)
 
@@ -75,7 +75,7 @@ describe BGS::VnpBnftClaimService do
   end
 
     describe '#vnp_benefit_claim_update' do
-    it 'returns payment history' do
+    it 'updates and returns a vnp_benefit_claim' do
       VCR.use_cassette('vnp_benefit_claim/update') do
         response = service.vnp_bnft_claim.vnp_bnft_claim_update(vnp_benfit_claim_update_params)
 

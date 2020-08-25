@@ -9,7 +9,7 @@
 module BGS
   class UploadedDocument < BGS::Base
     def bean_name
-      'UploadedDocumentWebService'
+      'UploadedDocumentWebServiceBean'
     end
 
     def self.service_name

@@ -13,7 +13,7 @@ describe BGS::UploadedDocumentWebService do
     )
   end
 
-  it 'returns payment history' do
+  it 'returns document information for  vbms uploads' do
     VCR.use_cassette('uploaded_documents/find_by_participant_id') do
       response = service.uploaded_document.find_by_participant_id(participant_id)
       expect(response.size).to eq(286)

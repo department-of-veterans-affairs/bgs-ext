@@ -7,20 +7,20 @@
 # worldwide through the CC0 1.0 Universal public domain dedication.
 
 module BGS
-  class UploadedDocument < BGS::Base
+  class UploadedDocumentWebService < BGS::Base
     def bean_name
-      'UploadedDocumentWebService'
+      'UploadedDocumentWebServiceBean'
     end
 
     def self.service_name
-      'uploaded_documents'
+      'uploaded_document'
     end
 
     def find_by_participant_id(participant_id)
       response = request(
         :find_uplded_dcmnt_by_ptcpnt_id, 'ptcpntId': participant_id,
       )
-      response.body[:find_uplded_dcmnt_by_ptcpnt_id_response][:return]
+      response.body[:find_uplded_dcmnt_by_ptcpnt_id_response][:bnft_claim_dto]
     end
   end
 end

@@ -2,3 +2,4 @@ bgs*gem
 *swp
 vendor/
 Gemfile.lock
+.DS_Store

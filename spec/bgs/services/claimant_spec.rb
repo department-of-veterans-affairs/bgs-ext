@@ -4,7 +4,6 @@ require 'bgs'
 
 # rubocop:disable Metrics/BlockLength
 describe BGS::ClaimantWebService do
-  let(:file_number) { '123456789' }
   let(:service) do
     BGS::Services.new(
       external_uid: 'something',
@@ -138,6 +137,37 @@ describe BGS::ClaimantWebService do
       expect(first_flash[:assigned_indicator]).to be_nil
       expect(first_flash[:flash_name].strip).to eq('Document(s) exist in VBMS')
       expect(first_flash[:flash_type]).to be_nil
+    end
+  end
+
+  # it 'get find_all_relationships' do # TODO: Receiving tuxedo error when hitting endpoint
+  #   VCR.use_cassette('claimant/find_all_relationships') do
+  #     response = service.claimant.find_all_relationships('13367440')
+  #
+  #     pp response
+  #   end
+  # end
+
+  it 'get find_dependents_by_participant_id' do
+    VCR.use_cassette('claimant/find_dependents_by_participant_id') do
+      response = service.claimant.find_dependents_by_participant_id('13367440', '796123232')
+
+      expect(response[:number_of_records]).to eq('2')
+      expect(response[:return_code]).to eq('SHAR 9999')
+      expect(response[:return_message]).to eq('Records found')
+
+      first_person = response[:persons].first
+      expect(first_person[:award_indicator]).to eq('N')
+      expect(first_person[:date_of_birth]).to eq('01/02/1960')
+      expect(first_person[:email_address=]).to be_nil
+      expect(first_person[:first_name]).to eq('JANE')
+      expect(first_person[:last_name]).to eq('WEBB')
+      expect(first_person[:middle_name]).to eq('M')
+      expect(first_person[:ptcpnt_id]).to eq('600140899')
+      expect(first_person[:related_to_vet]).to eq('Y')
+      expect(first_person[:relationship]).to eq('Spouse')
+      expect(first_person[:ssn]).to eq('222883214')
+      expect(first_person[:veteran_indicator]).to eq('N')
     end
   end
 end

@@ -12,6 +12,26 @@ describe BGS::ClaimantWebService do
     )
   end
 
+  it 'get find_flashes' do
+    VCR.use_cassette('claimant/find_flashes') do
+      response = service.claimant.find_flashes('796123232')
+
+      expect(response[:first_name]).to eq('LEWIS')
+      expect(response[:last_name]).to eq('KELLY')
+      expect(response[:middle_name]).to eq('L')
+      expect(response[:number_of_flashes]).to eq(response[:flashes].size.to_s)
+      expect(response[:ptcpnt_id]).to eq('600043179')
+      expect(response[:return_code]).to eq('SHAR 9999')
+      expect(response[:return_message]).to eq('Records found')
+      expect(response[:vet_indicator]).to eq('Y')
+
+      first_flash = response[:flashes].first
+      expect(first_flash[:assigned_indicator]).to eq('Y')
+      expect(first_flash[:flash_name].strip).to eq('Document(s) exist in VBMS')
+      expect(first_flash[:flash_type].strip).to eq('SV')
+    end
+  end
+
   it 'get find_poa_by_participant_id' do
     VCR.use_cassette('claimant/find_poa_by_participant_id') do
       response = service.claimant.find_poa_by_participant_id('13367440')

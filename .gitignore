@@ -3,3 +3,4 @@ bgs*gem
 vendor/
 Gemfile.lock
 .DS_Store
+.idea/

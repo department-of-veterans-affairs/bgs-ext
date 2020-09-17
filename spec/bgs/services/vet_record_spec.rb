@@ -13,7 +13,7 @@ describe BGS::VetRecordWebService do
 
   it 'put update_birls_record' do
     VCR.use_cassette('vet_record/update_birls_record') do
-      response = service.vet_record.update_birls_record(ssn: '796123232', poa_code: %w[A 1 Q])
+      response = service.vet_record.update_birls_record(ssn: '796123232', poa_code: 'A1Q')
 
       expect(response[:return_code]).to eq('BMOD0001')
       expect(response[:return_message]).to eq('BIRLS Update successful')

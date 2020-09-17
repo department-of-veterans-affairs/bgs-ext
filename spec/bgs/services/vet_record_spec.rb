@@ -46,7 +46,21 @@ describe BGS::VetRecordWebService do
       expect(response[:separation_pay]).to be_nil
 
       # These expectations are non exhaustive of the entire response. To see the full
-      # response print with `puts response` while running the specs.
+      # response print with `puts response.inspect` while running the specs.
+    end
+  end
+
+  describe 'get find_corporate_record' do
+    context 'when no records are returned' do
+      it 'returns a valid response' do
+        VCR.use_cassette('vet_record/find_corporate_record') do
+          response = service.vet_record.find_corporate_record(first_name: 'KELLY', last_name: 'LEWIS')
+
+          expect(response[:number_of_records].strip).to eq('0')
+          expect(response[:return_code]).to eq('PSN 0 00E')
+          expect(response[:return_message]).to eq('Records found')
+        end
+      end
     end
   end
 end

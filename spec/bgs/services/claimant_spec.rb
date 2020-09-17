@@ -140,13 +140,15 @@ describe BGS::ClaimantWebService do
     end
   end
 
-  # it 'get find_all_relationships' do # TODO: Receiving tuxedo error when hitting endpoint
-  #   VCR.use_cassette('claimant/find_all_relationships') do
-  #     response = service.claimant.find_all_relationships('13367440')
-  #
-  #     pp response
-  #   end
-  # end
+  it 'get find_all_relationships' do
+    pending('Receiving tuxedo error when hitting endpoint')
+
+    VCR.use_cassette('claimant/find_all_relationships') do
+      response = service.claimant.find_all_relationships('13367440')
+
+      pp response
+    end
+  end
 
   it 'get find_dependents_by_participant_id' do
     VCR.use_cassette('claimant/find_dependents_by_participant_id') do

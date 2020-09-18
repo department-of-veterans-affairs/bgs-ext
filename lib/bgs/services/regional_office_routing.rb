@@ -16,17 +16,21 @@ module BGS
       'routing'
     end
 
+    def namespace
+      { namespaces: {'xmlns:wsdl' => 'http://www.va.gov/vba/corp/schema/roRoutingService/v20101101'}}
+    end
+
     # Finds regional office based on Veteran's zip code
     def get_regional_office_by_zip_code()
       response = request(
         :get_regional_office_by_zip_code,
         {
-          "searchROCriteria": {
-            "zipCode": '92651',
-            "country": 'US',
-            "province": ''
+          "wsdl:searchROCriteria": {
+            "wsdl:zipCode": '92651',
+            "wsdl:country": 'USA',
+            "wsdl:province": ''
           },
-          "lob": 'CP'
+          "wsdl:lob": 'CP'
         },
         '333224444'
       )

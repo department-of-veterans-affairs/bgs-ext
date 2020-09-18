@@ -57,6 +57,10 @@ module BGS
       client.operations.any? rescue false
     end
 
+    def namespace
+      nil
+    end
+
     private
 
     def validate_required_keys(required_keys, provided_hash, call)
@@ -149,6 +153,7 @@ module BGS
         convert_request_keys_to: :none,
         ssl_verify_mode: @ssl_verify_mode.to_sym
       }
+      options.merge!(self.namespace) if self.namespace
       options[:endpoint] = endpoint unless @forward_proxy_url.nil?
       @client ||= Savon.client(options)
     end

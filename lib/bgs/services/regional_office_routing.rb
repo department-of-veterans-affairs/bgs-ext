@@ -17,7 +17,7 @@ module BGS
     end
 
     def namespace
-      { namespaces: {'xmlns:wsdl' => 'PLACEHOLDER URL'}}
+      { namespaces: {'xmlns:wsdl' => 'http://www.va.gov/vba/corp/schema/roRoutingService/v20101101'}}
     end
 
     # Finds regional office based on Veteran's zip code

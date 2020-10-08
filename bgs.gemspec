@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name          = 'bgs_ext'
-  gem.version       = '0.14.9'
+  gem.version       = '0.15.0'
   gem.summary       = 'Thin wrapper on top of savon to talk with BGS'
   gem.description   = 'Thin wrapper on top of savon to talk with BGS for external BGS consumers'
   gem.license       = 'CC0' # This work is a work of the US Federal Government,

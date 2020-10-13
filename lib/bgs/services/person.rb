@@ -29,8 +29,8 @@ module BGS
       response.body[:find_person_by_file_number_response][:person_dto]
     end
 
-    def find_person_by_ptcpnt_id(participant_id)
-      response = request(:find_person_by_ptcpnt_id, "ptcpntId": participant_id)
+    def find_person_by_ptcpnt_id(participant_id, ssn = nil)
+      response = request(:find_person_by_ptcpnt_id, { "ptcpntId": participant_id }, ssn)
       response.body[:find_person_by_ptcpnt_id_response][:person_dto]
     end
 

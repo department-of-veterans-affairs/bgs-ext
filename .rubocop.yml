@@ -15,7 +15,7 @@ Style/Documentation:
 Naming:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 Metrics/MethodLength:
@@ -29,3 +29,6 @@ Metrics/ParameterLists:
   Enabled: false
   Max: 5
   CountKeywordArgs: true
+
+ThreadSafety/ClassAndModuleAttributes:
+  Enabled: false

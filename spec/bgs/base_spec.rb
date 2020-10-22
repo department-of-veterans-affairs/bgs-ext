@@ -137,9 +137,9 @@ describe BGS::Base do
       </soap:Envelope>)
     end
     let(:error_string) do
-      # rubocop:disable Metrics/LineLength
+      # rubocop:disable Layout/LineLength
       "#{fault_string} in the Benefits Gateway Service (BGS). Contact your ISO if you need assistance gaining access to BGS."
-      # rubocop:enable Metrics/LineLength
+      # rubocop:enable Layout/LineLength
     end
 
     it 'BGS::Base raises a BGS::PublicError that has a public_message' do

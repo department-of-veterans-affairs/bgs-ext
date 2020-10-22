@@ -1,16 +1,124 @@
+---
 version: 2.1
 orbs:
-  ruby: circleci/ruby@0.1.2 
+  ruby: circleci/ruby@0.1.2
+
+defaults:
+  executor: default_executor
+  working_directory: "~/bgs-ext"
+
+executors:
+  default_executor:
+    docker:
+    - image: circleci/ruby:2.6.3-stretch-node
+      environment:
+        BUNDLE_JOBS: 2
+        BUNDLE_RETRY: 3
 
 jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+  bundle_audit:
+    executor: default_executor
     steps:
-      - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+    - checkout_and_install
+    - bundle_audit
+    working_directory: "~/bgs-ext"
+  coverage:
+    executor: default_executor
+    steps:
+    - attach_workspace:
+        at: "."
+    - restore_cache:
+        key: v2-repo-{{ .Environment.CIRCLE_SHA1 }}
+    - restore_cache:
+        keys:
+        - gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        - gem-cache-{{ arch }}-{{ .Branch }}
+        - gem-cache
+    - run: bundle install --path vendor/bundle
+    - run:
+        name: Merge and Check Coverage
+        command: RUN_COVERAGE=true bundle exec rake simplecov:report_coverage
+    - store_artifacts:
+        path: "~/bgs-ext/coverage"
+        destination: coverage
+    working_directory: "~/bgs-ext"
+  lint:
+    executor: default_executor
+    steps:
+    - checkout_and_install
+    - linting
+    - store_artifacts:
+        path: "./ci"
+    working_directory: "~/bgs-ext"
+  specs:
+    executor: default_executor
+    parallelism: 4
+    steps:
+    - checkout_and_install
+    - specs
+    - store_test_results:
+        path: "/tmp/rspec"
+    - store_artifacts:
+        path: "./coverage"
+    - run:
+        name: Stash coverage Results
+        command: |
+          mkdir coverage_results
+          cp -R coverage/.resultset.json coverage_results/.resultset-${CIRCLE_NODE_INDEX}.json
+    - persist_to_workspace:
+        root: "."
+        paths:
+        - coverage_results
+    working_directory: "~/bgs-ext"
 
+workflows:
+  test_and_build:
+    jobs:
+    - bundle_audit
+    - lint
+    - specs
+    - coverage:
+        requires:
+        - specs
+
+commands:
+  bundle_audit:
+    steps:
+    - run:
+        name: Audit bundled gems for CVE issues
+        command: bundle exec bundle-audit check --update
+  checkout_and_install:
+    steps:
+    - checkout
+    - save_cache:
+        key: v2-repo-{{ .Environment.CIRCLE_SHA1 }}
+        paths:
+        - "~/bgs-ext"
+    - restore_cache:
+        keys:
+        - gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        - gem-cache-{{ arch }}-{{ .Branch }}
+        - gem-cache
+    - run: bundle install --path vendor/bundle
+    - save_cache:
+        key: gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        paths:
+        - "~/bgs-ext/vendor/bundle"
+  linting:
+    steps:
+    - run:
+        name: Lint code with Rubocop
+        command: bundle exec rubocop -r rubocop-thread_safety --parallel --format
+          progress --format RuboCop::Formatter::JUnitFormatter --out ./ci/rubocop.xml
+          --format html --out ./ci/rubocop.html
+  specs:
+    steps:
+    - run:
+        name: Split tests by timing
+        command: circleci tests glob "spec/**/*_spec.rb" + glob "modules/*/spec/**/*_spec.rb"
+          | circleci tests split --split-by=timings > /tmp/tests-to-run
+    - run:
+        name: Run all RSpec specs
+        command: bundle exec rspec --pattern $(cat /tmp/tests-to-run) --format progress
+          --format RspecJunitFormatter -o /tmp/rspec/rspec.xml --format html --out
+          /tmp/ci/rspec.html

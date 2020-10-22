@@ -4,6 +4,18 @@ require 'vcr'
 require 'webmock/rspec'
 require 'bgs'
 
+# By default run SimpleCov, but allow an environment variable to disable.
+unless ENV['NOCOVERAGE']
+  require 'simplecov'
+
+  SimpleCov.start 'rails' do
+    track_files '**/{lib}/**/*.rb'
+
+    SimpleCov.minimum_coverage_by_file 90 unless ENV['CIRCLE_JOB']
+    SimpleCov.refuse_coverage_drop unless ENV['CIRCLE_JOB']
+  end
+end
+
 BGS.configure do |config|
   config.application = 'VAgovAPI'
   config.client_ip = '127.0.0.1'

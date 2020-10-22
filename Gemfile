@@ -8,9 +8,13 @@ group :development, :test do
   gem "pry"
   gem "rspec"
   gem "rubocop"
+  gem 'rubocop-thread_safety'
 end
 
 group :test do
   gem 'vcr'
   gem 'webmock'
+  gem 'simplecov', require: false
+  gem 'rspec_junit_formatter'
+  gem 'rubocop-junit-formatter'
 end

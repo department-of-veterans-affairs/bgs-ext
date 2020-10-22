@@ -2,7 +2,6 @@
 
 require 'bgs'
 
-# rubocop:disable Metrics/BlockLength
 describe BGS::VnpBnftClaimService do
   let(:service) do
     BGS::Services.new(
@@ -68,7 +67,7 @@ describe BGS::VnpBnftClaimService do
             :ptcpnt_mail_addrs_id=>"116942",
             :vnp_ptcpnt_vet_id=>"150191",
             :vnp_proc_id=>"3830249"
-          }         
+          }
         )
       end
     end
@@ -83,13 +82,13 @@ describe BGS::VnpBnftClaimService do
 
         expect(response).to include(
           {
-            :vnp_bnft_claim_id=>"426094", 
+            :vnp_bnft_claim_id=>"426094",
             :ptcpnt_clmant_id=>"150197",
             :status_type_cd=>"PEND",
             :svc_type_cd=>"CP",
             :vnp_proc_id=>"3830252",
             :bnft_claim_id=>"600200323"
-          }         
+          }
         )
       end
     end

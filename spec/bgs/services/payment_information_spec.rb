@@ -17,7 +17,10 @@ describe BGS::PaymentInformationService do
 
   it 'returns payment information' do
     VCR.use_cassette('payment_information/retrieve_payment_summary_with_bdn') do
-      response = service.payment_information.retrieve_payment_summary_with_bdn(participant_id, file_number, payee_code, ssn)
+      response = service.payment_information.retrieve_payment_summary_with_bdn(participant_id,
+                                                                               file_number,
+                                                                               payee_code,
+                                                                               ssn)
       # using >= here in case additional payments are added
       expect(response[:payments][:payment].count).to be >= 78
     end

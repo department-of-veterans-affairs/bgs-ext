@@ -16,7 +16,7 @@ module BGS
       'vnp_ptcpnt'
     end
 
-    def vnp_ptcpnt_create(options)
+    def vnp_ptcpnt_create(options) # rubocop:disable Metrics/MethodLength
       validate_required_keys(vnp_ptcpnt_create_required_keys, options, __method__.to_s)
 
       response = request(
@@ -47,7 +47,7 @@ module BGS
       response.body[:vnp_ptcpnt_create_response][:return]
     end
 
-    def vnp_ptcpnt_addrs_create(options)
+    def vnp_ptcpnt_addrs_create(options) # rubocop:disable Metrics/MethodLength
       validate_required_keys(vnp_ptcpnt_addrs_create_required_keys, options, __method__.to_s)
 
       response = request(

@@ -2,7 +2,6 @@
 
 require 'bgs'
 
-# rubocop:disable Metrics/BlockLength
 describe BGS::ManageRepresentativeService do
 
   let(:participant_id) { '31164997' }

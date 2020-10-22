@@ -163,7 +163,8 @@ module BGS
       if mock_responses
         raise "No identifier for mock response" if identifier.nil?
 
-        file_path = "#{BGS.configuration.mock_response_location}/#{@service_name.underscore}/#{method}/#{identifier}.json"
+        file_path = BGS.configuration.mock_response_location
+        file_path += "/#{@service_name.underscore}/#{method}/#{identifier}.json"
         OpenStruct.new(body: JSON.parse(File.read(file_path)).with_indifferent_access)
       else
         client.call(method, message: message)

@@ -27,13 +27,6 @@ jobs:
     steps:
     - attach_workspace:
         at: "."
-    - restore_cache:
-        key: v2-repo-{{ .Environment.CIRCLE_SHA1 }}
-    - restore_cache:
-        keys:
-        - gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-        - gem-cache-{{ arch }}-{{ .Branch }}
-        - gem-cache
     - run: bundle install --path vendor/bundle
     - run:
         name: Merge and Check Coverage
@@ -90,20 +83,7 @@ commands:
   checkout_and_install:
     steps:
     - checkout
-    - save_cache:
-        key: v2-repo-{{ .Environment.CIRCLE_SHA1 }}
-        paths:
-        - "~/bgs-ext"
-    - restore_cache:
-        keys:
-        - gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-        - gem-cache-{{ arch }}-{{ .Branch }}
-        - gem-cache
     - run: bundle install --path vendor/bundle
-    - save_cache:
-        key: gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-        paths:
-        - "~/bgs-ext/vendor/bundle"
   linting:
     steps:
     - run:

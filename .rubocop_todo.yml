@@ -252,10 +252,3 @@ Style/SymbolProc:
 Style/TrailingCommaInArguments:
   Exclude:
     - 'lib/bgs/services/uploaded_document.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Layout/LineLength:
-  Max: 129

@@ -22,19 +22,6 @@ jobs:
     - checkout_and_install
     - bundle_audit
     working_directory: "~/bgs-ext"
-  coverage:
-    executor: default_executor
-    steps:
-    - attach_workspace:
-        at: "."
-    - run: bundle install --path vendor/bundle
-    - run:
-        name: Merge and Check Coverage
-        command: RUN_COVERAGE=true bundle exec rake simplecov:report_coverage
-    - store_artifacts:
-        path: "~/bgs-ext/coverage"
-        destination: coverage
-    working_directory: "~/bgs-ext"
   lint:
     executor: default_executor
     steps:
@@ -45,7 +32,6 @@ jobs:
     working_directory: "~/bgs-ext"
   specs:
     executor: default_executor
-    parallelism: 4
     steps:
     - checkout_and_install
     - specs
@@ -53,15 +39,6 @@ jobs:
         path: "/tmp/rspec"
     - store_artifacts:
         path: "./coverage"
-    - run:
-        name: Stash coverage Results
-        command: |
-          mkdir coverage_results
-          cp -R coverage/.resultset.json coverage_results/.resultset-${CIRCLE_NODE_INDEX}.json
-    - persist_to_workspace:
-        root: "."
-        paths:
-        - coverage_results
     working_directory: "~/bgs-ext"
 
 workflows:
@@ -70,9 +47,6 @@ workflows:
     - bundle_audit
     - lint
     - specs
-    - coverage:
-        requires:
-        - specs
 
 commands:
   bundle_audit:

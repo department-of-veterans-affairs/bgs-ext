@@ -8,7 +8,7 @@ require 'bgs'
 unless ENV['NOCOVERAGE']
   require 'simplecov'
 
-  SimpleCov.start 'rails' do
+  SimpleCov.start do
     track_files '**/{lib}/**/*.rb'
 
     SimpleCov.minimum_coverage_by_file 90 unless ENV['CIRCLE_JOB']

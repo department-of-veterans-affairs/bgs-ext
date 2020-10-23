@@ -1,4 +1,7 @@
----
-  branches:
-  - master
-  - continuous-delivery
+branch: main
+branches: ['main', 'continuous-delivery']
+plugins: [
+    '@semantic-release/commit-analyzer',
+    '@semantic-release/release-notes-generator',
+    '@semantic-release/github',
+]

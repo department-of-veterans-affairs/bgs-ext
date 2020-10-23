@@ -44,12 +44,8 @@ jobs:
     executor: default_executor
     steps:
     - checkout_and_install
-    - run:
-        name: Prepare workspace
-        command: npm init --yes
-    - run:
-        name: Release version
-        command: npx semantic-release@15
+    - run: npm install semantic-release
+    - run: npx semantic-release
 
 workflows:
   test_and_build:

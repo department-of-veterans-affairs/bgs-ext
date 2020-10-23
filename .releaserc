@@ -1,1 +1,5 @@
+branch: main
 branches: ['main', 'continuous-delivery']
+plugins: [
+    '@semantic-release/github'
+]

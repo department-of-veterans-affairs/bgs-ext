@@ -49,7 +49,7 @@ jobs:
         command: npm init --yes
     - run:
         name: Release version
-        command: npx semantic-release@15
+        command: npx "semantic-release@15 --branches continuous-delivery"
 
 workflows:
   test_and_build:

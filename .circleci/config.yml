@@ -40,6 +40,16 @@ jobs:
     - store_artifacts:
         path: "./coverage"
     working_directory: "~/bgs-ext"
+  release:
+    executor: default_executor
+    steps:
+    - checkout_and_install
+    - run:
+        name: Prepare workspace
+        command: npm init --yes
+    - run:
+        name: Release version
+        command: npx semantic-release@15
 
 workflows:
   test_and_build:
@@ -47,6 +57,15 @@ workflows:
     - bundle_audit
     - lint
     - specs
+    - release:
+        requires:
+          - bundle_audit
+          - lint
+          - specs
+        filters:
+          branches:
+            only:
+              - master
 
 commands:
   bundle_audit:

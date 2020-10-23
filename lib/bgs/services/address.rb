@@ -10,7 +10,7 @@ module BGS
   # This service is used to find the address information.
   class AddressWebService < BGS::Base
     def self.service_name
-      'addres'
+      'address'
     end
 
     # Finds a PTCPNT_ADDRS row for the given ptcpnt_id and address type

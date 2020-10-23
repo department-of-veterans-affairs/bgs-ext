@@ -1,2 +1,4 @@
-name: release
 branches: ['main', 'continuous-delivery']
+plugins: [
+    '@semantic-release/github'
+]

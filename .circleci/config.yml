@@ -63,10 +63,10 @@ workflows:
           - bundle_audit
           - lint
           - specs
-        # filters:
-        #   branches:
-        #     only:
-        #       - master
+        filters:
+          branches:
+            only:
+              - master
 
 commands:
   bundle_audit:

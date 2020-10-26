@@ -1,5 +1,6 @@
-branch: main
-branches: ['main']
+branches: ['main', 'continuous-delivery']
 plugins: [
-    '@semantic-release/github'
+    '@semantic-release/commit-analyzer',
+    '@semantic-release/release-notes-generator',
+    '@semantic-release/github',
 ]

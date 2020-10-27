@@ -40,8 +40,18 @@ module BGS
 
     # addFlash (shrinqm, shrinq1)
     #   adds the provided flash to the provided file number
-    def add_flash(flash)
-      # TODO
+    def add_flash(options)
+      validate_required_keys(required_add_flash_fields, options, __method__.to_s)
+
+      response = request(
+        :add_flash,
+        {
+          "fileNumber": options[:file_number],
+          "flash": {}
+        },
+        options[:file_number]
+      )
+      response.body[:add_flash_response]
     end
 
     # removeFlash (shrinqm)
@@ -52,7 +62,7 @@ module BGS
 
     # updateFlashes (shrinqm)
     #   adds/removes multiple flashes in one transaction
-    def update_flash(flash)
+    def update_flashes(flash)
       # TODO
     end
 
@@ -82,6 +92,12 @@ module BGS
     def find_dependents_by_participant_id(id, ssn)
       response = request(:find_dependents_by_ptcpnt_id, { 'ptcpntId': id }, ssn)
       response.body[:find_dependents_by_ptcpnt_id_response][:return]
+    end
+
+    private
+
+    def required_add_flash_fields
+      %i[file_number]
     end
   end
 end

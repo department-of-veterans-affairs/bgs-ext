@@ -60,6 +60,13 @@ describe BGS::ClaimantWebService do
     end
   end
 
+  it 'post add_flash' do
+    VCR.use_cassette('claimant/add_flash') do
+      response = service.claimant.add_flash({ file_number: '796123232' })
+      expect(response[:return]).to eq('SHAR 9999')
+    end
+  end
+
   it 'get find_poa_by_participant_id' do
     VCR.use_cassette('claimant/find_poa_by_participant_id') do
       response = service.claimant.find_poa_by_participant_id('13367440')

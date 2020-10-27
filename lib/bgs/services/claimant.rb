@@ -12,7 +12,7 @@ module BGS
     def bean_name
       'ClaimantServiceBean'
     end
-    
+
     def self.service_name
       'claimant'
     end
@@ -22,6 +22,38 @@ module BGS
     def find_flashes(file_number)
       response = request(:find_flashes, 'fileNumber': file_number)
       response.body[:find_flashes_response][:return]
+    end
+
+    # findAssignedFlashes (shrinqm)
+    #   finds only assigned flashes
+    def find_assigned_flashes(file_number)
+      response = request(:find_assigned_flashes, 'fileNumber': file_number)
+      response.body[:find_assigned_flashes_response][:return]
+    end
+
+    # findVBMSFlash (shrinqm)
+    #   finds only the VBMS flash
+    def find_vbms_flash(file_number)
+      response = request(:find_vbms_flash, 'fileNumber': file_number)
+      response.body[:find_vbms_flash_response][:return]
+    end
+
+    # addFlash (shrinqm, shrinq1)
+    #   adds the provided flash to the provided file number
+    def add_flash(flash)
+      # TODO
+    end
+
+    # removeFlash (shrinqm)
+    #   removes the provided flash from the provided file number
+    def remove_flash(flash)
+      # TODO
+    end
+
+    # updateFlashes (shrinqm)
+    #   adds/removes multiple flashes in one transaction
+    def update_flash(flash)
+      # TODO
     end
 
     # findPOAByPtcntId (shrinqf)

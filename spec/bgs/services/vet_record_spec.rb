@@ -2,7 +2,6 @@
 
 require 'bgs'
 
-# rubocop:disable Metrics/BlockLength
 describe BGS::VetRecordWebService do
   let(:service) do
     BGS::Services.new(
@@ -64,4 +63,3 @@ describe BGS::VetRecordWebService do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

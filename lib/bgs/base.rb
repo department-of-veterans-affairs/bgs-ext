@@ -163,7 +163,8 @@ module BGS
       if mock_responses
         raise "No identifier for mock response" if identifier.nil?
 
-        file_path = "#{BGS.configuration.mock_response_location}/#{@service_name.underscore}/#{method}/#{identifier}.json"
+        file_path = BGS.configuration.mock_response_location
+        file_path += "/#{@service_name.underscore}/#{method}/#{identifier}.json"
         OpenStruct.new(body: JSON.parse(File.read(file_path)).with_indifferent_access)
       else
         client.call(method, message: message)
@@ -190,10 +191,10 @@ module BGS
       # Savon::SOAPFault: (S:Client) ID: {{UUID}}: Logon ID {{CSS_ID}} Not Found
       # Only extract the final clause of that error message for the public error.
       #
-      # rubocop:disable Metrics/LineLength
+      # rubocop:disable Layout/LineLength
       raise(BGS::PublicError, "#{Regexp.last_match(1)} in the Benefits Gateway Service (BGS). Contact your ISO if you need assistance gaining access to BGS.") if error.to_s =~ /(Logon ID .* Not Found)/
 
-      # rubocop:enable Metrics/LineLength
+      # rubocop:enable Layout/LineLength
       raise error
     end
   end

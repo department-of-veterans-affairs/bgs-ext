@@ -26,6 +26,7 @@ module BGS
       response.body[:find_claimant_letters_response]
     end
 
+    # rubocop:disable Metrics/MethodLength
     def manage_claimant_letter_v2(claim_id:, program_type_cd:, claimant_participant_id:)
       response = request(
         :manage_claimant_letter_v2,
@@ -60,6 +61,7 @@ module BGS
       )
       response.body[:manage_claimant_letter_v2_response][:envelope][:letters][:docid]
     end
+    # rubocop:enable Metrics/MethodLength
 
     # Generates the tracked items based on developmentActions in the letters
     # in the claimant letter

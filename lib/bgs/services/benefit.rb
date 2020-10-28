@@ -57,7 +57,7 @@ module BGS
     end
 
     # either date_of_claim OR suspense_date must be populated mm/dd/yyyy
-    def insert_benefit_claim(options)
+    def insert_benefit_claim(options) # rubocop:disable Metrics/MethodLength
       validate_required_keys(required_insert_benefit_claim_fields, options, __method__.to_s)
 
       response = request(

@@ -1,5 +1,18 @@
 # frozen_string_literal: true
 
+# By default run SimpleCov, but allow an environment variable to disable.
+unless ENV['NOCOVERAGE']
+  require 'simplecov'
+
+  SimpleCov.start do
+    track_files '**/{lib}/**/*.rb'
+    add_filter "/spec/"
+
+    SimpleCov.minimum_coverage_by_file 45 unless ENV['CIRCLE_JOB']
+    SimpleCov.refuse_coverage_drop unless ENV['CIRCLE_JOB']
+  end
+end
+
 require 'vcr'
 require 'webmock/rspec'
 require 'bgs'

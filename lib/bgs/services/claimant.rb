@@ -87,11 +87,11 @@ module BGS
         :update_flashes,
         {
           'flashUpdateInput': {
-            'flashes': options[:flashes].map { |flash|
+            'flashes': options[:flashes].map do |flash|
               { 'flashCode': flash[:flash_code],
                 'flashStation': flash[:flash_station],
                 'flashRoutingSymbol': flash[:flash_routing_symbol] }
-            },
+            end,
             'numberOfFlashes': options[:number_of_flashes],
             'ptcpntID': options[:ptcpnt_id]
           }

@@ -13,9 +13,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webmock'
-  gem 'simplecov', require: false
   gem 'rspec_junit_formatter'
   gem 'rubocop-junit-formatter'
+  gem 'simplecov', require: false
   gem 'vcr'
+  gem 'webmock'
 end

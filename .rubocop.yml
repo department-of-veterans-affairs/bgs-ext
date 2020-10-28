@@ -1,5 +1,8 @@
 inherit_from: .rubocop_todo.yml
 
+require:
+  - rubocop-thread_safety
+
 AllCops:
   TargetRubyVersion: 2.5
   Include:

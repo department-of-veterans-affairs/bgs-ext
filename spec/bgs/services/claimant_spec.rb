@@ -63,9 +63,9 @@ describe BGS::ClaimantWebService do
   it 'post add_flash' do
     VCR.use_cassette('claimant/add_flash') do
       response = service.claimant.add_flash({ file_number: '796123232',
-                                              flash_code: '',
-                                              flash_station: '',
-                                              flash_routing_symbol: '' })
+                                              flash_code: 'something',
+                                              flash_station: 'here',
+                                              flash_routing_symbol: 'dontmatter' })
       expect(response[:return]).to eq('SHAR 9999')
     end
   end
@@ -83,7 +83,7 @@ describe BGS::ClaimantWebService do
   # it 'post update_flashes' do
   #   VCR.use_cassette('claimant/update_flashes') do
   #     flashes = []
-  #     response = service.claimant.update_flashes({ ptcpnt_id: '31165890',
+  #     response = service.claimant.update_flashes({ ptcpnt_id: '13367440',
   #                                                  flashes: flashes,
   #                                                  number_of_flashes: flashes.count })
   #     expect(response[:return]).to eq('SHAR 9999')

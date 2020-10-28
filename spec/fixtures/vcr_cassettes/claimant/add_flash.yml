@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 28 Oct 2020 15:31:06 GMT
+      - Wed, 28 Oct 2020 20:35:54 GMT
       Host:
       - linktest.vba.va.gov
   response:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 28 Oct 2020 15:31:06 GMT
+      - Wed, 28 Oct 2020 20:35:55 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -39,14 +39,20 @@ http_interactions:
         <xsd:import namespace="http://services.share.benefits.vba.va.gov/" schemaLocation="http://linktestbepbenefits.vba.va.gov:80/ClaimantServiceBean/ClaimantWebService?xsd=1"/>
         </xsd:schema>
         </types>
+        <message name="findMilitaryRecordByPtcpntId">
+        <part name="parameters" element="tns:findMilitaryRecordByPtcpntId"/>
+        </message>
+        <message name="findMilitaryRecordByPtcpntIdResponse">
+        <part name="parameters" element="tns:findMilitaryRecordByPtcpntIdResponse"/>
+        </message>
+        <message name="ShareException">
+        <part name="fault" element="tns:ShareException"/>
+        </message>
         <message name="findDependents">
         <part name="parameters" element="tns:findDependents"/>
         </message>
         <message name="findDependentsResponse">
         <part name="parameters" element="tns:findDependentsResponse"/>
-        </message>
-        <message name="ShareException">
-        <part name="fault" element="tns:ShareException"/>
         </message>
         <message name="removeFlash">
         <part name="parameters" element="tns:removeFlash"/>
@@ -54,11 +60,35 @@ http_interactions:
         <message name="removeFlashResponse">
         <part name="parameters" element="tns:removeFlashResponse"/>
         </message>
-        <message name="findBenefitClaimAddresses">
-        <part name="parameters" element="tns:findBenefitClaimAddresses"/>
+        <message name="findGeneralInformationByPtcpntId">
+        <part name="parameters" element="tns:findGeneralInformationByPtcpntId"/>
         </message>
-        <message name="findBenefitClaimAddressesResponse">
-        <part name="parameters" element="tns:findBenefitClaimAddressesResponse"/>
+        <message name="findGeneralInformationByPtcpntIdResponse">
+        <part name="parameters" element="tns:findGeneralInformationByPtcpntIdResponse"/>
+        </message>
+        <message name="findOtherAwardInformation">
+        <part name="parameters" element="tns:findOtherAwardInformation"/>
+        </message>
+        <message name="findOtherAwardInformationResponse">
+        <part name="parameters" element="tns:findOtherAwardInformationResponse"/>
+        </message>
+        <message name="findIncomeExpense">
+        <part name="parameters" element="tns:findIncomeExpense"/>
+        </message>
+        <message name="findIncomeExpenseResponse">
+        <part name="parameters" element="tns:findIncomeExpenseResponse"/>
+        </message>
+        <message name="addFlash">
+        <part name="parameters" element="tns:addFlash"/>
+        </message>
+        <message name="addFlashResponse">
+        <part name="parameters" element="tns:addFlashResponse"/>
+        </message>
+        <message name="findGeneralInformationByFileNumber">
+        <part name="parameters" element="tns:findGeneralInformationByFileNumber"/>
+        </message>
+        <message name="findGeneralInformationByFileNumberResponse">
+        <part name="parameters" element="tns:findGeneralInformationByFileNumberResponse"/>
         </message>
         <message name="updateMonthOfDeath">
         <part name="parameters" element="tns:updateMonthOfDeath"/>
@@ -126,17 +156,17 @@ http_interactions:
         <message name="findAwardAddressesResponse">
         <part name="parameters" element="tns:findAwardAddressesResponse"/>
         </message>
-        <message name="findAwardMailingAddress">
-        <part name="parameters" element="tns:findAwardMailingAddress"/>
-        </message>
-        <message name="findAwardMailingAddressResponse">
-        <part name="parameters" element="tns:findAwardMailingAddressResponse"/>
-        </message>
         <message name="findMailingAddress">
         <part name="parameters" element="tns:findMailingAddress"/>
         </message>
         <message name="findMailingAddressResponse">
         <part name="parameters" element="tns:findMailingAddressResponse"/>
+        </message>
+        <message name="findAwardMailingAddress">
+        <part name="parameters" element="tns:findAwardMailingAddress"/>
+        </message>
+        <message name="findAwardMailingAddressResponse">
+        <part name="parameters" element="tns:findAwardMailingAddressResponse"/>
         </message>
         <message name="findPaymentAddress">
         <part name="parameters" element="tns:findPaymentAddress"/>
@@ -149,12 +179,6 @@ http_interactions:
         </message>
         <message name="findDepositAccountResponse">
         <part name="parameters" element="tns:findDepositAccountResponse"/>
-        </message>
-        <message name="findIncomeExpense">
-        <part name="parameters" element="tns:findIncomeExpense"/>
-        </message>
-        <message name="findIncomeExpenseResponse">
-        <part name="parameters" element="tns:findIncomeExpenseResponse"/>
         </message>
         <message name="findDenialsByPtcpntId">
         <part name="parameters" element="tns:findDenialsByPtcpntId"/>
@@ -174,29 +198,11 @@ http_interactions:
         <message name="findAllRelationshipsResponse">
         <part name="parameters" element="tns:findAllRelationshipsResponse"/>
         </message>
-        <message name="findGeneralInformationByPtcpntId">
-        <part name="parameters" element="tns:findGeneralInformationByPtcpntId"/>
+        <message name="findBenefitClaimAddresses">
+        <part name="parameters" element="tns:findBenefitClaimAddresses"/>
         </message>
-        <message name="findGeneralInformationByPtcpntIdResponse">
-        <part name="parameters" element="tns:findGeneralInformationByPtcpntIdResponse"/>
-        </message>
-        <message name="findGeneralInformationByPtcpntIds">
-        <part name="parameters" element="tns:findGeneralInformationByPtcpntIds"/>
-        </message>
-        <message name="findGeneralInformationByPtcpntIdsResponse">
-        <part name="parameters" element="tns:findGeneralInformationByPtcpntIdsResponse"/>
-        </message>
-        <message name="findOtherAwardInformation">
-        <part name="parameters" element="tns:findOtherAwardInformation"/>
-        </message>
-        <message name="findOtherAwardInformationResponse">
-        <part name="parameters" element="tns:findOtherAwardInformationResponse"/>
-        </message>
-        <message name="findMilitaryRecordByPtcpntId">
-        <part name="parameters" element="tns:findMilitaryRecordByPtcpntId"/>
-        </message>
-        <message name="findMilitaryRecordByPtcpntIdResponse">
-        <part name="parameters" element="tns:findMilitaryRecordByPtcpntIdResponse"/>
+        <message name="findBenefitClaimAddressesResponse">
+        <part name="parameters" element="tns:findBenefitClaimAddressesResponse"/>
         </message>
         <message name="findPOA">
         <part name="parameters" element="tns:findPOA"/>
@@ -204,19 +210,18 @@ http_interactions:
         <message name="findPOAResponse">
         <part name="parameters" element="tns:findPOAResponse"/>
         </message>
-        <message name="addFlash">
-        <part name="parameters" element="tns:addFlash"/>
+        <message name="findGeneralInformationByPtcpntIds">
+        <part name="parameters" element="tns:findGeneralInformationByPtcpntIds"/>
         </message>
-        <message name="addFlashResponse">
-        <part name="parameters" element="tns:addFlashResponse"/>
-        </message>
-        <message name="findGeneralInformationByFileNumber">
-        <part name="parameters" element="tns:findGeneralInformationByFileNumber"/>
-        </message>
-        <message name="findGeneralInformationByFileNumberResponse">
-        <part name="parameters" element="tns:findGeneralInformationByFileNumberResponse"/>
+        <message name="findGeneralInformationByPtcpntIdsResponse">
+        <part name="parameters" element="tns:findGeneralInformationByPtcpntIdsResponse"/>
         </message>
         <portType name="ClaimantService">
+        <operation name="findMilitaryRecordByPtcpntId">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMilitaryRecordByPtcpntIdRequest" message="tns:findMilitaryRecordByPtcpntId"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMilitaryRecordByPtcpntIdResponse" message="tns:findMilitaryRecordByPtcpntIdResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMilitaryRecordByPtcpntId/Fault/ShareException"/>
+        </operation>
         <operation name="findDependents">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findDependentsRequest" message="tns:findDependents"/>
         <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findDependentsResponse" message="tns:findDependentsResponse"/>
@@ -227,10 +232,30 @@ http_interactions:
         <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/removeFlashResponse" message="tns:removeFlashResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/removeFlash/Fault/ShareException"/>
         </operation>
-        <operation name="findBenefitClaimAddresses">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findBenefitClaimAddressesRequest" message="tns:findBenefitClaimAddresses"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findBenefitClaimAddressesResponse" message="tns:findBenefitClaimAddressesResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findBenefitClaimAddresses/Fault/ShareException"/>
+        <operation name="findGeneralInformationByPtcpntId">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIdRequest" message="tns:findGeneralInformationByPtcpntId"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIdResponse" message="tns:findGeneralInformationByPtcpntIdResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntId/Fault/ShareException"/>
+        </operation>
+        <operation name="findOtherAwardInformation">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findOtherAwardInformationRequest" message="tns:findOtherAwardInformation"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findOtherAwardInformationResponse" message="tns:findOtherAwardInformationResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findOtherAwardInformation/Fault/ShareException"/>
+        </operation>
+        <operation name="findIncomeExpense">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findIncomeExpenseRequest" message="tns:findIncomeExpense"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findIncomeExpenseResponse" message="tns:findIncomeExpenseResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findIncomeExpense/Fault/ShareException"/>
+        </operation>
+        <operation name="addFlash">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/addFlashRequest" message="tns:addFlash"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/addFlashResponse" message="tns:addFlashResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/addFlash/Fault/ShareException"/>
+        </operation>
+        <operation name="findGeneralInformationByFileNumber">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByFileNumberRequest" message="tns:findGeneralInformationByFileNumber"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByFileNumberResponse" message="tns:findGeneralInformationByFileNumberResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByFileNumber/Fault/ShareException"/>
         </operation>
         <operation name="updateMonthOfDeath">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/updateMonthOfDeathRequest" message="tns:updateMonthOfDeath"/>
@@ -287,15 +312,15 @@ http_interactions:
         <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAwardAddressesResponse" message="tns:findAwardAddressesResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAwardAddresses/Fault/ShareException"/>
         </operation>
-        <operation name="findAwardMailingAddress">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAwardMailingAddressRequest" message="tns:findAwardMailingAddress"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAwardMailingAddressResponse" message="tns:findAwardMailingAddressResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAwardMailingAddress/Fault/ShareException"/>
-        </operation>
         <operation name="findMailingAddress">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMailingAddressRequest" message="tns:findMailingAddress"/>
         <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMailingAddressResponse" message="tns:findMailingAddressResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMailingAddress/Fault/ShareException"/>
+        </operation>
+        <operation name="findAwardMailingAddress">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAwardMailingAddressRequest" message="tns:findAwardMailingAddress"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAwardMailingAddressResponse" message="tns:findAwardMailingAddressResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAwardMailingAddress/Fault/ShareException"/>
         </operation>
         <operation name="findPaymentAddress">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findPaymentAddressRequest" message="tns:findPaymentAddress"/>
@@ -306,11 +331,6 @@ http_interactions:
         <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findDepositAccountRequest" message="tns:findDepositAccount"/>
         <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findDepositAccountResponse" message="tns:findDepositAccountResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findDepositAccount/Fault/ShareException"/>
-        </operation>
-        <operation name="findIncomeExpense">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findIncomeExpenseRequest" message="tns:findIncomeExpense"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findIncomeExpenseResponse" message="tns:findIncomeExpenseResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findIncomeExpense/Fault/ShareException"/>
         </operation>
         <operation name="findDenialsByPtcpntId">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findDenialsByPtcpntIdRequest" message="tns:findDenialsByPtcpntId"/>
@@ -327,44 +347,36 @@ http_interactions:
         <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAllRelationshipsResponse" message="tns:findAllRelationshipsResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findAllRelationships/Fault/ShareException"/>
         </operation>
-        <operation name="findGeneralInformationByPtcpntId">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIdRequest" message="tns:findGeneralInformationByPtcpntId"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIdResponse" message="tns:findGeneralInformationByPtcpntIdResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntId/Fault/ShareException"/>
-        </operation>
-        <operation name="findGeneralInformationByPtcpntIds">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIdsRequest" message="tns:findGeneralInformationByPtcpntIds"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIdsResponse" message="tns:findGeneralInformationByPtcpntIdsResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIds/Fault/ShareException"/>
-        </operation>
-        <operation name="findOtherAwardInformation">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findOtherAwardInformationRequest" message="tns:findOtherAwardInformation"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findOtherAwardInformationResponse" message="tns:findOtherAwardInformationResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findOtherAwardInformation/Fault/ShareException"/>
-        </operation>
-        <operation name="findMilitaryRecordByPtcpntId">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMilitaryRecordByPtcpntIdRequest" message="tns:findMilitaryRecordByPtcpntId"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMilitaryRecordByPtcpntIdResponse" message="tns:findMilitaryRecordByPtcpntIdResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findMilitaryRecordByPtcpntId/Fault/ShareException"/>
+        <operation name="findBenefitClaimAddresses">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findBenefitClaimAddressesRequest" message="tns:findBenefitClaimAddresses"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findBenefitClaimAddressesResponse" message="tns:findBenefitClaimAddressesResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findBenefitClaimAddresses/Fault/ShareException"/>
         </operation>
         <operation name="findPOA">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findPOARequest" message="tns:findPOA"/>
         <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findPOAResponse" message="tns:findPOAResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findPOA/Fault/ShareException"/>
         </operation>
-        <operation name="addFlash">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/addFlashRequest" message="tns:addFlash"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/addFlashResponse" message="tns:addFlashResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/addFlash/Fault/ShareException"/>
-        </operation>
-        <operation name="findGeneralInformationByFileNumber">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByFileNumberRequest" message="tns:findGeneralInformationByFileNumber"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByFileNumberResponse" message="tns:findGeneralInformationByFileNumberResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByFileNumber/Fault/ShareException"/>
+        <operation name="findGeneralInformationByPtcpntIds">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIdsRequest" message="tns:findGeneralInformationByPtcpntIds"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIdsResponse" message="tns:findGeneralInformationByPtcpntIdsResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/ClaimantService/findGeneralInformationByPtcpntIds/Fault/ShareException"/>
         </operation>
         </portType>
         <binding name="ClaimantWebServicePortBinding" type="tns:ClaimantService">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="findMilitaryRecordByPtcpntId">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
         <operation name="findDependents">
         <soap:operation soapAction=""/>
         <input>
@@ -389,7 +401,55 @@ http_interactions:
         <soap:fault name="ShareException" use="literal"/>
         </fault>
         </operation>
-        <operation name="findBenefitClaimAddresses">
+        <operation name="findGeneralInformationByPtcpntId">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="findOtherAwardInformation">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="findIncomeExpense">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="addFlash">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="findGeneralInformationByFileNumber">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -533,7 +593,7 @@ http_interactions:
         <soap:fault name="ShareException" use="literal"/>
         </fault>
         </operation>
-        <operation name="findAwardMailingAddress">
+        <operation name="findMailingAddress">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -545,7 +605,7 @@ http_interactions:
         <soap:fault name="ShareException" use="literal"/>
         </fault>
         </operation>
-        <operation name="findMailingAddress">
+        <operation name="findAwardMailingAddress">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -570,18 +630,6 @@ http_interactions:
         </fault>
         </operation>
         <operation name="findDepositAccount">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="findIncomeExpense">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -629,43 +677,7 @@ http_interactions:
         <soap:fault name="ShareException" use="literal"/>
         </fault>
         </operation>
-        <operation name="findGeneralInformationByPtcpntId">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="findGeneralInformationByPtcpntIds">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="findOtherAwardInformation">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="findMilitaryRecordByPtcpntId">
+        <operation name="findBenefitClaimAddresses">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -689,19 +701,7 @@ http_interactions:
         <soap:fault name="ShareException" use="literal"/>
         </fault>
         </operation>
-        <operation name="addFlash">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="findGeneralInformationByFileNumber">
+        <operation name="findGeneralInformationByPtcpntIds">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -720,7 +720,7 @@ http_interactions:
         </port>
         </service>
         </definitions>
-  recorded_at: Wed, 28 Oct 2020 15:31:07 GMT
+  recorded_at: Wed, 28 Oct 2020 20:35:55 GMT
 - request:
     method: post
     uri: https://localhost:4447/ClaimantServiceBean/ClaimantWebService
@@ -739,14 +739,14 @@ http_interactions:
             <vaws:ExternalKey>something</vaws:ExternalKey>
           </vaws:VaServiceHeaders>
         </wsse:Security>
-        </env:Header><env:Body><tns:addFlash><fileNumber>796123232</fileNumber><flash><flashCode></flashCode><flashStation></flashStation><flashRoutingSymbol></flashRoutingSymbol></flash></tns:addFlash></env:Body></env:Envelope>
+        </env:Header><env:Body><tns:addFlash><fileNumber>796123232</fileNumber><flash><flashCode>something</flashCode><flashStation>here</flashStation><flashRoutingSymbol>dontmatter</flashRoutingSymbol></flash></tns:addFlash></env:Body></env:Envelope>
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.8.3, ruby 2.6.6 (2020-03-31))
       Accept:
       - "*/*"
       Date:
-      - Wed, 28 Oct 2020 15:31:07 GMT
+      - Wed, 28 Oct 2020 20:35:55 GMT
       Host:
       - linktest.vba.va.gov
       Soapaction:
@@ -754,14 +754,14 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1068'
+      - '1091'
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 28 Oct 2020 15:31:07 GMT
+      - Wed, 28 Oct 2020 20:35:56 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -776,5 +776,5 @@ http_interactions:
         xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><work:WorkContext
         xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdUAB13ZWJsb2dpYy5hcHAuQ29ycG9yYXRlRGF0YUVBUgAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABjMuMS4yNAAA</work:WorkContext></env:Header><S:Body><ns0:addFlashResponse
         xmlns:ns0="http://services.share.benefits.vba.va.gov/"><return>SHAR 9999</return></ns0:addFlashResponse></S:Body></S:Envelope>
-  recorded_at: Wed, 28 Oct 2020 15:31:07 GMT
+  recorded_at: Wed, 28 Oct 2020 20:35:56 GMT
 recorded_with: VCR 6.0.0

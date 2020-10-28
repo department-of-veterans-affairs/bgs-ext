@@ -80,22 +80,26 @@ module BGS
 
     # updateFlashes (shrinqm)
     #   adds/removes multiple flashes in one transaction
-    # def update_flashes(options)
-    #   validate_required_keys(required_update_flashes_fields, options, __method__.to_s)
-    #
-    #   response = request(
-    #     :update_flashes,
-    #     {
-    #       'flashUpdateInput': {
-    #         'flashes': options[:flashes],
-    #         'numberOfFlashes': options[:number_of_flashes],
-    #         'ptcpntID': options[:ptcpnt_id]
-    #       }
-    #     },
-    #     options[:ptcpnt_id]
-    #   )
-    #   response.body[:update_flashes_response]
-    # end
+    def update_flashes(options)
+      validate_required_keys(required_update_flashes_fields, options, __method__.to_s)
+
+      response = request(
+        :update_flashes,
+        {
+          'flashUpdateInput': {
+            'flashes': options[:flashes].map { |flash|
+              { 'flashCode': flash[:flash_code],
+                'flashStation': flash[:flash_station],
+                'flashRoutingSymbol': flash[:flash_routing_symbol] }
+            },
+            'numberOfFlashes': options[:number_of_flashes],
+            'ptcpntID': options[:ptcpnt_id]
+          }
+        },
+        options[:ptcpnt_id]
+      )
+      response.body[:update_flashes_response]
+    end
 
     # findPOAByPtcntId (shrinqf)
     #   finds the Power of Attorney related to a participant ID.

@@ -43,7 +43,7 @@ module BGS
       response.body[:find_benefit_claim_type_increment_response][:return]
     end
 
-    # finds all the Stations that start with a ‘3’, Regional Offices
+    # finds all the Stations that start with a '3', Regional Offices
     def find_regional_offices
       response = request(:find_regional_offices)
       response.body[:find_regional_offices_response]

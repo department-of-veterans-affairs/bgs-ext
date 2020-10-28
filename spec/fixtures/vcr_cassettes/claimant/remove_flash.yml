@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 28 Oct 2020 15:31:06 GMT
+      - Wed, 28 Oct 2020 15:35:24 GMT
       Host:
       - linktest.vba.va.gov
   response:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 28 Oct 2020 15:31:06 GMT
+      - Wed, 28 Oct 2020 15:35:24 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -720,7 +720,7 @@ http_interactions:
         </port>
         </service>
         </definitions>
-  recorded_at: Wed, 28 Oct 2020 15:31:07 GMT
+  recorded_at: Wed, 28 Oct 2020 15:35:24 GMT
 - request:
     method: post
     uri: https://localhost:4447/ClaimantServiceBean/ClaimantWebService
@@ -739,29 +739,29 @@ http_interactions:
             <vaws:ExternalKey>something</vaws:ExternalKey>
           </vaws:VaServiceHeaders>
         </wsse:Security>
-        </env:Header><env:Body><tns:addFlash><fileNumber>796123232</fileNumber><flash><flashCode></flashCode><flashStation></flashStation><flashRoutingSymbol></flashRoutingSymbol></flash></tns:addFlash></env:Body></env:Envelope>
+        </env:Header><env:Body><tns:removeFlash><fileNumber>796123232</fileNumber><flash><flashCode></flashCode><flashStation></flashStation><flashRoutingSymbol></flashRoutingSymbol></flash></tns:removeFlash></env:Body></env:Envelope>
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.8.3, ruby 2.6.6 (2020-03-31))
       Accept:
       - "*/*"
       Date:
-      - Wed, 28 Oct 2020 15:31:07 GMT
+      - Wed, 28 Oct 2020 15:35:24 GMT
       Host:
       - linktest.vba.va.gov
       Soapaction:
-      - '"addFlash"'
+      - '"removeFlash"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1068'
+      - '1074'
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 28 Oct 2020 15:31:07 GMT
+      - Wed, 28 Oct 2020 15:35:25 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -774,7 +774,7 @@ http_interactions:
       encoding: UTF-8
       string: <?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
         xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><work:WorkContext
-        xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdUAB13ZWJsb2dpYy5hcHAuQ29ycG9yYXRlRGF0YUVBUgAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABjMuMS4yNAAA</work:WorkContext></env:Header><S:Body><ns0:addFlashResponse
-        xmlns:ns0="http://services.share.benefits.vba.va.gov/"><return>SHAR 9999</return></ns0:addFlashResponse></S:Body></S:Envelope>
-  recorded_at: Wed, 28 Oct 2020 15:31:07 GMT
+        xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdUAB13ZWJsb2dpYy5hcHAuQ29ycG9yYXRlRGF0YUVBUgAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABjMuMS4yNAAA</work:WorkContext></env:Header><S:Body><ns0:removeFlashResponse
+        xmlns:ns0="http://services.share.benefits.vba.va.gov/"><return>SHAR 9999</return></ns0:removeFlashResponse></S:Body></S:Envelope>
+  recorded_at: Wed, 28 Oct 2020 15:35:25 GMT
 recorded_with: VCR 6.0.0

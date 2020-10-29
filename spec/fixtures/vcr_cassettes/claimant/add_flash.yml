@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 28 Oct 2020 20:35:54 GMT
+      - Thu, 29 Oct 2020 14:53:25 GMT
       Host:
       - linktest.vba.va.gov
   response:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 28 Oct 2020 20:35:55 GMT
+      - Thu, 29 Oct 2020 14:53:26 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -720,7 +720,7 @@ http_interactions:
         </port>
         </service>
         </definitions>
-  recorded_at: Wed, 28 Oct 2020 20:35:55 GMT
+  recorded_at: Thu, 29 Oct 2020 14:53:26 GMT
 - request:
     method: post
     uri: https://localhost:4447/ClaimantServiceBean/ClaimantWebService
@@ -739,14 +739,14 @@ http_interactions:
             <vaws:ExternalKey>something</vaws:ExternalKey>
           </vaws:VaServiceHeaders>
         </wsse:Security>
-        </env:Header><env:Body><tns:addFlash><fileNumber>796123232</fileNumber><flash><flashCode>something</flashCode><flashStation>here</flashStation><flashRoutingSymbol>dontmatter</flashRoutingSymbol></flash></tns:addFlash></env:Body></env:Envelope>
+        </env:Header><env:Body><tns:addFlash><fileNumber>796123232</fileNumber><flash><assignedIndicator>something</assignedIndicator><flashName>here</flashName><flashType>dontmatter</flashType></flash></tns:addFlash></env:Body></env:Envelope>
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.8.3, ruby 2.6.6 (2020-03-31))
       Accept:
       - "*/*"
       Date:
-      - Wed, 28 Oct 2020 20:35:55 GMT
+      - Thu, 29 Oct 2020 14:53:26 GMT
       Host:
       - linktest.vba.va.gov
       Soapaction:
@@ -754,14 +754,14 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1091'
+      - '1083'
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 28 Oct 2020 20:35:56 GMT
+      - Thu, 29 Oct 2020 14:53:27 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -776,5 +776,5 @@ http_interactions:
         xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><work:WorkContext
         xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdUAB13ZWJsb2dpYy5hcHAuQ29ycG9yYXRlRGF0YUVBUgAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABjMuMS4yNAAA</work:WorkContext></env:Header><S:Body><ns0:addFlashResponse
         xmlns:ns0="http://services.share.benefits.vba.va.gov/"><return>SHAR 9999</return></ns0:addFlashResponse></S:Body></S:Envelope>
-  recorded_at: Wed, 28 Oct 2020 20:35:56 GMT
+  recorded_at: Thu, 29 Oct 2020 14:53:28 GMT
 recorded_with: VCR 6.0.0

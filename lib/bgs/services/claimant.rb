@@ -48,9 +48,9 @@ module BGS
         {
           'fileNumber': options[:file_number],
           'flash': {
-            'flashCode': options[:flash_code],
-            'flashStation': options[:flash_station],
-            'flashRoutingSymbol': options[:flash_routing_symbol]
+            'assignedIndicator': options[:assigned_indicator],
+            'flashName': options[:flash_name],
+            'flashType': options[:flash_type]
           }
         },
         options[:file_number]
@@ -68,9 +68,9 @@ module BGS
         {
           "fileNumber": options[:file_number],
           "flash": {
-            'flashCode': options[:flash_code],
-            'flashStation': options[:flash_station],
-            'flashRoutingSymbol': options[:flash_routing_symbol]
+            'assignedIndicator': options[:assigned_indicator],
+            'flashName': options[:flash_name],
+            'flashType': options[:flash_type]
           }
         },
         options[:file_number]
@@ -83,16 +83,18 @@ module BGS
     def update_flashes(options)
       validate_required_keys(required_update_flashes_fields, options, __method__.to_s)
 
+      flashes = options[:flashes].map do |flash|
+        { 'assignedIndicator': flash[:assigned_indicator].nil? ? nil : flash[:assigned_indicator].strip,
+          'flashName': flash[:flash_name].nil? ? nil : flash[:flash_name].strip,
+          'flashType': flash[:flash_type].nil? ? nil : flash[:flash_type].strip }
+      end
+
       response = request(
         :update_flashes,
         {
           'flashUpdateInput': {
-            'flashes': options[:flashes].map do |flash|
-              { 'flashCode': flash[:flash_code],
-                'flashStation': flash[:flash_station],
-                'flashRoutingSymbol': flash[:flash_routing_symbol] }
-            end,
-            'numberOfFlashes': options[:number_of_flashes],
+            'flashes': flashes,
+            'numberOfFlashes': flashes.count.to_s,
             'ptcpntID': options[:ptcpnt_id]
           }
         },
@@ -136,7 +138,7 @@ module BGS
     end
 
     def required_update_flashes_fields
-      %i[ptcpnt_id number_of_flashes]
+      %i[ptcpnt_id flashes]
     end
 
     def required_remove_flash_fields

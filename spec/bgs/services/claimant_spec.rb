@@ -63,9 +63,9 @@ describe BGS::ClaimantWebService do
   it 'post add_flash' do
     VCR.use_cassette('claimant/add_flash') do
       response = service.claimant.add_flash({ file_number: '796123232',
-                                              flash_code: 'something',
-                                              flash_station: 'here',
-                                              flash_routing_symbol: 'dontmatter' })
+                                              assigned_indicator: 'something',
+                                              flash_name: 'here',
+                                              flash_type: 'dontmatter' })
       expect(response[:return]).to eq('SHAR 9999')
     end
   end
@@ -73,9 +73,9 @@ describe BGS::ClaimantWebService do
   it 'post remove_flash' do
     VCR.use_cassette('claimant/remove_flash') do
       response = service.claimant.remove_flash({ file_number: '796123232',
-                                                 flash_code: '',
-                                                 flash_station: '',
-                                                 flash_routing_symbol: '' })
+                                                 assigned_indicator: '',
+                                                 flash_name: '',
+                                                 flash_type: '' })
       expect(response[:return]).to eq('SHAR 9999')
     end
   end
@@ -84,14 +84,11 @@ describe BGS::ClaimantWebService do
     pending('Receiving Invalid data for PERSON_SPECL_STATUS_TYPE_NM error when hitting endpoint')
 
     VCR.use_cassette('claimant/update_flashes') do
-      flashes = [
-        { flash_code: 'something',
-          flash_station: 'here',
-          flash_routing_symbol: 'dontmatter' }
-      ]
-      response = service.claimant.update_flashes({ ptcpnt_id: '13367440',
-                                                   flashes: flashes,
-                                                   number_of_flashes: flashes.count })
+      response = service.claimant.find_flashes('796123232')
+      flashes = response[:flashes]
+      ptcpnt_id = response[:ptcpnt_id].strip
+      response = service.claimant.update_flashes({ ptcpnt_id: ptcpnt_id,
+                                                   flashes: flashes })
       expect(response[:return]).to eq('SHAR 9999')
     end
   end

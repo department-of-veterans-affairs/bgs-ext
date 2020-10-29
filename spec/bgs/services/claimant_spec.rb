@@ -88,7 +88,7 @@ describe BGS::ClaimantWebService do
       flashes = response[:flashes]
       ptcpnt_id = response[:ptcpnt_id].strip
       response = service.claimant.update_flashes({ ptcpnt_id: ptcpnt_id,
-                                                   flashes: flashes })
+                                                   flashes: [flashes.first] })
       expect(response[:return]).to eq('SHAR 9999')
     end
   end

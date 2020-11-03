@@ -8,25 +8,27 @@
 
 module BGS
   # This service gets information about a disability contention.
-  class ContentionWebService < BGS::Base
+  class DisabilityContentionService < BGS::Base
     def bean_name
-      'ContentionServiceBean'
+      'VDC'
     end
 
     def self.service_name
-      'contention'
+      'disability_contention'
     end
 
     # readAllContentions
     #   This service is used to find all the contentions information.
-    def read_all_contentions
-      # TODO
+    def read_all_contentions(participant_id)
+      response = request(:read_all_contentions, 'ptcpntIdVO': { 'vnpPtcpntId': participant_id })
+      response.body[:contention_return_list]
     end
 
     # readAllDisplayDisabilities
     #   This service is used to find all the display disabilities information.
-    def read_all_display_disabilities
-      # TODO
+    def read_all_display_disabilities(participant_id)
+      response = request(:read_all_display_disabilities, 'ptcpntId': participant_id)
+      response.body[:disability_list]
     end
 
     # addContention

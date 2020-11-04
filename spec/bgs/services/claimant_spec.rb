@@ -80,19 +80,6 @@ describe BGS::ClaimantWebService do
     end
   end
 
-  it 'post update_flashes' do
-    pending('Receiving Invalid data for PERSON_SPECL_STATUS_TYPE_NM error when hitting endpoint')
-
-    VCR.use_cassette('claimant/update_flashes') do
-      response = service.claimant.find_flashes('796123232')
-      flashes = response[:flashes]
-      ptcpnt_id = response[:ptcpnt_id].strip
-      response = service.claimant.update_flashes({ ptcpnt_id: ptcpnt_id,
-                                                   flashes: [flashes.first] })
-      expect(response[:return]).to eq('SHAR 9999')
-    end
-  end
-
   it 'get find_poa_by_participant_id' do
     VCR.use_cassette('claimant/find_poa_by_participant_id') do
       response = service.claimant.find_poa_by_participant_id('13367440')

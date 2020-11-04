@@ -68,39 +68,12 @@ module BGS
         {
           "fileNumber": options[:file_number],
           "flash": {
-            'assignedIndicator': options[:assigned_indicator],
-            'flashName': options[:flash_name],
-            'flashType': options[:flash_type]
+            'flashName': options[:flash_name]
           }
         },
         options[:file_number]
       )
       response.body[:remove_flash_response]
-    end
-
-    # updateFlashes (shrinqm)
-    #   adds/removes multiple flashes in one transaction
-    def update_flashes(options)
-      validate_required_keys(required_update_flashes_fields, options, __method__.to_s)
-
-      flashes = options[:flashes].map do |flash|
-        { 'assignedIndicator': flash[:assigned_indicator].nil? ? nil : flash[:assigned_indicator].strip,
-          'flashName': flash[:flash_name].nil? ? nil : flash[:flash_name].strip,
-          'flashType': flash[:flash_type].nil? ? nil : flash[:flash_type].strip }
-      end
-
-      response = request(
-        :update_flashes,
-        {
-          'flashUpdateInput': {
-            'flashes': flashes,
-            'numberOfFlashes': flashes.count.to_s,
-            'ptcpntID': options[:ptcpnt_id]
-          }
-        },
-        options[:ptcpnt_id]
-      )
-      response.body[:update_flashes_response]
     end
 
     # findPOAByPtcntId (shrinqf)

@@ -17,18 +17,38 @@ module BGS
       'disability_contention'
     end
 
+    def namespace
+      { namespaces: { 'xmlns:nso' => 'http://gov.va.vba.benefits.vdc/data' } }
+    end
+
     # readAllContentions
     #   This service is used to find all the contentions information.
     def read_all_contentions(participant_id)
-      response = request(:read_all_contentions, 'ptcpntIdVO': { 'vnpPtcpntId': participant_id })
-      response.body[:contention_return_list]
+      response = request(
+        :read_all_contentions,
+        {
+          'nso:PtcpntId': {
+            'vnpPtcpntId': participant_id
+          }
+        },
+        participant_id
+      )
+      response.body[:read_all_contentions_response]
     end
 
     # readAllDisplayDisabilities
     #   This service is used to find all the display disabilities information.
     def read_all_display_disabilities(participant_id)
-      response = request(:read_all_display_disabilities, 'ptcpntId': participant_id)
-      response.body[:disability_list]
+      response = request(
+        :read_all_display_disabilities,
+        {
+          'nso:PtcpntId': {
+            'vnpPtcpntId': participant_id
+          }
+        },
+        participant_id
+      )
+      response.body[:read_all_display_disabilities_response]
     end
 
     # addContention

@@ -61,4 +61,10 @@ describe BGS::DisabilityContentionService do
                                                            vnp_ptcpnt_id: 150191)
     end
   end
+
+  it 'post delete_all_display_disabilities' do
+    VCR.use_cassette('disability_contention/delete_all_display_disabilities') do
+      service.disability_contention.delete_all_display_disabilities(150191)
+    end
+  end
 end

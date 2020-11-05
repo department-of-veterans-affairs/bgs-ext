@@ -175,8 +175,17 @@ module BGS
 
     # deleteAllDisplayDisabilities
     #   This service is used to delete all display contention.
-    def delete_all_display_disabilities
-      # TODO
+    def delete_all_display_disabilities(vnp_ptcpnt_id)
+      response = request(
+        :delete_all_display_disabilities,
+        {
+          'ns0:PtcpntId': {
+            'vnpPtcpntId': vnp_ptcpnt_id
+          }
+        },
+        vnp_ptcpnt_id
+      )
+      response.body[:delete_all_display_disabilities_response]
     end
 
     private

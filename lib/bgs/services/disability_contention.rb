@@ -33,7 +33,7 @@ module BGS
         },
         participant_id
       )
-      response.body[:read_all_contentions_response]
+      response.body[:read_all_contentions_response][:contention_return_list]
     end
 
     # rubocop:disable Metrics/CyclomaticComplexity
@@ -157,7 +157,7 @@ module BGS
         },
         participant_id
       )
-      response.body[:read_all_display_disabilities_response]
+      response.body[:read_all_display_disabilities_response][:disability_list]
     end
 
     # addDisplayDisability

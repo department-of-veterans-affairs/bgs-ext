@@ -1,20 +1,21 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 gemspec
 
-gem "rake"
+gem 'rake'
 
 group :development, :test do
-  gem "bundler-audit", git: "https://github.com/rubysec/bundler-audit"
-  gem "pry"
-  gem "rspec"
-  gem "rubocop"
+  gem 'bundler-audit', git: 'https://github.com/rubysec/bundler-audit'
+  gem 'byebug'
+  gem 'pry'
+  gem 'rspec'
+  gem 'rubocop'
   gem 'rubocop-thread_safety'
 end
 
 group :test do
-  gem 'vcr'
-  gem 'webmock'
-  gem 'simplecov', require: false
   gem 'rspec_junit_formatter'
   gem 'rubocop-junit-formatter'
+  gem 'simplecov', require: false
+  gem 'vcr'
+  gem 'webmock'
 end

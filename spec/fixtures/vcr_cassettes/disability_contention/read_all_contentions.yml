@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 04 Nov 2020 22:55:52 GMT
+      - Thu, 05 Nov 2020 16:16:38 GMT
       Host:
       - linktest.vba.va.gov
   response:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 04 Nov 2020 22:55:53 GMT
+      - Thu, 05 Nov 2020 16:16:39 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -45,11 +45,11 @@ http_interactions:
         <xsd:import namespace="http://gov.va.vba.benefits.vdc/data" schemaLocation="http://linktestbepbenefits.vba.va.gov:80/VDC/DisabilityContentionService?xsd=3"/>
         </xsd:schema>
         </types>
-        <message name="readAllContentions">
-        <part name="parameters" element="tns:readAllContentions"/>
+        <message name="deleteAllContentions">
+        <part name="parameters" element="tns:deleteAllContentions"/>
         </message>
-        <message name="readAllContentionsResponse">
-        <part name="parameters" element="tns:readAllContentionsResponse"/>
+        <message name="deleteAllContentionsResponse">
+        <part name="parameters" element="tns:deleteAllContentionsResponse"/>
         </message>
         <message name="DataValidationFault">
         <part xmlns:ns1="http://gov.va.vba.benefits.vdc/webfault" name="fault" element="ns1:DataValidationFault"/>
@@ -57,23 +57,17 @@ http_interactions:
         <message name="MessageFault">
         <part xmlns:ns2="http://gov.va.vba.benefits.vdc/webfault" name="fault" element="ns2:MessageFaultBean"/>
         </message>
-        <message name="addDisplayDisability">
-        <part name="parameters" element="tns:addDisplayDisability"/>
-        </message>
-        <message name="addDisplayDisabilityResponse">
-        <part name="parameters" element="tns:addDisplayDisabilityResponse"/>
-        </message>
         <message name="readAllDisplayDisabilities">
         <part name="parameters" element="tns:readAllDisplayDisabilities"/>
         </message>
         <message name="readAllDisplayDisabilitiesResponse">
         <part name="parameters" element="tns:readAllDisplayDisabilitiesResponse"/>
         </message>
-        <message name="deleteAllDisplayDisabilities">
-        <part name="parameters" element="tns:deleteAllDisplayDisabilities"/>
+        <message name="readAllContentions">
+        <part name="parameters" element="tns:readAllContentions"/>
         </message>
-        <message name="deleteAllDisplayDisabilitiesResponse">
-        <part name="parameters" element="tns:deleteAllDisplayDisabilitiesResponse"/>
+        <message name="readAllContentionsResponse">
+        <part name="parameters" element="tns:readAllContentionsResponse"/>
         </message>
         <message name="updateContention">
         <part name="parameters" element="tns:updateContention"/>
@@ -87,17 +81,11 @@ http_interactions:
         <message name="updateAllContentionResponse">
         <part name="parameters" element="tns:updateAllContentionResponse"/>
         </message>
-        <message name="deleteContention">
-        <part name="parameters" element="tns:deleteContention"/>
+        <message name="addDisplayDisability">
+        <part name="parameters" element="tns:addDisplayDisability"/>
         </message>
-        <message name="deleteContentionResponse">
-        <part name="parameters" element="tns:deleteContentionResponse"/>
-        </message>
-        <message name="deleteAllContentions">
-        <part name="parameters" element="tns:deleteAllContentions"/>
-        </message>
-        <message name="deleteAllContentionsResponse">
-        <part name="parameters" element="tns:deleteAllContentionsResponse"/>
+        <message name="addDisplayDisabilityResponse">
+        <part name="parameters" element="tns:addDisplayDisabilityResponse"/>
         </message>
         <message name="addContention">
         <part name="parameters" element="tns:addContention"/>
@@ -105,18 +93,24 @@ http_interactions:
         <message name="addContentionResponse">
         <part name="parameters" element="tns:addContentionResponse"/>
         </message>
+        <message name="deleteContention">
+        <part name="parameters" element="tns:deleteContention"/>
+        </message>
+        <message name="deleteContentionResponse">
+        <part name="parameters" element="tns:deleteContentionResponse"/>
+        </message>
+        <message name="deleteAllDisplayDisabilities">
+        <part name="parameters" element="tns:deleteAllDisplayDisabilities"/>
+        </message>
+        <message name="deleteAllDisplayDisabilitiesResponse">
+        <part name="parameters" element="tns:deleteAllDisplayDisabilitiesResponse"/>
+        </message>
         <portType name="DisabilityContention">
-        <operation name="readAllContentions">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentionsRequest" message="tns:readAllContentions"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentionsResponse" message="tns:readAllContentionsResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentions/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentions/Fault/MessageFault"/>
-        </operation>
-        <operation name="addDisplayDisability">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisabilityRequest" message="tns:addDisplayDisability"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisabilityResponse" message="tns:addDisplayDisabilityResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisability/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisability/Fault/MessageFault"/>
+        <operation name="deleteAllContentions">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentionsRequest" message="tns:deleteAllContentions"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentionsResponse" message="tns:deleteAllContentionsResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentions/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentions/Fault/MessageFault"/>
         </operation>
         <operation name="readAllDisplayDisabilities">
         <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllDisplayDisabilitiesRequest" message="tns:readAllDisplayDisabilities"/>
@@ -124,11 +118,11 @@ http_interactions:
         <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllDisplayDisabilities/Fault/DataValidationFault"/>
         <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllDisplayDisabilities/Fault/MessageFault"/>
         </operation>
-        <operation name="deleteAllDisplayDisabilities">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilitiesRequest" message="tns:deleteAllDisplayDisabilities"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilitiesResponse" message="tns:deleteAllDisplayDisabilitiesResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilities/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilities/Fault/MessageFault"/>
+        <operation name="readAllContentions">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentionsRequest" message="tns:readAllContentions"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentionsResponse" message="tns:readAllContentionsResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentions/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentions/Fault/MessageFault"/>
         </operation>
         <operation name="updateContention">
         <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/updateContentionRequest" message="tns:updateContention"/>
@@ -142,17 +136,11 @@ http_interactions:
         <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/updateAllContention/Fault/DataValidationFault"/>
         <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/updateAllContention/Fault/MessageFault"/>
         </operation>
-        <operation name="deleteContention">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContentionRequest" message="tns:deleteContention"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContentionResponse" message="tns:deleteContentionResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContention/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContention/Fault/MessageFault"/>
-        </operation>
-        <operation name="deleteAllContentions">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentionsRequest" message="tns:deleteAllContentions"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentionsResponse" message="tns:deleteAllContentionsResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentions/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentions/Fault/MessageFault"/>
+        <operation name="addDisplayDisability">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisabilityRequest" message="tns:addDisplayDisability"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisabilityResponse" message="tns:addDisplayDisabilityResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisability/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisability/Fault/MessageFault"/>
         </operation>
         <operation name="addContention">
         <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addContentionRequest" message="tns:addContention"/>
@@ -160,25 +148,22 @@ http_interactions:
         <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addContention/Fault/DataValidationFault"/>
         <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addContention/Fault/MessageFault"/>
         </operation>
+        <operation name="deleteContention">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContentionRequest" message="tns:deleteContention"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContentionResponse" message="tns:deleteContentionResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContention/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContention/Fault/MessageFault"/>
+        </operation>
+        <operation name="deleteAllDisplayDisabilities">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilitiesRequest" message="tns:deleteAllDisplayDisabilities"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilitiesResponse" message="tns:deleteAllDisplayDisabilitiesResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilities/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilities/Fault/MessageFault"/>
+        </operation>
         </portType>
         <binding name="DisabilityContentionPortBinding" type="tns:DisabilityContention">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <operation name="readAllContentions">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="DataValidationFault">
-        <soap:fault name="DataValidationFault" use="literal"/>
-        </fault>
-        <fault name="MessageFault">
-        <soap:fault name="MessageFault" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="addDisplayDisability">
+        <operation name="deleteAllContentions">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -208,7 +193,7 @@ http_interactions:
         <soap:fault name="MessageFault" use="literal"/>
         </fault>
         </operation>
-        <operation name="deleteAllDisplayDisabilities">
+        <operation name="readAllContentions">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -253,22 +238,7 @@ http_interactions:
         <soap:fault name="MessageFault" use="literal"/>
         </fault>
         </operation>
-        <operation name="deleteContention">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="DataValidationFault">
-        <soap:fault name="DataValidationFault" use="literal"/>
-        </fault>
-        <fault name="MessageFault">
-        <soap:fault name="MessageFault" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="deleteAllContentions">
+        <operation name="addDisplayDisability">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -284,6 +254,36 @@ http_interactions:
         </fault>
         </operation>
         <operation name="addContention">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="DataValidationFault">
+        <soap:fault name="DataValidationFault" use="literal"/>
+        </fault>
+        <fault name="MessageFault">
+        <soap:fault name="MessageFault" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="deleteContention">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="DataValidationFault">
+        <soap:fault name="DataValidationFault" use="literal"/>
+        </fault>
+        <fault name="MessageFault">
+        <soap:fault name="MessageFault" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="deleteAllDisplayDisabilities">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -305,14 +305,14 @@ http_interactions:
         </port>
         </service>
         </definitions>
-  recorded_at: Wed, 04 Nov 2020 22:55:53 GMT
+  recorded_at: Thu, 05 Nov 2020 16:16:39 GMT
 - request:
     method: post
     uri: https://localhost:4447/VDC/DisabilityContentionService
     body:
       encoding: UTF-8
       string: |-
-        <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://gov.va.vba.benefits.vdc/services" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nso="http://gov.va.vba.benefits.vdc/data"><env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+        <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://gov.va.vba.benefits.vdc/services" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://gov.va.vba.benefits.vdc/data"><env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
           <wsse:UsernameToken>
             <wsse:Username>VAgovAPI</wsse:Username>
           </wsse:UsernameToken>
@@ -324,14 +324,14 @@ http_interactions:
             <vaws:ExternalKey>something</vaws:ExternalKey>
           </vaws:VaServiceHeaders>
         </wsse:Security>
-        </env:Header><env:Body><tns:readAllContentions><nso:PtcpntId><vnpPtcpntId>13367440</vnpPtcpntId></nso:PtcpntId></tns:readAllContentions></env:Body></env:Envelope>
+        </env:Header><env:Body><tns:readAllContentions><ns0:PtcpntId><vnpPtcpntId>150191</vnpPtcpntId></ns0:PtcpntId></tns:readAllContentions></env:Body></env:Envelope>
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.8.3, ruby 2.6.6 (2020-03-31))
       Accept:
       - "*/*"
       Date:
-      - Wed, 04 Nov 2020 22:55:53 GMT
+      - Thu, 05 Nov 2020 16:16:39 GMT
       Host:
       - linktest.vba.va.gov
       Soapaction:
@@ -339,14 +339,14 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1055'
+      - '1053'
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 04 Nov 2020 22:55:54 GMT
+      - Thu, 05 Nov 2020 16:16:40 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -360,6 +360,6 @@ http_interactions:
       string: <?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
         xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header/><S:Body><ns0:readAllContentionsResponse
         xmlns:ns0="http://gov.va.vba.benefits.vdc/services" xmlns:ns1="http://gov.va.vba.benefits.vdc/webfault"
-        xmlns:ns2="http://gov.va.vba.benefits.vdc/data"/></S:Body></S:Envelope>
-  recorded_at: Wed, 04 Nov 2020 22:55:54 GMT
+        xmlns:ns2="http://gov.va.vba.benefits.vdc/data"><ns2:ContentionReturnList><jrnDt>2020-11-05T09:16:09-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48683</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T09:20:38-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48684</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T09:50:19-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48685</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T09:59:23-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48686</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T09:59:40-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48687</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:01:15-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48688</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:02:07-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48689</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:02:22-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48690</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:03:28-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48691</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:03:40-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48692</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:05:18-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48693</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:07:09-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48694</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:07:37-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48695</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:07:43-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48696</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:07:49-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48697</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:07:51-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48698</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:07:52-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48699</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:09:06-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48700</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:09:15-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48701</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:09:58-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48702</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:12:50-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48703</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:13:21-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48704</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:13:38-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48705</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:13:40-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48706</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:13:49-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48707</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:13:59-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48708</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:14:35-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48709</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:14:51-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48710</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:14:53-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48711</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList><ns2:ContentionReturnList><jrnDt>2020-11-05T10:14:56-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><cntntnTypeCd>NEW</cntntnTypeCd><medInd>false</medInd><vnpCntntnId>48712</vnpCntntnId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:ContentionReturnList></ns0:readAllContentionsResponse></S:Body></S:Envelope>
+  recorded_at: Thu, 05 Nov 2020 16:16:40 GMT
 recorded_with: VCR 6.0.0

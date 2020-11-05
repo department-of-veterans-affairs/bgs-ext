@@ -18,7 +18,7 @@ module BGS
     end
 
     def namespace
-      { namespaces: { 'xmlns:nso' => 'http://gov.va.vba.benefits.vdc/data' } }
+      { namespaces: { 'xmlns:ns0' => 'http://gov.va.vba.benefits.vdc/data' } }
     end
 
     # readAllContentions
@@ -27,7 +27,7 @@ module BGS
       response = request(
         :read_all_contentions,
         {
-          'nso:PtcpntId': {
+          'ns0:PtcpntId': {
             'vnpPtcpntId': participant_id
           }
         },
@@ -42,7 +42,7 @@ module BGS
       response = request(
         :read_all_display_disabilities,
         {
-          'nso:PtcpntId': {
+          'ns0:PtcpntId': {
             'vnpPtcpntId': participant_id
           }
         },
@@ -53,8 +53,30 @@ module BGS
 
     # addContention
     #   This service is used to add contention data.
-    def add_contention
-      # TODO
+    def add_contention(options)
+      validate_required_keys(required_add_contention_fields, options, __method__.to_s)
+
+      contention = {
+        'cntntnTypeCd': options[:cntntn_type_cd],
+        'vnpProcId': options[:vnp_proc_id],
+        'vnpPtcpntId': options[:vnp_ptcpnt_id]
+      }
+      contention['beginDt'] = options[:begin_dt] unless options[:begin_dt].nil?
+      contention['clmantTxt'] = options[:clmant_txt] unless options[:clmant_txt].nil?
+      contention['cntntnClsfcnId'] = options[:cntntn_clsfcn_id] unless options[:cntntn_clsfcn_id].nil?
+      contention['relatdDsbltyDt'] = options[:relatd_dsblty_dt] unless options[:relatd_dsblty_dt].nil?
+      contention['relatdDsbltyId'] = options[:relatd_dsblty_id] unless options[:relatd_dsblty_id].nil?
+      contention['relatdVnpCntntnId'] = options[:relatd_vnp_cntntn_id] unless options[:relatd_vnp_cntntn_id].nil?
+      contention['speclCrcmstTypeCd'] = options[:specl_crcmst_type_cd] unless options[:specl_crcmst_type_cd].nil?
+      contention['speclIssueTypeCd'] = options[:specl_issue_type_cd] unless options[:specl_issue_type_cd].nil?
+      contention['vnpBnftClaimId'] = options[:vnp_bnft_claim_id] unless options[:vnp_bnft_claim_id].nil?
+
+      response = request(
+        :add_contention,
+        { 'ns0:Contention': contention },
+        options[:vnp_ptcpnt_id]
+      )
+      response.body[:add_contention_response][:contention_return]
     end
 
     # addDisplayDisability
@@ -85,6 +107,16 @@ module BGS
     #   This service is used to update all the contentions.
     def update_all_contention
       # TODO
+    end
+
+    private
+
+    def required_add_contention_fields
+      %i[
+        cntntn_type_cd
+        vnp_proc_id
+        vnp_ptcpnt_id
+      ]
     end
   end
 end

@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 05 Nov 2020 21:53:12 GMT
+      - Thu, 05 Nov 2020 21:52:37 GMT
       Host:
       - linktest.vba.va.gov
   response:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Nov 2020 21:53:12 GMT
+      - Thu, 05 Nov 2020 21:52:37 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -45,11 +45,11 @@ http_interactions:
         <xsd:import namespace="http://gov.va.vba.benefits.vdc/data" schemaLocation="http://linktestbepbenefits.vba.va.gov:80/VDC/DisabilityContentionService?xsd=3"/>
         </xsd:schema>
         </types>
-        <message name="deleteAllContentions">
-        <part name="parameters" element="tns:deleteAllContentions"/>
+        <message name="readAllContentions">
+        <part name="parameters" element="tns:readAllContentions"/>
         </message>
-        <message name="deleteAllContentionsResponse">
-        <part name="parameters" element="tns:deleteAllContentionsResponse"/>
+        <message name="readAllContentionsResponse">
+        <part name="parameters" element="tns:readAllContentionsResponse"/>
         </message>
         <message name="DataValidationFault">
         <part xmlns:ns1="http://gov.va.vba.benefits.vdc/webfault" name="fault" element="ns1:DataValidationFault"/>
@@ -57,17 +57,23 @@ http_interactions:
         <message name="MessageFault">
         <part xmlns:ns2="http://gov.va.vba.benefits.vdc/webfault" name="fault" element="ns2:MessageFaultBean"/>
         </message>
+        <message name="addDisplayDisability">
+        <part name="parameters" element="tns:addDisplayDisability"/>
+        </message>
+        <message name="addDisplayDisabilityResponse">
+        <part name="parameters" element="tns:addDisplayDisabilityResponse"/>
+        </message>
         <message name="readAllDisplayDisabilities">
         <part name="parameters" element="tns:readAllDisplayDisabilities"/>
         </message>
         <message name="readAllDisplayDisabilitiesResponse">
         <part name="parameters" element="tns:readAllDisplayDisabilitiesResponse"/>
         </message>
-        <message name="readAllContentions">
-        <part name="parameters" element="tns:readAllContentions"/>
+        <message name="deleteAllDisplayDisabilities">
+        <part name="parameters" element="tns:deleteAllDisplayDisabilities"/>
         </message>
-        <message name="readAllContentionsResponse">
-        <part name="parameters" element="tns:readAllContentionsResponse"/>
+        <message name="deleteAllDisplayDisabilitiesResponse">
+        <part name="parameters" element="tns:deleteAllDisplayDisabilitiesResponse"/>
         </message>
         <message name="updateContention">
         <part name="parameters" element="tns:updateContention"/>
@@ -81,11 +87,17 @@ http_interactions:
         <message name="updateAllContentionResponse">
         <part name="parameters" element="tns:updateAllContentionResponse"/>
         </message>
-        <message name="addDisplayDisability">
-        <part name="parameters" element="tns:addDisplayDisability"/>
+        <message name="deleteContention">
+        <part name="parameters" element="tns:deleteContention"/>
         </message>
-        <message name="addDisplayDisabilityResponse">
-        <part name="parameters" element="tns:addDisplayDisabilityResponse"/>
+        <message name="deleteContentionResponse">
+        <part name="parameters" element="tns:deleteContentionResponse"/>
+        </message>
+        <message name="deleteAllContentions">
+        <part name="parameters" element="tns:deleteAllContentions"/>
+        </message>
+        <message name="deleteAllContentionsResponse">
+        <part name="parameters" element="tns:deleteAllContentionsResponse"/>
         </message>
         <message name="addContention">
         <part name="parameters" element="tns:addContention"/>
@@ -93,24 +105,18 @@ http_interactions:
         <message name="addContentionResponse">
         <part name="parameters" element="tns:addContentionResponse"/>
         </message>
-        <message name="deleteContention">
-        <part name="parameters" element="tns:deleteContention"/>
-        </message>
-        <message name="deleteContentionResponse">
-        <part name="parameters" element="tns:deleteContentionResponse"/>
-        </message>
-        <message name="deleteAllDisplayDisabilities">
-        <part name="parameters" element="tns:deleteAllDisplayDisabilities"/>
-        </message>
-        <message name="deleteAllDisplayDisabilitiesResponse">
-        <part name="parameters" element="tns:deleteAllDisplayDisabilitiesResponse"/>
-        </message>
         <portType name="DisabilityContention">
-        <operation name="deleteAllContentions">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentionsRequest" message="tns:deleteAllContentions"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentionsResponse" message="tns:deleteAllContentionsResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentions/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentions/Fault/MessageFault"/>
+        <operation name="readAllContentions">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentionsRequest" message="tns:readAllContentions"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentionsResponse" message="tns:readAllContentionsResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentions/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentions/Fault/MessageFault"/>
+        </operation>
+        <operation name="addDisplayDisability">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisabilityRequest" message="tns:addDisplayDisability"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisabilityResponse" message="tns:addDisplayDisabilityResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisability/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisability/Fault/MessageFault"/>
         </operation>
         <operation name="readAllDisplayDisabilities">
         <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllDisplayDisabilitiesRequest" message="tns:readAllDisplayDisabilities"/>
@@ -118,11 +124,11 @@ http_interactions:
         <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllDisplayDisabilities/Fault/DataValidationFault"/>
         <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllDisplayDisabilities/Fault/MessageFault"/>
         </operation>
-        <operation name="readAllContentions">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentionsRequest" message="tns:readAllContentions"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentionsResponse" message="tns:readAllContentionsResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentions/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/readAllContentions/Fault/MessageFault"/>
+        <operation name="deleteAllDisplayDisabilities">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilitiesRequest" message="tns:deleteAllDisplayDisabilities"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilitiesResponse" message="tns:deleteAllDisplayDisabilitiesResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilities/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilities/Fault/MessageFault"/>
         </operation>
         <operation name="updateContention">
         <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/updateContentionRequest" message="tns:updateContention"/>
@@ -136,11 +142,17 @@ http_interactions:
         <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/updateAllContention/Fault/DataValidationFault"/>
         <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/updateAllContention/Fault/MessageFault"/>
         </operation>
-        <operation name="addDisplayDisability">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisabilityRequest" message="tns:addDisplayDisability"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisabilityResponse" message="tns:addDisplayDisabilityResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisability/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addDisplayDisability/Fault/MessageFault"/>
+        <operation name="deleteContention">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContentionRequest" message="tns:deleteContention"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContentionResponse" message="tns:deleteContentionResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContention/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContention/Fault/MessageFault"/>
+        </operation>
+        <operation name="deleteAllContentions">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentionsRequest" message="tns:deleteAllContentions"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentionsResponse" message="tns:deleteAllContentionsResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentions/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllContentions/Fault/MessageFault"/>
         </operation>
         <operation name="addContention">
         <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addContentionRequest" message="tns:addContention"/>
@@ -148,22 +160,25 @@ http_interactions:
         <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addContention/Fault/DataValidationFault"/>
         <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/addContention/Fault/MessageFault"/>
         </operation>
-        <operation name="deleteContention">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContentionRequest" message="tns:deleteContention"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContentionResponse" message="tns:deleteContentionResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContention/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteContention/Fault/MessageFault"/>
-        </operation>
-        <operation name="deleteAllDisplayDisabilities">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilitiesRequest" message="tns:deleteAllDisplayDisabilities"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilitiesResponse" message="tns:deleteAllDisplayDisabilitiesResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilities/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/DisabilityContention/deleteAllDisplayDisabilities/Fault/MessageFault"/>
-        </operation>
         </portType>
         <binding name="DisabilityContentionPortBinding" type="tns:DisabilityContention">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <operation name="deleteAllContentions">
+        <operation name="readAllContentions">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="DataValidationFault">
+        <soap:fault name="DataValidationFault" use="literal"/>
+        </fault>
+        <fault name="MessageFault">
+        <soap:fault name="MessageFault" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="addDisplayDisability">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -193,7 +208,7 @@ http_interactions:
         <soap:fault name="MessageFault" use="literal"/>
         </fault>
         </operation>
-        <operation name="readAllContentions">
+        <operation name="deleteAllDisplayDisabilities">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -238,36 +253,6 @@ http_interactions:
         <soap:fault name="MessageFault" use="literal"/>
         </fault>
         </operation>
-        <operation name="addDisplayDisability">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="DataValidationFault">
-        <soap:fault name="DataValidationFault" use="literal"/>
-        </fault>
-        <fault name="MessageFault">
-        <soap:fault name="MessageFault" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="addContention">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="DataValidationFault">
-        <soap:fault name="DataValidationFault" use="literal"/>
-        </fault>
-        <fault name="MessageFault">
-        <soap:fault name="MessageFault" use="literal"/>
-        </fault>
-        </operation>
         <operation name="deleteContention">
         <soap:operation soapAction=""/>
         <input>
@@ -283,7 +268,22 @@ http_interactions:
         <soap:fault name="MessageFault" use="literal"/>
         </fault>
         </operation>
-        <operation name="deleteAllDisplayDisabilities">
+        <operation name="deleteAllContentions">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="DataValidationFault">
+        <soap:fault name="DataValidationFault" use="literal"/>
+        </fault>
+        <fault name="MessageFault">
+        <soap:fault name="MessageFault" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="addContention">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -305,7 +305,7 @@ http_interactions:
         </port>
         </service>
         </definitions>
-  recorded_at: Thu, 05 Nov 2020 21:53:12 GMT
+  recorded_at: Thu, 05 Nov 2020 21:52:37 GMT
 - request:
     method: post
     uri: https://localhost:4447/VDC/DisabilityContentionService
@@ -324,29 +324,29 @@ http_interactions:
             <vaws:ExternalKey>something</vaws:ExternalKey>
           </vaws:VaServiceHeaders>
         </wsse:Security>
-        </env:Header><env:Body><tns:readAllDisplayDisabilities><ns0:PtcpntId><vnpPtcpntId>150191</vnpPtcpntId></ns0:PtcpntId></tns:readAllDisplayDisabilities></env:Body></env:Envelope>
+        </env:Header><env:Body><tns:addDisplayDisability><ns0:Disability><dsbltyDt>2008-12-31T23:59:00.000-05:00</dsbltyDt><dsbltyId>1</dsbltyId><dsplyDt>2008-12-31T23:59:00.000-05:00</dsplyDt><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns0:Disability></tns:addDisplayDisability></env:Body></env:Envelope>
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.8.3, ruby 2.6.6 (2020-03-31))
       Accept:
       - "*/*"
       Date:
-      - Thu, 05 Nov 2020 21:53:12 GMT
+      - Thu, 05 Nov 2020 21:52:37 GMT
       Host:
       - linktest.vba.va.gov
       Soapaction:
-      - '"readAllDisplayDisabilities"'
+      - '"addDisplayDisability"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1069'
+      - '1211'
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 05 Nov 2020 21:53:13 GMT
+      - Thu, 05 Nov 2020 21:52:38 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -358,8 +358,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: <?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header/><S:Body><ns0:readAllDisplayDisabilitiesResponse
+        xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header/><S:Body><ns0:addDisplayDisabilityResponse
         xmlns:ns0="http://gov.va.vba.benefits.vdc/services" xmlns:ns1="http://gov.va.vba.benefits.vdc/webfault"
-        xmlns:ns2="http://gov.va.vba.benefits.vdc/data"><ns2:DisabilityList><jrnDt>2020-11-05T15:38:26-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><dsbltyDt>2008-12-31T22:59:00-06:00</dsbltyDt><dsbltyId>1</dsbltyId><dsplyDt>2008-12-31T22:59:00-06:00</dsplyDt><vnpDsbltyDsplyId>33671</vnpDsbltyDsplyId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:DisabilityList><ns2:DisabilityList><jrnDt>2020-11-05T15:38:43-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><dsbltyDt>2008-12-31T22:59:00-06:00</dsbltyDt><dsbltyId>2</dsbltyId><dsplyDt>2008-12-31T22:59:00-06:00</dsplyDt><vnpDsbltyDsplyId>33672</vnpDsbltyDsplyId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:DisabilityList><ns2:DisabilityList><jrnDt>2020-11-05T15:52:37-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><dsbltyDt>2008-12-31T22:59:00-06:00</dsbltyDt><dsbltyId>1</dsbltyId><dsplyDt>2008-12-31T22:59:00-06:00</dsplyDt><vnpDsbltyDsplyId>33673</vnpDsbltyDsplyId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:DisabilityList></ns0:readAllDisplayDisabilitiesResponse></S:Body></S:Envelope>
-  recorded_at: Thu, 05 Nov 2020 21:53:13 GMT
+        xmlns:ns2="http://gov.va.vba.benefits.vdc/data"><ns2:DisabilityReturn><jrnDt>2020-11-05T15:52:37-06:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnStatusTypeCd>I</jrnStatusTypeCd><jrnUserId>VAgovAPI</jrnUserId><dsbltyDt>2008-12-31T22:59:00-06:00</dsbltyDt><dsbltyId>1</dsbltyId><dsplyDt>2008-12-31T22:59:00-06:00</dsplyDt><vnpDsbltyDsplyId>33673</vnpDsbltyDsplyId><vnpProcId>3830249</vnpProcId><vnpPtcpntId>150191</vnpPtcpntId></ns2:DisabilityReturn></ns0:addDisplayDisabilityResponse></S:Body></S:Envelope>
+  recorded_at: Thu, 05 Nov 2020 21:52:38 GMT
 recorded_with: VCR 6.0.0

@@ -154,8 +154,23 @@ module BGS
 
     # addDisplayDisability
     #   This service is used to add the display disability.
-    def add_display_disability
-      # TODO
+    def add_display_disability(options)
+      validate_required_keys(required_add_display_disability_fields, options, __method__.to_s)
+
+      response = request(
+        :add_display_disability,
+        {
+          'ns0:Disability': {
+            'dsbltyDt': options[:dsblty_dt],
+            'dsbltyId': options[:dsblty_id],
+            'dsplyDt': options[:dsply_dt],
+            'vnpProcId': options[:vnp_proc_id],
+            'vnpPtcpntId': options[:vnp_ptcpnt_id]
+          }
+        },
+        options[:vnp_ptcpnt_id]
+      )
+      response.body[:add_display_disability_response][:disability_return]
     end
 
     # deleteAllDisplayDisabilities
@@ -186,6 +201,16 @@ module BGS
       %i[
         cntntn_type_cd
         vnp_cntntn_id
+        vnp_ptcpnt_id
+      ]
+    end
+
+    def required_add_display_disability_fields
+      %i[
+        dsblty_dt
+        dsblty_id
+        dsply_dt
+        vnp_proc_id
         vnp_ptcpnt_id
       ]
     end

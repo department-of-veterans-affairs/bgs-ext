@@ -124,8 +124,17 @@ module BGS
 
     # deleteAllContentions
     #   This service is used to delete all contentions
-    def delete_all_contentions
-      # TODO
+    def delete_all_contentions(vnp_proc_id)
+      response = request(
+        :delete_all_contentions,
+        {
+          'ns0:ProcId': {
+            'vnpProcId': vnp_proc_id
+          }
+        },
+        vnp_proc_id
+      )
+      response.body[:delete_all_contentions_response]
     end
 
     # readAllDisplayDisabilities

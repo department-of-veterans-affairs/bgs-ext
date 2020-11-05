@@ -8,7 +8,7 @@
 
 module BGS
   # This service gets information about a disability contention.
-  class DisabilityContentionService < BGS::Base
+  class DisabilityContentionService < BGS::Base # rubocop:disable Metrics/ClassLength
     def bean_name
       'VDC'
     end
@@ -35,6 +35,10 @@ module BGS
       )
       response.body[:read_all_contentions_response]
     end
+
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/PerceivedComplexity
 
     # addContention
     #   This service is used to add contention data.
@@ -121,6 +125,10 @@ module BGS
       )
       response.body[:update_all_contention_response][:contention_return]
     end
+
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/PerceivedComplexity
 
     # deleteAllContentions
     #   This service is used to delete all contentions

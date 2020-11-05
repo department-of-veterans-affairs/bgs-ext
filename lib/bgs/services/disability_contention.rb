@@ -95,8 +95,31 @@ module BGS
 
     # updateAllContention
     #   This service is used to update all the contentions.
-    def update_all_contention
-      # TODO
+    def update_all_contention(options)
+      validate_required_keys(required_update_all_contention_fields, options, __method__.to_s)
+
+      contention = {
+        'cntntnTypeCd': options[:cntntn_type_cd],
+        'vnpCntntnId': options[:vnp_cntntn_id],
+        'vnpPtcpntId': options[:vnp_ptcpnt_id]
+      }
+      contention['jrnDt'] = options[:jrn_dt] unless options[:jrn_dt].nil?
+      contention['beginDt'] = options[:begin_dt] unless options[:begin_dt].nil?
+      contention['clmantTxt'] = options[:clmant_txt] unless options[:clmant_txt].nil?
+      contention['cntntnClsfcnId'] = options[:cntntn_clsfcn_id] unless options[:cntntn_clsfcn_id].nil?
+      contention['relatdDsbltyDt'] = options[:relatd_dsblty_dt] unless options[:relatd_dsblty_dt].nil?
+      contention['relatdDsbltyId'] = options[:relatd_dsblty_id] unless options[:relatd_dsblty_id].nil?
+      contention['relatdVnpCntntnId'] = options[:relatd_vnp_cntntn_id] unless options[:relatd_vnp_cntntn_id].nil?
+      contention['speclCrcmstTypeCd'] = options[:specl_crcmst_type_cd] unless options[:specl_crcmst_type_cd].nil?
+      contention['speclIssueTypeCd'] = options[:specl_issue_type_cd] unless options[:specl_issue_type_cd].nil?
+      contention['vnpBnftClaimId'] = options[:vnp_bnft_claim_id] unless options[:vnp_bnft_claim_id].nil?
+
+      response = request(
+        :update_all_contention,
+        { 'ns0:ContentionUpdate': contention },
+        options[:vnp_ptcpnt_id]
+      )
+      response.body[:update_all_contention_response][:contention_return]
     end
 
     # deleteAllContentions
@@ -143,6 +166,14 @@ module BGS
     end
 
     def required_update_contention_fields
+      %i[
+        cntntn_type_cd
+        vnp_cntntn_id
+        vnp_ptcpnt_id
+      ]
+    end
+
+    def required_update_all_contention_fields
       %i[
         cntntn_type_cd
         vnp_cntntn_id

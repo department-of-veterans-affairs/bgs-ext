@@ -37,4 +37,12 @@ describe BGS::DisabilityContentionService do
                                                       vnp_ptcpnt_id: 150191)
     end
   end
+
+  it 'post update_all_contention' do
+    VCR.use_cassette('disability_contention/update_all_contention') do
+      service.disability_contention.update_all_contention(cntntn_type_cd: 'NEW',
+                                                          vnp_cntntn_id: 48688,
+                                                          vnp_ptcpnt_id: 150191)
+    end
+  end
 end

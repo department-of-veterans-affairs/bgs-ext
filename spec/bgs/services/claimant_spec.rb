@@ -31,6 +31,55 @@ describe BGS::ClaimantWebService do
     end
   end
 
+  it 'get find_assigned_flashes' do
+    VCR.use_cassette('claimant/find_assigned_flashes') do
+      response = service.claimant.find_assigned_flashes('796123232')
+
+      expect(response[:first_name]).to eq('LEWIS')
+      expect(response[:last_name]).to eq('KELLY')
+      expect(response[:middle_name]).to eq('L')
+      expect(response[:ptcpnt_id]).to eq('600043179')
+      expect(response[:return_code]).to eq('SHAR 9999')
+      expect(response[:return_message]).to eq('Records found')
+      expect(response[:vet_indicator]).to eq('Y')
+
+      first_flash = response[:flashes].first
+      expect(first_flash[:assigned_indicator]).to eq(nil)
+      expect(first_flash[:flash_name].strip).to eq('Document(s) exist in VBMS')
+      expect(first_flash[:flash_type]).to eq(nil)
+    end
+  end
+
+  it 'get find_vbms_flash' do
+    VCR.use_cassette('claimant/find_vbms_flash') do
+      response = service.claimant.find_vbms_flash('796123232')
+
+      expect(response[:assigned_indicator]).to eq('Y')
+      expect(response[:flash_name].strip).to eq('VBMS')
+      expect(response[:flash_type].strip).to eq('SV')
+    end
+  end
+
+  it 'post add_flash' do
+    VCR.use_cassette('claimant/add_flash') do
+      response = service.claimant.add_flash({ file_number: '796123232',
+                                              assigned_indicator: 'something',
+                                              flash_name: 'here',
+                                              flash_type: 'dontmatter' })
+      expect(response[:return]).to eq('SHAR 9999')
+    end
+  end
+
+  it 'post remove_flash' do
+    VCR.use_cassette('claimant/remove_flash') do
+      response = service.claimant.remove_flash({ file_number: '796123232',
+                                                 assigned_indicator: '',
+                                                 flash_name: '',
+                                                 flash_type: '' })
+      expect(response[:return]).to eq('SHAR 9999')
+    end
+  end
+
   it 'get find_poa_by_participant_id' do
     VCR.use_cassette('claimant/find_poa_by_participant_id') do
       response = service.claimant.find_poa_by_participant_id('13367440')

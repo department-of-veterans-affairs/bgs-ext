@@ -12,7 +12,7 @@ module BGS
     def bean_name
       'ClaimantServiceBean'
     end
-    
+
     def self.service_name
       'claimant'
     end
@@ -22,6 +22,58 @@ module BGS
     def find_flashes(file_number)
       response = request(:find_flashes, 'fileNumber': file_number)
       response.body[:find_flashes_response][:return]
+    end
+
+    # findAssignedFlashes (shrinqm)
+    #   finds only assigned flashes
+    def find_assigned_flashes(file_number)
+      response = request(:find_assigned_flashes, 'fileNumber': file_number)
+      response.body[:find_assigned_flashes_response][:return]
+    end
+
+    # findVBMSFlash (shrinqm)
+    #   finds only the VBMS flash
+    def find_vbms_flash(file_number)
+      response = request(:find_vbms_flash, 'fileNumber': file_number)
+      response.body[:find_vbms_flash_response][:return]
+    end
+
+    # addFlash (shrinqm, shrinq1)
+    #   adds the provided flash to the provided file number
+    def add_flash(options)
+      validate_required_keys(required_add_flash_fields, options, __method__.to_s)
+
+      response = request(
+        :add_flash,
+        {
+          'fileNumber': options[:file_number],
+          'flash': {
+            'assignedIndicator': options[:assigned_indicator],
+            'flashName': options[:flash_name],
+            'flashType': options[:flash_type]
+          }
+        },
+        options[:file_number]
+      )
+      response.body[:add_flash_response]
+    end
+
+    # removeFlash (shrinqm)
+    #   removes the provided flash from the provided file number
+    def remove_flash(options)
+      validate_required_keys(required_remove_flash_fields, options, __method__.to_s)
+
+      response = request(
+        :remove_flash,
+        {
+          "fileNumber": options[:file_number],
+          "flash": {
+            'flashName': options[:flash_name]
+          }
+        },
+        options[:file_number]
+      )
+      response.body[:remove_flash_response]
     end
 
     # findPOAByPtcntId (shrinqf)
@@ -50,6 +102,20 @@ module BGS
     def find_dependents_by_participant_id(id, ssn)
       response = request(:find_dependents_by_ptcpnt_id, { 'ptcpntId': id }, ssn)
       response.body[:find_dependents_by_ptcpnt_id_response][:return]
+    end
+
+    private
+
+    def required_add_flash_fields
+      %i[file_number]
+    end
+
+    def required_update_flashes_fields
+      %i[ptcpnt_id flashes]
+    end
+
+    def required_remove_flash_fields
+      %i[file_number]
     end
   end
 end

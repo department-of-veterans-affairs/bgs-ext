@@ -21,6 +21,21 @@ end
 desc 'Run bundle-audit'
 Bundler::Audit::Task.new
 
+namespace :proxy do
+  desc 'Find and start proxy'
+  task :start do
+    # Note: Requires being connected to SOCKS proxy
+    [182, 34].each do |group|
+      (1..200).each do |instance|
+        command = "ssh -o ConnectTimeout=1 -o StrictHostKeyChecking=no -L 4447:localhost:4447 ip-10-247-#{group}-#{instance}.us-gov-west-1.compute.internal"
+        p command
+        success = system(command)
+        break if success
+      end
+    end
+  end
+end
+
 namespace :doc do
   desc 'Generate Documentation'
   task :generate do

@@ -47,6 +47,27 @@ describe BGS::DisabilityContentionService do # rubocop:disable Metrics/BlockLeng
     end
   end
 
+  it 'post add_contention with special issues attached' do
+    VCR.use_cassette('disability_contention/add_contention_with_special_issue') do
+      response = service.disability_contention.add_contention(cntntn_type_cd: 'NEW',
+                                                              vnp_proc_id: 3830249,
+                                                              vnp_ptcpnt_id: 150191,
+                                                              specl_issue_type_cd: 'BPE')
+
+      expect(response[:jrn_dt]).to eq(DateTime.parse('2020-11-30T13:43:41-06:00'))
+      expect(response[:jrn_lctn_id]).to eq('281')
+      expect(response[:jrn_obj_id]).to eq('VAgovAPI')
+      expect(response[:jrn_status_type_cd]).to eq('I')
+      expect(response[:jrn_user_id]).to eq('VAgovAPI')
+      expect(response[:cntntn_type_cd]).to eq('NEW')
+      expect(response[:med_ind]).to eq(false)
+      expect(response[:vnp_cntntn_id]).to eq('48752')
+      expect(response[:vnp_proc_id]).to eq('3830249')
+      expect(response[:vnp_ptcpnt_id]).to eq('150191')
+      expect(response[:specl_issue_type_cd]).to eq('BPE')
+    end
+  end
+
   it 'post update_contention' do
     VCR.use_cassette('disability_contention/update_contention') do
       response = service.disability_contention.update_contention(cntntn_type_cd: 'NEW',
@@ -63,6 +84,27 @@ describe BGS::DisabilityContentionService do # rubocop:disable Metrics/BlockLeng
       expect(response[:vnp_cntntn_id]).to eq('48688')
       expect(response[:vnp_proc_id]).to eq('3830249')
       expect(response[:vnp_ptcpnt_id]).to eq('150191')
+    end
+  end
+
+  it 'post update_contention with special issue' do
+    VCR.use_cassette('disability_contention/update_contention_with_special_issue') do
+      response = service.disability_contention.update_contention(cntntn_type_cd: 'NEW',
+                                                                 vnp_cntntn_id: 48752,
+                                                                 vnp_ptcpnt_id: 150191,
+                                                                 specl_issue_type_cd: 'CB')
+
+      expect(response[:jrn_dt]).to eq(DateTime.parse('2020-11-30T14:05:11-06:00'))
+      expect(response[:jrn_lctn_id]).to eq('281')
+      expect(response[:jrn_obj_id]).to eq('VAgovAPI')
+      expect(response[:jrn_status_type_cd]).to eq('U')
+      expect(response[:jrn_user_id]).to eq('VAgovAPI')
+      expect(response[:cntntn_type_cd]).to eq('NEW')
+      expect(response[:med_ind]).to eq(false)
+      expect(response[:vnp_cntntn_id]).to eq('48752')
+      expect(response[:vnp_proc_id]).to eq('3830249')
+      expect(response[:vnp_ptcpnt_id]).to eq('150191')
+      expect(response[:specl_issue_type_cd]).to eq('CB')
     end
   end
 

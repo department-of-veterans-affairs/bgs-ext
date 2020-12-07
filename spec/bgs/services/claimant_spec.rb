@@ -60,6 +60,17 @@ describe BGS::ClaimantWebService do
     end
   end
 
+  it 'post update_flashes' do
+    VCR.use_cassette('claimant/update_flashes') do
+      response = service.claimant.find_flashes('796123232')
+      flashes = response[:flashes]
+      ptcpnt_id = response[:ptcpnt_id].strip
+      response = service.claimant.update_flashes({ ptcpnt_id: ptcpnt_id,
+                                                   flashes: [flashes.first] })
+      expect(response[:return]).to eq('SHAR 9999')
+    end
+  end
+
   it 'post add_flash' do
     VCR.use_cassette('claimant/add_flash') do
       response = service.claimant.add_flash({ file_number: '796123232',

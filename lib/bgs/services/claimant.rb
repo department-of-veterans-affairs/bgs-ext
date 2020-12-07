@@ -38,6 +38,30 @@ module BGS
       response.body[:find_vbms_flash_response][:return]
     end
 
+    # updateFlashes (shrinqm)
+    #   adds/removes multiple flashes in one transaction
+    def update_flashes(options)
+      validate_required_keys(required_update_flashes_fields, options, __method__.to_s)
+
+      flashes = options[:flashes].map do |flash|
+        { 'assignedIndicator': flash[:assigned_indicator].nil? ? nil : flash[:assigned_indicator].strip,
+          'flashName': flash[:flash_name].nil? ? nil : flash[:flash_name].strip }
+      end
+
+      response = request(
+        :update_flashes,
+        {
+          'flashUpdateInput': {
+            'flashes': flashes,
+            'numberOfFlashes': flashes.count.to_s,
+            'ptcpntID': options[:ptcpnt_id]
+          }
+        },
+        options[:ptcpnt_id]
+      )
+      response.body[:update_flashes_response]
+    end
+
     # addFlash (shrinqm, shrinq1)
     #   adds the provided flash to the provided file number
     def add_flash(options)

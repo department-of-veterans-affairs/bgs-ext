@@ -19,6 +19,9 @@ module BGS
 
     # manageContentions
     #  This service is used to manage contention data.
+    #
+    # NOTE: There are many additional attributes that can be submitted through this method.
+    #       There are simply too many to reasonably manage in this first pass.
     def manage_contentions(options) # rubocop:disable Metrics/MethodLength
       validate_required_keys(required_manage_contentions_fields, options, __method__.to_s)
 

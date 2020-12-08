@@ -18,6 +18,13 @@ module BGS
     end
 
     # manageContentions
+    #  This service is used to get contentions for a participant.
+    def find_contentions_by_ptcpnt_id(participant_id)
+      response = request(:find_contentions_by_ptcpnt_id, 'ptcpntId': participant_id)
+      response.body[:find_contentions_by_ptcpnt_id_response]
+    end
+
+    # manageContentions
     #  This service is used to manage contention data.
     #
     # NOTE: There are many additional attributes that can be submitted through this method.

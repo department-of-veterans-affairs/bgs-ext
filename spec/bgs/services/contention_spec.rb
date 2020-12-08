@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bgs'
+require 'byebug'
 
 describe BGS::ContentionService do
   let(:service) do
@@ -8,6 +9,13 @@ describe BGS::ContentionService do
       external_uid: 'something',
       external_key: 'something'
     )
+  end
+
+  it 'get find_contentions_by_ptcpnt_id' do
+    VCR.use_cassette('contention/find_contentions_by_ptcpnt_id') do
+      response = service.contention.find_contentions_by_ptcpnt_id('600036156')
+      expect(response[:benefit_claims].count).to eq(289)
+    end
   end
 
   it 'post manage_contentions' do

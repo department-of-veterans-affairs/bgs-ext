@@ -35,6 +35,7 @@ module BGS
       contentions = options[:contentions].map do |contention|
         {
           'clmId': contention[:clm_id],
+          'cntntnId': contention[:cntntn_id],
           'specialIssues': contention[:special_issues].map do |special_issue|
             { 'spisTc': special_issue[:spis_tc] }
           end

@@ -62,7 +62,7 @@ Run tests
 Maintenance
 -------
 
-Version must be appropriately updated within the bgs.gemspec file when this gem's contract is modified.
+Version must be appropriately updated within the bgs.gemspec file whenever this gem's contract is modified.
 
 
 License

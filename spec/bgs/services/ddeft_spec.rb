@@ -16,7 +16,7 @@ describe BGS::DdeftWebService do
       VCR.use_cassette('ddeft/find_bank_name_valid') do
         res = service.ddeft.find_bank_name_by_routng_trnsit_nbr('122400724')
         expect(res[:find_bank_name_by_routng_trnsit_nbr_response][:return][:bank_name]).to eq(
-          "BANK OF AMERICA, N.A."
+          'BANK OF AMERICA, N.A.'
         )
       end
     end

@@ -25,7 +25,6 @@ module BGS
     end
 
     def find_award_by_participant_id(participant_id, ssn)
-      byebug
       response = request(:find_veteran_award_cmpsit_by_ptcpnt_id, { 'ptcpntId': participant_id }, ssn)
       response.body[:find_veteran_award_cmpsit_by_ptcpnt_id_response][:return]
     end

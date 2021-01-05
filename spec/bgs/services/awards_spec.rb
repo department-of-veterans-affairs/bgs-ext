@@ -15,7 +15,7 @@ describe BGS::AwardWebService do
 
   it 'should find award by file number' do
     VCR.use_cassette('award/find_award_by_file_number') do
-      response = service.awards.find_award_by_file_number(file_number)
+      response = service.awards.find_award_by_file_number(file_number, ssn)
       expect(response[:gross_amt]).to eq('0.0')
     end
   end
@@ -29,7 +29,7 @@ describe BGS::AwardWebService do
 
   it 'should find award by participant id' do
     VCR.use_cassette('award/find_award_by_participant_id') do
-      response = service.awards.find_award_by_participant_id(participant_id)
+      response = service.awards.find_award_by_participant_id(participant_id, ssn)
       expect(response[:gross_amt]).to eq('0.0')
     end
   end

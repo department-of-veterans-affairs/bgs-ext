@@ -20,5 +20,13 @@ describe BGS::DdeftWebService do
         )
       end
     end
+
+    it 'raises an exception when given an invalid routing number' do
+      VCR.use_cassette('ddeft/find_bank_name_invalid_routing') do
+        expect do
+          service.ddeft.find_bank_name_by_routng_trnsit_nbr('2222')
+        end.to raise_error(Savon::SOAPFault)
+      end
+    end
   end
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'bgs'
-require 'pry'
 
 describe BGS::DdeftWebService do
   let(:service) do

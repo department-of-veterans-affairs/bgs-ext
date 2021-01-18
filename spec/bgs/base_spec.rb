@@ -176,15 +176,16 @@ describe BGS::Base do
       @logger = Logger.new(@log_out)
       BGS.configure do |config|
         @old_logger = config.logger
-        @old_log_bool = config.log
+        @old_log_enabled = config.log
         config.logger = @logger
         config.log = true
       end
     end
+
     after(:all) do
       BGS.configure do |config|
         config.logger = @old_logger
-        config.log =  @old_log_bool
+        config.log =  @old_log_enabled
       end
     end
 

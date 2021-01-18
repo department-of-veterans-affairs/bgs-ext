@@ -13,25 +13,6 @@ describe BGS::AwardWebService do
     )
   end
 
-  # this should be in base_spec somehow
-  it 'should log to provided logger' do
-    out = StringIO.new
-    log = Logger.new(out)
-    old_logger = nil
-    BGS.configure do |config|
-      old_logger = config.logger
-      config.logger = log
-    end
-    VCR.use_cassette('award/find_award_by_file_number') do
-      response = service.awards.find_award_by_file_number(file_number, ssn)
-      expect(response[:gross_amt]).to eq('0.0')
-    end
-    BGS.configure do |config|
-      config.logger = old_logger
-    end
-    expect(out.string).not_to be_empty
-  end
-
   it 'should find award by file number' do
     VCR.use_cassette('award/find_award_by_file_number') do
       response = service.awards.find_award_by_file_number(file_number, ssn)

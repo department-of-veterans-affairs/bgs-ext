@@ -27,13 +27,14 @@ module BGS
     attr_accessor :mock_responses
     def initialize(application:, forward_proxy_url: nil, jumpbox_url: nil,
                    env:, client_ip:, client_station_id:, client_username:, log: false,
-                   ssl_cert_file: nil, ssl_cert_key_file: nil, ssl_ca_cert: nil,
+                   logger: nil, ssl_cert_file: nil, ssl_cert_key_file: nil, ssl_ca_cert: nil,
                    external_uid: nil, external_key: nil, mock_responses: false, ssl_verify_mode: 'peer')
       @application = application
       @client_ip = client_ip
       @client_station_id = client_station_id
       @client_username = client_username
       @log = log
+      @logger = logger
       @env = env
       @forward_proxy_url = forward_proxy_url
       @jumpbox_url = jumpbox_url
@@ -144,6 +145,7 @@ module BGS
         wsdl: wsdl,
         soap_header: header,
         log: @log,
+        logger: @logger,
         ssl_cert_key_file: @ssl_cert_key_file,
         headers: headers,
         ssl_cert_file: @ssl_cert_file,

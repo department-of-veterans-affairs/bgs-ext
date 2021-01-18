@@ -29,7 +29,7 @@ BGS.configure do |config|
   config.external_key = 'lighthouse-vets-api'
   config.forward_proxy_url = 'https://localhost:4447'
   config.ssl_verify_mode = 'none'
-  # config.log = true
+  config.log = false # false to reduce test output noise
 end
 
 VCR.configure do |config|
@@ -47,4 +47,6 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.filter_run_when_matching :focus
 end

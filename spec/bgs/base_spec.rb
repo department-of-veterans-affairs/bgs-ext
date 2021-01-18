@@ -169,6 +169,46 @@ describe BGS::Base do
       expect(base.send(:client).wsdl.endpoint).to eq('http://localhost:1337/TestBaseBean/TestBase')
     end
   end
+
+  context 'with a provided logger' do
+    before(:all) do
+      @log_out = StringIO.new
+      @logger = Logger.new(@log_out)
+      BGS.configure do |config|
+        @old_logger = config.logger
+        @old_log_enabled = config.log
+        config.logger = @logger
+        config.log = true
+      end
+    end
+
+    after(:all) do
+      BGS.configure do |config|
+        config.logger = @old_logger
+        config.log =  @old_log_enabled
+      end
+    end
+
+    before do
+      @log_out.truncate(0)
+    end
+
+    it 'should log to provided logger' do
+      service = BGS::Services.new(
+        external_uid: 'something',
+        external_key: 'something'
+      )
+
+      # arbitrary endpoint in order for debug and info messages to be generated
+      VCR.use_cassette('award/find_award_by_file_number') do
+        response = service.awards.find_award_by_file_number('123345566', '999999999')
+        expect(response[:gross_amt]).to eq('0.0')
+      end
+      expect(@log_out.string).not_to be_empty
+      expect(@log_out.string).to match(/D, \[.+\] DEBUG -- /)
+      expect(@log_out.string).to match(/I, \[.+\]  INFO -- /)
+    end
+  end
 end
 # rubocop:enable Metrics/BlockLength
 

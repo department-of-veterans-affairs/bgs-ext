@@ -68,6 +68,7 @@ module BGS
                   forward_proxy_url: configuration.forward_proxy_url,
                   jumpbox_url: configuration.jumpbox_url,
                   log: configuration.log,
+                  logger: configuration.logger,
                   external_uid: external_uid,
                   external_key: external_key,
                   mock_responses: configuration.mock_responses,

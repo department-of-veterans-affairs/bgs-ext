@@ -29,7 +29,7 @@ BGS.configure do |config|
   config.external_key = 'lighthouse-vets-api'
   config.forward_proxy_url = 'https://localhost:4447'
   config.ssl_verify_mode = 'none'
-  # config.log = true
+  config.log = false # false to reduce test output noise
 end
 
 VCR.configure do |config|

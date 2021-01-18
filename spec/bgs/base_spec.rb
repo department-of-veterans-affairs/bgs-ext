@@ -16,7 +16,7 @@ describe BGS::Base do
       jumpbox_url: nil,
       external_uid: 'mytestuid',
       external_key: 'mytestkey',
-      log: true
+      log: false # don't post log data into test output
     )
   end
 

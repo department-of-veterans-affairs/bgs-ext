@@ -19,7 +19,7 @@ module BGS
       response = request(
         :read_diaries,
         {
-          'data:AwardKeyInput': { 'awardType': 'CPL', 'beneficiaryID': options[:beneficiary_id], 'veteranID':  options[:beneficiary_id]}
+          'data:AwardKeyInput': { 'awardType': 'CPL', 'beneficiaryID': options[:participant_id], 'veteranID':  options[:participant_id]}
         },
         options[:ssn]
       )

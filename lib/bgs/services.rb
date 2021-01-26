@@ -23,6 +23,7 @@ require 'bgs/services/disability_contention'
 require 'bgs/services/contention'
 require 'bgs/services/corporate_update'
 require 'bgs/services/ddeft'
+require 'bgs/services/diaries'
 require 'bgs/services/document'
 require 'bgs/services/intent_to_file'
 require 'bgs/services/manage_representative'
@@ -49,7 +50,6 @@ require 'bgs/services/vnp_ptcpnt_addrs'
 require 'bgs/services/vnp_ptcpnt_phone'
 require 'bgs/services/vnp_ptcpnt_rlnshp'
 require 'bgs/services/security'
-require 'bgs/services/diaries'
 
 # Now, we're going to declare a class to hide the actual creation of service
 # objects, since having to construct them all really sucks.

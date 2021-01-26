@@ -14,7 +14,7 @@ module BGS
     def self.service_name
       'diaries'
     end
-    # Find a Person, as defined by the Person Web Service, by their SSN.
+
     def read_diaries(options)
       response = request(
         :read_diaries,

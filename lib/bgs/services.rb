@@ -49,6 +49,7 @@ require 'bgs/services/vnp_ptcpnt_addrs'
 require 'bgs/services/vnp_ptcpnt_phone'
 require 'bgs/services/vnp_ptcpnt_rlnshp'
 require 'bgs/services/security'
+require 'bgs/services/diaries'
 
 # Now, we're going to declare a class to hide the actual creation of service
 # objects, since having to construct them all really sucks.

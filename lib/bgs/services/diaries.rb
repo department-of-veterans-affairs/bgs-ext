@@ -8,7 +8,7 @@ module BGS
     end
 
     def namespace
-      {namespaces: {'xmlns:data' => 'http://gov.va.vba.benefits.awards.ws/data'}}
+      { namespaces: { 'xmlns:data' => 'http://gov.va.vba.benefits.awards.ws/data' } }
     end
 
     def self.service_name
@@ -19,7 +19,7 @@ module BGS
       response = request(
         :read_diaries,
         {
-          'data:AwardKeyInput': { 'awardType': 'CPL', 'beneficiaryID': options[:beneficiary_id], 'veteranID':  options[:beneficiary_id]}
+          'data:AwardKeyInput': { 'awardType': 'CPL', 'beneficiaryID': options[:beneficiary_id], 'veteranID':  options[:beneficiary_id] }
         },
         options[:ssn]
       )

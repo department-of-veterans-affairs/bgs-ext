@@ -10,14 +10,14 @@ describe BGS::DiariesService do
     )
   end
 
-  let(:diary_params) { {beneficiary_id: 'something', ssn: 'something'} }
+  let(:diary_params) { { beneficiary_id: 'something', ssn: 'something' } }
 
   describe '#read_diaries' do
     it 'returns vet diary information' do
       VCR.use_cassette('diaries/read_diaries') do
         response = service.diaries.read_diaries(diary_params)
 
-        expect(response).to include({error_level: "0"})
+        expect(response).to include({ error_level: "0" })
       end
     end
   end

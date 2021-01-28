@@ -10,7 +10,7 @@ describe BGS::DiariesService do
     )
   end
 
-  let(:diary_params) { { beneficiary_id: 'something', ssn: 'something' } }
+  let(:diary_params) { { participant_id: 'something', ssn: 'something' } }
 
   describe '#read_diaries' do
     it 'returns vet diary information' do

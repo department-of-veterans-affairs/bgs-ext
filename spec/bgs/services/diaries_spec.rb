@@ -17,7 +17,7 @@ describe BGS::DiariesService do
       VCR.use_cassette('diaries/read_diaries') do
         response = service.diaries.read_diaries(diary_params)
 
-        expect(response).to include({ error_level: "0" })
+        expect(response).to include({ error_level: '0' })
       end
     end
   end

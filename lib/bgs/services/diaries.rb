@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BGS
   # This service is used to store information about individuals the VA is
   # interested in. This information may be kept permanently, removed or discarded
@@ -19,7 +21,11 @@ module BGS
       response = request(
         :read_diaries,
         {
-          'data:AwardKeyInput': { 'awardType': 'CPL', 'beneficiaryID': options[:participant_id], 'veteranID':  options[:participant_id] }
+          'data:AwardKeyInput': {
+            'awardType': 'CPL',
+            'beneficiaryID': options[:participant_id],
+            'veteranID': options[:participant_id]
+          }
         },
         options[:ssn]
       )

@@ -36,13 +36,13 @@ module BGS
     def update_diaries(options, diaries)
       response = request(
         :update_diaries, {
-        'data:AwardKeyInput' => {
-          'awardType' => options[:award_type],
-          'beneficiaryID' => options[:beneficiary_id],
-          'veteranID' => options[:participant_id]
-        },
+          'data:AwardKeyInput' => {
+            'awardType' => options[:award_type],
+            'beneficiaryID' => options[:beneficiary_id],
+            'veteranID' => options[:participant_id]
+          },
         'data:DiaryInput' => formatted_diary_list(diaries)
-      }
+        }
       )
 
       response.body[:update_diaries_response][:diary_response]
@@ -50,11 +50,11 @@ module BGS
 
     def formatted_diary_list(diaries)
       diaries.map do |diary|
-        dairy_hash(diary)
+        diary_hash(diary)
       end
     end
 
-    def dairy_hash(diary)
+    def diary_hash(diary)
       {
         'awardDiaryID' => diary[:award_diary_id],
         'awardType' => diary[:award_type],

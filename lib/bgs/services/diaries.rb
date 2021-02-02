@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'pry'
 
 module BGS
   # This service is used to store information about individuals the VA is

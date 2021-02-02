@@ -10,14 +10,7 @@ module BGS
     end
 
     def namespace
-      {
-        env_namespace: :soapenv,
-        namespace_identifier: :ser,
-        namespaces: {
-          'xmlns:ser' => 'http://gov.va.vba.benefits.awards.ws/services',
-          'xmlns:data' => 'http://gov.va.vba.benefits.awards.ws/data'
-        }
-      }
+      { namespaces: { 'xmlns:data' => 'http://gov.va.vba.benefits.awards.ws/data' } }
     end
 
     def self.service_name

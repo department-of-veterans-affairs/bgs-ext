@@ -54,6 +54,7 @@ module BGS
       end
     end
 
+    # rubocop:disable Metrics/MethodLength
     def diary_hash(diary)
       {
         'awardDiaryID' => diary[:award_diary_id],
@@ -77,5 +78,6 @@ module BGS
         'veteranID' => diary[:veteran_id]
       }
     end
+    # rubocop:enable Metrics/MethodLength
   end
 end

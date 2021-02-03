@@ -41,7 +41,7 @@ module BGS
             'beneficiaryID' => options[:beneficiary_id],
             'veteranID' => options[:participant_id]
           },
-        'data:DiaryInput' => formatted_diary_list(diaries)
+          'data:DiaryInput' => formatted_diary_list(diaries)
         }
       )
 

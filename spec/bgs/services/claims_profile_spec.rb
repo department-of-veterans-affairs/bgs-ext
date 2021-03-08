@@ -11,8 +11,8 @@ describe BGS::BenefitClaimWebService do
   end
 
   it 'get find_by_vbms_file_number' do
-    VCR.use_cassette('benefit/find_by_vbms_file_number') do
-      response = service.claims.find_by_vbms_file_number('546212222')
+    VCR.use_cassette('claims_profile/find_by_vbms_file_number') do
+      response = service.claims_profile.find_by_vbms_file_number('546212222')
       expect(response.count).to eq(19)
 
       first_claim = response.first

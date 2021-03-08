@@ -21,7 +21,7 @@ module BGS
       response.body[:find_bnft_claim_response][:bnft_claim_dto]
     end
 
-    def update_bnft_claim(bnft_claim)
+    def update_bnft_claim(bnft_claim) # rubocop:disable Metrics/MethodLength
       validate_required_keys(required_update_bnft_claim_fields, bnft_claim, __method__.to_s)
 
       response = request(

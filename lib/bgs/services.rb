@@ -17,9 +17,9 @@
 
 require 'bgs/services/address'
 require 'bgs/services/awards'
-require 'bgs/services/benefit'
-require 'bgs/services/benefit_dos'
+require 'bgs/services/benefit_claims'
 require 'bgs/services/claimant'
+require 'bgs/services/claims_profile'
 require 'bgs/services/disability_contention'
 require 'bgs/services/contention'
 require 'bgs/services/corporate_update'
@@ -36,6 +36,7 @@ require 'bgs/services/rating'
 require 'bgs/services/rating_comparison'
 require 'bgs/services/rating_profile'
 require 'bgs/services/regional_office_routing'
+require 'bgs/services/security'
 require 'bgs/services/standard_data'
 require 'bgs/services/uploaded_document'
 require 'bgs/services/vet_record'
@@ -50,7 +51,6 @@ require 'bgs/services/vnp_ptcpnt'
 require 'bgs/services/vnp_ptcpnt_addrs'
 require 'bgs/services/vnp_ptcpnt_phone'
 require 'bgs/services/vnp_ptcpnt_rlnshp'
-require 'bgs/services/security'
 
 # Now, we're going to declare a class to hide the actual creation of service
 # objects, since having to construct them all really sucks.

@@ -134,8 +134,8 @@ def compare_active_support_camelize_and_bgs_string_utils_camelize(string)
     #{string.inspect}
      |
      V
-    ActiveSupport: #{active_supports_result} 
-    BGS::StringUtils: #{bgs_string_utils_result} 
+    ActiveSupport: #{active_supports_result}
+    BGS::StringUtils: #{bgs_string_utils_result}
   X
   raise
 end

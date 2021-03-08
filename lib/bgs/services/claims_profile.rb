@@ -13,7 +13,7 @@ module BGS
     end
 
     def self.service_name
-      'claims'
+      'claims_profile'
     end
 
     def find_by_vbms_file_number(file_number)

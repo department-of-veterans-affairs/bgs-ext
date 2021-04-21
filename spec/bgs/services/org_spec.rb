@@ -3,7 +3,6 @@
 require 'bgs'
 
 describe BGS::OrgWebService do
-
   let(:participant_id) { '13367440' }
   let(:service) do
     BGS::Services.new(
@@ -16,7 +15,7 @@ describe BGS::OrgWebService do
     VCR.use_cassette('org/find_poa_history_by_ptcpnt_id') do
       response = service.org.find_poa_history_by_ptcpnt_id(participant_id)
 
-      first_item = response[:person_poa_history][:person_poa].sort_by { |poa| !poa[:begin_dt] }.first
+      first_item = response[:person_poa_history][:person_poa].min_by { |poa| !poa[:begin_dt] }
       expect(first_item[:legacy_poa_cd]).to eq('074')
     end
   end

@@ -50,5 +50,10 @@ module BGS
       response = request(:find_limited_poas_by_bnft_claim_ids, "bnftClaimId": claim_id)
       response.body[:find_limited_poas_by_bnft_claim_ids_response][:limited_poa]
     end
+
+    def find_poa_history_by_ptcpnt_id(participant_id)
+      response = request(:find_poa_history_by_ptcpnt_id, "ptcpntId": participant_id)
+      response.body[:find_poa_history_by_ptcpnt_id_response][:poa_history]
+    end
   end
 end

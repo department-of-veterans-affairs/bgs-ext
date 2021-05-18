@@ -14,7 +14,7 @@ describe BGS::CorporateUpdateWebService do
 
   xit 'updates poa access' do
     pending('Receiving tuxedo error when hitting endpoint')
-    
+
     VCR.use_cassette('corporate_update/update_poa_access') do
       service.corporate_update.update_poa_access(
         participant_id: participant_id,

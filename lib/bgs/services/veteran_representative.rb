@@ -18,6 +18,10 @@ module BGS
       def self.service_name
         'veteran_representative'
       end
+
+      def namespace
+        { namespaces: { 'xmlns:ns0' => 'http://gov.va.vba.benefits.vdc/data' } }
+      end  
   
       def read_all_veteran_representatives(form_type_code:, veteran_corp_ptcpnt_id:)
         response = request(

@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 06 Jul 2021 21:39:57 GMT
+      - Tue, 06 Jul 2021 23:06:58 GMT
       Host:
       - linktest.vba.va.gov
   response:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 06 Jul 2021 21:39:58 GMT
+      - Tue, 06 Jul 2021 23:06:58 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -45,11 +45,11 @@ http_interactions:
         <xsd:import namespace="http://gov.va.vba.benefits.vdc/data" schemaLocation="http://linktestbepbenefits.vba.va.gov:80/VDC/VeteranRepresentativeService?xsd=3"/>
         </xsd:schema>
         </types>
-        <message name="createVeteranRepresentative">
-        <part name="parameters" element="tns:createVeteranRepresentative"/>
+        <message name="updateVeteranRepresentative">
+        <part name="parameters" element="tns:updateVeteranRepresentative"/>
         </message>
-        <message name="createVeteranRepresentativeResponse">
-        <part name="parameters" element="tns:createVeteranRepresentativeResponse"/>
+        <message name="updateVeteranRepresentativeResponse">
+        <part name="parameters" element="tns:updateVeteranRepresentativeResponse"/>
         </message>
         <message name="DataValidationFault">
         <part xmlns:ns1="http://gov.va.vba.benefits.vdc/webfault" name="fault" element="ns1:DataValidationFault"/>
@@ -57,19 +57,25 @@ http_interactions:
         <message name="MessageFault">
         <part xmlns:ns2="http://gov.va.vba.benefits.vdc/webfault" name="fault" element="ns2:MessageFaultBean"/>
         </message>
+        <message name="createVeteranRepresentative">
+        <part name="parameters" element="tns:createVeteranRepresentative"/>
+        </message>
+        <message name="createVeteranRepresentativeResponse">
+        <part name="parameters" element="tns:createVeteranRepresentativeResponse"/>
+        </message>
         <message name="readAllVeteranRepresentatives">
         <part name="parameters" element="tns:readAllVeteranRepresentatives"/>
         </message>
         <message name="readAllVeteranRepresentativesResponse">
         <part name="parameters" element="tns:readAllVeteranRepresentativesResponse"/>
         </message>
-        <message name="updateVeteranRepresentative">
-        <part name="parameters" element="tns:updateVeteranRepresentative"/>
-        </message>
-        <message name="updateVeteranRepresentativeResponse">
-        <part name="parameters" element="tns:updateVeteranRepresentativeResponse"/>
-        </message>
         <portType name="VeteranRepresentative">
+        <operation name="updateVeteranRepresentative">
+        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/updateVeteranRepresentativeRequest" message="tns:updateVeteranRepresentative"/>
+        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/updateVeteranRepresentativeResponse" message="tns:updateVeteranRepresentativeResponse"/>
+        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/updateVeteranRepresentative/Fault/DataValidationFault"/>
+        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/updateVeteranRepresentative/Fault/MessageFault"/>
+        </operation>
         <operation name="createVeteranRepresentative">
         <input wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/createVeteranRepresentativeRequest" message="tns:createVeteranRepresentative"/>
         <output wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/createVeteranRepresentativeResponse" message="tns:createVeteranRepresentativeResponse"/>
@@ -82,15 +88,24 @@ http_interactions:
         <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/readAllVeteranRepresentatives/Fault/DataValidationFault"/>
         <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/readAllVeteranRepresentatives/Fault/MessageFault"/>
         </operation>
-        <operation name="updateVeteranRepresentative">
-        <input wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/updateVeteranRepresentativeRequest" message="tns:updateVeteranRepresentative"/>
-        <output wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/updateVeteranRepresentativeResponse" message="tns:updateVeteranRepresentativeResponse"/>
-        <fault message="tns:DataValidationFault" name="DataValidationFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/updateVeteranRepresentative/Fault/DataValidationFault"/>
-        <fault message="tns:MessageFault" name="MessageFault" wsam:Action="http://gov.va.vba.benefits.vdc/services/VeteranRepresentative/updateVeteranRepresentative/Fault/MessageFault"/>
-        </operation>
         </portType>
         <binding name="VeteranRepresentativePortBinding" type="tns:VeteranRepresentative">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="updateVeteranRepresentative">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="DataValidationFault">
+        <soap:fault name="DataValidationFault" use="literal"/>
+        </fault>
+        <fault name="MessageFault">
+        <soap:fault name="MessageFault" use="literal"/>
+        </fault>
+        </operation>
         <operation name="createVeteranRepresentative">
         <soap:operation soapAction=""/>
         <input>
@@ -107,21 +122,6 @@ http_interactions:
         </fault>
         </operation>
         <operation name="readAllVeteranRepresentatives">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="DataValidationFault">
-        <soap:fault name="DataValidationFault" use="literal"/>
-        </fault>
-        <fault name="MessageFault">
-        <soap:fault name="MessageFault" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="updateVeteranRepresentative">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -143,14 +143,14 @@ http_interactions:
         </port>
         </service>
         </definitions>
-  recorded_at: Tue, 06 Jul 2021 21:39:58 GMT
+  recorded_at: Tue, 06 Jul 2021 23:06:59 GMT
 - request:
     method: post
     uri: https://localhost:4447/VDC/VeteranRepresentativeService
     body:
       encoding: UTF-8
       string: |-
-        <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://gov.va.vba.benefits.vdc/services" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+        <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://gov.va.vba.benefits.vdc/services" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns0="http://gov.va.vba.benefits.vdc/data"><env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
           <wsse:UsernameToken>
             <wsse:Username>VAgovAPI</wsse:Username>
           </wsse:UsernameToken>
@@ -162,14 +162,14 @@ http_interactions:
             <vaws:ExternalKey>something</vaws:ExternalKey>
           </vaws:VaServiceHeaders>
         </wsse:Security>
-        </env:Header><env:Body><tns:readAllVeteranRepresentatives><ns0:CorpPtcpntIdFormTypeCode><formTypeCode>2122</formTypeCode><veteranCorpPtcpntId>600036156</veteranCorpPtcpntId></ns0:CorpPtcpntIdFormTypeCode></tns:readAllVeteranRepresentatives></env:Body></env:Envelope>
+        </env:Header><env:Body><tns:readAllVeteranRepresentatives><ns0:CorpPtcpntIdFormTypeCode><formTypeCode>21-22</formTypeCode><veteranCorpPtcpntId>31164997</veteranCorpPtcpntId></ns0:CorpPtcpntIdFormTypeCode></tns:readAllVeteranRepresentatives></env:Body></env:Envelope>
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.8.3, ruby 2.5.3 (2018-10-18))
       Accept:
       - "*/*"
       Date:
-      - Tue, 06 Jul 2021 21:39:58 GMT
+      - Tue, 06 Jul 2021 23:06:59 GMT
       Host:
       - linktest.vba.va.gov
       Soapaction:
@@ -177,14 +177,14 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1111'
+      - '1159'
   response:
     status:
-      code: 500
-      message: Internal Server Error
+      code: 200
+      message: OK
     headers:
       Date:
-      - Tue, 06 Jul 2021 21:39:58 GMT
+      - Tue, 06 Jul 2021 23:06:59 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -195,10 +195,9 @@ http_interactions:
       - text/xml; charset=utf-8
     body:
       encoding: UTF-8
-      string: <?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns0:Fault
-        xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.w3.org/2003/05/soap-envelope"><faultcode>ns0:Server</faultcode><faultstring>gov.va.vba.benefits.exceptions.DataValidationFault</faultstring><detail><ns1:DataValidationFault
-        xmlns:ns1="http://gov.va.vba.benefits.vdc/webfault" xmlns:ns0="http://gov.va.vba.benefits.vdc/services"
-        xmlns:ns2="http://gov.va.vba.benefits.vdc/data"><error><message>VetRep cannot
-        be null</message></error><errorMessage>VetRep cannot be null</errorMessage></ns1:DataValidationFault></detail></ns0:Fault></S:Body></S:Envelope>
-  recorded_at: Tue, 06 Jul 2021 21:39:59 GMT
+      string: <?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header/><S:Body><ns0:readAllVeteranRepresentativesResponse
+        xmlns:ns0="http://gov.va.vba.benefits.vdc/services" xmlns:ns1="http://gov.va.vba.benefits.vdc/webfault"
+        xmlns:ns2="http://gov.va.vba.benefits.vdc/data"/></S:Body></S:Envelope>
+  recorded_at: Tue, 06 Jul 2021 23:06:59 GMT
 recorded_with: VCR 6.0.0

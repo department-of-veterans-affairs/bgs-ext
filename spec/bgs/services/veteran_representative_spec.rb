@@ -12,7 +12,8 @@ describe BGS::DisabilityContentionService do
 
   it 'get read_all_veteran_representatives' do
     VCR.use_cassette('veteran_representative/read_all_veteran_representatives') do
-      response = service.veteran_representative.read_all_veteran_representatives(form_type_code: '21-22A', veteran_corp_ptcpnt_id: '600043201')
+      response = service.veteran_representative.read_all_veteran_representatives(form_type_code: '21-22A',
+                                                                                 veteran_corp_ptcpnt_id: '600043201')
 
       first_rep = response.first
 
@@ -27,7 +28,8 @@ describe BGS::DisabilityContentionService do
 
   it 'get read_all_veteran_representatives none found' do
     VCR.use_cassette('veteran_representative/read_all_veteran_representatives_none_found') do
-      response = service.veteran_representative.read_all_veteran_representatives(form_type_code: '21-22', veteran_corp_ptcpnt_id: '600045025')
+      response = service.veteran_representative.read_all_veteran_representatives(form_type_code: '21-22',
+                                                                                 veteran_corp_ptcpnt_id: '600045025')
 
       expect(response).to eq(nil)
     end

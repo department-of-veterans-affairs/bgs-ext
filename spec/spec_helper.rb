@@ -16,7 +16,6 @@ end
 require 'vcr'
 require 'webmock/rspec'
 require 'bgs'
-require 'pry'
 
 BGS.configure do |config|
   config.application = 'VAgovAPI'

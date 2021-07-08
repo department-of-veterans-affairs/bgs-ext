@@ -18,7 +18,7 @@ module BGS
 
     def find_claims_details_by_participant_id(participant_id:)
       response = request(:find_bnft_claim_detail_by_ptcpnt_id, 'ptcpntId': participant_id)
-      response.body
+      response.body[:find_bnft_claim_detail_by_ptcpnt_id_response]
     end
   end
 end

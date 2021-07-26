@@ -14,5 +14,10 @@ module BGS
       response = request(:find_benefit_claims_status_by_ptcpnt_id, 'ptcpntId': participant_id)
       response.body[:find_benefit_claims_status_by_ptcpnt_id_response]
     end
+
+    def find_benefit_claim_details_by_benefit_claim_id(benefit_claim_id:)
+      response = request(:find_benefit_claim_details_by_bnft_claim_id, 'bnftClaimId': benefit_claim_id)
+      response.body[:find_benefit_claim_details_by_bnft_claim_id_response]
+    end
   end
 end

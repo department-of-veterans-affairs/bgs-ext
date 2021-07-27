@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 28 Jun 2021 18:51:43 GMT
+      - Tue, 27 Jul 2021 00:54:22 GMT
       Host:
       - linktest.vba.va.gov
   response:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 28 Jun 2021 18:51:44 GMT
+      - Tue, 27 Jul 2021 00:54:23 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -39,23 +39,17 @@ http_interactions:
         <xsd:import namespace="http://services.mapd.benefits.vba.va.gov/" schemaLocation="http://linktestbepbenefits.vba.va.gov:80/DevelopmentNotesService/DevelopmentNotesService?xsd=1"/>
         </xsd:schema>
         </types>
-        <message name="findDevelopmentNotesByRange">
-        <part name="parameters" element="tns:findDevelopmentNotesByRange"/>
+        <message name="findDevelopmentNotes">
+        <part name="parameters" element="tns:findDevelopmentNotes"/>
         </message>
-        <message name="findDevelopmentNotesByRangeResponse">
-        <part name="parameters" element="tns:findDevelopmentNotesByRangeResponse"/>
+        <message name="findDevelopmentNotesResponse">
+        <part name="parameters" element="tns:findDevelopmentNotesResponse"/>
         </message>
         <message name="InvalidParameterException">
         <part name="fault" element="tns:InvalidParameterException"/>
         </message>
         <message name="BenefitsException">
         <part name="fault" element="tns:BenefitsException"/>
-        </message>
-        <message name="findDevelopmentNotes">
-        <part name="parameters" element="tns:findDevelopmentNotes"/>
-        </message>
-        <message name="findDevelopmentNotesResponse">
-        <part name="parameters" element="tns:findDevelopmentNotesResponse"/>
         </message>
         <message name="updateNote">
         <part name="parameters" element="tns:updateNote"/>
@@ -87,13 +81,13 @@ http_interactions:
         <message name="findDevelopmentNotesByVetPtcpntIdResponse">
         <part name="parameters" element="tns:findDevelopmentNotesByVetPtcpntIdResponse"/>
         </message>
+        <message name="findDevelopmentNotesByRange">
+        <part name="parameters" element="tns:findDevelopmentNotesByRange"/>
+        </message>
+        <message name="findDevelopmentNotesByRangeResponse">
+        <part name="parameters" element="tns:findDevelopmentNotesByRangeResponse"/>
+        </message>
         <portType name="DevelopmentNotesServiceRemote">
-        <operation name="findDevelopmentNotesByRange">
-        <input wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByRangeRequest" message="tns:findDevelopmentNotesByRange"/>
-        <output wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByRangeResponse" message="tns:findDevelopmentNotesByRangeResponse"/>
-        <fault message="tns:InvalidParameterException" name="InvalidParameterException" wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByRange/Fault/InvalidParameterException"/>
-        <fault message="tns:BenefitsException" name="BenefitsException" wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByRange/Fault/BenefitsException"/>
-        </operation>
         <operation name="findDevelopmentNotes">
         <input wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesRequest" message="tns:findDevelopmentNotes"/>
         <output wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesResponse" message="tns:findDevelopmentNotesResponse"/>
@@ -126,24 +120,15 @@ http_interactions:
         <fault message="tns:InvalidParameterException" name="InvalidParameterException" wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByVetPtcpntId/Fault/InvalidParameterException"/>
         <fault message="tns:BenefitsException" name="BenefitsException" wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByVetPtcpntId/Fault/BenefitsException"/>
         </operation>
+        <operation name="findDevelopmentNotesByRange">
+        <input wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByRangeRequest" message="tns:findDevelopmentNotesByRange"/>
+        <output wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByRangeResponse" message="tns:findDevelopmentNotesByRangeResponse"/>
+        <fault message="tns:InvalidParameterException" name="InvalidParameterException" wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByRange/Fault/InvalidParameterException"/>
+        <fault message="tns:BenefitsException" name="BenefitsException" wsam:Action="http://services.mapd.benefits.vba.va.gov/DevelopmentNotesServiceRemote/findDevelopmentNotesByRange/Fault/BenefitsException"/>
+        </operation>
         </portType>
         <binding name="DevelopmentNotesServicePortBinding" type="tns:DevelopmentNotesServiceRemote">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <operation name="findDevelopmentNotesByRange">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="InvalidParameterException">
-        <soap:fault name="InvalidParameterException" use="literal"/>
-        </fault>
-        <fault name="BenefitsException">
-        <soap:fault name="BenefitsException" use="literal"/>
-        </fault>
-        </operation>
         <operation name="findDevelopmentNotes">
         <soap:operation soapAction=""/>
         <input>
@@ -222,6 +207,21 @@ http_interactions:
         <soap:fault name="BenefitsException" use="literal"/>
         </fault>
         </operation>
+        <operation name="findDevelopmentNotesByRange">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="InvalidParameterException">
+        <soap:fault name="InvalidParameterException" use="literal"/>
+        </fault>
+        <fault name="BenefitsException">
+        <soap:fault name="BenefitsException" use="literal"/>
+        </fault>
+        </operation>
         </binding>
         <service name="DevelopmentNotesService">
         <port name="DevelopmentNotesServicePort" binding="tns:DevelopmentNotesServicePortBinding">
@@ -229,7 +229,7 @@ http_interactions:
         </port>
         </service>
         </definitions>
-  recorded_at: Mon, 28 Jun 2021 18:51:44 GMT
+  recorded_at: Tue, 27 Jul 2021 00:54:23 GMT
 - request:
     method: post
     uri: https://localhost:4447/DevelopmentNotesService/DevelopmentNotesService
@@ -248,14 +248,14 @@ http_interactions:
             <vaws:ExternalKey>something</vaws:ExternalKey>
           </vaws:VaServiceHeaders>
         </wsse:Security>
-        </env:Header><env:Body><tns:createNote><note><jrnDt xsi:nil="true"/><jrnLctnId xsi:nil="true"/><jrnObjId xsi:nil="true"/><jrnSttTc xsi:nil="true"/><jrnUserId xsi:nil="true"/><name xsi:nil="true"/><bnftClmNoteTc xsi:nil="true"/><clmId xsi:nil="true"/><noteId xsi:nil="true"/><noteOutTn xsi:nil="true"/><ptcpntId xsi:nil="true"/><txt xsi:nil="true"/></note></tns:createNote></env:Body></env:Envelope>
+        </env:Header><env:Body><tns:createNote><note><jrnDt>2021-07-26T17:54:22-07:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>VAgovAPI</jrnObjId><jrnSttTc>I</jrnSttTc><jrnUserId>VAgovAPI</jrnUserId><name>Claim rejected by VA.gov</name><bnftClmNoteTc>CLMDVLNOTE</bnftClmNoteTc><clmId>600195988</clmId><ptcpntId>600338791</ptcpntId><txt>Claim rejected by VA.gov: This application needs manual review.</txt></note></tns:createNote></env:Body></env:Envelope>
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.8.3, ruby 2.5.3 (2018-10-18))
       Accept:
       - "*/*"
       Date:
-      - Mon, 28 Jun 2021 18:51:44 GMT
+      - Tue, 27 Jul 2021 00:54:23 GMT
       Host:
       - linktest.vba.va.gov
       Soapaction:
@@ -263,14 +263,14 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1245'
+      - '1296'
   response:
     status:
-      code: 500
-      message: Internal Server Error
+      code: 200
+      message: OK
     headers:
       Date:
-      - Mon, 28 Jun 2021 18:51:44 GMT
+      - Tue, 27 Jul 2021 00:54:23 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -281,11 +281,11 @@ http_interactions:
       - text/xml; charset=utf-8
     body:
       encoding: UTF-8
-      string: '<?xml version=''1.0'' encoding=''UTF-8''?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Header><WorkContext
-        xmlns="http://oracle.com/weblogic/soap/workarea/">rO0ABXdJABF3ZWJsb2dpYy5hcHAubWFwZAAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABzEuMTcuODAAAA==</WorkContext></S:Header><S:Body><ns0:Fault
-        xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.w3.org/2003/05/soap-envelope"><faultcode>ns0:Server</faultcode><faultstring>TPESYSTEM(12):0:0:TPED_MINVAL(0):QMNONE(0):0:Exception:
-        gov.va.vba.framework.services.TuxedoServiceFoundButWrongAppException: TuxedoServiceFoundButWrongApp
-        (901)</faultstring><detail><ns0:BenefitsException xmlns:ns0="http://services.mapd.benefits.vba.va.gov/"><message>An
-        unexpected error was encountered.  Please contact the System Administrator.</message></ns0:BenefitsException></detail></ns0:Fault></S:Body></S:Envelope>'
-  recorded_at: Mon, 28 Jun 2021 18:51:45 GMT
+      string: '<?xml version=''1.0'' encoding=''UTF-8''?><S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><work:WorkContext
+        xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdJABF3ZWJsb2dpYy5hcHAubWFwZAAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABzEuMTcuODAAAA==</work:WorkContext></env:Header><S:Body><ns0:createNoteResponse
+        xmlns:ns0="http://services.mapd.benefits.vba.va.gov/"><note><callId>17</callId><jrnDt>2021-07-26T19:54:23-05:00</jrnDt><jrnLctnId>281</jrnLctnId><jrnObjId>cd_note_pkg.do_create</jrnObjId><jrnSttTc>I</jrnSttTc><jrnUserId>VAgovAPI</jrnUserId><name>Note</name><rowCnt>1</rowCnt><rowId>3</rowId><bnftClmNoteTc>CLMDVLNOTE</bnftClmNoteTc><clmId>600195988</clmId><noteId>52965953</noteId><noteOutTn>Claim
+        Development Note</noteOutTn><ptcpntId>600338791</ptcpntId><txt>Claim rejected
+        by VA.gov: This application needs manual review.</txt></note></ns0:createNoteResponse></S:Body></S:Envelope>'
+  recorded_at: Tue, 27 Jul 2021 00:54:24 GMT
 recorded_with: VCR 6.0.0

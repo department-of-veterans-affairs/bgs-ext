@@ -12,19 +12,17 @@ describe BGS::DevelopmentNotesService do
 
   let(:create_note_params) do
     {
-      note: {
-        jrn_dt: Time.now.iso8601,
-        jrn_lctn_id: '281',
-        jrn_status_type_cd: 'U',
-        jrn_user_id: 'VAgovAPI',
-        jrn_obj_id: 'VAgovAPI',
-        jrn_stt_tc: 'I',
-        name: 'Claim rejected by VA.gov',
-        bnft_clm_note_tc: 'CLMDVLNOTE',
-        clm_id: '600195988',
-        ptcpnt_id: '600338791',
-        txt: 'Claim rejected by VA.gov: This application needs manual review.'
-      }
+      jrn_dt: Time.now.iso8601,
+      jrn_lctn_id: '281',
+      jrn_status_type_cd: 'U',
+      jrn_user_id: 'VAgovAPI',
+      jrn_obj_id: 'VAgovAPI',
+      jrn_stt_tc: 'I',
+      name: 'Claim rejected by VA.gov',
+      bnft_clm_note_tc: 'CLMDVLNOTE',
+      clm_id: '600195988',
+      ptcpnt_id: '600338791',
+      txt: 'Claim rejected by VA.gov: This application needs manual review.'
     }
   end
 
@@ -43,15 +41,21 @@ describe BGS::DevelopmentNotesService do
 
   describe '#create_note' do
     it 'creates a note for the participant' do
-      # VCR.use_cassette('development_notes/create_note') do
-      # response = service.notes.create_note(create_note_params)
+      VCR.use_cassette('development_notes/create_note') do
+        create_note_response = service.notes.create_note(create_note_params)
+        note = create_note_response[:note]
 
-      # expect(response).to include(
-      #   {
-      #     #
-      #   }
-      # )
-      # end
+        expect(note).to include(
+          {
+            name: 'Note',
+            bnft_clm_note_tc: 'CLMDVLNOTE',
+            clm_id: '600195988',
+            note_out_tn: 'Claim Development Note',
+            ptcpnt_id: '600338791',
+            txt: 'Claim rejected by VA.gov: This application needs manual review.'
+          }
+        )
+      end
     end
   end
 end

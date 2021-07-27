@@ -30,8 +30,6 @@ module BGS
             'name' => options[:name],
             'bnftClmNoteTc' => options[:bnft_clm_note_tc],
             'clmId' => options[:clm_id],
-            'noteId' => options[:note_id],
-            'noteOutTn' => options[:note_out_tn],
             'ptcpntId' => options[:ptcpnt_id],
             'txt' => options[:txt]
           }

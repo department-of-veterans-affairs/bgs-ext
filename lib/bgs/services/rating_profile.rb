@@ -19,7 +19,7 @@ module BGS
 
     # Returns issues and disabilities for a specific rating (also known as a rating profile)
     def find(participant_id:, profile_date:)
-      response = request(:read_rating_profile, "veteranId": participant_id, "profileDate": profile_date)
+      response = request(:read_rating_profile, veteranId: participant_id, profileDate: profile_date)
 
       # Purposely avoiding much data processing here to do that in the application layer
       response.body[:read_rating_profile_response][:rba_profile]
@@ -30,9 +30,9 @@ module BGS
     def find_in_date_range(participant_id:, start_date:, end_date:)
       response = request(
         :get_all_decns_at_issue_for_date_range,
-        "veteranID": participant_id,
-        "startDate": start_date,
-        "endDate": end_date
+        veteranID: participant_id,
+        startDate: start_date,
+        endDate: end_date
       )
       response.body
     end

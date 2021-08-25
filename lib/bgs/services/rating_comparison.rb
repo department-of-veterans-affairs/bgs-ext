@@ -22,16 +22,16 @@ module BGS
     def find_by_participant_id_and_date_range(participant_id, start_date, end_date)
       response = request(
         :compare_by_date_range,
-        "RatingDateRange": {
-          "ptcpntId": participant_id,
-          "startDate": start_date,
-          "endDate": end_date,
+        RatingDateRange: {
+          ptcpntId: participant_id,
+          startDate: start_date,
+          endDate: end_date,
           # This flag allows the service to return ratings that are not locked
           # if the most current rating is locked
-          "allowLockedRatings": 'Y',
+          allowLockedRatings: 'Y',
           # This field isn't used and should be set to the start_date
           # according to the BGS team.
-          "claimDate": start_date
+          claimDate: start_date
         }
       )
 

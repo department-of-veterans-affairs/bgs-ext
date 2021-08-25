@@ -17,7 +17,7 @@ module BGS
     end
 
     def vnp_proc_find_by_primary_key(vnp_proc_id)
-      response = request(:vnp_proc_find_by_primary_key, "vnpProcId": vnp_proc_id)
+      response = request(:vnp_proc_find_by_primary_key, vnpProcId: vnp_proc_id)
       response = response.body[:vnp_proc_find_by_primary_key_response][:return]
     end
 
@@ -27,7 +27,7 @@ module BGS
       response = request(
         :vnp_proc_create,
         {
-          'arg0': options.transform_keys { |key| StringUtils.camelize(key, :lower) }
+          arg0: options.transform_keys { |key| StringUtils.camelize(key, :lower) }
         },
         options[:ssn]
       )
@@ -40,7 +40,7 @@ module BGS
       response = request(
         :vnp_proc_update,
         {
-          'arg0': options.transform_keys { |key| StringUtils.camelize(key, :lower) }
+          arg0: options.transform_keys { |key| StringUtils.camelize(key, :lower) }
         },
         options[:ssn]
       )

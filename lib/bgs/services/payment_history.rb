@@ -8,7 +8,7 @@ module BGS
     end
     # Find a Person, as defined by the Person Web Service, by their SSN.
     def find_by_ssn(ssn)
-      response = request(:find_pay_history_by_ssn, { 'ssn': ssn }, ssn)
+      response = request(:find_pay_history_by_ssn, { ssn: ssn }, ssn)
 
       response.body[:find_pay_history_by_ssn_response][:return]
     end

@@ -25,11 +25,11 @@ module BGS
       response = request(
         :update_birls_record,
         {
-          "birlsUpdateInput": {
-            "CLAIM_NUMBER": ssn,
-            "PAYEE_NUMBER": '00',
-            "POWER_OF_ATTY_CODE1": poa_code[0],
-            "POWER_OF_ATTY_CODE2": "#{poa_code[1]}#{poa_code[2]}"
+          birlsUpdateInput: {
+            CLAIM_NUMBER: ssn,
+            PAYEE_NUMBER: '00',
+            POWER_OF_ATTY_CODE1: poa_code[0],
+            POWER_OF_ATTY_CODE2: "#{poa_code[1]}#{poa_code[2]}"
           }
         },
         ssn
@@ -43,9 +43,9 @@ module BGS
       response = request(
         :find_corporate_record,
         {
-          "ptcpntSearchPSNInput": {
-            "firstName": first_name,
-            "lastName": last_name
+          ptcpntSearchPSNInput: {
+            firstName: first_name,
+            lastName: last_name
           }
         },
         "#{first_name}_#{last_name}".downcase

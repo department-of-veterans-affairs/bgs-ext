@@ -18,13 +18,13 @@ module BGS
     end
 
     def find_by_participant_id(participant_id)
-      response = request(:find_veteran_by_ptcpnt_id, "ptcpntId": participant_id)
+      response = request(:find_veteran_by_ptcpnt_id, ptcpntId: participant_id)
       response = response.body[:find_veteran_by_ptcpnt_id_response][:return]
       merge_birls_and_corp_records(response)
     end
 
     def find_by_file_number(file_number)
-      response = request(:find_veteran_by_file_number, "fileNumber": file_number)
+      response = request(:find_veteran_by_file_number, fileNumber: file_number)
       response = response.body[:find_veteran_by_file_number_response][:return]
       merge_birls_and_corp_records(response)
     end

@@ -20,7 +20,7 @@ module BGS
     # findRatingData (shrinqm)
     # This service provides the Rating Data. This service uses the following tuxedo services: shrinq1, shrinqm
     def find_rating_data(file_number)
-      response = request(:find_rating_data, 'fileNumber': file_number)
+      response = request(:find_rating_data, fileNumber: file_number)
       response.body[:find_rating_data_response][:return]
     end
   end

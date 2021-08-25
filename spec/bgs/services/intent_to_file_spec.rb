@@ -145,7 +145,6 @@ describe BGS::IntentToFileWebService do
           submitter_application_icn_type_code: 'VETS.GOV'
         }
         service.intent_to_file.insert_intent_to_file(options)
-        # puts response.inspect
       end
     end
   end

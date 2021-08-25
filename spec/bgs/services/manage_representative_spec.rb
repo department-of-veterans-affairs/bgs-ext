@@ -46,7 +46,6 @@ describe BGS::ManageRepresentativeService do
 
     VCR.use_cassette('manage_representative/read_poa_request_by_ptcpnt_id_not_found') do
       service.manage_representative.read_poa_request_by_ptcpnt_id(participant_id: 31167367)
-      # puts response.inspect
     end
   end
 

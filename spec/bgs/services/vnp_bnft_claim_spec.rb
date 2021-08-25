@@ -78,8 +78,6 @@ describe BGS::VnpBnftClaimService do
       VCR.use_cassette('vnp_benefit_claim/update') do
         response = service.vnp_bnft_claim.vnp_bnft_claim_update(vnp_benfit_claim_update_params)
 
-        # puts response
-
         expect(response).to include(
           {
             :vnp_bnft_claim_id=>"426094",

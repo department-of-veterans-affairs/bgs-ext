@@ -170,11 +170,12 @@ namespace :doc do
                 'VnpPtcpntPhoneWebServiceBean/VnpPtcpntPhoneService',
                 'VnpPtcpntRlnshpWebServiceBean/VnpPtcpntRlnshpService',
                 'VnpPtcpntWebServiceBean/VnpPtcpntService',
-                'VnpTempDataRfrncWebServiceBean/VnpTempDataRfrncService']
+                'VnpTempDataRfrncWebServiceBean/VnpTempDataRfrncService',
+                'SvnTypeEJBV2/SvnTypeV2Service']
 
     services.each do |service|
       system("wget --no-check-certificate https://localhost:4447/#{service}?WSDL -P docs")
-      (1..3).each do |instance|
+      (1..5).each do |instance|
         system("wget --no-check-certificate https://localhost:4447/#{service}?xsd=#{instance} -P docs")
       end
     end

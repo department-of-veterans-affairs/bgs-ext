@@ -1,0 +1,31 @@
+# frozen_string_literal: true
+
+# As a work of the United States Government, this project is in the
+# public domain within the United States.
+#
+# Additionally, we waive copyright and related rights in the work
+# worldwide through the CC0 1.0 Universal public domain dedication.
+
+module BGS
+  # This service is used to find Standard Data from Share.
+  class StandardDataWebService < BGS::Base
+    def self.service_name
+      'share_data'
+    end
+
+    def bean_name
+      'StandardDataWebServiceBean'
+    end
+
+    # finds all the Stations that start with a '3', Regional Offices
+    def find_regional_offices
+      response = request(:find_regional_offices)
+      response.body[:find_regional_offices_response][:return]
+    end
+
+    def find_countries
+      response = request(:find_countries)
+      response.body[:find_countries_response][:return]
+    end
+  end
+end

@@ -100,7 +100,6 @@ describe BGS::IntentToFileWebService do
     it 'get find_intent_to_file_by_participant_id with type' do
       VCR.use_cassette('intent_to_file/find_intent_to_file_by_participant_id_itf_type_cd') do
         response = service.intent_to_file.find_intent_to_file_by_ptcpnt_id_itf_type_cd('13367440', 'P')
-        puts response.inspect
         expect(response[:clmant_addrs_one_txt]).to eq('123 WEST HIGH PKWY')
         expect(response[:clmant_addrs_two_txt]).to eq('SUITE 100')
         expect(response[:clmant_city_nm]).to eq('FAIRFAX')
@@ -145,8 +144,8 @@ describe BGS::IntentToFileWebService do
           received_date: '2020-08-04T10:11:14-06:00',
           submitter_application_icn_type_code: 'VETS.GOV'
         }
-        response = service.intent_to_file.insert_intent_to_file(options)
-        puts response.inspect
+        service.intent_to_file.insert_intent_to_file(options)
+        # puts response.inspect
       end
     end
   end

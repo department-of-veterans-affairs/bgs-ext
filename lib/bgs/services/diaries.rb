@@ -22,9 +22,9 @@ module BGS
         :read_diaries,
         {
           'data:AwardKeyInput': {
-            'awardType': options[:award_type],
-            'beneficiaryID': options[:beneficiary_id],
-            'veteranID': options[:participant_id]
+            awardType: options[:award_type],
+            beneficiaryID: options[:beneficiary_id],
+            veteranID: options[:participant_id]
           }
         },
         options[:ssn]

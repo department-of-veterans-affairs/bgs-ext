@@ -14,7 +14,7 @@ module BGS
     end
 
     def find_development_notes_by_pid(participant_id, ssn = nil)
-      response = request(:find_development_notes_by_vet_ptcpnt_id, { "ptcpntId": participant_id }, ssn)
+      response = request(:find_development_notes_by_vet_ptcpnt_id, { ptcpntId: participant_id }, ssn)
       response.body[:find_development_notes_by_vet_ptcpnt_id_response]
     end
 

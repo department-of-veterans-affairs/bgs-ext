@@ -25,12 +25,12 @@ module BGS
       response = request(
         :get_regional_office_by_zip_code,
         {
-          "wsdl:searchROCriteria": {
-            "wsdl:zipCode": zip_code,
-            "wsdl:country": country,
-            "wsdl:province": province
+          'wsdl:searchROCriteria': {
+            'wsdl:zipCode': zip_code,
+            'wsdl:country': country,
+            'wsdl:province': province
           },
-          "wsdl:lob": lob
+          'wsdl:lob': lob
         },
         ssn
       )

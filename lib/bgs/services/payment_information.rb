@@ -18,9 +18,9 @@ module BGS
       response = request(
         :retrieve_payment_summary_with_bdn,
         {
-          'ParticipantId': participant_id,
-          'FileNumber': file_number,
-          'PayeeCode': payee_code
+          ParticipantId: participant_id,
+          FileNumber: file_number,
+          PayeeCode: payee_code
         },
         ssn)
 

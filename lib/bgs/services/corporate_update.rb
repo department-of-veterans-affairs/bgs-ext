@@ -21,10 +21,10 @@ module BGS
       response = request(
         :update_poa_access,
         {
-          "ptcpntId": participant_id,
-          "poa": poa_code,
-          "allowPoaAccess": allow_poa_access,
-          "allowPoaCadd": allow_poa_c_add
+          ptcpntId: participant_id,
+          poa: poa_code,
+          allowPoaAccess: allow_poa_access,
+          allowPoaCadd: allow_poa_c_add
         }
       )
       response.body[:update_poa_access_response][:return]

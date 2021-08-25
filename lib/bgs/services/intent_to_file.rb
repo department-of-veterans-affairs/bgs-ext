@@ -18,7 +18,7 @@ module BGS
 
     def find_intent_to_file_by_participant_id(participant_id)
       response = request(
-        :find_intent_to_file_by_ptcpnt_id, 'ptcpntId': participant_id
+        :find_intent_to_file_by_ptcpnt_id, ptcpntId: participant_id
       )
       response.body[:find_intent_to_file_by_ptcpnt_id_response][:intent_to_file_dto]
     end
@@ -29,13 +29,13 @@ module BGS
       response = request(
         :insert_intent_to_file,
         {
-          "intentToFileDTO": {
-            "itfTypeCd": options[:intent_to_file_type_code],
-            "ptcpntClmantId": options[:participant_claimant_id],
-            "ptcpntVetId": options[:participant_vet_id],
-            "rcvdDt": options[:received_date],
-            "signtrInd": options[:signature_indicated],
-            "submtrApplcnTypeCd": options[:submitter_application_icn_type_code]
+          intentToFileDTO: {
+            itfTypeCd: options[:intent_to_file_type_code],
+            ptcpntClmantId: options[:participant_claimant_id],
+            ptcpntVetId: options[:participant_vet_id],
+            rcvdDt: options[:received_date],
+            signtrInd: options[:signature_indicated],
+            submtrApplcnTypeCd: options[:submitter_application_icn_type_code]
 
           }
         },
@@ -50,17 +50,17 @@ module BGS
       response = request(
         :update_intent_to_file,
         {
-          "intentToFileDTO": {
-            "createDt": options[:created_date],
-            "intentToFileId": options[:intent_to_file_id],
-            "itfStatusTypeCd": options[:intent_to_file_status_code],
-            "itfTypeCd": options[:intent_to_file_type_code],
-            "rcvdDt": options[:received_date],
-            "submtrAppIcnTypeCd": options[:submitter_application_icn_type_code],
-            "submtrApplcnTypeCd": options[:submitter_application_icn_type_code],
-            "ptcpntVetId": options[:participant_vet_id],
-            "ptcpntClmantId": options[:participant_claimant_id],
-            "vetFileNbr": options[:veteran_file_number]
+          intentToFileDTO: {
+            createDt: options[:created_date],
+            intentToFileId: options[:intent_to_file_id],
+            itfStatusTypeCd: options[:intent_to_file_status_code],
+            itfTypeCd: options[:intent_to_file_type_code],
+            rcvdDt: options[:received_date],
+            submtrAppIcnTypeCd: options[:submitter_application_icn_type_code],
+            submtrApplcnTypeCd: options[:submitter_application_icn_type_code],
+            ptcpntVetId: options[:participant_vet_id],
+            ptcpntClmantId: options[:participant_claimant_id],
+            vetFileNbr: options[:veteran_file_number]
           }
         },
         options[:ssn]
@@ -70,7 +70,7 @@ module BGS
 
     def find_intent_to_file_by_ptcpnt_id_itf_type_cd(participant_id, itf_type)
       response = request(
-        :find_intent_to_file_by_ptcpnt_id_itf_type_cd, 'ptcpntId': participant_id, 'itfTypeCd': itf_type
+        :find_intent_to_file_by_ptcpnt_id_itf_type_cd, ptcpntId: participant_id, itfTypeCd: itf_type
       )
       response.body[:find_intent_to_file_by_ptcpnt_id_itf_type_cd_response][:intent_to_file_dto]
     end

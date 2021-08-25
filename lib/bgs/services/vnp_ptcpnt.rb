@@ -22,23 +22,23 @@ module BGS
       response = request(
         :vnp_ptcpnt_create,
         {
-          "arg0": {
-            "vnpPtcpntId": options[:vnp_ptcpnt_id],
-            "vnpProcId": options[:vnp_proc_id],
-            "fraudInd": options[:fraud_ind],
-            "jrnDt": options[:jrn_dt],
-            "jrnLctnId": options[:jrn_lctn_id],
-            "jrnObjId": options[:jrn_obj_id],
-            "jrnStatusTypeCd": options[:jrn_status_type_cd],
-            "jrnUserId": options[:jrn_user_id],
-            "legacyPoaCd": options[:legacy_poa_cd],
-            "miscVendorInd": options[:misc_vendor_ind],
-            "ptcpntShortNm": options[:ptcpnt_short_nm],
-            "ptcpntTypeNm": options[:ptcpnt_type_nm],
-            "taxIdfctnNbr": options[:tax_idfctn_nbr],
-            "tinWaiverReasonTypeCd": options[:tin_waiver_reason_type_cd],
-            "ptcpntFkPtcpntId": options[:ptcpnt_fk_ptcpnt_id],
-            "corpPtcpntId": options[:corp_ptcpnt_id]
+          arg0: {
+            vnpPtcpntId: options[:vnp_ptcpnt_id],
+            vnpProcId: options[:vnp_proc_id],
+            fraudInd: options[:fraud_ind],
+            jrnDt: options[:jrn_dt],
+            jrnLctnId: options[:jrn_lctn_id],
+            jrnObjId: options[:jrn_obj_id],
+            jrnStatusTypeCd: options[:jrn_status_type_cd],
+            jrnUserId: options[:jrn_user_id],
+            legacyPoaCd: options[:legacy_poa_cd],
+            miscVendorInd: options[:misc_vendor_ind],
+            ptcpntShortNm: options[:ptcpnt_short_nm],
+            ptcpntTypeNm: options[:ptcpnt_type_nm],
+            taxIdfctnNbr: options[:tax_idfctn_nbr],
+            tinWaiverReasonTypeCd: options[:tin_waiver_reason_type_cd],
+            ptcpntFkPtcpntId: options[:ptcpnt_fk_ptcpnt_id],
+            corpPtcpntId: options[:corp_ptcpnt_id]
           }
         },
         options[:ssn]
@@ -53,7 +53,7 @@ module BGS
       response = request(
         :vnp_ptcpnt_addrs_create,
         {
-          "arg0": {
+          arg0: {
             vnpPtcpntId: options[:vnp_ptcpnt_id],
             vnpProcId: options[:vnp_proc_id],
             addrsOneTxt: options[:addrs_one_txt],

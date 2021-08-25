@@ -27,11 +27,11 @@ module BGS
       response = request(
         :update_poa_relationship,
         {
-          "POARelationship": {
-            "dateRequestAccepted": date_request_accepted,
-            "vetPtcpntId": participant_id,
-            "vetSSN": ssn,
-            "vsoPOACode": poa_code
+          POARelationship: {
+            dateRequestAccepted: date_request_accepted,
+            vetPtcpntId: participant_id,
+            vetSSN: ssn,
+            vsoPOACode: poa_code
           }
         },
         ssn
@@ -43,7 +43,7 @@ module BGS
       response = request(
         :read_poa_request_by_ptcpnt_id,
         {
-          "PtcpntId": participant_id
+          PtcpntId: participant_id
         },
         ssn
       )

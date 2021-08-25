@@ -24,9 +24,9 @@ module BGS
       response = request(
         :read_all_veteran_representatives,
         {
-          "ns0:CorpPtcpntIdFormTypeCode": {
-            "formTypeCode": form_type_code,
-            "veteranCorpPtcpntId": veteran_corp_ptcpnt_id
+          'ns0:CorpPtcpntIdFormTypeCode': {
+            formTypeCode: form_type_code,
+            veteranCorpPtcpntId: veteran_corp_ptcpnt_id
           }
         },
         veteran_corp_ptcpnt_id

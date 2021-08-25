@@ -17,6 +17,20 @@ module BGS
       'StandardDataWebServiceBean'
     end
 
+    def find_benefit_claim_type_increment(ptcpnt_id:, bnft_claim_type_cd:, pgm_type_cd:, ssn: nil)
+      response = request(
+        :find_benefit_claim_type_increment,
+        {
+          ptcpntId: ptcpnt_id,
+          bnftClaimTypeCd: bnft_claim_type_cd,
+          pgmTypeCd: pgm_type_cd
+        },
+        ssn
+      )
+
+      response.body[:find_benefit_claim_type_increment_response][:return]
+    end
+
     # finds all the Stations that start with a '3', Regional Offices
     def find_regional_offices
       response = request(:find_regional_offices)

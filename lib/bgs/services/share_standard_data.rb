@@ -28,7 +28,7 @@ module BGS
         ssn
       )
 
-      response.body[:find_benefit_claim_type_increment_response]
+      response.body[:find_benefit_claim_type_increment_response][:return]
     end
 
     # finds all the Stations that start with a '3', Regional Offices

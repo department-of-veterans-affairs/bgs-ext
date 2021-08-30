@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'bgs'
-require 'byebug'
 
 describe BGS::RatingService do
   let(:service) do

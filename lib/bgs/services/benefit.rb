@@ -161,9 +161,6 @@ module BGS
         end_product_code
         first_name
         last_name
-        city
-        state
-        postal_code
         country
         disposition
         section_unit_no

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # As a work of the United States Government, this project is in the
 # public domain within the United States.
 #
@@ -10,11 +8,11 @@ module BGS
   # Used for finding information about specific ratings
   class RatingInformationService < BGS::Base
     def bean_name
-      'RatingInformationService'
+      "RatingInformationService"
     end
 
     def self.service_name
-      'rating_profile'
+      "rating_profile"
     end
 
     # Returns issues and disabilities for a specific rating (also known as a rating profile)
@@ -34,14 +32,14 @@ module BGS
         "startDate": start_date,
         "endDate": end_date
       )
-      response.body
+      response.body[:get_all_decns_at_issue_for_date_range_response][:decns_at_issue_for_date_range]
     end
     
     # Returns current rating profile by participant_id
-    def find_current_rating_profile_by_ptcpnt_id(participant_id, include_issues=true, get_latest=true)
-      response = request(:read_current_rating_profile_by_ptcpnt_id, "veteranId": participant_id, "includeIssues": include_issues, get_latest: get_latest)
-      binding.pry
+    def find_current_rating_profile_by_ptcpnt_id(participant_id, include_issues=true)
+      response = request(:read_current_rating_profile_by_ptcpnt_id, "veteranId": participant_id, "includeIssues": include_issues)
       response.body[:read_current_rating_profile_by_ptcpnt_id_response][:rba_profile]
     end
   end
 end
+

@@ -13,6 +13,7 @@ describe BGS::ContentionService do
   it 'get find_contentions_by_ptcpnt_id' do
     VCR.use_cassette('contention/find_contentions_by_ptcpnt_id') do
       response = service.contention.find_contentions_by_ptcpnt_id('600036156')
+      binding.pry
       expect(response[:benefit_claims].count).to eq(289)
 
       first_claim = response[:benefit_claims].first

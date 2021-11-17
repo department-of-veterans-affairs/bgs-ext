@@ -28,7 +28,7 @@ describe BGS::BenefitClaimWebServiceV1 do
   it 'finds claims details by participant id' do
     VCR.use_cassette('benefit_claims/find_claim_details_by_claim_id') do
       response = service.benefit_claims.find_claim_details_by_claim_id(claim_id: test_claim_id)
-
+      binding.pry
       expect(response).to have_key(:bnft_claim_detail)
       expect(response[:bnft_claim_detail]).to be_an_instance_of(Hash)
       expect(response[:bnft_claim_detail]).to have_key(:bnft_claim_lc_status)

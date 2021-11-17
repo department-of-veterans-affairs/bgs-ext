@@ -169,6 +169,7 @@ module BGS
         file_path += "/#{@service_name.underscore}/#{method}/#{identifier}.json"
         OpenStruct.new(body: JSON.parse(File.read(file_path)).with_indifferent_access)
       else
+        # binding.pry
         client.call(method, message: message)
       end
     rescue HTTPClient::ConnectTimeoutError, HTTPClient::ReceiveTimeoutError, Errno::ETIMEDOUT => _err

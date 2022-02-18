@@ -39,4 +39,24 @@ describe BGS::StandardDataWebService do
       end
     end
   end
+
+  describe '#find_poas' do
+    it 'finds poas' do
+      VCR.use_cassette('share_standard_data/find_poas') do
+        response = service.share_data.find_poas
+        expect(response.first[:legacy_poa_cd]).to eq('002')
+        expect(response.first[:nm]).to eq("MAINE VETERANS' SERVICES")
+        expect(response.first[:org_type_nm]).to eq('POA State Organization')
+        expect(response.first[:ptcpnt_id]).to eq('46004')
+
+        uniq_org_types = response.map { |poa| poa[:org_type_nm] }.uniq
+        expect(uniq_org_types.length).to eq(5)
+        expect(uniq_org_types.include?('POA State Organization')).to be true
+        expect(uniq_org_types.include?('POA National Organization')).to be true
+        expect(uniq_org_types.include?('POA Attorney')).to be true
+        expect(uniq_org_types.include?('POA Agent')).to be true
+        expect(uniq_org_types.include?('POA Local/Regional Organization')).to be true
+      end
+    end
+  end
 end

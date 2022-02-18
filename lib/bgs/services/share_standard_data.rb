@@ -41,5 +41,10 @@ module BGS
       response = request(:find_countries)
       response.body[:find_countries_response]
     end
+
+    def find_poas
+      response = request(:find_po_as)
+      response.body[:find_po_as_response][:power_of_attorney_dto]
+    end
   end
 end

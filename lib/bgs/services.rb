@@ -18,10 +18,16 @@
 require 'bgs/services/address'
 require 'bgs/services/awards'
 require 'bgs/services/benefit'
+require 'bgs/services/benefit_claims'
 require 'bgs/services/claimant'
-require 'bgs/services/disability_contention'
+require 'bgs/services/contention'
 require 'bgs/services/corporate_update'
+require 'bgs/services/ddeft'
+require 'bgs/services/development_notes'
+require 'bgs/services/diaries'
+require 'bgs/services/disability_contention'
 require 'bgs/services/document'
+require 'bgs/services/ebenefits_benefit_claims_status'
 require 'bgs/services/intent_to_file'
 require 'bgs/services/manage_representative'
 require 'bgs/services/org'
@@ -33,9 +39,11 @@ require 'bgs/services/rating_comparison'
 require 'bgs/services/rating_profile'
 require 'bgs/services/regional_office_routing'
 require 'bgs/services/standard_data'
+require 'bgs/services/share_standard_data'
 require 'bgs/services/uploaded_document'
 require 'bgs/services/vet_record'
 require 'bgs/services/veteran'
+require 'bgs/services/veteran_representative'
 require 'bgs/services/vnp_bnft_claim'
 require 'bgs/services/vnp_child_school'
 require 'bgs/services/vnp_child_student'
@@ -66,6 +74,7 @@ module BGS
                   forward_proxy_url: configuration.forward_proxy_url,
                   jumpbox_url: configuration.jumpbox_url,
                   log: configuration.log,
+                  logger: configuration.logger,
                   external_uid: external_uid,
                   external_key: external_key,
                   mock_responses: configuration.mock_responses,

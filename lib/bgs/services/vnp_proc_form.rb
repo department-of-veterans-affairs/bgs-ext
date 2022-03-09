@@ -17,7 +17,7 @@ module BGS
     end
 
     def vnp_proc_form_find_by_primary_key(vnp_proc_id, form_type_cd)
-      response = request(:vnp_proc_form_find_by_primary_key, { "vnpProcId": vnp_proc_id, "formTypeCd": form_type_cd })
+      response = request(:vnp_proc_form_find_by_primary_key, { vnpProcId: vnp_proc_id, formTypeCd: form_type_cd })
       response.body[:vnp_proc_form_find_by_primary_key_response][:return]
     end
 
@@ -27,16 +27,16 @@ module BGS
       response = request(
         :vnp_proc_form_create,
         {
-          "arg0": {
-            "compId": {
-              "vnpProcId": options[:vnp_proc_id],
-              "formTypeCd": options[:form_type_cd]
+          arg0: {
+            compId: {
+              vnpProcId: options[:vnp_proc_id],
+              formTypeCd: options[:form_type_cd]
             },
-            "jrnDt": options[:jrn_dt],
-            "jrnLctnId": options[:jrn_lctn_id],
-            "jrnObjId": options[:jrn_obj_id],
-            "jrnStatusTypeCd": options[:jrn_status_type_cd],
-            "jrnUserId": options[:jrn_user_id]
+            jrnDt: options[:jrn_dt],
+            jrnLctnId: options[:jrn_lctn_id],
+            jrnObjId: options[:jrn_obj_id],
+            jrnStatusTypeCd: options[:jrn_status_type_cd],
+            jrnUserId: options[:jrn_user_id]
           }
         },
         options[:ssn]

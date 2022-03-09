@@ -25,7 +25,7 @@ module BGS
     attr_accessor :client_ip, :application, :client_username,
                   :env, :client_station_id, :jumpbox_url,
                   :ssl_cert_file, :ssl_cert_key_file, :ssl_ca_cert,
-                  :log, :mock_responses, :forward_proxy_url,
+                  :log, :logger, :mock_responses, :forward_proxy_url,
                   :mock_response_location, :external_uid, :external_key,
                   :ssl_verify_mode
 

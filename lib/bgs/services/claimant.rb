@@ -20,22 +20,46 @@ module BGS
     # findFlashes (shrinqf)
     #   finds the Flashes (Person Special Status) related to a file number
     def find_flashes(file_number)
-      response = request(:find_flashes, 'fileNumber': file_number)
+      response = request(:find_flashes, fileNumber: file_number)
       response.body[:find_flashes_response][:return]
     end
 
     # findAssignedFlashes (shrinqm)
     #   finds only assigned flashes
     def find_assigned_flashes(file_number)
-      response = request(:find_assigned_flashes, 'fileNumber': file_number)
+      response = request(:find_assigned_flashes, fileNumber: file_number)
       response.body[:find_assigned_flashes_response][:return]
     end
 
     # findVBMSFlash (shrinqm)
     #   finds only the VBMS flash
     def find_vbms_flash(file_number)
-      response = request(:find_vbms_flash, 'fileNumber': file_number)
+      response = request(:find_vbms_flash, fileNumber: file_number)
       response.body[:find_vbms_flash_response][:return]
+    end
+
+    # updateFlashes (shrinqm)
+    #   adds/removes multiple flashes in one transaction
+    def update_flashes(options)
+      validate_required_keys(required_update_flashes_fields, options, __method__.to_s)
+
+      flashes = options[:flashes].map do |flash|
+        { assignedIndicator: flash[:assigned_indicator].nil? ? nil : flash[:assigned_indicator].strip,
+          flashName: flash[:flash_name].nil? ? nil : flash[:flash_name].strip }
+      end
+
+      response = request(
+        :update_flashes,
+        {
+          flashUpdateInput: {
+            flashes: flashes,
+            numberOfFlashes: flashes.count.to_s,
+            ptcpntID: options[:ptcpnt_id]
+          }
+        },
+        options[:ptcpnt_id]
+      )
+      response.body[:update_flashes_response]
     end
 
     # addFlash (shrinqm, shrinq1)
@@ -46,11 +70,11 @@ module BGS
       response = request(
         :add_flash,
         {
-          'fileNumber': options[:file_number],
-          'flash': {
-            'assignedIndicator': options[:assigned_indicator],
-            'flashName': options[:flash_name],
-            'flashType': options[:flash_type]
+          fileNumber: options[:file_number],
+          flash: {
+            assignedIndicator: options[:assigned_indicator],
+            flashName: options[:flash_name],
+            flashType: options[:flash_type]
           }
         },
         options[:file_number]
@@ -66,9 +90,9 @@ module BGS
       response = request(
         :remove_flash,
         {
-          "fileNumber": options[:file_number],
-          "flash": {
-            'flashName': options[:flash_name]
+          fileNumber: options[:file_number],
+          flash: {
+            flashName: options[:flash_name]
           }
         },
         options[:file_number]
@@ -79,7 +103,7 @@ module BGS
     # findPOAByPtcntId (shrinqf)
     #   finds the Power of Attorney related to a participant ID.
     def find_poa_by_participant_id(id)
-      response = request(:find_poa_by_ptcpnt_id, 'ptcpntId': id)
+      response = request(:find_poa_by_ptcpnt_id, ptcpntId: id)
       response.body[:find_poa_by_ptcpnt_id_response][:return]
     end
 
@@ -88,19 +112,19 @@ module BGS
     #   and evrs. Used when a list exist, and you want information on a single
     #   claimant
     def find_general_information_by_participant_id(id)
-      response = request(:find_general_information_by_ptcpnt_id, 'ptcpntId': id)
+      response = request(:find_general_information_by_ptcpnt_id, ptcpntId: id)
       response.body[:find_general_information_by_ptcpnt_id_response][:return]
     end
 
     def find_all_relationships(id)
-      response = request(:find_all_relationships, 'ptcpntId': id)
+      response = request(:find_all_relationships, ptcpntId: id)
       response.body[:find_all_relationships_response][:return][:dependents]
     end
 
     # findDependentsByPtcpntId (shrinq3)
     #   finds the dependents related to a participant ID
     def find_dependents_by_participant_id(id, ssn)
-      response = request(:find_dependents_by_ptcpnt_id, { 'ptcpntId': id }, ssn)
+      response = request(:find_dependents_by_ptcpnt_id, { ptcpntId: id }, ssn)
       response.body[:find_dependents_by_ptcpnt_id_response][:return]
     end
 

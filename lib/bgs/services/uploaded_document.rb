@@ -18,7 +18,7 @@ module BGS
 
     def find_by_participant_id(participant_id)
       response = request(
-        :find_uplded_dcmnt_by_ptcpnt_id, 'ptcpntId': participant_id,
+        :find_uplded_dcmnt_by_ptcpnt_id, ptcpntId: participant_id,
       )
       response.body[:find_uplded_dcmnt_by_ptcpnt_id_response][:bnft_claim_dto]
     end

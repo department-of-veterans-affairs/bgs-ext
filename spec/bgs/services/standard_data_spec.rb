@@ -2,7 +2,7 @@
 
 require 'bgs'
 
-describe BGS::StandardDataWebService do
+describe BGS::StandardDataService do
   let(:service) do
     BGS::Services.new(
       external_uid: 'something',
@@ -10,14 +10,17 @@ describe BGS::StandardDataWebService do
     )
   end
 
-  describe '#find_regional_offices' do
-    it 'returns a list of regional offices' do
-      VCR.use_cassette('standard_data/find_regional_offices') do
-        response = service.data.find_regional_offices
-        expect(response[:return]).to be_an_instance_of(Array)
-        # don't want to use an exact match here
-        # in case regional offices get closed or added
-        expect(response[:return].size).to be > 1
+  describe '#get_contention_classification_type_code_list' do
+    it 'returns a list of contention classification type codes' do
+      VCR.use_cassette('standard_data/get_contention_classification_type_code_list') do
+        response = service.data.get_contention_classification_type_code_list
+        expect(response).to be_an_instance_of(Array)
+        expect(response.size).to be > 1
+
+        expect(response.first[:name]).to eq('ContentionClassification')
+        expect(response.first[:clsfcn_id]).to eq('10')
+        expect(response.first[:clsfcn_txt]).to eq('abnormal heart')
+        expect(response.first[:end_dt]).to eq(DateTime.parse('2016-02-04T11:51:56-06:00'))
       end
     end
   end

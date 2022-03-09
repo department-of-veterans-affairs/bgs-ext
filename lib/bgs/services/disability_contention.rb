@@ -28,7 +28,7 @@ module BGS
         :read_all_contentions,
         {
           'ns0:PtcpntId': {
-            'vnpPtcpntId': participant_id
+            vnpPtcpntId: participant_id
           }
         },
         participant_id
@@ -46,9 +46,9 @@ module BGS
       validate_required_keys(required_add_contention_fields, options, __method__.to_s)
 
       contention = {
-        'cntntnTypeCd': options[:cntntn_type_cd],
-        'vnpProcId': options[:vnp_proc_id],
-        'vnpPtcpntId': options[:vnp_ptcpnt_id]
+        cntntnTypeCd: options[:cntntn_type_cd],
+        vnpProcId: options[:vnp_proc_id],
+        vnpPtcpntId: options[:vnp_ptcpnt_id]
       }
       contention['beginDt'] = options[:begin_dt] unless options[:begin_dt].nil?
       contention['clmantTxt'] = options[:clmant_txt] unless options[:clmant_txt].nil?
@@ -74,9 +74,9 @@ module BGS
       validate_required_keys(required_update_contention_fields, options, __method__.to_s)
 
       contention = {
-        'cntntnTypeCd': options[:cntntn_type_cd],
-        'vnpCntntnId': options[:vnp_cntntn_id],
-        'vnpPtcpntId': options[:vnp_ptcpnt_id]
+        cntntnTypeCd: options[:cntntn_type_cd],
+        vnpCntntnId: options[:vnp_cntntn_id],
+        vnpPtcpntId: options[:vnp_ptcpnt_id]
       }
       contention['jrnDt'] = options[:jrn_dt] unless options[:jrn_dt].nil?
       contention['beginDt'] = options[:begin_dt] unless options[:begin_dt].nil?
@@ -103,9 +103,9 @@ module BGS
       validate_required_keys(required_update_all_contention_fields, options, __method__.to_s)
 
       contention = {
-        'cntntnTypeCd': options[:cntntn_type_cd],
-        'vnpCntntnId': options[:vnp_cntntn_id],
-        'vnpPtcpntId': options[:vnp_ptcpnt_id]
+        cntntnTypeCd: options[:cntntn_type_cd],
+        vnpCntntnId: options[:vnp_cntntn_id],
+        vnpPtcpntId: options[:vnp_ptcpnt_id]
       }
       contention['jrnDt'] = options[:jrn_dt] unless options[:jrn_dt].nil?
       contention['beginDt'] = options[:begin_dt] unless options[:begin_dt].nil?
@@ -137,7 +137,7 @@ module BGS
         :delete_all_contentions,
         {
           'ns0:ProcId': {
-            'vnpProcId': vnp_proc_id
+            vnpProcId: vnp_proc_id
           }
         },
         vnp_proc_id
@@ -152,7 +152,7 @@ module BGS
         :read_all_display_disabilities,
         {
           'ns0:PtcpntId': {
-            'vnpPtcpntId': participant_id
+            vnpPtcpntId: participant_id
           }
         },
         participant_id
@@ -169,11 +169,11 @@ module BGS
         :add_display_disability,
         {
           'ns0:Disability': {
-            'dsbltyDt': options[:dsblty_dt],
-            'dsbltyId': options[:dsblty_id],
-            'dsplyDt': options[:dsply_dt],
-            'vnpProcId': options[:vnp_proc_id],
-            'vnpPtcpntId': options[:vnp_ptcpnt_id]
+            dsbltyDt: options[:dsblty_dt],
+            dsbltyId: options[:dsblty_id],
+            dsplyDt: options[:dsply_dt],
+            vnpProcId: options[:vnp_proc_id],
+            vnpPtcpntId: options[:vnp_ptcpnt_id]
           }
         },
         options[:vnp_ptcpnt_id]
@@ -188,7 +188,7 @@ module BGS
         :delete_all_display_disabilities,
         {
           'ns0:PtcpntId': {
-            'vnpPtcpntId': vnp_ptcpnt_id
+            vnpPtcpntId: vnp_ptcpnt_id
           }
         },
         vnp_ptcpnt_id

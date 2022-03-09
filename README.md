@@ -59,6 +59,12 @@ Run tests
 > $ bundle exec rake spec
 
 
+Maintenance
+-------
+
+Version must be appropriately updated within the bgs.gemspec file whenever this gem's contract is modified.
+
+
 License
 =======
 

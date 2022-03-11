@@ -167,7 +167,7 @@ module BGS
 
         file_path = BGS.configuration.mock_response_location
         file_path += "/#{@service_name.underscore}/#{method}/#{identifier}.json"
-        OpenStruct.new(body: JSON.parse(File.read(file_path)).with_indifferent_access)
+        Struct.new(body: JSON.parse(File.read(file_path)).with_indifferent_access)
       else
         client.call(method, message: message)
       end

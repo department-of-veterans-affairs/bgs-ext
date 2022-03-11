@@ -8,11 +8,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.3, ruby 2.5.3 (2018-10-18))
+      - HTTPClient/1.0 (2.8.3, ruby 2.7.4 (2021-07-07))
       Accept:
       - "*/*"
       Date:
-      - Wed, 16 Sep 2020 21:03:07 GMT
+      - Fri, 11 Mar 2022 02:37:00 GMT
       Host:
       - linktest.vba.va.gov
   response:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 16 Sep 2020 21:03:08 GMT
+      - Fri, 11 Mar 2022 02:37:00 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -48,17 +48,59 @@ http_interactions:
         <message name="ShareException">
         <part name="fault" element="tns:ShareException"/>
         </message>
-        <message name="findVeteranByFileNumber">
-        <part name="parameters" element="tns:findVeteranByFileNumber"/>
+        <message name="findCorporateRecordByFileNumber">
+        <part name="parameters" element="tns:findCorporateRecordByFileNumber"/>
         </message>
-        <message name="findVeteranByFileNumberResponse">
-        <part name="parameters" element="tns:findVeteranByFileNumberResponse"/>
+        <message name="findCorporateRecordByFileNumberResponse">
+        <part name="parameters" element="tns:findCorporateRecordByFileNumberResponse"/>
+        </message>
+        <message name="updateDateOfDeath">
+        <part name="parameters" element="tns:updateDateOfDeath"/>
+        </message>
+        <message name="updateDateOfDeathResponse">
+        <part name="parameters" element="tns:updateDateOfDeathResponse"/>
+        </message>
+        <message name="updateBirlsClaimant">
+        <part name="parameters" element="tns:updateBirlsClaimant"/>
+        </message>
+        <message name="updateBirlsClaimantResponse">
+        <part name="parameters" element="tns:updateBirlsClaimantResponse"/>
+        </message>
+        <message name="findDuplicates">
+        <part name="parameters" element="tns:findDuplicates"/>
+        </message>
+        <message name="findDuplicatesResponse">
+        <part name="parameters" element="tns:findDuplicatesResponse"/>
+        </message>
+        <message name="insertBirlsClaimant">
+        <part name="parameters" element="tns:insertBirlsClaimant"/>
+        </message>
+        <message name="insertBirlsClaimantResponse">
+        <part name="parameters" element="tns:insertBirlsClaimantResponse"/>
         </message>
         <message name="updateBirlsRecord">
         <part name="parameters" element="tns:updateBirlsRecord"/>
         </message>
         <message name="updateBirlsRecordResponse">
         <part name="parameters" element="tns:updateBirlsRecordResponse"/>
+        </message>
+        <message name="findCh33RecordByFileNumber">
+        <part name="parameters" element="tns:findCh33RecordByFileNumber"/>
+        </message>
+        <message name="findCh33RecordByFileNumberResponse">
+        <part name="parameters" element="tns:findCh33RecordByFileNumberResponse"/>
+        </message>
+        <message name="findVeteranByFileNumber">
+        <part name="parameters" element="tns:findVeteranByFileNumber"/>
+        </message>
+        <message name="findVeteranByFileNumberResponse">
+        <part name="parameters" element="tns:findVeteranByFileNumberResponse"/>
+        </message>
+        <message name="insertBirlsRecord">
+        <part name="parameters" element="tns:insertBirlsRecord"/>
+        </message>
+        <message name="insertBirlsRecordResponse">
+        <part name="parameters" element="tns:insertBirlsRecordResponse"/>
         </message>
         <message name="findVeteran">
         <part name="parameters" element="tns:findVeteran"/>
@@ -71,12 +113,6 @@ http_interactions:
         </message>
         <message name="findBirlsRecordResponse">
         <part name="parameters" element="tns:findBirlsRecordResponse"/>
-        </message>
-        <message name="insertBirlsRecord">
-        <part name="parameters" element="tns:insertBirlsRecord"/>
-        </message>
-        <message name="insertBirlsRecordResponse">
-        <part name="parameters" element="tns:insertBirlsRecordResponse"/>
         </message>
         <message name="findVeteranByPtcpntId">
         <part name="parameters" element="tns:findVeteranByPtcpntId"/>
@@ -96,53 +132,17 @@ http_interactions:
         <message name="syncCorporateBirlsResponse">
         <part name="parameters" element="tns:syncCorporateBirlsResponse"/>
         </message>
-        <message name="findBirlsRecordByFileNumber">
-        <part name="parameters" element="tns:findBirlsRecordByFileNumber"/>
-        </message>
-        <message name="findBirlsRecordByFileNumberResponse">
-        <part name="parameters" element="tns:findBirlsRecordByFileNumberResponse"/>
-        </message>
-        <message name="findCorporateRecordByFileNumber">
-        <part name="parameters" element="tns:findCorporateRecordByFileNumber"/>
-        </message>
-        <message name="findCorporateRecordByFileNumberResponse">
-        <part name="parameters" element="tns:findCorporateRecordByFileNumberResponse"/>
-        </message>
-        <message name="updateDateOfDeath">
-        <part name="parameters" element="tns:updateDateOfDeath"/>
-        </message>
-        <message name="updateDateOfDeathResponse">
-        <part name="parameters" element="tns:updateDateOfDeathResponse"/>
-        </message>
-        <message name="insertBirlsClaimant">
-        <part name="parameters" element="tns:insertBirlsClaimant"/>
-        </message>
-        <message name="insertBirlsClaimantResponse">
-        <part name="parameters" element="tns:insertBirlsClaimantResponse"/>
-        </message>
-        <message name="updateBirlsClaimant">
-        <part name="parameters" element="tns:updateBirlsClaimant"/>
-        </message>
-        <message name="updateBirlsClaimantResponse">
-        <part name="parameters" element="tns:updateBirlsClaimantResponse"/>
-        </message>
-        <message name="findDuplicates">
-        <part name="parameters" element="tns:findDuplicates"/>
-        </message>
-        <message name="findDuplicatesResponse">
-        <part name="parameters" element="tns:findDuplicatesResponse"/>
-        </message>
         <message name="findCorporateRecordByPtcpntId">
         <part name="parameters" element="tns:findCorporateRecordByPtcpntId"/>
         </message>
         <message name="findCorporateRecordByPtcpntIdResponse">
         <part name="parameters" element="tns:findCorporateRecordByPtcpntIdResponse"/>
         </message>
-        <message name="findCh33RecordByFileNumber">
-        <part name="parameters" element="tns:findCh33RecordByFileNumber"/>
+        <message name="findBirlsRecordByFileNumber">
+        <part name="parameters" element="tns:findBirlsRecordByFileNumber"/>
         </message>
-        <message name="findCh33RecordByFileNumberResponse">
-        <part name="parameters" element="tns:findCh33RecordByFileNumberResponse"/>
+        <message name="findBirlsRecordByFileNumberResponse">
+        <part name="parameters" element="tns:findBirlsRecordByFileNumberResponse"/>
         </message>
         <portType name="VetRecordService">
         <operation name="findIndex">
@@ -150,15 +150,50 @@ http_interactions:
         <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findIndexResponse" message="tns:findIndexResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findIndex/Fault/ShareException"/>
         </operation>
-        <operation name="findVeteranByFileNumber">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findVeteranByFileNumberRequest" message="tns:findVeteranByFileNumber"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findVeteranByFileNumberResponse" message="tns:findVeteranByFileNumberResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findVeteranByFileNumber/Fault/ShareException"/>
+        <operation name="findCorporateRecordByFileNumber">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByFileNumberRequest" message="tns:findCorporateRecordByFileNumber"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByFileNumberResponse" message="tns:findCorporateRecordByFileNumberResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByFileNumber/Fault/ShareException"/>
+        </operation>
+        <operation name="updateDateOfDeath">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateDateOfDeathRequest" message="tns:updateDateOfDeath"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateDateOfDeathResponse" message="tns:updateDateOfDeathResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateDateOfDeath/Fault/ShareException"/>
+        </operation>
+        <operation name="updateBirlsClaimant">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsClaimantRequest" message="tns:updateBirlsClaimant"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsClaimantResponse" message="tns:updateBirlsClaimantResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsClaimant/Fault/ShareException"/>
+        </operation>
+        <operation name="findDuplicates">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findDuplicatesRequest" message="tns:findDuplicates"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findDuplicatesResponse" message="tns:findDuplicatesResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findDuplicates/Fault/ShareException"/>
+        </operation>
+        <operation name="insertBirlsClaimant">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsClaimantRequest" message="tns:insertBirlsClaimant"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsClaimantResponse" message="tns:insertBirlsClaimantResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsClaimant/Fault/ShareException"/>
         </operation>
         <operation name="updateBirlsRecord">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsRecordRequest" message="tns:updateBirlsRecord"/>
         <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsRecordResponse" message="tns:updateBirlsRecordResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsRecord/Fault/ShareException"/>
+        </operation>
+        <operation name="findCh33RecordByFileNumber">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCh33RecordByFileNumberRequest" message="tns:findCh33RecordByFileNumber"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCh33RecordByFileNumberResponse" message="tns:findCh33RecordByFileNumberResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCh33RecordByFileNumber/Fault/ShareException"/>
+        </operation>
+        <operation name="findVeteranByFileNumber">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findVeteranByFileNumberRequest" message="tns:findVeteranByFileNumber"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findVeteranByFileNumberResponse" message="tns:findVeteranByFileNumberResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findVeteranByFileNumber/Fault/ShareException"/>
+        </operation>
+        <operation name="insertBirlsRecord">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsRecordRequest" message="tns:insertBirlsRecord"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsRecordResponse" message="tns:insertBirlsRecordResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsRecord/Fault/ShareException"/>
         </operation>
         <operation name="findVeteran">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findVeteranRequest" message="tns:findVeteran"/>
@@ -169,11 +204,6 @@ http_interactions:
         <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecordRequest" message="tns:findBirlsRecord"/>
         <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecordResponse" message="tns:findBirlsRecordResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecord/Fault/ShareException"/>
-        </operation>
-        <operation name="insertBirlsRecord">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsRecordRequest" message="tns:insertBirlsRecord"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsRecordResponse" message="tns:insertBirlsRecordResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsRecord/Fault/ShareException"/>
         </operation>
         <operation name="findVeteranByPtcpntId">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findVeteranByPtcpntIdRequest" message="tns:findVeteranByPtcpntId"/>
@@ -190,50 +220,104 @@ http_interactions:
         <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/syncCorporateBirlsResponse" message="tns:syncCorporateBirlsResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/syncCorporateBirls/Fault/ShareException"/>
         </operation>
-        <operation name="findBirlsRecordByFileNumber">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecordByFileNumberRequest" message="tns:findBirlsRecordByFileNumber"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecordByFileNumberResponse" message="tns:findBirlsRecordByFileNumberResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecordByFileNumber/Fault/ShareException"/>
-        </operation>
-        <operation name="findCorporateRecordByFileNumber">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByFileNumberRequest" message="tns:findCorporateRecordByFileNumber"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByFileNumberResponse" message="tns:findCorporateRecordByFileNumberResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByFileNumber/Fault/ShareException"/>
-        </operation>
-        <operation name="updateDateOfDeath">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateDateOfDeathRequest" message="tns:updateDateOfDeath"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateDateOfDeathResponse" message="tns:updateDateOfDeathResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateDateOfDeath/Fault/ShareException"/>
-        </operation>
-        <operation name="insertBirlsClaimant">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsClaimantRequest" message="tns:insertBirlsClaimant"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsClaimantResponse" message="tns:insertBirlsClaimantResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/insertBirlsClaimant/Fault/ShareException"/>
-        </operation>
-        <operation name="updateBirlsClaimant">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsClaimantRequest" message="tns:updateBirlsClaimant"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsClaimantResponse" message="tns:updateBirlsClaimantResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/updateBirlsClaimant/Fault/ShareException"/>
-        </operation>
-        <operation name="findDuplicates">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findDuplicatesRequest" message="tns:findDuplicates"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findDuplicatesResponse" message="tns:findDuplicatesResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findDuplicates/Fault/ShareException"/>
-        </operation>
         <operation name="findCorporateRecordByPtcpntId">
         <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByPtcpntIdRequest" message="tns:findCorporateRecordByPtcpntId"/>
         <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByPtcpntIdResponse" message="tns:findCorporateRecordByPtcpntIdResponse"/>
         <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCorporateRecordByPtcpntId/Fault/ShareException"/>
         </operation>
-        <operation name="findCh33RecordByFileNumber">
-        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCh33RecordByFileNumberRequest" message="tns:findCh33RecordByFileNumber"/>
-        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCh33RecordByFileNumberResponse" message="tns:findCh33RecordByFileNumberResponse"/>
-        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findCh33RecordByFileNumber/Fault/ShareException"/>
+        <operation name="findBirlsRecordByFileNumber">
+        <input wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecordByFileNumberRequest" message="tns:findBirlsRecordByFileNumber"/>
+        <output wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecordByFileNumberResponse" message="tns:findBirlsRecordByFileNumberResponse"/>
+        <fault message="tns:ShareException" name="ShareException" wsam:Action="http://services.share.benefits.vba.va.gov/VetRecordService/findBirlsRecordByFileNumber/Fault/ShareException"/>
         </operation>
         </portType>
         <binding name="VetRecordWebServicePortBinding" type="tns:VetRecordService">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
         <operation name="findIndex">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="findCorporateRecordByFileNumber">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="updateDateOfDeath">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="updateBirlsClaimant">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="findDuplicates">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="insertBirlsClaimant">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="updateBirlsRecord">
+        <soap:operation soapAction=""/>
+        <input>
+        <soap:body use="literal"/>
+        </input>
+        <output>
+        <soap:body use="literal"/>
+        </output>
+        <fault name="ShareException">
+        <soap:fault name="ShareException" use="literal"/>
+        </fault>
+        </operation>
+        <operation name="findCh33RecordByFileNumber">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -257,7 +341,7 @@ http_interactions:
         <soap:fault name="ShareException" use="literal"/>
         </fault>
         </operation>
-        <operation name="updateBirlsRecord">
+        <operation name="insertBirlsRecord">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -282,18 +366,6 @@ http_interactions:
         </fault>
         </operation>
         <operation name="findBirlsRecord">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="insertBirlsRecord">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -341,78 +413,6 @@ http_interactions:
         <soap:fault name="ShareException" use="literal"/>
         </fault>
         </operation>
-        <operation name="findBirlsRecordByFileNumber">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="findCorporateRecordByFileNumber">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="updateDateOfDeath">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="insertBirlsClaimant">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="updateBirlsClaimant">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
-        <operation name="findDuplicates">
-        <soap:operation soapAction=""/>
-        <input>
-        <soap:body use="literal"/>
-        </input>
-        <output>
-        <soap:body use="literal"/>
-        </output>
-        <fault name="ShareException">
-        <soap:fault name="ShareException" use="literal"/>
-        </fault>
-        </operation>
         <operation name="findCorporateRecordByPtcpntId">
         <soap:operation soapAction=""/>
         <input>
@@ -425,7 +425,7 @@ http_interactions:
         <soap:fault name="ShareException" use="literal"/>
         </fault>
         </operation>
-        <operation name="findCh33RecordByFileNumber">
+        <operation name="findBirlsRecordByFileNumber">
         <soap:operation soapAction=""/>
         <input>
         <soap:body use="literal"/>
@@ -444,7 +444,7 @@ http_interactions:
         </port>
         </service>
         </definitions>
-  recorded_at: Wed, 16 Sep 2020 21:03:08 GMT
+  recorded_at: Fri, 11 Mar 2022 02:37:01 GMT
 - request:
     method: post
     uri: https://localhost:4447/VetRecordServiceBean/VetRecordWebService
@@ -463,14 +463,14 @@ http_interactions:
             <vaws:ExternalKey>something</vaws:ExternalKey>
           </vaws:VaServiceHeaders>
         </wsse:Security>
-        </env:Header><env:Body><tns:updateBirlsRecord><birlsUpdateInput><CLAIM_NUMBER>796123232</CLAIM_NUMBER><PAYEE_NUMBER>00</PAYEE_NUMBER><POWER_OF_ATTY_CODE1>A</POWER_OF_ATTY_CODE1><POWER_OF_ATTY_CODE2>1Q</POWER_OF_ATTY_CODE2></birlsUpdateInput></tns:updateBirlsRecord></env:Body></env:Envelope>
+        </env:Header><env:Body><tns:updateBirlsRecord><birlsUpdateInput><CLAIM_NUMBER>796123232</CLAIM_NUMBER><SOC_SEC_NUM>796123232</SOC_SEC_NUM><PAYEE_NUMBER>00</PAYEE_NUMBER><POWER_OF_ATTY_CODE1>A</POWER_OF_ATTY_CODE1><POWER_OF_ATTY_CODE2>1Q</POWER_OF_ATTY_CODE2></birlsUpdateInput></tns:updateBirlsRecord></env:Body></env:Envelope>
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.3, ruby 2.5.3 (2018-10-18))
+      - HTTPClient/1.0 (2.8.3, ruby 2.7.4 (2021-07-07))
       Accept:
       - "*/*"
       Date:
-      - Wed, 16 Sep 2020 21:03:08 GMT
+      - Fri, 11 Mar 2022 02:37:01 GMT
       Host:
       - linktest.vba.va.gov
       Soapaction:
@@ -478,18 +478,22 @@ http_interactions:
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1139'
+      - '1175'
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 16 Sep 2020 21:03:09 GMT
+      - Fri, 11 Mar 2022 02:37:01 GMT
       Server:
       - Apache
       X-Frame-Options:
       - SAMEORIGIN
+      X-Oracle-Dms-Ecid:
+      - ad327e9f-6fed-4de6-964a-f8a57380f5c7-00001cf7
+      X-Oracle-Dms-Rid:
+      - '0'
       Transfer-Encoding:
       - chunked
       Content-Type:
@@ -498,14 +502,13 @@ http_interactions:
       encoding: UTF-8
       string: <?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
         xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><env:Header><work:WorkContext
-        xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdWAB13ZWJsb2dpYy5hcHAuQ29ycG9yYXRlRGF0YUVBUgAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQACDMuMS4xOC4wAAA=</work:WorkContext></env:Header><S:Body><ns0:updateBirlsRecordResponse
+        xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdUAB13ZWJsb2dpYy5hcHAuQ29ycG9yYXRlRGF0YUVBUgAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABjMuMi4xOQAA</work:WorkContext></env:Header><S:Body><ns0:updateBirlsRecordResponse
         xmlns:ns0="http://services.share.benefits.vba.va.gov/"><return><RETURN_CODE>BMOD0001</RETURN_CODE><RETURN_MESSAGE>BIRLS
         Update successful</RETURN_MESSAGE><SPACE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:nil="true"/><CLAIM_NUMBER>796123232</CLAIM_NUMBER><SOC_SEC_NUMBER>796123232</SOC_SEC_NUMBER><INS_PREFIX></INS_PREFIX><INS_NUMBER></INS_NUMBER><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><INSURANCE_POLICY><INS_POL_PREFIX></INS_POL_PREFIX><INS_POL_NUMBER></INS_POL_NUMBER></INSURANCE_POLICY><SERVICE><SHORT_SERVICE_NUMBER>        </SHORT_SERVICE_NUMBER><SERVICE_NUMBER_FILL>
         </SERVICE_NUMBER_FILL><BRANCH_OF_SERVICE>M   </BRANCH_OF_SERVICE><ENTERED_ON_DUTY_DATE>03031973</ENTERED_ON_DUTY_DATE><RELEASED_ACTIVE_DUTY_DATE>04141978</RELEASED_ACTIVE_DUTY_DATE><SEPARATION_REASON_CODE>SAT</SEPARATION_REASON_CODE><NONPAY_DAYS>   </NONPAY_DAYS><PAY_GRADE>   </PAY_GRADE><CHAR_OF_SVC_CODE>HON</CHAR_OF_SVC_CODE></SERVICE><SERVICE><SHORT_SERVICE_NUMBER>        </SHORT_SERVICE_NUMBER><SERVICE_NUMBER_FILL>
         </SERVICE_NUMBER_FILL><BRANCH_OF_SERVICE>    </BRANCH_OF_SERVICE><ENTERED_ON_DUTY_DATE>        </ENTERED_ON_DUTY_DATE><RELEASED_ACTIVE_DUTY_DATE>        </RELEASED_ACTIVE_DUTY_DATE><SEPARATION_REASON_CODE>   </SEPARATION_REASON_CODE><NONPAY_DAYS>   </NONPAY_DAYS><PAY_GRADE>   </PAY_GRADE><CHAR_OF_SVC_CODE>   </CHAR_OF_SVC_CODE></SERVICE><SERVICE><SHORT_SERVICE_NUMBER>        </SHORT_SERVICE_NUMBER><SERVICE_NUMBER_FILL>
-        </SERVICE_NUMBER_FILL><BRANCH_OF_SERVICE>    </BRANCH_OF_SERVICE><ENTERED_ON_DUTY_DATE>        </ENTERED_ON_DUTY_DATE><RELEASED_ACTIVE_DUTY_DATE>        </RELEASED_ACTIVE_DUTY_DATE><SEPARATION_REASON_CODE>   </SEPARATION_REASON_CODE><NONPAY_DAYS>   </NONPAY_DAYS><PAY_GRADE>   </PAY_GRADE><CHAR_OF_SVC_CODE>   </CHAR_OF_SVC_CODE></SERVICE><LAST_NAME>KELLY</LAST_NAME><FIRST_NAME>LEWIS</FIRST_NAME><MIDDLE_NAME>L</MIDDLE_NAME><NAME_SUFFIX></NAME_SUFFIX><ALTERNATE_NAME><ALT_LAST_NAME></ALT_LAST_NAME><ALT_FIRST_NAME></ALT_FIRST_NAME><ALT_MIDDLE_NAME></ALT_MIDDLE_NAME><ALT_NAME_SUFFIX></ALT_NAME_SUFFIX></ALTERNATE_NAME><ALTERNATE_NAME><ALT_LAST_NAME></ALT_LAST_NAME><ALT_FIRST_NAME></ALT_FIRST_NAME><ALT_MIDDLE_NAME></ALT_MIDDLE_NAME><ALT_NAME_SUFFIX></ALT_NAME_SUFFIX></ALTERNATE_NAME><ALTERNATE_NAME><ALT_LAST_NAME></ALT_LAST_NAME><ALT_FIRST_NAME></ALT_FIRST_NAME><ALT_MIDDLE_NAME></ALT_MIDDLE_NAME><ALT_NAME_SUFFIX></ALT_NAME_SUFFIX></ALTERNATE_NAME><BIRTH_MONTH>09</BIRTH_MONTH><BIRTH_DAY>08</BIRTH_DAY><BIRTH_CENTURY>19</BIRTH_CENTURY><BIRTH_YEAR>54</BIRTH_YEAR><DATE_OF_BIRTH>09/08/1954</DATE_OF_BIRTH><DEATH_MONTH></DEATH_MONTH><DEATH_DAY></DEATH_DAY><DEATH_CENTURY></DEATH_CENTURY><DEATH_YEAR></DEATH_YEAR><DATE_OF_DEATH
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/><POW_NUMBER_OF_DAYS></POW_NUMBER_OF_DAYS><TOTAL_ACTIVE_SERVICE_YEARS></TOTAL_ACTIVE_SERVICE_YEARS><TOTAL_ACTIVE_SERVICE_MONTHS></TOTAL_ACTIVE_SERVICE_MONTHS><TOTAL_ACTIVE_SERVICE_DAYS></TOTAL_ACTIVE_SERVICE_DAYS><DISABILITY_SEVERANCE_PAY></DISABILITY_SEVERANCE_PAY><LUMP_SUM_READJUSTMENT_PAY></LUMP_SUM_READJUSTMENT_PAY><SEPARATION_PAY></SEPARATION_PAY><FOLDER><FOLDER_TYPE>CLAIM</FOLDER_TYPE><FOLDER_CURRENT_LOCATION>452</FOLDER_CURRENT_LOCATION><TRANSFER_MONTH>11</TRANSFER_MONTH><TRANSFER_DAY>20</TRANSFER_DAY><TRANSFER_YEAR>2012</TRANSFER_YEAR><DATE_OF_TRANSFER>11/20/2012</DATE_OF_TRANSFER><FOLDER_PRIOR_LOCATION>317</FOLDER_PRIOR_LOCATION><IN_TRANSIT_TO_STATION>   </IN_TRANSIT_TO_STATION><IN_TRANSIT_MONTH>  </IN_TRANSIT_MONTH><IN_TRANSIT_DAY>  </IN_TRANSIT_DAY><IN_TRANSIT_YEAR>    </IN_TRANSIT_YEAR><DATE_OF_TRANSIT
+        </SERVICE_NUMBER_FILL><BRANCH_OF_SERVICE>    </BRANCH_OF_SERVICE><ENTERED_ON_DUTY_DATE>        </ENTERED_ON_DUTY_DATE><RELEASED_ACTIVE_DUTY_DATE>        </RELEASED_ACTIVE_DUTY_DATE><SEPARATION_REASON_CODE>   </SEPARATION_REASON_CODE><NONPAY_DAYS>   </NONPAY_DAYS><PAY_GRADE>   </PAY_GRADE><CHAR_OF_SVC_CODE>   </CHAR_OF_SVC_CODE></SERVICE><LAST_NAME>KELLY</LAST_NAME><FIRST_NAME>LEWIS</FIRST_NAME><MIDDLE_NAME>L</MIDDLE_NAME><NAME_SUFFIX></NAME_SUFFIX><ALTERNATE_NAME><ALT_LAST_NAME></ALT_LAST_NAME><ALT_FIRST_NAME></ALT_FIRST_NAME><ALT_MIDDLE_NAME></ALT_MIDDLE_NAME><ALT_NAME_SUFFIX></ALT_NAME_SUFFIX></ALTERNATE_NAME><ALTERNATE_NAME><ALT_LAST_NAME></ALT_LAST_NAME><ALT_FIRST_NAME></ALT_FIRST_NAME><ALT_MIDDLE_NAME></ALT_MIDDLE_NAME><ALT_NAME_SUFFIX></ALT_NAME_SUFFIX></ALTERNATE_NAME><ALTERNATE_NAME><ALT_LAST_NAME></ALT_LAST_NAME><ALT_FIRST_NAME></ALT_FIRST_NAME><ALT_MIDDLE_NAME></ALT_MIDDLE_NAME><ALT_NAME_SUFFIX></ALT_NAME_SUFFIX></ALTERNATE_NAME><BIRTH_MONTH>09</BIRTH_MONTH><BIRTH_DAY>08</BIRTH_DAY><BIRTH_CENTURY>19</BIRTH_CENTURY><BIRTH_YEAR>54</BIRTH_YEAR><DATE_OF_BIRTH>09/08/1954</DATE_OF_BIRTH><DEATH_MONTH>03</DEATH_MONTH><DEATH_DAY>28</DEATH_DAY><DEATH_CENTURY>20</DEATH_CENTURY><DEATH_YEAR>21</DEATH_YEAR><DATE_OF_DEATH>03/28/2021</DATE_OF_DEATH><POW_NUMBER_OF_DAYS>0</POW_NUMBER_OF_DAYS><TOTAL_ACTIVE_SERVICE_YEARS></TOTAL_ACTIVE_SERVICE_YEARS><TOTAL_ACTIVE_SERVICE_MONTHS></TOTAL_ACTIVE_SERVICE_MONTHS><TOTAL_ACTIVE_SERVICE_DAYS></TOTAL_ACTIVE_SERVICE_DAYS><DISABILITY_SEVERANCE_PAY></DISABILITY_SEVERANCE_PAY><LUMP_SUM_READJUSTMENT_PAY></LUMP_SUM_READJUSTMENT_PAY><SEPARATION_PAY></SEPARATION_PAY><FOLDER><FOLDER_TYPE>CLAIM</FOLDER_TYPE><FOLDER_CURRENT_LOCATION>452</FOLDER_CURRENT_LOCATION><TRANSFER_MONTH>11</TRANSFER_MONTH><TRANSFER_DAY>20</TRANSFER_DAY><TRANSFER_YEAR>2012</TRANSFER_YEAR><DATE_OF_TRANSFER>11/20/2012</DATE_OF_TRANSFER><FOLDER_PRIOR_LOCATION>317</FOLDER_PRIOR_LOCATION><IN_TRANSIT_TO_STATION>   </IN_TRANSIT_TO_STATION><IN_TRANSIT_MONTH>  </IN_TRANSIT_MONTH><IN_TRANSIT_DAY>  </IN_TRANSIT_DAY><IN_TRANSIT_YEAR>    </IN_TRANSIT_YEAR><DATE_OF_TRANSIT
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/><RELOCATION_INDICATOR>
         </RELOCATION_INDICATOR><FARC_ACCESSION_NUM>          </FARC_ACCESSION_NUM><NO_FOLDER_EST_REASON>   </NO_FOLDER_EST_REASON><FOLDER_DESTROYED_IND>
         </FOLDER_DESTROYED_IND><FOLDER_REBUILT_IND> </FOLDER_REBUILT_IND><NO_RECORD_IND>
@@ -564,7 +567,7 @@ http_interactions:
         </RELOCATION_INDICATOR><FARC_ACCESSION_NUM>          </FARC_ACCESSION_NUM><NO_FOLDER_EST_REASON>   </NO_FOLDER_EST_REASON><FOLDER_DESTROYED_IND>
         </FOLDER_DESTROYED_IND><FOLDER_REBUILT_IND> </FOLDER_REBUILT_IND><NO_RECORD_IND>
         </NO_RECORD_IND><FLDR_RETIRE_MONTH>  </FLDR_RETIRE_MONTH><FLDR_RETIRE_DAY>  </FLDR_RETIRE_DAY><FLDR_RETIRE_YEAR>    </FLDR_RETIRE_YEAR><DATE_OF_FLDR_RETIRE
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/><BOX_SEQUENCE_NUMBER>    </BOX_SEQUENCE_NUMBER><LOCATION_NUMBER>        </LOCATION_NUMBER><INSURANCE_FOLDER_TYPE>  </INSURANCE_FOLDER_TYPE></FOLDER><CLAIM_FOLDER_LOCATION>452</CLAIM_FOLDER_LOCATION><VET_HAS_BENE_IND></VET_HAS_BENE_IND><VET_IS_BENE_IND></VET_IS_BENE_IND><PURPLE_HEART_IND></PURPLE_HEART_IND><VERIFIED_SOC_SEC_IND></VERIFIED_SOC_SEC_IND><VA_EMPLOYEE_IND></VA_EMPLOYEE_IND><VIETNAM_SERVICE_IND></VIETNAM_SERVICE_IND><DISABILITY_IND></DISABILITY_IND><MEDAL_OF_HONOR_IND></MEDAL_OF_HONOR_IND><TRANSFER_TO_RESERVES_IND></TRANSFER_TO_RESERVES_IND><ACTIVE_DUTY_TRAINING_IND></ACTIVE_DUTY_TRAINING_IND><REENLISTED_IND></REENLISTED_IND><BURIAL_FLAG_ISSUE_IND></BURIAL_FLAG_ISSUE_IND><SEX_CODE>M</SEX_CODE><CONTESTED_DATA_IND></CONTESTED_DATA_IND><GUARDIANSHIP_CASE_IND></GUARDIANSHIP_CASE_IND><INCOMPETENT_IND></INCOMPETENT_IND><CP_VET_CP_BENE_IND></CP_VET_CP_BENE_IND><VADS_IND></VADS_IND><VERIFIED_SVC_DATA_IND>Y</VERIFIED_SVC_DATA_IND><CH30_IND></CH30_IND><CH32_BANK_IND></CH32_BANK_IND><CH32_BEN_IND></CH32_BEN_IND><CH34_IND></CH34_IND><CH106_IND></CH106_IND><CH31_IND></CH31_IND><CH32_903_IND></CH32_903_IND><IND_901></IND_901><JOBS_IND></JOBS_IND><VARMS_IND></VARMS_IND><DIAGS_VERIFIED_IND></DIAGS_VERIFIED_IND><HOMELESS_VET_IND></HOMELESS_VET_IND><RET_SVR_IND></RET_SVR_IND><PERSIAN_GULF_SVC_IND>N</PERSIAN_GULF_SVC_IND><SVC_MED_RECORD_IND></SVC_MED_RECORD_IND><BANKRUPTCY_IND></BANKRUPTCY_IND><CAUSE_OF_DEATH></CAUSE_OF_DEATH><DEATH_IN_SVC></DEATH_IN_SVC><POWER_OF_ATTY_CODE1>A</POWER_OF_ATTY_CODE1><POWER_OF_ATTY_CODE2>1Q</POWER_OF_ATTY_CODE2><FLASH><FLASH_CODE>  </FLASH_CODE><FLASH_STATION>   </FLASH_STATION><FLASH_ROUTING_SYMBOL>     </FLASH_ROUTING_SYMBOL></FLASH><FLASH><FLASH_CODE>  </FLASH_CODE><FLASH_STATION>   </FLASH_STATION><FLASH_ROUTING_SYMBOL>     </FLASH_ROUTING_SYMBOL></FLASH><FLASH><FLASH_CODE>  </FLASH_CODE><FLASH_STATION>   </FLASH_STATION><FLASH_ROUTING_SYMBOL>     </FLASH_ROUTING_SYMBOL></FLASH><FLASH><FLASH_CODE>  </FLASH_CODE><FLASH_STATION>   </FLASH_STATION><FLASH_ROUTING_SYMBOL>     </FLASH_ROUTING_SYMBOL></FLASH><CLOTHING_ALLOWANCE></CLOTHING_ALLOWANCE><SERVICEDIAGNOSTICS><SERVICE_DIAGNOSTICS>    </SERVICE_DIAGNOSTICS><SERVICE_PERCENT1>
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/><BOX_SEQUENCE_NUMBER>    </BOX_SEQUENCE_NUMBER><LOCATION_NUMBER>        </LOCATION_NUMBER><INSURANCE_FOLDER_TYPE>  </INSURANCE_FOLDER_TYPE></FOLDER><CLAIM_FOLDER_LOCATION>452</CLAIM_FOLDER_LOCATION><VET_HAS_BENE_IND></VET_HAS_BENE_IND><VET_IS_BENE_IND></VET_IS_BENE_IND><PURPLE_HEART_IND></PURPLE_HEART_IND><VERIFIED_SOC_SEC_IND></VERIFIED_SOC_SEC_IND><VA_EMPLOYEE_IND></VA_EMPLOYEE_IND><VIETNAM_SERVICE_IND></VIETNAM_SERVICE_IND><DISABILITY_IND></DISABILITY_IND><MEDAL_OF_HONOR_IND></MEDAL_OF_HONOR_IND><TRANSFER_TO_RESERVES_IND></TRANSFER_TO_RESERVES_IND><ACTIVE_DUTY_TRAINING_IND></ACTIVE_DUTY_TRAINING_IND><REENLISTED_IND></REENLISTED_IND><BURIAL_FLAG_ISSUE_IND></BURIAL_FLAG_ISSUE_IND><SEX_CODE>M</SEX_CODE><CONTESTED_DATA_IND></CONTESTED_DATA_IND><GUARDIANSHIP_CASE_IND></GUARDIANSHIP_CASE_IND><INCOMPETENT_IND></INCOMPETENT_IND><CP_VET_CP_BENE_IND></CP_VET_CP_BENE_IND><VADS_IND></VADS_IND><VERIFIED_SVC_DATA_IND>Y</VERIFIED_SVC_DATA_IND><CH30_IND></CH30_IND><CH32_BANK_IND></CH32_BANK_IND><CH32_BEN_IND></CH32_BEN_IND><CH34_IND></CH34_IND><CH106_IND></CH106_IND><CH31_IND></CH31_IND><CH32_903_IND></CH32_903_IND><IND_901></IND_901><JOBS_IND></JOBS_IND><VARMS_IND></VARMS_IND><DIAGS_VERIFIED_IND></DIAGS_VERIFIED_IND><HOMELESS_VET_IND>Y</HOMELESS_VET_IND><RET_SVR_IND></RET_SVR_IND><PERSIAN_GULF_SVC_IND>N</PERSIAN_GULF_SVC_IND><SVC_MED_RECORD_IND></SVC_MED_RECORD_IND><BANKRUPTCY_IND></BANKRUPTCY_IND><CAUSE_OF_DEATH>UNKNOWN</CAUSE_OF_DEATH><DEATH_IN_SVC></DEATH_IN_SVC><POWER_OF_ATTY_CODE1>A</POWER_OF_ATTY_CODE1><POWER_OF_ATTY_CODE2>1Q</POWER_OF_ATTY_CODE2><FLASH><FLASH_CODE>  </FLASH_CODE><FLASH_STATION>   </FLASH_STATION><FLASH_ROUTING_SYMBOL>     </FLASH_ROUTING_SYMBOL></FLASH><FLASH><FLASH_CODE>  </FLASH_CODE><FLASH_STATION>   </FLASH_STATION><FLASH_ROUTING_SYMBOL>     </FLASH_ROUTING_SYMBOL></FLASH><FLASH><FLASH_CODE>  </FLASH_CODE><FLASH_STATION>   </FLASH_STATION><FLASH_ROUTING_SYMBOL>     </FLASH_ROUTING_SYMBOL></FLASH><FLASH><FLASH_CODE>  </FLASH_CODE><FLASH_STATION>   </FLASH_STATION><FLASH_ROUTING_SYMBOL>     </FLASH_ROUTING_SYMBOL></FLASH><CLOTHING_ALLOWANCE></CLOTHING_ALLOWANCE><SERVICEDIAGNOSTICS><SERVICE_DIAGNOSTICS>    </SERVICE_DIAGNOSTICS><SERVICE_PERCENT1>
         </SERVICE_PERCENT1><SERVICE_PERCENT2>  </SERVICE_PERCENT2><RECUR_ANALOGUS_CODE>
         </RECUR_ANALOGUS_CODE><RECUR_SVC_CON_DISABILITY> </RECUR_SVC_CON_DISABILITY></SERVICEDIAGNOSTICS><SERVICEDIAGNOSTICS><SERVICE_DIAGNOSTICS>    </SERVICE_DIAGNOSTICS><SERVICE_PERCENT1>
         </SERVICE_PERCENT1><SERVICE_PERCENT2>  </SERVICE_PERCENT2><RECUR_ANALOGUS_CODE>
@@ -582,7 +585,7 @@ http_interactions:
         </SERVICE_PERCENT1><SERVICE_PERCENT2>  </SERVICE_PERCENT2><RECUR_ANALOGUS_CODE>
         </RECUR_ANALOGUS_CODE><RECUR_SVC_CON_DISABILITY> </RECUR_SVC_CON_DISABILITY></SERVICEDIAGNOSTICS><SERVICEDIAGNOSTICS><SERVICE_DIAGNOSTICS>    </SERVICE_DIAGNOSTICS><SERVICE_PERCENT1>
         </SERVICE_PERCENT1><SERVICE_PERCENT2>  </SERVICE_PERCENT2><RECUR_ANALOGUS_CODE>
-        </RECUR_ANALOGUS_CODE><RECUR_SVC_CON_DISABILITY> </RECUR_SVC_CON_DISABILITY></SERVICEDIAGNOSTICS><NUM_OF_SVC_CON_DIS></NUM_OF_SVC_CON_DIS><BURIAL_AWARD_PLOT></BURIAL_AWARD_PLOT><BURIAL_AWARD_TRANSPORT></BURIAL_AWARD_TRANSPORT><HEADSTONE></HEADSTONE><PAYMENT></PAYMENT><APPLICATION_FOR_PLOT></APPLICATION_FOR_PLOT><ADAPTIVE_EQUIPMENT></ADAPTIVE_EQUIPMENT><SPECIAL_ADAPTIVE_HOUSING></SPECIAL_ADAPTIVE_HOUSING><REASON_FOR_TERM_DISALLOW></REASON_FOR_TERM_DISALLOW><ENTITLEMENT_CODE></ENTITLEMENT_CODE><SPECIAL_LAW_CODE></SPECIAL_LAW_CODE><CP_EFFCTVE_DATE_OF_TERM></CP_EFFCTVE_DATE_OF_TERM><BURIAL_AWD_SVC_CONNECT></BURIAL_AWD_SVC_CONNECT><BURIAL_AWD_NONSVC_CON></BURIAL_AWD_NONSVC_CON><AUTOMOBILE_ALLOWANCE></AUTOMOBILE_ALLOWANCE><COMBINED_DEGREE></COMBINED_DEGREE><ADD_DIA_IND></ADD_DIA_IND><EMPLOYEE_NUMBER>VAGOVAPI</EMPLOYEE_NUMBER><EMPLOYEE_STATION_NUMBER>281</EMPLOYEE_STATION_NUMBER><UPDATE_MONTH>09</UPDATE_MONTH><UPDATE_DAY>16</UPDATE_DAY><UPDATE_CENTURY>20</UPDATE_CENTURY><UPDATE_YEAR>20</UPDATE_YEAR><DATE_OF_UPDATE>09/16/2020</DATE_OF_UPDATE><NUMBER_OF_DISCLOSURES></NUMBER_OF_DISCLOSURES><RECURING_DISCLOSURE><RECUR_DISCLOSURE_NUM>    </RECUR_DISCLOSURE_NUM><RECUR_DISCLOSURE_MONTH>  </RECUR_DISCLOSURE_MONTH><RECUR_DISCLOSURE_YEAR>    </RECUR_DISCLOSURE_YEAR><DATE_OF_DISCLOSURE
+        </RECUR_ANALOGUS_CODE><RECUR_SVC_CON_DISABILITY> </RECUR_SVC_CON_DISABILITY></SERVICEDIAGNOSTICS><NUM_OF_SVC_CON_DIS></NUM_OF_SVC_CON_DIS><BURIAL_AWARD_PLOT></BURIAL_AWARD_PLOT><BURIAL_AWARD_TRANSPORT></BURIAL_AWARD_TRANSPORT><HEADSTONE></HEADSTONE><PAYMENT></PAYMENT><APPLICATION_FOR_PLOT></APPLICATION_FOR_PLOT><ADAPTIVE_EQUIPMENT></ADAPTIVE_EQUIPMENT><SPECIAL_ADAPTIVE_HOUSING></SPECIAL_ADAPTIVE_HOUSING><REASON_FOR_TERM_DISALLOW></REASON_FOR_TERM_DISALLOW><ENTITLEMENT_CODE></ENTITLEMENT_CODE><SPECIAL_LAW_CODE></SPECIAL_LAW_CODE><CP_EFFCTVE_DATE_OF_TERM></CP_EFFCTVE_DATE_OF_TERM><BURIAL_AWD_SVC_CONNECT></BURIAL_AWD_SVC_CONNECT><BURIAL_AWD_NONSVC_CON></BURIAL_AWD_NONSVC_CON><AUTOMOBILE_ALLOWANCE></AUTOMOBILE_ALLOWANCE><COMBINED_DEGREE></COMBINED_DEGREE><ADD_DIA_IND></ADD_DIA_IND><EMPLOYEE_NUMBER>VAGOVAPI</EMPLOYEE_NUMBER><EMPLOYEE_STATION_NUMBER>281</EMPLOYEE_STATION_NUMBER><UPDATE_MONTH>03</UPDATE_MONTH><UPDATE_DAY>10</UPDATE_DAY><UPDATE_CENTURY>20</UPDATE_CENTURY><UPDATE_YEAR>22</UPDATE_YEAR><DATE_OF_UPDATE>03/10/2022</DATE_OF_UPDATE><NUMBER_OF_DISCLOSURES></NUMBER_OF_DISCLOSURES><RECURING_DISCLOSURE><RECUR_DISCLOSURE_NUM>    </RECUR_DISCLOSURE_NUM><RECUR_DISCLOSURE_MONTH>  </RECUR_DISCLOSURE_MONTH><RECUR_DISCLOSURE_YEAR>    </RECUR_DISCLOSURE_YEAR><DATE_OF_DISCLOSURE
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/></RECURING_DISCLOSURE><RECURING_DISCLOSURE><RECUR_DISCLOSURE_NUM>    </RECUR_DISCLOSURE_NUM><RECUR_DISCLOSURE_MONTH>  </RECUR_DISCLOSURE_MONTH><RECUR_DISCLOSURE_YEAR>    </RECUR_DISCLOSURE_YEAR><DATE_OF_DISCLOSURE
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/></RECURING_DISCLOSURE><RECURING_DISCLOSURE><RECUR_DISCLOSURE_NUM>    </RECUR_DISCLOSURE_NUM><RECUR_DISCLOSURE_MONTH>  </RECUR_DISCLOSURE_MONTH><RECUR_DISCLOSURE_YEAR>    </RECUR_DISCLOSURE_YEAR><DATE_OF_DISCLOSURE
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/></RECURING_DISCLOSURE><RECURING_DISCLOSURE><RECUR_DISCLOSURE_NUM>    </RECUR_DISCLOSURE_NUM><RECUR_DISCLOSURE_MONTH>  </RECUR_DISCLOSURE_MONTH><RECUR_DISCLOSURE_YEAR>    </RECUR_DISCLOSURE_YEAR><DATE_OF_DISCLOSURE
@@ -599,5 +602,5 @@ http_interactions:
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/><DMDC_RETIRE_PAY_SBP_AMT_P></DMDC_RETIRE_PAY_SBP_AMT_P><DMDC_RETIRE_PAY_SBP_MM_P></DMDC_RETIRE_PAY_SBP_MM_P><DMDC_RETIRE_PAY_SBP_YEAR_P></DMDC_RETIRE_PAY_SBP_YEAR_P><DATE_OF_DMDC_RETIRE_PAY_P
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/><VADS_IND2></VADS_IND2><VADS_IND3></VADS_IND3><VERIFIED_SVC_DATA_IND2></VERIFIED_SVC_DATA_IND2><VERIFIED_SVC_DATA_IND3></VERIFIED_SVC_DATA_IND3><SVC_NUM_EDIT_FILLER></SVC_NUM_EDIT_FILLER><PVR_MONTH></PVR_MONTH><PVR_DAY></PVR_DAY><PVR_CENTURY></PVR_CENTURY><PVR_YEAR></PVR_YEAR><PVR_FILLER1></PVR_FILLER1><APPEALS_IND></APPEALS_IND><IN_THEATER_START_DATE></IN_THEATER_START_DATE><IN_THEATER_END_DATE></IN_THEATER_END_DATE><IN_THEATER_DAYS></IN_THEATER_DAYS><NUMBER_OF_RECORDS>1</NUMBER_OF_RECORDS><BENE_RECORD
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/></return></ns0:updateBirlsRecordResponse></S:Body></S:Envelope>
-  recorded_at: Wed, 16 Sep 2020 21:03:09 GMT
+  recorded_at: Fri, 11 Mar 2022 02:37:02 GMT
 recorded_with: VCR 6.0.0

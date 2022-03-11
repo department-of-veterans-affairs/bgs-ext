@@ -21,12 +21,13 @@ module BGS
     # with the first being the first character of the poa code
     # and the second field the remaining 2 characters
     # As per BGS, CLAIM NUMBER and ssn are synonymous
-    def update_birls_record(ssn:, poa_code:)
+    def update_birls_record(file_number:, ssn:, poa_code:)
       response = request(
         :update_birls_record,
         {
           birlsUpdateInput: {
-            CLAIM_NUMBER: ssn,
+            CLAIM_NUMBER: file_number,
+            SOC_SEC_NUM: ssn,
             PAYEE_NUMBER: '00',
             POWER_OF_ATTY_CODE1: poa_code[0],
             POWER_OF_ATTY_CODE2: "#{poa_code[1]}#{poa_code[2]}"

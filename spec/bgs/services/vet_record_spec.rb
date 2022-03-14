@@ -12,7 +12,7 @@ describe BGS::VetRecordWebService do
 
   it 'put update_birls_record' do
     VCR.use_cassette('vet_record/update_birls_record') do
-      response = service.vet_record.update_birls_record(ssn: '796123232', poa_code: 'A1Q')
+      response = service.vet_record.update_birls_record(file_number: '796123232', ssn: '796123232', poa_code: 'A1Q')
 
       expect(response[:return_code]).to eq('BMOD0001')
       expect(response[:return_message]).to eq('BIRLS Update successful')
@@ -31,12 +31,12 @@ describe BGS::VetRecordWebService do
       expect(response[:birth_year]).to eq('54')
       expect(response[:date_of_birth]).to eq('09/08/1954')
       expect(response[:date_of_birth]).to eq('09/08/1954')
-      expect(response[:death_month]).to be_nil
-      expect(response[:death_day]).to be_nil
-      expect(response[:death_century]).to be_nil
-      expect(response[:death_year]).to be_nil
-      expect(response[:date_of_death]).to be_nil
-      expect(response[:pow_number_of_days]).to be_nil
+      expect(response[:death_month]).to eq('03')
+      expect(response[:death_day]).to eq('28')
+      expect(response[:death_century]).to eq('20')
+      expect(response[:death_year]).to eq('21')
+      expect(response[:date_of_death]).to eq('03/28/2021')
+      expect(response[:pow_number_of_days]).to eq('0')
       expect(response[:total_active_service_years]).to be_nil
       expect(response[:total_active_service_months]).to be_nil
       expect(response[:total_active_service_days]).to be_nil

@@ -16,17 +16,20 @@ module BGS
       'VetRecordServiceBean'
     end
 
-    # updates the birls record with a new POA code
-    # As per BGS the POA code is split into 2 fields
-    # with the first being the first character of the poa code
-    # and the second field the remaining 2 characters
-    # As per BGS, CLAIM NUMBER and ssn are synonymous
-    def update_birls_record(ssn:, poa_code:)
+    # Updates the birls record with a new POA code.
+    # BGS requires the POA code be split into 2 fields:
+    # - The first being the first character of the poa code
+    # - The second being the remaining 2 characters
+    # As per BGS, CLAIM_NUMBER and a veteran's file number are synonymous
+    # (this value might be the ssn for older veterans, but this is not
+    # guaranteed to be true).
+    def update_birls_record(file_number:, ssn:, poa_code:)
       response = request(
         :update_birls_record,
         {
           birlsUpdateInput: {
-            CLAIM_NUMBER: ssn,
+            CLAIM_NUMBER: file_number,
+            SOC_SEC_NUM: ssn,
             PAYEE_NUMBER: '00',
             POWER_OF_ATTY_CODE1: poa_code[0],
             POWER_OF_ATTY_CODE2: "#{poa_code[1]}#{poa_code[2]}"

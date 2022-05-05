@@ -28,7 +28,5 @@ module BGS
                   :log, :logger, :mock_responses, :forward_proxy_url,
                   :mock_response_location, :external_uid, :external_key,
                   :ssl_verify_mode
-
-    def initialize; end
   end
 end

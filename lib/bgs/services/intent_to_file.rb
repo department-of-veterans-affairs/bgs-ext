@@ -25,19 +25,22 @@ module BGS
 
     def insert_intent_to_file(options)
       validate_required_keys(required_insert_intent_to_file_fields, options, __method__.to_s)
+      missing_claimant_attributes!(options: options)
+
+      request_body = {
+        itfTypeCd: options[:intent_to_file_type_code],
+        ptcpntVetId: options[:participant_vet_id],
+        rcvdDt: options[:received_date],
+        signtrInd: options[:signature_indicated],
+        submtrApplcnTypeCd: options[:submitter_application_icn_type_code]
+      }
+      request_body[:ptcpntClmantId] = options[:participant_claimant_id] if options.key?(:participant_claimant_id)
+      request_body[:clmantSsn] = options[:claimant_ssn] if options.key?(:claimant_ssn)
 
       response = request(
         :insert_intent_to_file,
         {
-          intentToFileDTO: {
-            itfTypeCd: options[:intent_to_file_type_code],
-            ptcpntClmantId: options[:participant_claimant_id],
-            ptcpntVetId: options[:participant_vet_id],
-            rcvdDt: options[:received_date],
-            signtrInd: options[:signature_indicated],
-            submtrApplcnTypeCd: options[:submitter_application_icn_type_code]
-
-          }
+          intentToFileDTO: request_body
         },
         options[:ssn]
       )
@@ -80,7 +83,6 @@ module BGS
     def required_insert_intent_to_file_fields
       %i[
         intent_to_file_type_code
-        participant_claimant_id
         participant_vet_id
         received_date
         submitter_application_icn_type_code
@@ -94,6 +96,13 @@ module BGS
         received_date
         submitter_application_icn_type_code
       ]
+    end
+
+    def missing_claimant_attributes!(options:)
+      return if options.key?(:participant_claimant_id)
+      return if options.key?(:claimant_ssn)
+
+      raise(ArgumentError, "Must include either 'participant_claimant_id' or 'claimant_ssn'")
     end
   end
 end

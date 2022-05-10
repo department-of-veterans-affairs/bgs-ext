@@ -148,4 +148,92 @@ describe BGS::IntentToFileWebService do
       end
     end
   end
+
+  context 'validating required fields' do
+    context "for 'insert_intent_to_file'" do
+      required_fields = %i[
+        intent_to_file_type_code
+        participant_vet_id
+        received_date
+        submitter_application_icn_type_code
+      ]
+
+      hash = {
+        intent_to_file_type_code: 'hello_world',
+        participant_vet_id: 'hello_world',
+        received_date: 'hello_world',
+        submitter_application_icn_type_code: 'hello_world'
+      }
+
+      context 'when a required field is missing' do
+        required_fields.each do |required_field|
+          it "raises an 'ArgumentError' for missing required field" do
+            options = hash.clone
+            options.delete(required_field)
+
+            expect { service.intent_to_file.insert_intent_to_file(options) }
+              .to raise_error(
+                ArgumentError,
+                "#{required_field} is a required key in insert_intent_to_file"
+              )
+          end
+        end
+      end
+
+      context 'when a required field is blank' do
+        required_fields.each do |required_field|
+          it "raises an 'ArgumentError' for missing required field" do
+            options = hash.clone
+            options[required_field] = ''
+
+            expect { service.intent_to_file.insert_intent_to_file(options) }
+              .to raise_error(
+                ArgumentError,
+                "#{required_field} cannot be empty or nil"
+              )
+          end
+        end
+      end
+
+      context 'when a required field is nil' do
+        required_fields.each do |required_field|
+          it "raises an 'ArgumentError' for missing required field" do
+            options = hash.clone
+            options[required_field] = nil
+
+            expect { service.intent_to_file.insert_intent_to_file(options) }
+              .to raise_error(
+                ArgumentError,
+                "#{required_field} cannot be empty or nil"
+              )
+          end
+        end
+      end
+    end
+  end
+
+  context 'validating condtionally required fields' do
+    context "for 'insert_intent_to_file'" do
+      hash = {
+        intent_to_file_type_code: 'hello_world',
+        participant_vet_id: 'hello_world',
+        received_date: 'hello_world',
+        submitter_application_icn_type_code: 'hello_world'
+      }
+
+      context "when a 'participant_claimant_id' is not provided" do
+        context "and the 'claimant_ssn' is not provided" do
+          it "raises an 'ArgumentError' for missing required field" do
+            options = hash.clone
+
+            expect { service.intent_to_file.insert_intent_to_file(options) }
+              .to raise_error(
+                ArgumentError,
+                "Must include either 'participant_claimant_id' or 'claimant_ssn'"
+              )
+          end
+        end
+      end
+    end
+  end
 end

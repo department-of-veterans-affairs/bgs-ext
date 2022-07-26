@@ -151,7 +151,7 @@ module BGS
         ssl_cert_file: @ssl_cert_file,
         ssl_ca_cert_file: @ssl_ca_cert,
         open_timeout: 10, # in seconds
-        read_timeout: 600, # in seconds
+        read_timeout: 120, # in seconds
         convert_request_keys_to: :none,
         ssl_verify_mode: @ssl_verify_mode.to_sym
       }

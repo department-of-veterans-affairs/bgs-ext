@@ -2,9 +2,7 @@
 
 require 'bgs'
 
-# rubocop:disable Metrics/BlockLength
 describe BGS::TrackedItemsService do
-
   let(:test_claim_id) { '600118544' }
   let(:service) do
     BGS::Services.new(
@@ -12,7 +10,6 @@ describe BGS::TrackedItemsService do
       external_key: 'something'
     )
   end
-
 
   it 'get tracked_items' do
     VCR.use_cassette('tracked_items/find_tracked_items') do
@@ -36,4 +33,3 @@ describe BGS::TrackedItemsService do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

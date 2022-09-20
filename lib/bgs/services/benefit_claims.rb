@@ -25,5 +25,10 @@ module BGS
       response = request(:find_bnft_claim_detail_by_bnft_claim_id, bnftClaimId: claim_id)
       response.body[:find_bnft_claim_detail_by_bnft_claim_id_response]
     end
+
+    def find_bnft_claim(claim_id:)
+      response = request(:find_bnft_claim, bnftClaimId: claim_id)
+      response.body[:find_bnft_claim_response]
+    end
   end
 end

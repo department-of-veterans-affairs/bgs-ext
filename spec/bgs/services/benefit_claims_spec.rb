@@ -38,4 +38,14 @@ describe BGS::BenefitClaimWebServiceV1 do
       expect(response[:bnft_claim_detail][:bnft_claim_lc_status].first).to have_key(:bnft_claim_lc_status_type_nm)
     end
   end
+
+  it 'finds benefit claim by claim id' do
+    VCR.use_cassette('benefit_claims/find_bnft_claim') do
+      response = service.benefit_claims.find_bnft_claim(claim_id: test_claim_id)
+
+      expect(response).to have_key(:bnft_claim_dto)
+      expect(response[:bnft_claim_dto]).to be_an_instance_of(Hash)
+      expect(response[:bnft_claim_dto][:bnft_claim_id]).to eq(test_claim_id)
+    end
+  end
 end

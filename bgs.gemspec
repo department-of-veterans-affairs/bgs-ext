@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'httpclient'
   # Note, nokogiri updated to 1.13.8 which requires ruby >= 2.6.0
-  gem.add_runtime_dependency 'nokogiri', '= 1.8.5'
+  gem.add_runtime_dependency 'nokogiri', '= 1.12'
   # Note, savon updated to 2.13 and it adds these to the request envelope:
   # xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
   # xmlns:wsp="http://www.w3.org/ns/ws-policy"

@@ -11,7 +11,6 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/department-of-veterans-affairs/lighthouse-bgs'
 
   gem.add_runtime_dependency 'httpclient'
-  # Note, nokogiri updated to 1.13 which requires ruby >= 2.6.0
   gem.add_runtime_dependency 'nokogiri', '>= 1.13.6'
   # Note, savon updated to 2.13 and it adds these to the request envelope:
   # xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"

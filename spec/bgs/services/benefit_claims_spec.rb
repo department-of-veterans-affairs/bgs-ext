@@ -51,9 +51,9 @@ describe BGS::BenefitClaimWebServiceV1 do
 
   it 'updates benefit claim' do
     VCR.use_cassette('benefit_claims/update_bnft_claim') do
-      claim = service.benefit_claims.find_bnft_claim(claim_id: test_claim_id)[:bnft_claim_dto]
-      ind = claim[:filed5103WaiverInd] == 'Y' ? 'N' : 'Y'
-      claim[:filed_5103_waiver_ind] = ind
+      claim = service.benefit_claims.find_bnft_claim(claim_id: test_claim_id)
+      ind = claim[:bnft_claim_dto][:filed5103WaiverInd] == 'Y' ? 'N' : 'Y'
+      claim[:bnft_claim_dto][:filed_5103_waiver_ind] = ind
       response = service.benefit_claims.update_bnft_claim(claim: claim)
 
       expect(response).to have_key(:bnft_claim_dto)

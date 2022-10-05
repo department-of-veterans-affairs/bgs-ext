@@ -44,7 +44,7 @@ module BGS
         str.to_sym
       end
 
-      response = request(:update_bnft_claim, { bnftClaimDTO: claim }, claim[:bnftClaimId])
+      response = request(:update_bnft_claim, claim, claim[:bnftClaimId])
       response.body[:update_bnft_claim_response]
     end
   end

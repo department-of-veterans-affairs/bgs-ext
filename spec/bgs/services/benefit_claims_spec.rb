@@ -48,4 +48,18 @@ describe BGS::BenefitClaimWebServiceV1 do
       expect(response[:bnft_claim_dto][:bnft_claim_id]).to eq(test_claim_id)
     end
   end
+
+  it 'updates benefit claim' do
+    VCR.use_cassette('benefit_claims/update_bnft_claim') do
+      claim = service.benefit_claims.find_bnft_claim(claim_id: test_claim_id)[:bnft_claim_dto]
+      ind = claim[:filed5103WaiverInd] == 'Y' ? 'N' : 'Y'
+      claim[:filed_5103_waiver_ind] = ind
+      response = service.benefit_claims.update_bnft_claim(claim: claim)
+
+      expect(response).to have_key(:bnft_claim_dto)
+      expect(response[:bnft_claim_dto]).to be_an_instance_of(Hash)
+      expect(response[:bnft_claim_dto][:bnft_claim_id]).to eq(test_claim_id)
+      expect(response[:bnft_claim_dto][:filed5103_waiver_ind]).to eq(ind)
+    end
+  end
 end

@@ -35,16 +35,13 @@ module BGS
     # as each value returned in findBnftClaim should be passed as input to updateBnftClaim, along with any updates.
     # Failure to call findBnftClaim and provide all the date runs a risk of data corruption.
     def update_bnft_claim(claim:)
-      data = find_bnft_claim(claim_id: claim[:bnft_claim_id]).dig(:bnft_claim_dto) || {}
-      data.merge!(claim)
-      data.deep_transform_keys! { |key| key.to_s.camelize(:lower).to_sym }
+      # This works in rails, but not pure ruby
+      # claim.deep_transform_keys! { |key| key.to_s.camelize(:lower).to_sym }
+      # This isn't as pretty, but works in pure ruby
+      claim.transform_keys! { |key| str = key.to_s.downcase.split('_').collect(&:capitalize).join; str[0] = str[0].downcase; str.to_sym }
 
-      # from 0 to unbounded - This element may be left empty if xsi:nil='true' is set.
-      data[:upldedDcmnts] = []
-
-      response = request(:update_bnft_claim, { bnftClaimDTO: data }, claim[:bnft_claim_id])
+      response = request(:update_bnft_claim, { bnftClaimDTO: claim }, claim[:bnftClaimId])
       response.body[:update_bnft_claim_response]
-      # Savon::SOAPFault: (ns0:Server) BenefitClaimWebServiceBean-->updateBnftClaim-->No BNFT_CLAIM row found for null
     end
   end
 end

@@ -39,9 +39,13 @@ module BGS
       # claim.deep_transform_keys! { |key| key.to_s.camelize(:lower).to_sym }
       # This isn't as pretty, but works in pure ruby
       claim.transform_keys! do |key|
-        str = key.to_s.downcase.split('_').collect(&:capitalize).join
-        str[0] = str[0].downcase
-        str.to_sym
+        if key.to_s.include? '_'
+          str = key.to_s.downcase.split('_').collect(&:capitalize).join
+          str[0] = str[0].downcase
+          str.to_sym
+        else
+          key
+        end
       end
 
       response = request(:update_bnft_claim, claim, claim[:bnftClaimId])

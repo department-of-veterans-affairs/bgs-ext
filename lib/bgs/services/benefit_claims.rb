@@ -30,5 +30,15 @@ module BGS
       response = request(:find_bnft_claim, bnftClaimId: claim_id)
       response.body[:find_bnft_claim_response]
     end
+
+    # Note in BGS docs: A call to findBnftClaim should be made prior to calling this method,
+    # as each value returned in findBnftClaim should be passed as input to updateBnftClaim, along with any updates.
+    # Failure to call findBnftClaim and provide all the date runs a risk of data corruption.
+    def update_bnft_claim(claim:)
+      claim = claim[:bnft_claim_dto].transform_keys { |key| StringUtils.camelcase(key.to_s, :lower) }
+
+      response = request(:update_bnft_claim, { bnftClaimDTO: claim }, claim[:bnftClaimId])
+      response.body[:update_bnft_claim_response]
+    end
   end
 end

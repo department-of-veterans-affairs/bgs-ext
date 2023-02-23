@@ -88,7 +88,7 @@ module BGS
 
     BGS::Services.all.each do |service|
       define_method(service.service_name) do
-        service.new @config
+        service.new(**@config)
       end
     end
 

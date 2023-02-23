@@ -44,8 +44,8 @@ module BGS
       validate_required_keys(required_update_flashes_fields, options, __method__.to_s)
 
       flashes = options[:flashes].map do |flash|
-        { assignedIndicator: flash[:assigned_indicator].nil? ? nil : flash[:assigned_indicator].strip,
-          flashName: flash[:flash_name].nil? ? nil : flash[:flash_name].strip }
+        { assignedIndicator: flash[:assigned_indicator]&.strip,
+          flashName: flash[:flash_name]&.strip }
       end
 
       response = request(

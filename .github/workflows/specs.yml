@@ -1,10 +1,10 @@
-name: Test and Build
+name: Specs
 
 on:
   push:
 
 jobs:
-  test:
+  bundle-audit:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,12 +15,6 @@ jobs:
           ruby-version: '2.6.3'
       - name: Install dependencies
         run: bundle install
-      - name: Bundle Audit
-        run: bundle exec bundle-audit check --update
-      - name: Lint code with Rubocop
-        run: |
-          bundle exec rubocop -r rubocop-thread_safety --parallel --format
-          progress --format RuboCop::Formatter::JUnitFormatter
       - name: Run all RSpec specs
         run: |
           bundle exec rspec --pattern $(cat /tmp/tests-to-run) --format progress

@@ -17,5 +17,4 @@ jobs:
         run: bundle install
       - name: Lint code with Rubocop
         run: |
-          bundle exec rubocop -r rubocop-thread_safety --parallel --format
-          progress --format RuboCop::Formatter::JUnitFormatter
+          bundle exec rubocop -r rubocop-thread_safety --parallel --format progress --format RuboCop::Formatter::JUnitFormatter

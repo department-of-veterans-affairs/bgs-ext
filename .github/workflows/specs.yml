@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  bundle-audit:
+  specs:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,5 +17,5 @@ jobs:
         run: bundle install
       - name: Run all RSpec specs
         run: |
-          bundle exec rspec --pattern $(cat /tmp/tests-to-run) --format progress
+          bundle exec rspec --format progress
           --format RspecJunitFormatter -o /tmp/rspec/rspec.xml

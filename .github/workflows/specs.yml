@@ -17,5 +17,4 @@ jobs:
         run: bundle install
       - name: Run all RSpec specs
         run: |
-          bundle exec rspec --format progress
-          --format RspecJunitFormatter -o /tmp/rspec/rspec.xml
+          bundle exec rspec --format progress --format RspecJunitFormatter -o /tmp/rspec/rspec.xml

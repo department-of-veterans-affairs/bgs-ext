@@ -1,0 +1,19 @@
+name: Linting
+
+on:
+  push:
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.6.3'
+      - name: Install dependencies
+        run: bundle install
+      - name: Lint code with Rubocop
+        run: bundle exec rubocop -r rubocop-thread_safety --parallel --format progress --format RuboCop::Formatter::JUnitFormatter

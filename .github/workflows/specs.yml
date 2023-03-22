@@ -1,0 +1,19 @@
+name: Specs
+
+on:
+  push:
+
+jobs:
+  specs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.6.3'
+      - name: Install dependencies
+        run: bundle install
+      - name: Run all RSpec specs
+        run: bundle exec rspec --format progress --format RspecJunitFormatter -o /tmp/rspec/rspec.xml

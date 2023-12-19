@@ -182,8 +182,8 @@ describe BGS::ClaimantWebService do
       expect(response[:vet_first_name]).to eq('MARK')
       expect(response[:vet_last_name]).to eq('WEBB')
       expect(response[:vet_middle_name]).to be_nil
-      expect(response[:vet_ssn]).to eq(('796104437'))
-      expect(response[:vet_sex]).to eq(('M'))
+      expect(response[:vet_ssn]).to eq('796104437')
+      expect(response[:vet_sex]).to eq('M')
 
       diaries = response[:diaries]
       expect(diaries[:date]).to eq('11012026')

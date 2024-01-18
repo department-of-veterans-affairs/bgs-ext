@@ -25,7 +25,8 @@ module BGS
           poa: poa_code,
           allowPoaAccess: allow_poa_access,
           allowPoaCadd: allow_poa_c_add
-        }
+        },
+        "#{participant_id}-#{poa_code}"
       )
       response.body[:update_poa_access_response][:return]
     end

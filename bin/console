@@ -1,0 +1,76 @@
+#!/usr/bin/env ruby -W0
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'bgs'
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+require 'socket'
+
+BGS.configure do |config|
+  config.client_station_id = '281'
+  config.client_username = 'VAgovAPI'
+  config.client_ip =
+    Socket.ip_address_list
+      .detect(&:ipv4_private?)
+      .ip_address
+
+  config.application = 'VAgovAPI'
+  config.env = 'prepbepbenefits'
+
+  config.external_uid = 'lighthouse-vets-api'
+  config.external_key = 'lighthouse-vets-api'
+
+  config.mock_response_location = '../vets-api-mockdata/bgs'
+  config.mock_responses = false
+
+  config.forward_proxy_url = 'https://localhost:4447'
+  config.ssl_verify_mode = 'none'
+
+  config.log = false
+end
+
+@services =
+  BGS::Services.new(
+    external_uid: '123456',
+    external_key: '123456',
+  )
+
+def introspect_summarily
+  BGS::Services.all.each do |klass|
+    begin
+      service = @services.send(klass.service_name)
+
+      wsdl_path = URI(service.send(:wsdl_url)).path
+      puts "wsdl_path: #{wsdl_path}"
+
+      schemas = service.send(:client).wsdl.parser.schemas
+      schemas.each do |schema|
+        schema.element_children.each do |child|
+          if child.name != 'import'
+            raise "NOT AN IMPORT: #{child.name}"
+          end
+
+          schema_path = URI(child['schemaLocation']).path
+          puts "schema_path: #{schema_path}"
+
+          if schema_path != wsdl_path
+            puts "PATH MISMATCH"
+          end
+        end
+      end
+    rescue Wasabi::Resolver::HTTPError => ex
+      puts ex
+    ensure
+      puts
+    end
+  end
+end
+
+require 'bgs/wsdl'
+
+wsdl = @services.manage_representative.wsdl
+
+require 'pry'
+binding.pry

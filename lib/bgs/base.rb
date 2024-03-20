@@ -75,7 +75,7 @@ module BGS
       @ssl_cert_file && @ssl_cert_key_file
     end
 
-    def wsdl
+    def wsdl_url
       "#{endpoint}?WSDL"
     end
 
@@ -142,7 +142,7 @@ module BGS
       headers['Host'] = domain if @forward_proxy_url
 
       options = {
-        wsdl: wsdl,
+        wsdl: wsdl_url,
         soap_header: header,
         log: @log,
         logger: @logger,

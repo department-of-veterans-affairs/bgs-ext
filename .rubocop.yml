@@ -4,7 +4,7 @@ require:
   - rubocop-thread_safety
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.3.3
   NewCops: enable
   Include:
     - '**/lib/**/*.rb'

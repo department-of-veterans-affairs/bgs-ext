@@ -9,4 +9,7 @@ class String
       .tr('-', '_')
       .downcase
   end
+
+  # add alias #underscore, as that is the proper/new active_support method name
+  alias underscore snakecase
 end

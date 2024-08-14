@@ -10,6 +10,8 @@ require 'bgs/base'
 require 'bgs/errors'
 require 'bgs/services'
 require 'bgs/string_utils'
+require_relative 'bgs/core_ext/blank'
+require_relative 'bgs/core_ext/snakecase'
 
 module BGS
   class << self

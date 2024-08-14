@@ -45,9 +45,9 @@ puts service.people.find_by_ssn "9999999999"
 Testing
 -------
 
-You'll need Ruby 2.7.3 if you don't have it.
+You'll need Ruby 3.3.3 if you don't have it.
 
-> $ rbenv install 2.7.3
+> $ rbenv install 3.3.3
 
 Install dependencies
 

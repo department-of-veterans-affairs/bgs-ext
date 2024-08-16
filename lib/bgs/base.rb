@@ -3,6 +3,7 @@
 require 'savon'
 require 'nokogiri'
 require 'httpclient'
+require 'active_support/core_ext/object/blank'
 
 module BGS
   # This class is a base-class from which most Web Services will inherit.

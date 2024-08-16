@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bgs'
+require 'active_support/core_ext/string/inflections'
 
 # rubocop:disable Metrics/BlockLength
 describe BGS::Base do
@@ -24,7 +25,7 @@ describe BGS::Base do
   # https://github.com/savonrb/savon/blob/e76ecc00b84b998b012ecc33b55ca1edd443ec55/spec/savon/soap_fault_spec.rb
   let(:response_body) { nil }
   let(:http_response) { HTTPI::Response.new(500, {}, response_body) }
-  let(:nori) { Nori.new(strip_namespaces: true, convert_tags_to: ->(tag) { tag.snakecase.to_sym }) }
+  let(:nori) { Nori.new(strip_namespaces: true, convert_tags_to: ->(tag) { tag.underscore.to_sym }) }
   let(:soap_fault) { Savon::SOAPFault.new(http_response, nori) }
   let(:timeout_error) { Errno::ETIMEDOUT.new }
 

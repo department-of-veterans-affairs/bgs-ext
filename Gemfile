@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gemspec
 
+gem 'activesupport', require: 'active_support/all'
 gem 'rake'
 
 group :development, :test do

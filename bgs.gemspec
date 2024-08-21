@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name          = 'bgs_ext'
-  gem.version       = '0.23.1'
+  gem.version       = '0.24.0'
   gem.summary       = 'Thin wrapper on top of savon to talk with BGS'
   gem.description   = 'Thin wrapper on top of savon to talk with BGS for external BGS consumers'
   gem.license       = 'CC0' # This work is a work of the US Federal Government,
@@ -10,13 +10,14 @@ Gem::Specification.new do |gem|
   gem.email         = 'charley.stran@oddball.io'
   gem.homepage      = 'https://github.com/department-of-veterans-affairs/lighthouse-bgs'
 
-  gem.add_runtime_dependency 'httpclient'
-  gem.add_runtime_dependency 'nokogiri', '>= 1.13.6'
-  gem.add_runtime_dependency 'savon', '~> 2.15.1'
+  gem.add_dependency 'httpclient'
+  gem.add_dependency 'nokogiri', '>= 1.13.6'
+  gem.add_dependency 'savon', '~> 2.15.1'
   gem.add_development_dependency 'rspec', '~> 3.9.0'
   gem.add_development_dependency 'vcr', '~> 6.0.0'
   gem.add_development_dependency 'webmock', '~> 3.8.3'
 
   gem.files         = Dir['lib/**/*.rb']
   gem.require_paths = ['lib']
+  gem.metadata['rubygems_mfa_required'] = 'true'
 end

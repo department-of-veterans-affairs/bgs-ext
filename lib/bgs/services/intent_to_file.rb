@@ -16,11 +16,11 @@ module BGS
       'intent_to_file'
     end
 
-    def find_intent_to_file_by_participant_id(participant_id)
+    def find_intent_to_file_by_participant_id(participant_id, raw: false)
       response = request(
         :find_intent_to_file_by_ptcpnt_id, ptcpntId: participant_id
       )
-      response.body[:find_intent_to_file_by_ptcpnt_id_response][:intent_to_file_dto]
+      raw ? response : response.body[:find_intent_to_file_by_ptcpnt_id_response][:intent_to_file_dto]
     end
 
     def insert_intent_to_file(options)

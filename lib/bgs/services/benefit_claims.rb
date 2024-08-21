@@ -16,9 +16,9 @@ module BGS
       'benefit_claims'
     end
 
-    def find_claims_details_by_participant_id(participant_id:)
+    def find_claims_details_by_participant_id(participant_id:, raw: false)
       response = request(:find_bnft_claim_detail_by_ptcpnt_id, ptcpntId: participant_id)
-      response.body[:find_bnft_claim_detail_by_ptcpnt_id_response]
+      raw ? response : response.body[:find_bnft_claim_detail_by_ptcpnt_id_response]
     end
 
     def find_claim_details_by_claim_id(claim_id:)
